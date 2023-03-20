@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeViewController: UITabBarController {
+class HomeViewController: UIViewController {
     
     private lazy var button: InitiationButton = {
         let button = InitiationButton(frame: CGRectMake(0, 0, 150, 150))
