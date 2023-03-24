@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		D20F714F29C36F80006D34CF /* UIColor+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20F714E29C36F80006D34CF /* UIColor+Helpers.swift */; };
 		D25E03AE29C20A3C0029339B /* InitiationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25E03AD29C20A3C0029339B /* InitiationButton.swift */; };
+		D2ABB57029CDF0F60087C6EB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ABB56F29CDF0F60087C6EB /* ContentView.swift */; };
 		D2C06C1E29C0E5A0008853E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C06C1D29C0E5A0008853E2 /* AppDelegate.swift */; };
 		D2C06C2029C0E5A0008853E2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C06C1F29C0E5A0008853E2 /* SceneDelegate.swift */; };
 		D2C06C2229C0E5A0008853E2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C06C2129C0E5A0008853E2 /* HomeViewController.swift */; };
@@ -86,6 +87,7 @@
 /* Begin PBXFileReference section */
 		D20F714E29C36F80006D34CF /* UIColor+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Helpers.swift"; sourceTree = "<group>"; };
 		D25E03AD29C20A3C0029339B /* InitiationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitiationButton.swift; sourceTree = "<group>"; };
+		D2ABB56F29CDF0F60087C6EB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D2C06C1A29C0E5A0008853E2 /* ThriveApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThriveApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2C06C1D29C0E5A0008853E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2C06C1F29C0E5A0008853E2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -192,10 +194,10 @@
 				D2C06C1D29C0E5A0008853E2 /* AppDelegate.swift */,
 				D2C06C1F29C0E5A0008853E2 /* SceneDelegate.swift */,
 				D2C06C2129C0E5A0008853E2 /* HomeViewController.swift */,
-				D2C06C2329C0E5A0008853E2 /* Main.storyboard */,
 				D2C06C2829C0E5A1008853E2 /* LaunchScreen.storyboard */,
 				D2C06C2629C0E5A1008853E2 /* Assets.xcassets */,
 				D2C06C2B29C0E5A1008853E2 /* Info.plist */,
+				D2ABB56F29CDF0F60087C6EB /* ContentView.swift */,
 			);
 			path = ThriveApp;
 			sourceTree = "<group>";
@@ -241,6 +243,7 @@
 			children = (
 				D25E03AF29C20BC00029339B /* Helpers */,
 				D25E03AD29C20A3C0029339B /* InitiationButton.swift */,
+				D2C06C2329C0E5A0008853E2 /* Main.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -473,6 +476,7 @@
 				D2C06C1E29C0E5A0008853E2 /* AppDelegate.swift in Sources */,
 				D25E03AE29C20A3C0029339B /* InitiationButton.swift in Sources */,
 				D2C06C2029C0E5A0008853E2 /* SceneDelegate.swift in Sources */,
+				D2ABB57029CDF0F60087C6EB /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
