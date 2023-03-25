@@ -7,13 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D20F714F29C36F80006D34CF /* UIColor+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20F714E29C36F80006D34CF /* UIColor+Helpers.swift */; };
-		D25E03AE29C20A3C0029339B /* InitiationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25E03AD29C20A3C0029339B /* InitiationButton.swift */; };
 		D2ABB57029CDF0F60087C6EB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ABB56F29CDF0F60087C6EB /* ContentView.swift */; };
 		D2C06C1E29C0E5A0008853E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C06C1D29C0E5A0008853E2 /* AppDelegate.swift */; };
 		D2C06C2029C0E5A0008853E2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C06C1F29C0E5A0008853E2 /* SceneDelegate.swift */; };
-		D2C06C2229C0E5A0008853E2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C06C2129C0E5A0008853E2 /* HomeViewController.swift */; };
-		D2C06C2529C0E5A0008853E2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2C06C2329C0E5A0008853E2 /* Main.storyboard */; };
 		D2C06C2729C0E5A1008853E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2C06C2629C0E5A1008853E2 /* Assets.xcassets */; };
 		D2C06C2A29C0E5A1008853E2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2C06C2829C0E5A1008853E2 /* LaunchScreen.storyboard */; };
 		D2C06C3529C0E5A1008853E2 /* ThriveAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C06C3429C0E5A1008853E2 /* ThriveAppTests.swift */; };
@@ -85,14 +81,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		D20F714E29C36F80006D34CF /* UIColor+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Helpers.swift"; sourceTree = "<group>"; };
-		D25E03AD29C20A3C0029339B /* InitiationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitiationButton.swift; sourceTree = "<group>"; };
 		D2ABB56F29CDF0F60087C6EB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D2C06C1A29C0E5A0008853E2 /* ThriveApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThriveApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2C06C1D29C0E5A0008853E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2C06C1F29C0E5A0008853E2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D2C06C2129C0E5A0008853E2 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		D2C06C2429C0E5A0008853E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D2C06C2629C0E5A1008853E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D2C06C2929C0E5A1008853E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D2C06C2B29C0E5A1008853E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -157,7 +149,7 @@
 		D20F714D29C36F77006D34CF /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				D20F714E29C36F80006D34CF /* UIColor+Helpers.swift */,
+				D20F714E29C36F80006D34CF /* Color+Helpers.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -193,7 +185,6 @@
 				D2C06C8629C0EE7B008853E2 /* View */,
 				D2C06C1D29C0E5A0008853E2 /* AppDelegate.swift */,
 				D2C06C1F29C0E5A0008853E2 /* SceneDelegate.swift */,
-				D2C06C2129C0E5A0008853E2 /* HomeViewController.swift */,
 				D2C06C2829C0E5A1008853E2 /* LaunchScreen.storyboard */,
 				D2C06C2629C0E5A1008853E2 /* Assets.xcassets */,
 				D2C06C2B29C0E5A1008853E2 /* Info.plist */,
@@ -242,8 +233,6 @@
 			isa = PBXGroup;
 			children = (
 				D25E03AF29C20BC00029339B /* Helpers */,
-				D25E03AD29C20A3C0029339B /* InitiationButton.swift */,
-				D2C06C2329C0E5A0008853E2 /* Main.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -432,7 +421,6 @@
 			files = (
 				D2C06C2A29C0E5A1008853E2 /* LaunchScreen.storyboard in Resources */,
 				D2C06C2729C0E5A1008853E2 /* Assets.xcassets in Resources */,
-				D2C06C2529C0E5A0008853E2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,10 +459,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2C06C2229C0E5A0008853E2 /* HomeViewController.swift in Sources */,
-				D20F714F29C36F80006D34CF /* UIColor+Helpers.swift in Sources */,
 				D2C06C1E29C0E5A0008853E2 /* AppDelegate.swift in Sources */,
-				D25E03AE29C20A3C0029339B /* InitiationButton.swift in Sources */,
 				D2C06C2029C0E5A0008853E2 /* SceneDelegate.swift in Sources */,
 				D2ABB57029CDF0F60087C6EB /* ContentView.swift in Sources */,
 			);
@@ -549,14 +534,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		D2C06C2329C0E5A0008853E2 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D2C06C2429C0E5A0008853E2 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		D2C06C2829C0E5A1008853E2 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
