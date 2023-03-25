@@ -163,6 +163,7 @@
 		D20F714D29C36F77006D34CF /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				D2ABB56C29CDA1850087C6EB /* Misc */,
 				D20F714E29C36F80006D34CF /* Color+Helpers.swift */,
 			);
 			path = Helpers;
@@ -174,6 +175,26 @@
 				D2ABB56D29CDA1900087C6EB /* UIKit+Misc.swift */,
 			);
 			path = Misc;
+			sourceTree = "<group>";
+		};
+		D2ABB57129CEF2FC0087C6EB /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				D2ABB56F29CDF0F60087C6EB /* ContentView.swift */,
+				D2ABB57229CEF3020087C6EB /* SwiftUI */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		D2ABB57229CEF3020087C6EB /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				D2ABB56729CD9D010087C6EB /* Button+ButtonStyle.swift */,
+				D2ABB56A29CD9D950087C6EB /* Button.swift */,
+				D25825ED29CA19D20021FF12 /* TaskNameInitiationCell.swift */,
+				D25825F129CA1AFF0021FF12 /* TaskInitiationCollectionView.swift */,
+			);
+			path = SwiftUI;
 			sourceTree = "<group>";
 		};
 		D2C06C1129C0E5A0008853E2 = {
@@ -203,16 +224,14 @@
 		D2C06C1C29C0E5A0008853E2 /* ThriveApp */ = {
 			isa = PBXGroup;
 			children = (
-				D2ABB56C29CDA1850087C6EB /* Misc */,
 				D20F714D29C36F77006D34CF /* Helpers */,
-				D2C06C8629C0EE7B008853E2 /* View */,
+				D2ABB57129CEF2FC0087C6EB /* UI */,
 				D2C06C1D29C0E5A0008853E2 /* AppDelegate.swift */,
 				D2C06C1F29C0E5A0008853E2 /* SceneDelegate.swift */,
+				D2ABB56429CC933A0087C6EB /* AppTabNavigation.swift */,
 				D2C06C2829C0E5A1008853E2 /* LaunchScreen.storyboard */,
 				D2C06C2629C0E5A1008853E2 /* Assets.xcassets */,
 				D2C06C2B29C0E5A1008853E2 /* Info.plist */,
-				D2ABB56429CC933A0087C6EB /* AppTabNavigation.swift */,
-				D2ABB56F29CDF0F60087C6EB /* ContentView.swift */,
 			);
 			path = ThriveApp;
 			sourceTree = "<group>";
@@ -251,17 +270,6 @@
 				D2C06C8429C0E873008853E2 /* Task.swift */,
 			);
 			path = "Task Feature";
-			sourceTree = "<group>";
-		};
-		D2C06C8629C0EE7B008853E2 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				D2ABB56729CD9D010087C6EB /* Button+ButtonStyle.swift */,
-				D2ABB56A29CD9D950087C6EB /* Button.swift */,
-				D25825ED29CA19D20021FF12 /* TaskNameInitiationCell.swift */,
-				D25825F129CA1AFF0021FF12 /* TaskInitiationCollectionView.swift */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		D2C06C8F29C19CF2008853E2 /* Thrive */ = {

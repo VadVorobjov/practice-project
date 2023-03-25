@@ -21,9 +21,11 @@ struct AppTabNavigation: View {
         TabView(selection: $selection) {
             NavigationView {
                 ZStack {
-                    Color(hex: 0xD1D1D1)
+                    Color.background
                         .ignoresSafeArea()
-                    InitiationButtonSwiftUI(label: "Initiate")
+                    InitiationButtonSwiftUI(label: "Initiate") {
+                        print("Initiation button tapped")
+                    }
                 }
             }
             .tabItem {
@@ -65,7 +67,11 @@ struct AppTabNavigation: View {
 
 struct AppTabNavigation_Previews: PreviewProvider {
     static var previews: some View {
-        AppTabNavigation()
+        Group {
+            AppTabNavigation()
+            AppTabNavigation()
+                .preferredColorScheme(.dark)
+        }
     }
 }
 

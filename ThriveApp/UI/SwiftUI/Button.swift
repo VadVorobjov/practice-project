@@ -7,22 +7,19 @@
 
 import SwiftUI
 
-protocol Buttonessa: View {
+protocol Buttonable: View {
     var label: LocalizedStringKey { get set }
-    var systemImage: String { get set }
     var action: () -> Void { get set }
 }
 
-struct InitiationButtonSwiftUI: Buttonessa {
+struct InitiationButtonSwiftUI: Buttonable {
     
-    init(label: LocalizedStringKey = "", systemImage: String = "", action: @escaping () -> Void = {}) {
+    init(label: LocalizedStringKey = "", action: @escaping () -> Void = {}) {
         self.label = label
-        self.systemImage = systemImage
         self.action = action
     }
     
     var label: LocalizedStringKey
-    var systemImage: String
     var action: () -> Void
     
     var body: some View {

@@ -19,6 +19,10 @@ extension Color {
         )
     }
     
+    static var background: Color {
+        self.init("Background")
+    }
+    
     static var mainButtonLabel: Color {
         self.init(hex: 0xD1D1D1)
     }
