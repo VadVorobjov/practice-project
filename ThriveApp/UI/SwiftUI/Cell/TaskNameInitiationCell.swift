@@ -1,0 +1,58 @@
+//
+//  TaskNameInitiationCell.swift
+//  ThriveApp
+//
+//  Created by Vadims Vorobjovs on 21/03/2023.
+//
+
+import SwiftUI
+
+
+struct TaskNameInitiationCell: View {
+    
+    var body: some View {
+        HStack {
+            TextFieldView(title: "Name", placeholderText: "Name your task", buttonTitle: "Next") {
+                print("Next button pressed")
+            }
+        }.padding()
+    }
+}
+
+struct TaskNameInitiationCell_Previews: PreviewProvider {
+    
+    static var previews: some View {
+        TaskNameInitiationCell()
+            .previewLayout(.sizeThatFits)
+    }
+}
+
+struct TextFieldView: View {
+    @State private var text: String = ""
+    
+    let title: String
+    let placeholderText: String
+    let buttonTitle: String
+    let buttonAction: () -> Void
+
+    var body: some View {
+        VStack(alignment: .center) {
+            TitleTextView(title: "Name")
+            
+            TextField(placeholderText, text: $text)
+                .frame(height: 35)
+                .font(Font.system(size: 12))
+                .padding(.leading)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 8)
+                        .stroke(lineWidth: 1.0)
+                )
+                .padding(.bottom)
+            
+            Button(buttonTitle) {
+                buttonAction()
+            }
+            .buttonStyle(MainButtonStyle())
+        }
+    }
+}
