@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D20F714F29C36F80006D34CF /* Color+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20F714E29C36F80006D34CF /* Color+Helpers.swift */; };
+		D22F2B8329E9698400272367 /* ScrollViewProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22F2B8229E9698400272367 /* ScrollViewProxy.swift */; };
 		D25825EE29CA19D20021FF12 /* TaskNameInitiationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25825ED29CA19D20021FF12 /* TaskNameInitiationCell.swift */; };
 		D2ABB56529CC933A0087C6EB /* AppTabNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ABB56429CC933A0087C6EB /* AppTabNavigation.swift */; };
 		D2ABB56829CD9D010087C6EB /* Button+ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ABB56729CD9D010087C6EB /* Button+ButtonStyle.swift */; };
@@ -93,6 +94,7 @@
 
 /* Begin PBXFileReference section */
 		D20F714E29C36F80006D34CF /* Color+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Helpers.swift"; sourceTree = "<group>"; };
+		D22F2B8229E9698400272367 /* ScrollViewProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewProxy.swift; sourceTree = "<group>"; };
 		D25825ED29CA19D20021FF12 /* TaskNameInitiationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskNameInitiationCell.swift; sourceTree = "<group>"; };
 		D2ABB56429CC933A0087C6EB /* AppTabNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabNavigation.swift; sourceTree = "<group>"; };
 		D2ABB56729CD9D010087C6EB /* Button+ButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+ButtonStyle.swift"; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				D2ABB56729CD9D010087C6EB /* Button+ButtonStyle.swift */,
+				D22F2B8229E9698400272367 /* ScrollViewProxy.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -558,6 +561,7 @@
 				D2ABB57029CDF0F60087C6EB /* ContentView.swift in Sources */,
 				D2ABB57629D408CC0087C6EB /* TaskDescriptionInitiationCell.swift in Sources */,
 				D2ABB58429DC92840087C6EB /* TaskInitiationSummaryView.swift in Sources */,
+				D22F2B8329E9698400272367 /* ScrollViewProxy.swift in Sources */,
 				D2ABB56829CD9D010087C6EB /* Button+ButtonStyle.swift in Sources */,
 				D2ABB56B29CD9D950087C6EB /* Button.swift in Sources */,
 			);

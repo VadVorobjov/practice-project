@@ -7,14 +7,6 @@
 
 import SwiftUI
 
-extension ScrollViewProxy {
-    func scrollWithAnimationTo<ID>(_ id: ID) where ID : Hashable {
-        withAnimation {
-            scrollTo(id)
-        }
-    }
-}
-
 struct TaskInitiationView: View {
     
     private enum Steps: Hashable {
