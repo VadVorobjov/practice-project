@@ -14,6 +14,7 @@
 		D2ABB56B29CD9D950087C6EB /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ABB56A29CD9D950087C6EB /* Button.swift */; };
 		D2ABB56E29CDA1900087C6EB /* UIKit+Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ABB56D29CDA1900087C6EB /* UIKit+Misc.swift */; };
 		D2ABB57029CDF0F60087C6EB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ABB56F29CDF0F60087C6EB /* ContentView.swift */; };
+		D2ABB57429CF4E0C0087C6EB /* TaskInitiationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ABB57329CF4E0C0087C6EB /* TaskInitiationView.swift */; };
 		D2ABB57629D408CC0087C6EB /* TaskDescriptionInitiationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ABB57529D408CC0087C6EB /* TaskDescriptionInitiationCell.swift */; };
 		D2ABB57B29D419300087C6EB /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ABB57A29D419300087C6EB /* Text.swift */; };
 		D2ABB57D29D419AF0087C6EB /* TextEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ABB57C29D419AF0087C6EB /* TextEditorView.swift */; };
@@ -97,6 +98,7 @@
 		D2ABB56A29CD9D950087C6EB /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		D2ABB56D29CDA1900087C6EB /* UIKit+Misc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIKit+Misc.swift"; sourceTree = "<group>"; };
 		D2ABB56F29CDF0F60087C6EB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D2ABB57329CF4E0C0087C6EB /* TaskInitiationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskInitiationView.swift; sourceTree = "<group>"; };
 		D2ABB57529D408CC0087C6EB /* TaskDescriptionInitiationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDescriptionInitiationCell.swift; sourceTree = "<group>"; };
 		D2ABB57A29D419300087C6EB /* Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
 		D2ABB57C29D419AF0087C6EB /* TextEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEditorView.swift; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 				D2ABB58029D41BE30087C6EB /* Text */,
 				D2ABB57F29D41BC90087C6EB /* Button */,
 				D2ABB57E29D41A890087C6EB /* Cell */,
+				D2ABB57329CF4E0C0087C6EB /* TaskInitiationView.swift */,
 				D2ABB57C29D419AF0087C6EB /* TextEditorView.swift */,
 				D2ABB56F29CDF0F60087C6EB /* ContentView.swift */,
 			);
@@ -538,6 +541,7 @@
 				D2C06C1E29C0E5A0008853E2 /* AppDelegate.swift in Sources */,
 				D2C06C2029C0E5A0008853E2 /* SceneDelegate.swift in Sources */,
 				D2ABB57D29D419AF0087C6EB /* TextEditorView.swift in Sources */,
+				D2ABB57429CF4E0C0087C6EB /* TaskInitiationView.swift in Sources */,
 				D2ABB56E29CDA1900087C6EB /* UIKit+Misc.swift in Sources */,
 				D2ABB57B29D419300087C6EB /* Text.swift in Sources */,
 				D2ABB57029CDF0F60087C6EB /* ContentView.swift in Sources */,
