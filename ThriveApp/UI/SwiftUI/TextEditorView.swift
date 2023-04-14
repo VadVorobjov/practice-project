@@ -11,8 +11,6 @@ struct TextEditorView: View {
     @State private var text: String = ""
     
     let title: String
-    let buttonTitle: String
-    let buttonAction: () -> Void
 
     var body: some View {
         VStack(alignment: .center) {
@@ -25,11 +23,6 @@ struct TextEditorView: View {
                 RoundedRectangle(cornerRadius: 8)
                     .stroke(Color.black)
             ).padding([.leading, .bottom, .trailing])
-            
-            Button(buttonTitle) {
-                buttonAction()
-            }
-            .buttonStyle(MainButtonStyle())
         }
         .padding()
     }
@@ -37,9 +30,6 @@ struct TextEditorView: View {
 
 struct TextEditorView_Previews: PreviewProvider {
     static var previews: some View {
-        TextEditorView(title: "Description",
-                       buttonTitle: "Go next") {
-            print("Button pressed")
-        }
+        TextEditorView(title: "Description")
     }
 }
