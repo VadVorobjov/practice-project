@@ -7,14 +7,19 @@
 
 import SwiftUI
 
-
 struct TaskNameInitiationCell: View {
+    var action: () -> Void
+    
+    init(action: @escaping () -> Void) {
+        self.action = action
+    }
     
     var body: some View {
         HStack {
-            TextFieldView(title: "Name", placeholderText: "Name your task", buttonTitle: "Next") {
-                print("Next button pressed")
-            }
+            TextFieldView(title: "Name",
+                          placeholderText: "Name your task",
+                          buttonTitle: "Next",
+                          buttonAction: action)
         }.padding()
     }
 }
@@ -22,7 +27,7 @@ struct TaskNameInitiationCell: View {
 struct TaskNameInitiationCell_Previews: PreviewProvider {
     
     static var previews: some View {
-        TaskNameInitiationCell()
+        TaskNameInitiationCell(action: {})
             .previewLayout(.sizeThatFits)
     }
 }
