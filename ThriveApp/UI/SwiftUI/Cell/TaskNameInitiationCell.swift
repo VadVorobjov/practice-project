@@ -43,10 +43,13 @@ struct TextFieldView: View {
     var body: some View {
         VStack(alignment: .center) {
             TitleTextView(title: "Name")
-            
-            TextField(placeholderText, text: $text)
+            TextField("", text: $text)
                 .frame(height: 35)
                 .font(Font.system(size: 12))
+                .placeholder(when: text.isEmpty) {
+                    Text("Name your task").foregroundColor(.black)
+                        .font(.footnote)
+                }
                 .padding(.leading)
                 .overlay(
                     RoundedRectangle(cornerRadius: 8)
