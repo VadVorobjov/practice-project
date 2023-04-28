@@ -15,41 +15,49 @@ struct TaskInitiationView: View {
         case final
     }
     
+    
     var body: some View {
-        ScrollViewReader { proxy in
-            ScrollView(.horizontal) {
-                HStack(alignment: .center) {
-                    
-                    HStack {
-                        Spacer()
-                        TaskNameInitiationCell(action: {
-                            proxy.scrollWithAnimationTo(Steps.description)
-                        }).id(Steps.name)
-                        Spacer()
-                 
-                    }.frame(width: screenSize.width)
-                    
-                    HStack {
-                        Spacer()
-                        TaskDescriptionInitiationCell(mainAction: {
-                            proxy.scrollWithAnimationTo(Steps.final)
-                        },
-                                                      secondaryAction: {
-                            proxy.scrollWithAnimationTo(Steps.name)
-                        }).id(Steps.description)
+        ZStack {
+            BackgroundView()
+            ScrollViewReader { proxy in
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(alignment: .center) {
                         
-                        Spacer()
-                    }.frame(width: screenSize.width)
-                    
-                    
-                    HStack {
-                        Spacer()
+                        HStack {
+                            Spacer()
+                            TaskNameInitiationCell {
+                                proxy.scrollWithAnimationTo(Steps.description)
+                            } completion: { name in
+                                
+                            }.id(Steps.name)
+                            Spacer()
+                            
+                        }.frame(width: screenSize.width)
                         
-                        TaskInitiationSummaryView()
+                        HStack {
+                            Spacer()
+                            TaskDescriptionInitiationCell(mainAction: {
+                                proxy.scrollWithAnimationTo(Steps.final)
+                            },
+                                                          secondaryAction: {
+                                proxy.scrollWithAnimationTo(Steps.name)
+                            }).id(Steps.description)
+                            
+                            Spacer()
+                        }.frame(width: screenSize.width)
                         
-                        Spacer()
-                    }.frame(width: screenSize.width)
+                        
+                        HStack {
+                            Spacer()
+                            // TOOD: navigation
+                            TaskInitiationSummaryView().id(Steps.final)
+                            
+                            
+                            Spacer()
+                        }.frame(width: screenSize.width)
+                    }
                 }
+                .scrollDisabled(true)
             }
         }
     }

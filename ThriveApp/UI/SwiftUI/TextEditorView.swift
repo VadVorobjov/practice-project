@@ -19,6 +19,7 @@ struct TextEditorView: View {
             VStack() {
                 TextEditor(text: $text)
                     .frame(height: screenSize.width / 2.5)
+                    .scrollContentBackground(.hidden)
             }.overlay(
                 RoundedRectangle(cornerRadius: 8)
                     .stroke(Color.black)
