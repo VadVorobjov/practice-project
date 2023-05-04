@@ -8,6 +8,11 @@
 import SwiftUI
 
 struct TaskInitiationView: View {
+    private var navigation: Navigation
+    
+    init(navigation: Navigation) {
+        self.navigation = navigation
+    }
     
     private enum Steps: Hashable {
         case name
@@ -15,12 +20,11 @@ struct TaskInitiationView: View {
         case final
     }
     
-    
     var body: some View {
         ZStack {
             BackgroundView()
-            ScrollViewReader { proxy in
-                ScrollView(.horizontal, showsIndicators: false) {
+            ScrollView(.horizontal, showsIndicators: false) {
+                ScrollViewReader { proxy in
                     HStack(alignment: .center) {
                         
                         HStack {
@@ -29,50 +33,46 @@ struct TaskInitiationView: View {
                                 proxy.scrollWithAnimationTo(Steps.description)
                             } completion: { name in
                                 
-                            }.id(Steps.name)
+                            }
                             Spacer()
-                            
-                        }.frame(width: screenSize.width)
+                        }
+                        .id(Steps.name)
+                        .frame(width: screenSize.width)
                         
                         HStack {
                             Spacer()
-                            TaskDescriptionInitiationCell(mainAction: {
-                                proxy.scrollWithAnimationTo(Steps.final)
-                            },
-                                                          secondaryAction: {
-                                proxy.scrollWithAnimationTo(Steps.name)
-                            }).id(Steps.description)
-                            
+                            TaskDescriptionInitiationCell(
+                                mainAction: { proxy.scrollWithAnimationTo(Steps.final) },
+                                secondaryAction: { proxy.scrollWithAnimationTo(Steps.name) }
+                            )
                             Spacer()
-                        }.frame(width: screenSize.width)
-                        
+                        }
+                        .id(Steps.description)
+                        .frame(width: screenSize.width)
                         
                         HStack {
                             Spacer()
-                            // TOOD: navigation
-                            TaskInitiationSummaryView().id(Steps.final)
-                            
-                            
+                            TaskInitiationSummaryView()
                             Spacer()
-                        }.frame(width: screenSize.width)
+                        }
+                        .id(Steps.final)
+                        .frame(width: screenSize.width)
                     }
                 }
-                .scrollDisabled(true)
             }
+            .scrollDisabled(true)
         }
+        .navigationBarBackButtonHidden(true)
+        .navigationBarItems(leading: Button(action: {
+            navigation.pop()
+        }, label: {
+            Image(systemName: "xmark").foregroundColor(.black)
+        }))
     }
 }
 
 struct TaskInitiationView_Previews: PreviewProvider {
     static var previews: some View {
-        TaskInitiationView()
+        TaskInitiationView(navigation: Navigation())
     }
-}
-
-struct ProgressView: View {
-    
-    var body: some View {
-        HStack {}
-    }
-    
 }

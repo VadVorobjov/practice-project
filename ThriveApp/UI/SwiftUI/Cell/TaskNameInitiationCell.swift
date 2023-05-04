@@ -9,10 +9,7 @@ import SwiftUI
 
 struct TaskNameInitiationCell: View {
     var action: () -> Void
-    
-    init(action: @escaping () -> Void) {
-        self.action = action
-    }
+    var completion: (String) -> Void
     
     var body: some View {
         HStack {
@@ -25,15 +22,15 @@ struct TaskNameInitiationCell: View {
 }
 
 struct TaskNameInitiationCell_Previews: PreviewProvider {
-    
+    @State static private var name = ""
     static var previews: some View {
-        TaskNameInitiationCell(action: {})
+        TaskNameInitiationCell(action: {}, completion: { _ in })
             .previewLayout(.sizeThatFits)
     }
 }
 
 struct TextFieldView: View {
-    @State private var text: String = ""
+    @State var text: String = ""
     
     let title: String
     let placeholderText: String
