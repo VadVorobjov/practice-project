@@ -9,9 +9,11 @@ import SwiftUI
 
 struct TaskInitiationView: View {
     private var navigation: Navigation
+    @State private var task: Task // TODO: got a feeling, that this should be handled by `presenter` or maybe `viewModel`
     
-    init(navigation: Navigation) {
+    init(navigation: Navigation, task: Task) {
         self.navigation = navigation
+        self.task = task
     }
     
     private enum Steps: Hashable {
@@ -29,10 +31,9 @@ struct TaskInitiationView: View {
                         
                         HStack {
                             Spacer()
-                            TaskNameInitiationCell {
+                            TaskNameInitiationCell { text in
+                                task.name = text
                                 proxy.scrollWithAnimationTo(Steps.description)
-                            } completion: { name in
-                                
                             }
                             Spacer()
                         }
@@ -42,21 +43,26 @@ struct TaskInitiationView: View {
                         HStack {
                             Spacer()
                             TaskDescriptionInitiationCell(
-                                mainAction: { proxy.scrollWithAnimationTo(Steps.final) },
-                                secondaryAction: { proxy.scrollWithAnimationTo(Steps.name) }
+                                backAction: {
+                                    proxy.scrollWithAnimationTo(Steps.name)
+                                },
+                                completion: { text in
+                                    task.description = text
+                                    proxy.scrollWithAnimationTo(Steps.final)
+                                }
                             )
                             Spacer()
                         }
                         .id(Steps.description)
                         .frame(width: screenSize.width)
                         
-                        HStack {
-                            Spacer()
-                            TaskInitiationSummaryView()
-                            Spacer()
-                        }
-                        .id(Steps.final)
-                        .frame(width: screenSize.width)
+//                        HStack {
+//                            Spacer()
+//                            TaskInitiationSummaryView()
+//                            Spacer()
+//                        }
+//                        .id(Steps.final)
+//                        .frame(width: screenSize.width)
                     }
                 }
             }
@@ -73,6 +79,6 @@ struct TaskInitiationView: View {
 
 struct TaskInitiationView_Previews: PreviewProvider {
     static var previews: some View {
-        TaskInitiationView(navigation: Navigation())
+        TaskInitiationView(navigation: Navigation(), task: Task(name: "name", description: "description"))
     }
 }

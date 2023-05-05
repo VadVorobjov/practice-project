@@ -8,56 +8,59 @@
 import SwiftUI
 
 struct TaskNameInitiationCell: View {
-    var action: () -> Void
+    @State private var name: String = ""
     var completion: (String) -> Void
     
     var body: some View {
         HStack {
-            TextFieldView(title: "Name",
-                          placeholderText: "Name your task",
-                          buttonTitle: "Next",
-                          buttonAction: action)
-        }.padding()
+            VStack(alignment: .center) {
+                TitleTextView(title: "Name")
+
+                TextFieldView(
+                    text: $name,
+                    title: "Name",
+                    placeholderText: "Name your task",
+                    buttonTitle: "Next"
+                )
+                
+                Button("Next") {
+                    completion(name)
+                }
+                .buttonStyle(MainButtonStyle())
+                .padding(.top)
+            }
+            .padding()
+        }
     }
 }
 
 struct TaskNameInitiationCell_Previews: PreviewProvider {
     @State static private var name = ""
     static var previews: some View {
-        TaskNameInitiationCell(action: {}, completion: { _ in })
+        TaskNameInitiationCell(completion: { _ in })
             .previewLayout(.sizeThatFits)
     }
 }
 
 struct TextFieldView: View {
-    @State var text: String = ""
+    @Binding var text: String
     
     let title: String
     let placeholderText: String
     let buttonTitle: String
-    let buttonAction: () -> Void
-
+    
     var body: some View {
-        VStack(alignment: .center) {
-            TitleTextView(title: "Name")
-            TextField("", text: $text)
-                .frame(height: 35)
-                .font(Font.system(size: 12))
-                .placeholder(when: text.isEmpty) {
-                    Text("Name your task").foregroundColor(.black)
-                        .font(.footnote)
-                }
-                .padding(.leading)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 8)
-                        .stroke(lineWidth: 1.0)
-                )
-                .padding(.bottom)
-            
-            Button(buttonTitle) {
-                buttonAction()
+        TextField("", text: $text)
+            .frame(height: 35)
+            .font(Font.system(size: 12))
+            .placeholder(when: text.isEmpty) {
+                Text("Name your task").foregroundColor(.black)
+                    .font(.footnote)
             }
-            .buttonStyle(MainButtonStyle())
-        }
+            .padding(.leading)
+            .overlay(
+                RoundedRectangle(cornerRadius: 8)
+                    .stroke(lineWidth: 1.0)
+            )
     }
 }

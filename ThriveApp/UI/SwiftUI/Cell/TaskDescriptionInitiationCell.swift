@@ -8,23 +8,25 @@
 import SwiftUI
 
 struct TaskDescriptionInitiationCell: View {
-    var mainAction: () -> Void
-    var secondaryAction: () -> Void
-        
-    init(mainAction: @escaping () -> Void, secondaryAction: @escaping () -> Void) {
-        self.mainAction = mainAction
-        self.secondaryAction = secondaryAction
+    @State private var description: String = ""
+
+    private let backAction: () -> Void
+    private let completion: (String) -> Void
+            
+    init(backAction: @escaping () -> Void, completion: @escaping (String) -> Void) {
+        self.backAction = backAction
+        self.completion = completion
     }
     
     var body: some View {
         
         VStack {
-            TextEditorView(title: "Description")
+            TextEditorView(text: $description, title: "Description")
             
             HStack {
                 
                 Button {
-                    secondaryAction()
+                    backAction()
                 } label: {
                     Image(systemName: "arrow.left")
                         .foregroundColor(.black)
@@ -32,7 +34,7 @@ struct TaskDescriptionInitiationCell: View {
                 }
                 
                 Button("Next", action: {
-                    mainAction()
+                    completion(description)
                 })
                 .buttonStyle(MainButtonStyle())
                 .padding(.leading)
@@ -45,7 +47,7 @@ struct TaskDescriptionInitiationCell: View {
 
 struct TaskDescriptionInitiationCell_Previews: PreviewProvider {
     static var previews: some View {
-        TaskDescriptionInitiationCell(mainAction: {}, secondaryAction: {})
+        TaskDescriptionInitiationCell(backAction: {}, completion: { _ in })
         .previewLayout(.sizeThatFits)
     }
 }

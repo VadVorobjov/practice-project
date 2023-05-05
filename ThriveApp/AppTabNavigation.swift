@@ -88,14 +88,14 @@ extension Task {
 
 enum TaskInitiationNavigationType {
     case name(Navigation)
-    case description
+    case description(backAction: () -> Void, completion: (String) -> Void)
     
     var view: AnyView {
         switch self {
         case .name(let navigation):
-            return AnyView(TaskInitiationView(navigation: navigation))
-        case .description:
-            return AnyView(TaskDescriptionInitiationCell(mainAction: {}, secondaryAction: {}))
+            return AnyView(TaskInitiationView(navigation: navigation, task: Task(name: "", description: "")))
+        case .description(let backAction, let completion):
+            return AnyView(TaskDescriptionInitiationCell(backAction: backAction, completion: completion))
         }
     }
 }

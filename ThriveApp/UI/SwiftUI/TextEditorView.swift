@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TextEditorView: View {
-    @State private var text: String = ""
+    @Binding var text: String
     
     let title: String
 
@@ -30,7 +30,9 @@ struct TextEditorView: View {
 }
 
 struct TextEditorView_Previews: PreviewProvider {
+    @State static var text = "Enter text"
+    
     static var previews: some View {
-        TextEditorView(title: "Description")
+        TextEditorView(text: $text, title: "Description")
     }
 }
