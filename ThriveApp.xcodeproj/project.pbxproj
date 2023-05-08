@@ -13,6 +13,7 @@
 		D258D99929FBAFC4009EA169 /* View+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D258D99829FBAFC4009EA169 /* View+Helpers.swift */; };
 		D258D99B29FBD88A009EA169 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D258D99A29FBD88A009EA169 /* BackgroundView.swift */; };
 		D258D9AA2A002D18009EA169 /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D258D9A92A002D18009EA169 /* Navigation.swift */; };
+		D28B7CFD2A0580C900EBB210 /* TextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28B7CFC2A0580C900EBB210 /* TextFieldView.swift */; };
 		D2ABB56529CC933A0087C6EB /* AppTabNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ABB56429CC933A0087C6EB /* AppTabNavigation.swift */; };
 		D2ABB56829CD9D010087C6EB /* Button+ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ABB56729CD9D010087C6EB /* Button+ButtonStyle.swift */; };
 		D2ABB56B29CD9D950087C6EB /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ABB56A29CD9D950087C6EB /* Button.swift */; };
@@ -102,6 +103,7 @@
 		D258D99829FBAFC4009EA169 /* View+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Helpers.swift"; sourceTree = "<group>"; };
 		D258D99A29FBD88A009EA169 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		D258D9A92A002D18009EA169 /* Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
+		D28B7CFC2A0580C900EBB210 /* TextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldView.swift; sourceTree = "<group>"; };
 		D2ABB56429CC933A0087C6EB /* AppTabNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabNavigation.swift; sourceTree = "<group>"; };
 		D2ABB56729CD9D010087C6EB /* Button+ButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+ButtonStyle.swift"; sourceTree = "<group>"; };
 		D2ABB56A29CD9D950087C6EB /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
@@ -255,6 +257,7 @@
 			isa = PBXGroup;
 			children = (
 				D2ABB57A29D419300087C6EB /* Text.swift */,
+				D28B7CFC2A0580C900EBB210 /* TextFieldView.swift */,
 			);
 			path = Text;
 			sourceTree = "<group>";
@@ -559,6 +562,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2ABB56529CC933A0087C6EB /* AppTabNavigation.swift in Sources */,
+				D28B7CFD2A0580C900EBB210 /* TextFieldView.swift in Sources */,
 				D25825EE29CA19D20021FF12 /* TaskNameInitiationCell.swift in Sources */,
 				D20F714F29C36F80006D34CF /* Color+Helpers.swift in Sources */,
 				D2C06C1E29C0E5A0008853E2 /* AppDelegate.swift in Sources */,
