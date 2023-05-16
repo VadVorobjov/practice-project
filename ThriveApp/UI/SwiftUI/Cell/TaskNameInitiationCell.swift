@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TaskNameInitiationCell: View {
     @State private var name: String = ""
+    
     var completion: (String) -> Void
     
     var body: some View {

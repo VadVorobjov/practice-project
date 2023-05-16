@@ -30,7 +30,7 @@ struct TextEditorView: View {
 }
 
 struct TextEditorView_Previews: PreviewProvider {
-    @State static var text = "Enter text"
+    @State static private var text = "Enter text"
     
     static var previews: some View {
         TextEditorView(text: $text, title: "Description")
