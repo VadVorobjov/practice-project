@@ -15,33 +15,34 @@ struct TaskInitiationSummaryView: View {
         ZStack {
             customBackgroundView()
             
-            VStack {
-                VStack(alignment: .center) {
-                    Text("Task name").bold()
+            VStack(alignment: .center) {
+                VStack(alignment: .leading) {
+                    Text("Name").bold()
                     Text(task.name)
-                    Text("Task Description").bold()
+                        .padding(.bottom)
+                    
+                    Text("Description").bold()
                     Text(task.description)
                         .lineLimit(3)
                 }
-                .frame(maxHeight: .infinity)
-                .padding(.horizontal, 25.0)
                 
-                InitiationButtonSwiftUI(label: "Initiate") {
+                Button("Initiate") {
                     initiated(task)
                 }
-                .frame(maxHeight: .infinity)
-                
-                Spacer()
-                    .frame(maxHeight: .infinity)
+                .buttonStyle(MainButtonStyle())
+                .padding(.top)
             }
-            .fixedSize(horizontal: true, vertical: false)
             .padding()
         }
     }
 }
 
 struct TaskInitiationSummaryView_Previews: PreviewProvider {
-    static private var task = Task(name: "Road to greatnes", description: "Fulfill your path with goals & levels")
+    static private var task = Task(
+        name: "Road to greatnes",
+        description: "Fulfill your path with goals & levels."
+    )
+
     static var previews: some View {
         TaskInitiationSummaryView(task: task, initiated: {_ in })
     }
