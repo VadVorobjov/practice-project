@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
-    @ObservedObject var navigation: Navigation
+    @ObservedObject private var navigation = Navigation()
     
     var body: some View {
         NavigationStack(path: $navigation.path) {
@@ -29,7 +29,6 @@ struct HomeView: View {
 }
 
 struct AppTabNavigation: View {
-    @ObservedObject var navigation: Navigation
     @ObservedObject var mainTabModel: MainTabViewModel
     
     var body: some View {
@@ -38,7 +37,7 @@ struct AppTabNavigation: View {
                 switch tab {
                 case .home:
                     NavigationView {
-                        HomeView(navigation: navigation)
+                        HomeView()
                     }
                     .tag(tab)
                     .tabItem { Label("Home", systemImage: "house.circle") }
@@ -64,8 +63,8 @@ struct AppTabNavigation_Previews: PreviewProvider {
     
     static var previews: some View {
         Group {
-            AppTabNavigation(navigation: navigation, mainTabModel: mainTabModel)
-            AppTabNavigation(navigation: navigation, mainTabModel: mainTabModel)
+            AppTabNavigation(mainTabModel: mainTabModel)
+            AppTabNavigation(mainTabModel: mainTabModel)
                 .preferredColorScheme(.dark)
         }
     }
