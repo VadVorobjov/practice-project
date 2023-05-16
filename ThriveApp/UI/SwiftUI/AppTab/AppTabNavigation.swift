@@ -7,27 +7,6 @@
 
 import SwiftUI
 
-struct HomeView: View {
-    @ObservedObject private var navigation = Navigation()
-    
-    var body: some View {
-        NavigationStack(path: $navigation.path) {
-            ZStack {
-                customBackgroundView()
-                
-                NavigationLink(value: TaskInitiationNavigationType.name(navigation)) {
-                    InitiationButtonSwiftUI(label: "Initiate") {
-                        navigation.path.append(TaskInitiationNavigationType.name(navigation))
-                    }
-                }.navigationDestination(for: TaskInitiationNavigationType.self) { type in
-                    type.view
-                        .transition(.move(edge: .top)).id(UUID())
-                }
-            }
-        }
-    }
-}
-
 struct AppTabNavigation: View {
     @ObservedObject var mainTabModel: MainTabViewModel
     
