@@ -1,5 +1,5 @@
 //
-//  AppTabNavigation.swift
+//  AppTabView.swift
 //  ThriveApp
 //
 //  Created by Vadims Vorobjovs on 23/03/2023.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AppTabNavigation: View {
+struct AppTabView: View {
     @ObservedObject var mainTabModel: MainTabViewModel
     
     var body: some View {
@@ -36,14 +36,14 @@ struct AppTabNavigation: View {
     }
 }
 
-struct AppTabNavigation_Previews: PreviewProvider {
+struct AppTabView_Previews: PreviewProvider {
     static var navigation = Navigation()
     static var mainTabModel = MainTabViewModel()
     
     static var previews: some View {
         Group {
-            AppTabNavigation(mainTabModel: mainTabModel)
-            AppTabNavigation(mainTabModel: mainTabModel)
+            AppTabView(mainTabModel: mainTabModel)
+            AppTabView(mainTabModel: mainTabModel)
                 .preferredColorScheme(.dark)
         }
     }

@@ -24,7 +24,7 @@ struct ContentView: View {
     private let mainTabModel = MainTabViewModel()
 
     var body: some View {
-        AppTabNavigation(mainTabModel: mainTabModel)
+        AppTabView(mainTabModel: mainTabModel)
     }
 }
 

@@ -14,7 +14,7 @@
 		D258D9AA2A002D18009EA169 /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D258D9A92A002D18009EA169 /* Navigation.swift */; };
 		D28AF87C2A14264E007D4EAA /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28AF87B2A14264E007D4EAA /* HomeView.swift */; };
 		D28B7CFD2A0580C900EBB210 /* TextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28B7CFC2A0580C900EBB210 /* TextFieldView.swift */; };
-		D2ABB56529CC933A0087C6EB /* AppTabNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ABB56429CC933A0087C6EB /* AppTabNavigation.swift */; };
+		D2ABB56529CC933A0087C6EB /* AppTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ABB56429CC933A0087C6EB /* AppTabView.swift */; };
 		D2ABB56829CD9D010087C6EB /* Button+ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ABB56729CD9D010087C6EB /* Button+ButtonStyle.swift */; };
 		D2ABB56B29CD9D950087C6EB /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ABB56A29CD9D950087C6EB /* Button.swift */; };
 		D2ABB56E29CDA1900087C6EB /* UIKit+Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ABB56D29CDA1900087C6EB /* UIKit+Misc.swift */; };
@@ -104,7 +104,7 @@
 		D258D9A92A002D18009EA169 /* Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
 		D28AF87B2A14264E007D4EAA /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		D28B7CFC2A0580C900EBB210 /* TextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldView.swift; sourceTree = "<group>"; };
-		D2ABB56429CC933A0087C6EB /* AppTabNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabNavigation.swift; sourceTree = "<group>"; };
+		D2ABB56429CC933A0087C6EB /* AppTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabView.swift; sourceTree = "<group>"; };
 		D2ABB56729CD9D010087C6EB /* Button+ButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+ButtonStyle.swift"; sourceTree = "<group>"; };
 		D2ABB56A29CD9D950087C6EB /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		D2ABB56D29CDA1900087C6EB /* UIKit+Misc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIKit+Misc.swift"; sourceTree = "<group>"; };
@@ -205,7 +205,7 @@
 		D28AF87D2A142673007D4EAA /* AppTab */ = {
 			isa = PBXGroup;
 			children = (
-				D2ABB56429CC933A0087C6EB /* AppTabNavigation.swift */,
+				D2ABB56429CC933A0087C6EB /* AppTabView.swift */,
 				D28AF87A2A14263E007D4EAA /* Views */,
 			);
 			path = AppTab;
@@ -577,7 +577,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2ABB56529CC933A0087C6EB /* AppTabNavigation.swift in Sources */,
+				D2ABB56529CC933A0087C6EB /* AppTabView.swift in Sources */,
 				D28B7CFD2A0580C900EBB210 /* TextFieldView.swift in Sources */,
 				D25825EE29CA19D20021FF12 /* TaskNameInitiationCell.swift in Sources */,
 				D20F714F29C36F80006D34CF /* Color+Helpers.swift in Sources */,
