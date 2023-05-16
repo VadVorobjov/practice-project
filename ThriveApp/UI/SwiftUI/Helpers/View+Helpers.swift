@@ -17,4 +17,12 @@ extension View {
                 self
             }
         }
+    
+    @ViewBuilder func customBackgroundView() -> some View {
+        VStack {
+            Rectangle()
+                .ignoresSafeArea()
+                .foregroundColor(Color("Background"))
+        }
+    }
 }

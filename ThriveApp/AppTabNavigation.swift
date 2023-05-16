@@ -13,7 +13,7 @@ struct HomeView: View {
     var body: some View {
         NavigationStack(path: $navigation.path) {
             ZStack {
-                BackgroundView()
+                customBackgroundView()
                 
                 NavigationLink(value: TaskInitiationNavigationType.name(navigation)) {
                     InitiationButtonSwiftUI(label: "Initiate") {

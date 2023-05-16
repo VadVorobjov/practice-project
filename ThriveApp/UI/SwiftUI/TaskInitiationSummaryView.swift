@@ -13,9 +13,7 @@ struct TaskInitiationSummaryView: View {
     
     var body: some View {
         ZStack {
-            Rectangle()
-                .foregroundColor(Color("Background"))
-                .ignoresSafeArea()
+            customBackgroundView()
             
             VStack {
                 VStack(alignment: .center) {

@@ -25,7 +25,7 @@ struct TaskInitiationView: View {
     
     var body: some View {
         ZStack {
-            BackgroundView()
+            customBackgroundView()
             ScrollView(.horizontal, showsIndicators: false) {
                 ScrollViewReader { proxy in
                     HStack(alignment: .center) {
