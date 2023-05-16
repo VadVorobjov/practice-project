@@ -14,4 +14,8 @@ final class Navigation: ObservableObject {
         guard path.count > 0 else { return }
         path.removeLast()
     }
+    
+    func popToRoot() {
+        path.removeLast(path.count)
+    }
 }

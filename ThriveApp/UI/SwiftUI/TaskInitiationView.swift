@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct TaskInitiationView: View {
-    private var navigation: Navigation
     @State private var task: Task // TODO: got a feeling, that this should be handled by `presenter` or maybe `viewModel`
-    
+
+    private var navigation: Navigation
+
     init(navigation: Navigation, task: Task) {
         self.navigation = navigation
         self.task = task
@@ -56,13 +57,16 @@ struct TaskInitiationView: View {
                         .id(Steps.description)
                         .frame(width: screenSize.width)
                         
-//                        HStack {
-//                            Spacer()
-//                            TaskInitiationSummaryView()
-//                            Spacer()
-//                        }
-//                        .id(Steps.final)
-//                        .frame(width: screenSize.width)
+                        HStack {
+                            Spacer()
+                            TaskInitiationSummaryView(task: task) { task in
+                                navigation.popToRoot()
+                                // TODO: save to cache / remote
+                            }
+                            Spacer()
+                        }
+                        .id(Steps.final)
+                        .frame(width: screenSize.width)
                     }
                 }
             }
