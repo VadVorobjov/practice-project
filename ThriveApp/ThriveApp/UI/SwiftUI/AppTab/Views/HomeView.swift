@@ -15,11 +15,11 @@ struct HomeView: View {
             ZStack {
                 customBackgroundView()
                 
-                NavigationLink(value: TaskInitiationNavigationType.name(navigation)) {
+                NavigationLink(value: HomeNavigationType.name(navigation)) {
                     InitiationButtonSwiftUI(label: "Initiate") {
-                        navigation.path.append(TaskInitiationNavigationType.name(navigation))
+                        navigation.path.append(HomeNavigationType.name(navigation))
                     }
-                }.navigationDestination(for: TaskInitiationNavigationType.self) { type in
+                }.navigationDestination(for: HomeNavigationType.self) { type in
                     type.view
                 }
             }
@@ -33,7 +33,7 @@ struct HomeView_Previews: PreviewProvider {
     }
 }
 
-private enum TaskInitiationNavigationType {
+private enum HomeNavigationType {
     case name(Navigation)
     case description(backAction: () -> Void, completion: (String) -> Void)
     
@@ -52,7 +52,7 @@ private enum TaskInitiationNavigationType {
     }
 }
 
-extension TaskInitiationNavigationType: Hashable {
+extension HomeNavigationType: Hashable {
     public func hash(into hasher: inout Hasher) {
         return hasher.combine(identifier)
     }
@@ -61,7 +61,7 @@ extension TaskInitiationNavigationType: Hashable {
         return UUID().uuidString
     }
     
-    static func == (lhs: TaskInitiationNavigationType, rhs: TaskInitiationNavigationType) -> Bool {
+    static func == (lhs: HomeNavigationType, rhs: HomeNavigationType) -> Bool {
         return lhs.identifier == rhs.identifier
     }
 }
