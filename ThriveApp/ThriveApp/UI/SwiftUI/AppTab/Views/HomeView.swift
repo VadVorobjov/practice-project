@@ -21,7 +21,6 @@ struct HomeView: View {
                     }
                 }.navigationDestination(for: TaskInitiationNavigationType.self) { type in
                     type.view
-                        .transition(.move(edge: .top)).id(UUID())
                 }
             }
         }
