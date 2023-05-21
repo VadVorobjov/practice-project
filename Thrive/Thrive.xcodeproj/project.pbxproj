@@ -10,6 +10,7 @@
 		D22154282A1645CB0022CA75 /* Thrive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D221541F2A1645CB0022CA75 /* Thrive.framework */; };
 		D221542D2A1645CB0022CA75 /* ThriveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D221542C2A1645CB0022CA75 /* ThriveTests.swift */; };
 		D221542E2A1645CB0022CA75 /* Thrive.h in Headers */ = {isa = PBXBuildFile; fileRef = D22154222A1645CB0022CA75 /* Thrive.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D22154F52A1A5E720022CA75 /* CacheTaskUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22154F42A1A5E720022CA75 /* CacheTaskUseCaseTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +28,7 @@
 		D22154222A1645CB0022CA75 /* Thrive.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Thrive.h; sourceTree = "<group>"; };
 		D22154272A1645CB0022CA75 /* ThriveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThriveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D221542C2A1645CB0022CA75 /* ThriveTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThriveTests.swift; sourceTree = "<group>"; };
+		D22154F42A1A5E720022CA75 /* CacheTaskUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheTaskUseCaseTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 		D22154212A1645CB0022CA75 /* Thrive */ = {
 			isa = PBXGroup;
 			children = (
+				D22154F22A1A5CEE0022CA75 /* Task Feature */,
 				D22154222A1645CB0022CA75 /* Thrive.h */,
 			);
 			path = Thrive;
@@ -77,9 +80,25 @@
 		D221542B2A1645CB0022CA75 /* ThriveTests */ = {
 			isa = PBXGroup;
 			children = (
+				D22154F32A1A5E4F0022CA75 /* Task Cache */,
 				D221542C2A1645CB0022CA75 /* ThriveTests.swift */,
 			);
 			path = ThriveTests;
+			sourceTree = "<group>";
+		};
+		D22154F22A1A5CEE0022CA75 /* Task Feature */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Task Feature";
+			sourceTree = "<group>";
+		};
+		D22154F32A1A5E4F0022CA75 /* Task Cache */ = {
+			isa = PBXGroup;
+			children = (
+				D22154F42A1A5E720022CA75 /* CacheTaskUseCaseTests.swift */,
+			);
+			path = "Task Cache";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,6 +218,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D221542D2A1645CB0022CA75 /* ThriveTests.swift in Sources */,
+				D22154F52A1A5E720022CA75 /* CacheTaskUseCaseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
