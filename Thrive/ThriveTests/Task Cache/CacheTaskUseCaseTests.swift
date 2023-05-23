@@ -39,9 +39,12 @@ final class CacheTaskUseCaseTests: XCTestCase {
     
     // MARK: - Helpers
     
-    private func makeSUT() -> (sut: LocalTaskLoader, store: TaskStore) {
+    private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (sut: LocalTaskLoader, store: TaskStore) {
         let store = TaskStore()
         let sut = LocalTaskLoader(store: store)
+        trackMemoryLeaks(store, file: file, line: line)
+        trackMemoryLeaks(store, file: file, line: line)
+
         return (sut, store)
     }
     
