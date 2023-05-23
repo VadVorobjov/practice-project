@@ -11,6 +11,7 @@
 		D221542D2A1645CB0022CA75 /* ThriveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D221542C2A1645CB0022CA75 /* ThriveTests.swift */; };
 		D221542E2A1645CB0022CA75 /* Thrive.h in Headers */ = {isa = PBXBuildFile; fileRef = D22154222A1645CB0022CA75 /* Thrive.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D22154F52A1A5E720022CA75 /* CacheTaskUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22154F42A1A5E720022CA75 /* CacheTaskUseCaseTests.swift */; };
+		D22154F72A1A6EBD0022CA75 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22154F62A1A6EBD0022CA75 /* Task.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,7 @@
 		D22154272A1645CB0022CA75 /* ThriveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThriveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D221542C2A1645CB0022CA75 /* ThriveTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThriveTests.swift; sourceTree = "<group>"; };
 		D22154F42A1A5E720022CA75 /* CacheTaskUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheTaskUseCaseTests.swift; sourceTree = "<group>"; };
+		D22154F62A1A6EBD0022CA75 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 		D22154F22A1A5CEE0022CA75 /* Task Feature */ = {
 			isa = PBXGroup;
 			children = (
+				D22154F62A1A6EBD0022CA75 /* Task.swift */,
 			);
 			path = "Task Feature";
 			sourceTree = "<group>";
@@ -163,6 +166,7 @@
 				TargetAttributes = {
 					D221541E2A1645CB0022CA75 = {
 						CreatedOnToolsVersion = 14.3;
+						LastSwiftMigration = 1430;
 					};
 					D22154262A1645CB0022CA75 = {
 						CreatedOnToolsVersion = 14.3;
@@ -210,6 +214,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D22154F72A1A6EBD0022CA75 /* Task.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,6 +361,7 @@
 		D22154322A1645CB0022CA75 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -383,6 +389,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -390,6 +397,7 @@
 		D22154332A1645CB0022CA75 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -424,6 +432,7 @@
 		D22154352A1645CB0022CA75 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = VU9T5K6KZV;
@@ -443,6 +452,7 @@
 		D22154362A1645CB0022CA75 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = VU9T5K6KZV;
