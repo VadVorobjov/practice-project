@@ -9,32 +9,48 @@ import XCTest
 @testable import Thrive
 
 class LocalTaskLoader {
-    init(store: TaskStore) {
-        
-    }
+    private let store: TaskStore
     
+    init(store: TaskStore) {
+        self.store = store
+    }
+
     func save(_ item: Task) {
-        
+        store.insert(item) { _ in }
     }
 }
 
 class TaskStore {
-    var deleteCachedTaskCallCount = 0
+    typealias InsertionCompletion = (Error?) -> Void
+    typealias DeletionCompletion = (Error?) -> Void
+
+    private var insertionCompletions = [InsertionCompletion]()
+    private var deletionCompletions = [DeletionCompletion]()
+
+    var insertions = [Task]()
+    var insertTaskCallCount = 0
+    var deleteStoreCallCount = 0
+        
+    func insert(_ item: Task, completion: @escaping InsertionCompletion) {
+        insertions.append(item)
+        insertionCompletions.append(completion)
+    }
 }
 
 final class CacheTaskUseCaseTests: XCTestCase {
 
-    func test_init_doesNotDeleteCacheUponCreation() {
+    func test_init_doesNotDeleteStoreUponCreation() {
         let (_, store) = makeSUT()
         
-        XCTAssertEqual(store.deleteCachedTaskCallCount, 0)
+        XCTAssertEqual(store.deleteStoreCallCount, 0)
     }
     
-    func test_save_doesNotDeleteCache() {
+    func test_save_doesNotDeleteStore() {
         let (sut, store) = makeSUT()
+
         sut.save(uniqueTask())
-        
-        XCTAssertEqual(store.deleteCachedTaskCallCount, 0)
+
+        XCTAssertEqual(store.deleteStoreCallCount, 0)
     }
     
     // MARK: - Helpers
