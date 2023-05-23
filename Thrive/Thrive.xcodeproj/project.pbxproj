@@ -13,6 +13,7 @@
 		D22154F52A1A5E720022CA75 /* CacheTaskUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22154F42A1A5E720022CA75 /* CacheTaskUseCaseTests.swift */; };
 		D22154F72A1A6EBD0022CA75 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22154F62A1A6EBD0022CA75 /* Task.swift */; };
 		D22154FA2A1C971E0022CA75 /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22154F92A1C971E0022CA75 /* XCTestCase+MemoryLeakTracking.swift */; };
+		D22154FC2A1C9C7F0022CA75 /* SharedTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22154FB2A1C9C7F0022CA75 /* SharedTestHelpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +34,7 @@
 		D22154F42A1A5E720022CA75 /* CacheTaskUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheTaskUseCaseTests.swift; sourceTree = "<group>"; };
 		D22154F62A1A6EBD0022CA75 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		D22154F92A1C971E0022CA75 /* XCTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
+		D22154FB2A1C9C7F0022CA75 /* SharedTestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedTestHelpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				D22154F92A1C971E0022CA75 /* XCTestCase+MemoryLeakTracking.swift */,
+				D22154FB2A1C9C7F0022CA75 /* SharedTestHelpers.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -233,6 +236,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D22154FC2A1C9C7F0022CA75 /* SharedTestHelpers.swift in Sources */,
 				D221542D2A1645CB0022CA75 /* ThriveTests.swift in Sources */,
 				D22154F52A1A5E720022CA75 /* CacheTaskUseCaseTests.swift in Sources */,
 				D22154FA2A1C971E0022CA75 /* XCTestCase+MemoryLeakTracking.swift in Sources */,

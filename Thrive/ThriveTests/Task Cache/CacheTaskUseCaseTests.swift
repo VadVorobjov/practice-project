@@ -53,9 +53,5 @@ final class CacheTaskUseCaseTests: XCTestCase {
                     name: "some name",
                     description: "some description",
                     date: Date.init())
-    }
-    
-    private func someURL() -> URL {
-        return URL(string: "http://some-url.com")!
-    }
+    }    
 }
