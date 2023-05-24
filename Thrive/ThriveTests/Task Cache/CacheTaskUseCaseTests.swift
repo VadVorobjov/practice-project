@@ -30,7 +30,6 @@ class TaskStore {
     private var deletionCompletions = [DeletionCompletion]()
 
     var insertions = [Task]()
-    var deleteStoreCallCount = 0
         
     func insert(_ item: Task, completion: @escaping InsertionCompletion) {
         insertions.append(item)
@@ -40,9 +39,14 @@ class TaskStore {
     func completeSave(with error: NSError, at index: Int = 0) {
         insertionCompletions[index](error)
     }
+
+    func completeSaveSuccessfully(at index: Int = 0) {
+        insertionCompletions[index](nil)
+    }
 }
 
 final class CacheTaskUseCaseTests: XCTestCase {
+    
     func test_save_requestsInsertion() {
         let (sut, store) = makeSUT()
         
@@ -62,6 +66,18 @@ final class CacheTaskUseCaseTests: XCTestCase {
         store.completeSave(with: saveError)
 
         XCTAssertEqual(saveError, receivedError as NSError?)
+    }
+
+    func test_save_successfullyDoesNotDeliversError() {
+        let (sut, store) = makeSUT()
+        
+        var receivedError: Error?
+        sut.save(uniqueTask()) { error in
+            receivedError = error
+        }
+        store.completeSaveSuccessfully()
+
+        XCTAssertNil(receivedError)
     }
     
     // MARK: - Helpers
