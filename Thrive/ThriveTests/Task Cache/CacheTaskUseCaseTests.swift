@@ -113,25 +113,17 @@ final class CacheTaskUseCaseTests: XCTestCase {
         let (sut, store) = makeSUT()
         let deleteError = someNSError()
         
-        var receivedError: Error?
-        sut.delete(uniqueTask()) { error in
-            receivedError = error
+        expect(sut, onDeleteToCompleteWithError: deleteError) {
+            store.completeDelete(with: deleteError)
         }
-        store.completeDelete(with: deleteError)
-        
-        XCTAssertEqual(deleteError, receivedError as NSError?)
     }
     
     func test_delete_successfullyDoesNotDeliverError() {
         let (sut, store) = makeSUT()
         
-        var receivedError: Error?
-        sut.delete(uniqueTask()) { error in
-            receivedError = error
+        expect(sut, onDeleteToCompleteWithError: nil) {
+            store.completeDeleteSuccessfully()
         }
-        store.completeDeleteSuccessfully()
-        
-        XCTAssertNil(receivedError)
     }
     
     // MARK: - Helpers
@@ -143,6 +135,24 @@ final class CacheTaskUseCaseTests: XCTestCase {
         trackMemoryLeaks(store, file: file, line: line)
 
         return (sut, store)
+    }
+    
+    private func expect(_ sut: LocalTaskLoader,
+                        onDeleteToCompleteWithError expectedError: NSError?,
+                        action: () -> Void,
+                        file: StaticString = #filePath, line: UInt = #line) {
+        let exp = expectation(description: "Wait for completion")
+        
+        var receivedError: Error?
+        sut.delete(uniqueTask()) { error in
+            receivedError = error
+            exp.fulfill()
+        }
+        
+        action()
+        wait(for: [exp], timeout: 1.0)
+        
+        XCTAssertEqual(receivedError as NSError?, expectedError, file: file, line: line)
     }
     
     private func uniqueTask() -> Task {
