@@ -15,8 +15,10 @@ class LocalTaskLoader {
         self.store = store
     }
 
-    func save(_ item: Task) {
-        store.insert(item) { _ in }
+    func save(_ item: Task, completion: @escaping (Error?) -> Void) {
+        store.insert(item) { error in
+            completion(error)
+        }
     }
 }
 
@@ -34,6 +36,10 @@ class TaskStore {
         insertions.append(item)
         insertionCompletions.append(completion)
     }
+
+    func completeSave(with error: NSError, at index: Int = 0) {
+        insertionCompletions[index](error)
+    }
 }
 
 final class CacheTaskUseCaseTests: XCTestCase {
@@ -45,12 +51,17 @@ final class CacheTaskUseCaseTests: XCTestCase {
         XCTAssertEqual(store.insertions.count, 1)
     }
     
-    func test_save_doesNotDeleteStore() {
+    func test_save_deliversErrorOnAFailedSave() {
         let (sut, store) = makeSUT()
+        let saveError = someNSError()
 
-        sut.save(uniqueTask())
+        var receivedError: Error?
+        sut.save(uniqueTask()) { error in
+            receivedError = error
+        }
+        store.completeSave(with: saveError)
 
-        XCTAssertEqual(store.deleteStoreCallCount, 0)
+        XCTAssertEqual(saveError, receivedError as NSError?)
     }
     
     // MARK: - Helpers
