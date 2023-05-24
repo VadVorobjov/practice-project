@@ -20,6 +20,11 @@ class LocalTaskLoader {
             completion(error)
         }
     }
+
+    func delete(_ item: Task) {
+        store.delete(item) { _ in }
+    }
+    
 }
 
 class TaskStore {
@@ -30,6 +35,7 @@ class TaskStore {
     private var deletionCompletions = [DeletionCompletion]()
 
     var insertions = [Task]()
+    var deletions = [Task]()
         
     func insert(_ item: Task, completion: @escaping InsertionCompletion) {
         insertions.append(item)
@@ -42,6 +48,11 @@ class TaskStore {
 
     func completeSaveSuccessfully(at index: Int = 0) {
         insertionCompletions[index](nil)
+    }
+    
+    func delete(_ item: Task, completion: @escaping DeletionCompletion) {
+        deletions.append(item)
+        deletionCompletions.append(completion)
     }
 }
 
@@ -78,6 +89,14 @@ final class CacheTaskUseCaseTests: XCTestCase {
         store.completeSaveSuccessfully()
 
         XCTAssertNil(receivedError)
+    }
+    
+    func test_delete_requestsDeletion() {
+        let (sut, store) = makeSUT()
+        
+        sut.delete(uniqueTask())
+        
+        XCTAssertEqual(store.deletions.count, 1)
     }
     
     // MARK: - Helpers
