@@ -79,26 +79,18 @@ final class CacheTaskUseCaseTests: XCTestCase {
     func test_save_deliversErrorOnAFailedSave() {
         let (sut, store) = makeSUT()
         let saveError = someNSError()
-
-        var receivedError: Error?
-        sut.save(uniqueTask()) { error in
-            receivedError = error
+        
+        expect(sut, on: .save, completeWithError: saveError) {
+            store.completeSave(with: saveError)
         }
-        store.completeSave(with: saveError)
-
-        XCTAssertEqual(saveError, receivedError as NSError?)
     }
-
+    
     func test_save_successfullyDoesNotDeliverError() {
         let (sut, store) = makeSUT()
         
-        var receivedError: Error?
-        sut.save(uniqueTask()) { error in
-            receivedError = error
+        expect(sut, on: .save, completeWithError: nil) {
+            store.completeSaveSuccessfully()
         }
-        store.completeSaveSuccessfully()
-
-        XCTAssertNil(receivedError)
     }
     
     func test_delete_requestsDeletion() {
@@ -113,15 +105,15 @@ final class CacheTaskUseCaseTests: XCTestCase {
         let (sut, store) = makeSUT()
         let deleteError = someNSError()
         
-        expect(sut, onDeleteToCompleteWithError: deleteError) {
+        expect(sut, on: .delete, completeWithError: deleteError) {
             store.completeDelete(with: deleteError)
         }
     }
     
     func test_delete_successfullyDoesNotDeliverError() {
         let (sut, store) = makeSUT()
-        
-        expect(sut, onDeleteToCompleteWithError: nil) {
+                
+        expect(sut, on: .delete, completeWithError: nil) {
             store.completeDeleteSuccessfully()
         }
     }
@@ -137,22 +129,37 @@ final class CacheTaskUseCaseTests: XCTestCase {
         return (sut, store)
     }
     
+    private enum Action {
+        case save
+        case delete
+    }
+    
     private func expect(_ sut: LocalTaskLoader,
-                        onDeleteToCompleteWithError expectedError: NSError?,
+                        on actionType: Action,
+                        completeWithError expectedError: NSError?,
                         action: () -> Void,
                         file: StaticString = #filePath, line: UInt = #line) {
         let exp = expectation(description: "Wait for completion")
-        
         var receivedError: Error?
-        sut.delete(uniqueTask()) { error in
-            receivedError = error
-            exp.fulfill()
+        
+        switch actionType {
+        case .save:
+            sut.save(uniqueTask()) { error in
+                receivedError = error
+                exp.fulfill()
+            }
+            
+        case .delete:
+            sut.delete(uniqueTask()) { error in
+                receivedError = error
+                exp.fulfill()
+            }
         }
         
         action()
         wait(for: [exp], timeout: 1.0)
         
-        XCTAssertEqual(receivedError as NSError?, expectedError, file: file, line: line)
+        XCTAssertEqual(receivedError as NSError?, expectedError)
     }
     
     private func uniqueTask() -> Task {
