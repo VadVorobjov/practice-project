@@ -28,7 +28,6 @@ class TaskStore {
     private var deletionCompletions = [DeletionCompletion]()
 
     var insertions = [Task]()
-    var insertTaskCallCount = 0
     var deleteStoreCallCount = 0
         
     func insert(_ item: Task, completion: @escaping InsertionCompletion) {
@@ -38,11 +37,12 @@ class TaskStore {
 }
 
 final class CacheTaskUseCaseTests: XCTestCase {
-
-    func test_init_doesNotDeleteStoreUponCreation() {
-        let (_, store) = makeSUT()
+    func test_save_requestsInsertion() {
+        let (sut, store) = makeSUT()
         
-        XCTAssertEqual(store.deleteStoreCallCount, 0)
+        sut.save(uniqueTask()) { _ in }
+        
+        XCTAssertEqual(store.insertions.count, 1)
     }
     
     func test_save_doesNotDeleteStore() {
