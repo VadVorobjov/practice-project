@@ -60,6 +60,10 @@ class TaskStore {
     func completeDelete(with error: NSError, at index: Int = 0) {
         deletionCompletions[index](error)
     }
+    
+    func completeDeleteSuccessfully(at index: Int = 0) {
+        deletionCompletions[index](nil)
+    }
 }
 
 final class CacheTaskUseCaseTests: XCTestCase {
@@ -85,7 +89,7 @@ final class CacheTaskUseCaseTests: XCTestCase {
         XCTAssertEqual(saveError, receivedError as NSError?)
     }
 
-    func test_save_successfullyDoesNotDeliversError() {
+    func test_save_successfullyDoesNotDeliverError() {
         let (sut, store) = makeSUT()
         
         var receivedError: Error?
@@ -116,6 +120,18 @@ final class CacheTaskUseCaseTests: XCTestCase {
         store.completeDelete(with: deleteError)
         
         XCTAssertEqual(deleteError, receivedError as NSError?)
+    }
+    
+    func test_delete_successfullyDoesNotDeliverError() {
+        let (sut, store) = makeSUT()
+        
+        var receivedError: Error?
+        sut.delete(uniqueTask()) { error in
+            receivedError = error
+        }
+        store.completeDeleteSuccessfully()
+        
+        XCTAssertNil(receivedError)
     }
     
     // MARK: - Helpers
