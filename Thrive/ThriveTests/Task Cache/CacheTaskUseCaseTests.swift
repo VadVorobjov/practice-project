@@ -21,8 +21,10 @@ class LocalTaskLoader {
         }
     }
 
-    func delete(_ item: Task) {
-        store.delete(item) { _ in }
+    func delete(_ item: Task, completion: @escaping (Error?) -> Void) {
+        store.delete(item) { error in
+            completion(error)
+        }
     }
     
 }
@@ -53,6 +55,10 @@ class TaskStore {
     func delete(_ item: Task, completion: @escaping DeletionCompletion) {
         deletions.append(item)
         deletionCompletions.append(completion)
+    }
+    
+    func completeDelete(with error: NSError, at index: Int = 0) {
+        deletionCompletions[index](error)
     }
 }
 
@@ -94,9 +100,22 @@ final class CacheTaskUseCaseTests: XCTestCase {
     func test_delete_requestsDeletion() {
         let (sut, store) = makeSUT()
         
-        sut.delete(uniqueTask())
+        sut.delete(uniqueTask()) { _ in }
         
         XCTAssertEqual(store.deletions.count, 1)
+    }
+    
+    func test_delete_deliversErrorOnAFailedDelete() {
+        let (sut, store) = makeSUT()
+        let deleteError = someNSError()
+        
+        var receivedError: Error?
+        sut.delete(uniqueTask()) { error in
+            receivedError = error
+        }
+        store.completeDelete(with: deleteError)
+        
+        XCTAssertEqual(deleteError, receivedError as NSError?)
     }
     
     // MARK: - Helpers
