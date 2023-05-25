@@ -29,41 +29,12 @@ class LocalTaskLoader {
     
 }
 
-class TaskStore {
+protocol TaskStore {
     typealias InsertionCompletion = (Error?) -> Void
     typealias DeletionCompletion = (Error?) -> Void
 
-    private var insertionCompletions = [InsertionCompletion]()
-    private var deletionCompletions = [DeletionCompletion]()
-
-    var insertions = [Task]()
-    var deletions = [Task]()
-        
-    func insert(_ item: Task, completion: @escaping InsertionCompletion) {
-        insertions.append(item)
-        insertionCompletions.append(completion)
-    }
-
-    func completeSave(with error: NSError, at index: Int = 0) {
-        insertionCompletions[index](error)
-    }
-
-    func completeSaveSuccessfully(at index: Int = 0) {
-        insertionCompletions[index](nil)
-    }
-    
-    func delete(_ item: Task, completion: @escaping DeletionCompletion) {
-        deletions.append(item)
-        deletionCompletions.append(completion)
-    }
-    
-    func completeDelete(with error: NSError, at index: Int = 0) {
-        deletionCompletions[index](error)
-    }
-    
-    func completeDeleteSuccessfully(at index: Int = 0) {
-        deletionCompletions[index](nil)
-    }
+    func insert(_ item: Task, completion: @escaping InsertionCompletion)
+    func delete(_ item: Task, completion: @escaping DeletionCompletion)
 }
 
 final class CacheTaskUseCaseTests: XCTestCase {
@@ -120,8 +91,42 @@ final class CacheTaskUseCaseTests: XCTestCase {
     
     // MARK: - Helpers
     
-    private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (sut: LocalTaskLoader, store: TaskStore) {
-        let store = TaskStore()
+    class TaskStoreSpy: TaskStore {
+        private var insertionCompletions = [InsertionCompletion]()
+        private var deletionCompletions = [DeletionCompletion]()
+
+        var insertions = [Task]()
+        var deletions = [Task]()
+            
+        func insert(_ item: Task, completion: @escaping InsertionCompletion) {
+            insertions.append(item)
+            insertionCompletions.append(completion)
+        }
+
+        func completeSave(with error: NSError, at index: Int = 0) {
+            insertionCompletions[index](error)
+        }
+
+        func completeSaveSuccessfully(at index: Int = 0) {
+            insertionCompletions[index](nil)
+        }
+        
+        func delete(_ item: Task, completion: @escaping DeletionCompletion) {
+            deletions.append(item)
+            deletionCompletions.append(completion)
+        }
+        
+        func completeDelete(with error: NSError, at index: Int = 0) {
+            deletionCompletions[index](error)
+        }
+        
+        func completeDeleteSuccessfully(at index: Int = 0) {
+            deletionCompletions[index](nil)
+        }
+    }
+
+    private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (sut: LocalTaskLoader, store: TaskStoreSpy) {
+        let store = TaskStoreSpy()
         let sut = LocalTaskLoader(store: store)
         trackMemoryLeaks(store, file: file, line: line)
         trackMemoryLeaks(store, file: file, line: line)
