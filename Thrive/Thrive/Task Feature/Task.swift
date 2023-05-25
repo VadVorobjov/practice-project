@@ -7,7 +7,7 @@
 
 struct Task {
     let id: UUID
-       let name: String
-       let description: String?
-       let date: Date
+    let name: String
+    let description: String?
+    let date: Date
 }
