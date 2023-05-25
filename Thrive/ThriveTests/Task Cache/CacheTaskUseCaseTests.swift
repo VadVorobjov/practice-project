@@ -8,37 +8,6 @@
 import XCTest
 @testable import Thrive
 
-class LocalTaskLoader {
-    private let store: TaskStore
-    
-    init(store: TaskStore) {
-        self.store = store
-    }
-
-    func save(_ item: Task, completion: @escaping (Error?) -> Void) {
-        store.insert(item) { [weak self] error in
-            guard self != nil else { return }
-            completion(error)
-        }
-    }
-
-    func delete(_ item: Task, completion: @escaping (Error?) -> Void) {
-        store.delete(item) { [weak self] error in
-            guard self != nil else { return }
-            completion(error)
-        }
-    }
-    
-}
-
-protocol TaskStore {
-    typealias InsertionCompletion = (Error?) -> Void
-    typealias DeletionCompletion = (Error?) -> Void
-
-    func insert(_ item: Task, completion: @escaping InsertionCompletion)
-    func delete(_ item: Task, completion: @escaping DeletionCompletion)
-}
-
 final class CacheTaskUseCaseTests: XCTestCase {
     
     func test_save_requestsInsertion() {
