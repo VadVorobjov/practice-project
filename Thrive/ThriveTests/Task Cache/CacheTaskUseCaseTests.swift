@@ -93,28 +93,16 @@ final class CacheTaskUseCaseTests: XCTestCase {
     
     func test_save_doesNotDeliverSaveErrorAfterSUTInstanceHasBeenDeallocated() {
         let store = TaskStoreSpy()
-        var sut: LocalTaskLoader? = LocalTaskLoader(store: store)
-        
-        var receivedResults = [Error?]()
-        sut?.save(uniqueTask()) { receivedResults.append($0) }
-                  
-        sut = nil
-        store.completeSave(with: someNSError())
-        
-        XCTAssertTrue(receivedResults.isEmpty)
+        expectSUT(with: store, toDeliverNoErrorOn: .save) {
+            store.completeSave(with: someNSError())
+        }
     }
     
     func test_save_doesNotDeliverDeleteErrorAfterSUTInstanceHasBeenDeallocated() {
         let store = TaskStoreSpy()
-        var sut: LocalTaskLoader? = LocalTaskLoader(store: store)
-        
-        var receivedResults = [Error?]()
-        sut?.delete(uniqueTask()) { receivedResults.append($0) }
-                    
-        sut = nil
-        store.completeDelete(with: someNSError())
-        
-        XCTAssertTrue(receivedResults.isEmpty)
+        expectSUT(with: store, toDeliverNoErrorOn: .delete) {
+            store.completeDelete(with: someNSError())
+        }
     }
     
     // MARK: - Helpers
@@ -193,6 +181,24 @@ final class CacheTaskUseCaseTests: XCTestCase {
         wait(for: [exp], timeout: 1.0)
         
         XCTAssertEqual(receivedError as NSError?, expectedError)
+    }
+    
+    private func expectSUT(with store: TaskStoreSpy, toDeliverNoErrorOn actionType: Action, when action: () -> Void) {
+        var sut: LocalTaskLoader? = LocalTaskLoader(store: store)
+        var receivedResults = [Error?]()
+        
+        switch actionType {
+        case .save:
+            sut?.save(uniqueTask()) { receivedResults.append($0) }
+        case .delete:
+            sut?.delete(uniqueTask()) { receivedResults.append($0) }
+        }
+                          
+        sut = nil
+
+        action()
+        
+        XCTAssertTrue(receivedResults.isEmpty)
     }
     
     private func uniqueTask() -> Task {
