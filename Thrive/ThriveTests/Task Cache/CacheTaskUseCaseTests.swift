@@ -154,7 +154,7 @@ final class CacheTaskUseCaseTests: XCTestCase {
     
     private func expectSUT(with store: TaskStoreSpy, toDeliverNoErrorOn actionType: Action, when action: () -> Void) {
         var sut: LocalTaskLoader? = LocalTaskLoader(store: store)
-        var receivedResults = [Error?]()
+        var receivedResults = [LocalTaskLoader.Result]()
         
         switch actionType {
         case .save:
