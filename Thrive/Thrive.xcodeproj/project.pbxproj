@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		D22154282A1645CB0022CA75 /* Thrive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D221541F2A1645CB0022CA75 /* Thrive.framework */; };
-		D221542D2A1645CB0022CA75 /* ThriveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D221542C2A1645CB0022CA75 /* ThriveTests.swift */; };
 		D221542E2A1645CB0022CA75 /* Thrive.h in Headers */ = {isa = PBXBuildFile; fileRef = D22154222A1645CB0022CA75 /* Thrive.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D22154F52A1A5E720022CA75 /* CacheTaskUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22154F42A1A5E720022CA75 /* CacheTaskUseCaseTests.swift */; };
 		D22154F72A1A6EBD0022CA75 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22154F62A1A6EBD0022CA75 /* Task.swift */; };
@@ -32,7 +31,6 @@
 		D221541F2A1645CB0022CA75 /* Thrive.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Thrive.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D22154222A1645CB0022CA75 /* Thrive.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Thrive.h; sourceTree = "<group>"; };
 		D22154272A1645CB0022CA75 /* ThriveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThriveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D221542C2A1645CB0022CA75 /* ThriveTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThriveTests.swift; sourceTree = "<group>"; };
 		D22154F42A1A5E720022CA75 /* CacheTaskUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheTaskUseCaseTests.swift; sourceTree = "<group>"; };
 		D22154F62A1A6EBD0022CA75 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		D22154F92A1C971E0022CA75 /* XCTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
@@ -92,7 +90,6 @@
 			isa = PBXGroup;
 			children = (
 				D22154F32A1A5E4F0022CA75 /* Task Cache */,
-				D221542C2A1645CB0022CA75 /* ThriveTests.swift */,
 			);
 			path = ThriveTests;
 			sourceTree = "<group>";
@@ -253,7 +250,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D22154FC2A1C9C7F0022CA75 /* SharedTestHelpers.swift in Sources */,
-				D221542D2A1645CB0022CA75 /* ThriveTests.swift in Sources */,
 				D22154F52A1A5E720022CA75 /* CacheTaskUseCaseTests.swift in Sources */,
 				D22154FA2A1C971E0022CA75 /* XCTestCase+MemoryLeakTracking.swift in Sources */,
 			);
