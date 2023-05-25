@@ -16,13 +16,15 @@ class LocalTaskLoader {
     }
 
     func save(_ item: Task, completion: @escaping (Error?) -> Void) {
-        store.insert(item) { error in
+        store.insert(item) { [weak self] error in
+            guard self != nil else { return }
             completion(error)
         }
     }
 
     func delete(_ item: Task, completion: @escaping (Error?) -> Void) {
-        store.delete(item) { error in
+        store.delete(item) { [weak self] error in
+            guard self != nil else { return }
             completion(error)
         }
     }
@@ -87,6 +89,32 @@ final class CacheTaskUseCaseTests: XCTestCase {
         expect(sut, on: .delete, completeWithError: nil) {
             store.completeDeleteSuccessfully()
         }
+    }
+    
+    func test_save_doesNotDeliverSaveErrorAfterSUTInstanceHasBeenDeallocated() {
+        let store = TaskStoreSpy()
+        var sut: LocalTaskLoader? = LocalTaskLoader(store: store)
+        
+        var receivedResults = [Error?]()
+        sut?.save(uniqueTask()) { receivedResults.append($0) }
+                  
+        sut = nil
+        store.completeSave(with: someNSError())
+        
+        XCTAssertTrue(receivedResults.isEmpty)
+    }
+    
+    func test_save_doesNotDeliverDeleteErrorAfterSUTInstanceHasBeenDeallocated() {
+        let store = TaskStoreSpy()
+        var sut: LocalTaskLoader? = LocalTaskLoader(store: store)
+        
+        var receivedResults = [Error?]()
+        sut?.delete(uniqueTask()) { receivedResults.append($0) }
+                    
+        sut = nil
+        store.completeDelete(with: someNSError())
+        
+        XCTAssertTrue(receivedResults.isEmpty)
     }
     
     // MARK: - Helpers
