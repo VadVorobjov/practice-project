@@ -9,6 +9,13 @@ protocol TaskStore {
     typealias InsertionCompletion = (Error?) -> Void
     typealias DeletionCompletion = (Error?) -> Void
 
-    func insert(_ item: Task, completion: @escaping InsertionCompletion)
-    func delete(_ item: Task, completion: @escaping DeletionCompletion)
+    func insert(_ item: LocalTask, completion: @escaping InsertionCompletion)
+    func delete(_ item: LocalTask, completion: @escaping DeletionCompletion)
+}
+
+struct LocalTask {
+    let id: UUID
+    let name: String
+    let description: String?
+    let date: Date
 }

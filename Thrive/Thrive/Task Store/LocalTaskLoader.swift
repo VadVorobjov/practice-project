@@ -15,17 +15,25 @@ final class LocalTaskLoader {
     }
 
     func save(_ item: Task, completion: @escaping (Result) -> Void) {
-        store.insert(item) { [weak self] error in
+        store.insert(item.toLocal()) { [weak self] error in
             guard self != nil else { return }
             completion(error)
         }
     }
 
     func delete(_ item: Task, completion: @escaping (Result) -> Void) {
-        store.delete(item) { [weak self] error in
+        store.delete(item.toLocal()) { [weak self] error in
             guard self != nil else { return }
             completion(error)
         }
     }
-    
+}
+
+private extension Task {
+    func toLocal() -> LocalTask {
+        return LocalTask(id: self.id,
+                         name: self.name,
+                         description: self.description,
+                         date: self.date)
+    }
 }

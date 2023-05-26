@@ -80,10 +80,10 @@ final class TaskStoreUseCaseTests: XCTestCase {
         private var insertionCompletions = [InsertionCompletion]()
         private var deletionCompletions = [DeletionCompletion]()
 
-        var insertions = [Task]()
-        var deletions = [Task]()
+        var insertions = [LocalTask]()
+        var deletions = [LocalTask]()
             
-        func insert(_ item: Task, completion: @escaping InsertionCompletion) {
+        func insert(_ item: LocalTask, completion: @escaping InsertionCompletion) {
             insertions.append(item)
             insertionCompletions.append(completion)
         }
@@ -96,7 +96,7 @@ final class TaskStoreUseCaseTests: XCTestCase {
             insertionCompletions[index](nil)
         }
         
-        func delete(_ item: Task, completion: @escaping DeletionCompletion) {
+        func delete(_ item: LocalTask, completion: @escaping DeletionCompletion) {
             deletions.append(item)
             deletionCompletions.append(completion)
         }
