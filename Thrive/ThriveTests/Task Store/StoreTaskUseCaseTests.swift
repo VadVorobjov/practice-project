@@ -1,5 +1,5 @@
 //
-//  TaskStoreUseCaseTests.swift
+//  StoreTaskUseCaseTests.swift
 //  ThriveTests
 //
 //  Created by Vadims Vorobjovs on 21/05/2023.
@@ -8,7 +8,7 @@
 import XCTest
 @testable import Thrive
 
-final class TaskStoreUseCaseTests: XCTestCase {
+final class StoreTaskUseCaseTests: XCTestCase {
     
     func test_save_requestsInsertion() {
         let (sut, store) = makeSUT()
