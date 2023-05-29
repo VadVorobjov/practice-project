@@ -20,6 +20,10 @@ public final class LocalTaskLoader {
             completion(error)
         }
     }
+    
+    public func load() {
+        store.retrieve()
+    }
 
     func delete(_ item: Task, completion: @escaping (Result) -> Void) {
         store.delete(item.toLocal()) { [weak self] error in

@@ -11,6 +11,7 @@ public protocol TaskStore {
 
     func insert(_ item: LocalTask, completion: @escaping InsertionCompletion)
     func delete(_ item: LocalTask, completion: @escaping DeletionCompletion)
+    func retrieve()
 }
 
 public struct LocalTask: Equatable {

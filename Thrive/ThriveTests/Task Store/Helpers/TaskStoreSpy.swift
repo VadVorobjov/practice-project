@@ -14,6 +14,7 @@ class TaskStoreSpy: TaskStore {
     enum ReceivedMessage: Equatable  {
         case insert(LocalTask)
         case delete(LocalTask)
+        case retrieve
     }
     
     private(set) var receivedMessage: ReceivedMessage?
@@ -42,5 +43,9 @@ class TaskStoreSpy: TaskStore {
     
     func completeDeleteSuccessfully(at index: Int = 0) {
         deletionCompletions[index](nil)
+    }
+    
+    func retrieve() {
+        receivedMessage = .retrieve
     }
 }
