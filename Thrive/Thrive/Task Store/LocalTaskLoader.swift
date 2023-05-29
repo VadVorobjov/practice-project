@@ -6,7 +6,7 @@
 //
 
 public final class LocalTaskLoader {
-    typealias Result = Error?
+    public typealias Result = Error?
     
     private let store: TaskStore
     
@@ -21,8 +21,8 @@ public final class LocalTaskLoader {
         }
     }
     
-    public func load() {
-        store.retrieve()
+    public func load(completion: @escaping (Result) -> Void) {
+        store.retrieve(completion: completion)
     }
 
     func delete(_ item: Task, completion: @escaping (Result) -> Void) {

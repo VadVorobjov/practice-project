@@ -10,6 +10,7 @@ import Thrive
 class TaskStoreSpy: TaskStore {
     private var insertionCompletions = [InsertionCompletion]()
     private var deletionCompletions = [DeletionCompletion]()
+    private var retrievalCompletions = [RetrievalCompletion]()
     
     enum ReceivedMessage: Equatable  {
         case insert(LocalTask)
@@ -45,7 +46,12 @@ class TaskStoreSpy: TaskStore {
         deletionCompletions[index](nil)
     }
     
-    func retrieve() {
+    func retrieve(completion: @escaping RetrievalCompletion) {
         receivedMessage = .retrieve
+        retrievalCompletions.append(completion)
+    }
+    
+    func completeRetrieval(with error: Error, at index: Int = 0) {
+        retrievalCompletions[index](error)
     }
 }

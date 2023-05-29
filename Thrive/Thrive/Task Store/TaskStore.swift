@@ -8,10 +8,11 @@
 public protocol TaskStore {
     typealias InsertionCompletion = (Error?) -> Void
     typealias DeletionCompletion = (Error?) -> Void
+    typealias RetrievalCompletion = (Error?) -> Void
 
     func insert(_ item: LocalTask, completion: @escaping InsertionCompletion)
     func delete(_ item: LocalTask, completion: @escaping DeletionCompletion)
-    func retrieve()
+    func retrieve(completion: @escaping RetrievalCompletion)
 }
 
 public struct LocalTask: Equatable {
