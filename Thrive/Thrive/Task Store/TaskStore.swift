@@ -5,7 +5,7 @@
 //  Created by Vadims Vorobjovs on 25/05/2023.
 //
 
-protocol TaskStore {
+public protocol TaskStore {
     typealias InsertionCompletion = (Error?) -> Void
     typealias DeletionCompletion = (Error?) -> Void
 
@@ -13,7 +13,7 @@ protocol TaskStore {
     func delete(_ item: LocalTask, completion: @escaping DeletionCompletion)
 }
 
-struct LocalTask {
+public struct LocalTask {
     let id: UUID
     let name: String
     let description: String?

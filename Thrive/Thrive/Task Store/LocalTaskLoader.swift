@@ -5,12 +5,12 @@
 //  Created by Vadims Vorobjovs on 25/05/2023.
 //
 
-final class LocalTaskLoader {
+public final class LocalTaskLoader {
     typealias Result = Error?
     
     private let store: TaskStore
     
-    init(store: TaskStore) {
+    public init(store: TaskStore) {
         self.store = store
     }
 
