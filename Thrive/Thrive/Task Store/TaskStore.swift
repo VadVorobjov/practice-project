@@ -13,7 +13,7 @@ public protocol TaskStore {
     func delete(_ item: LocalTask, completion: @escaping DeletionCompletion)
 }
 
-public struct LocalTask {
+public struct LocalTask: Equatable {
     let id: UUID
     let name: String
     let description: String?

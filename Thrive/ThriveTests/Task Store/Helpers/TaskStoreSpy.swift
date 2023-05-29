@@ -11,11 +11,15 @@ class TaskStoreSpy: TaskStore {
     private var insertionCompletions = [InsertionCompletion]()
     private var deletionCompletions = [DeletionCompletion]()
     
-    var insertions = [LocalTask]()
-    var deletions = [LocalTask]()
+    enum ReceivedMessage: Equatable  {
+        case insert(LocalTask)
+        case delete(LocalTask)
+    }
+    
+    private(set) var receivedMessage: ReceivedMessage?
     
     func insert(_ item: LocalTask, completion: @escaping InsertionCompletion) {
-        insertions.append(item)
+        receivedMessage = .insert(item)
         insertionCompletions.append(completion)
     }
     
@@ -28,7 +32,7 @@ class TaskStoreSpy: TaskStore {
     }
     
     func delete(_ item: LocalTask, completion: @escaping DeletionCompletion) {
-        deletions.append(item)
+        receivedMessage = .delete(item)
         deletionCompletions.append(completion)
     }
     

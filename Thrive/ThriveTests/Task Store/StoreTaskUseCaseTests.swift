@@ -12,10 +12,11 @@ final class StoreTaskUseCaseTests: XCTestCase {
     
     func test_save_requestsInsertion() {
         let (sut, store) = makeSUT()
+        let item = uniqueTask()
         
-        sut.save(uniqueTask()) { _ in }
+        sut.save(item) { _ in }
         
-        XCTAssertEqual(store.insertions.count, 1)
+        XCTAssertEqual(store.receivedMessage, .insert(item.toLocal()))
     }
     
     func test_save_deliversErrorOnAFailedSave() {
@@ -37,10 +38,11 @@ final class StoreTaskUseCaseTests: XCTestCase {
     
     func test_delete_requestsDeletion() {
         let (sut, store) = makeSUT()
+        let item = uniqueTask()
         
-        sut.delete(uniqueTask()) { _ in }
+        sut.delete(item) { _ in }
         
-        XCTAssertEqual(store.deletions.count, 1)
+        XCTAssertEqual(store.receivedMessage, .delete(item.toLocal()))
     }
     
     func test_delete_deliversErrorOnAFailedDelete() {
@@ -141,5 +143,14 @@ final class StoreTaskUseCaseTests: XCTestCase {
                     name: "some name",
                     description: "some description",
                     date: Date.init())
-    }    
+    }
+}
+
+private extension Task {
+    func toLocal() -> LocalTask {
+        LocalTask(id: self.id,
+                  name: self.name,
+                  description: self.description,
+                  date: self.date)
+    }
 }
