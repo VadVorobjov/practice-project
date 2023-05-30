@@ -137,20 +137,4 @@ final class StoreTaskUseCaseTests: XCTestCase {
         
         XCTAssertTrue(receivedResults.isEmpty)
     }
-    
-    private func uniqueTask() -> Task {
-        return Task(id: UUID(),
-                    name: "some name",
-                    description: "some description",
-                    date: Date.init())
-    }
-}
-
-private extension Task {
-    func toLocal() -> LocalTask {
-        LocalTask(id: self.id,
-                  name: self.name,
-                  description: self.description,
-                  date: self.date)
-    }
 }

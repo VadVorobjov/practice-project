@@ -6,8 +6,15 @@
 //
 
 public struct Task {
-    let id: UUID
-    let name: String
-    let description: String?
-    let date: Date
+    public let id: UUID
+    public let name: String
+    public let description: String?
+    public let date: Date
+    
+    public init(id: UUID, name: String, description: String? = nil, date: Date) {
+        self.id = id
+        self.name = name
+        self.description = description
+        self.date = date
+    }
 }
