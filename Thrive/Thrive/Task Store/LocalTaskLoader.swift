@@ -5,8 +5,14 @@
 //  Created by Vadims Vorobjovs on 25/05/2023.
 //
 
+public enum LoadTaskResult {
+    case success([Task])
+    case failure(Error)
+}
+
 public final class LocalTaskLoader {
     public typealias Result = Error?
+    public typealias LoadResult = LoadTaskResult
     
     private let store: TaskStore
     
@@ -21,8 +27,12 @@ public final class LocalTaskLoader {
         }
     }
     
-    public func load(completion: @escaping (Result) -> Void) {
-        store.retrieve(completion: completion)
+    public func load(completion: @escaping (LoadResult) -> Void) {
+        return store.retrieve { error in
+            if let error = error  {
+                completion(.failure(error))
+            }
+        }
     }
 
     func delete(_ item: Task, completion: @escaping (Result) -> Void) {
