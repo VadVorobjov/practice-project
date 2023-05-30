@@ -55,7 +55,7 @@ class TaskStoreSpy: TaskStore {
         retrievalCompletions[index](error)
     }
     
-    func completeRetrievalSuccessfully(at index: Int = 0) {
+    func completeWithEmptyStore(at index: Int = 0) {
         retrievalCompletions[index](nil)
     }
 }
