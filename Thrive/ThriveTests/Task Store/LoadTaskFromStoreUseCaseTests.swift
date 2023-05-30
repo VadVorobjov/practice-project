@@ -40,6 +40,27 @@ final class LoadTaskFromStoreUseCaseTests: XCTestCase {
         XCTAssertEqual(receivedError as NSError?, retrievalError)
     }
     
+    func test_load_deliversNoTasksOnEmptyStore() {
+        let (sut, store) = makeSUT()
+        let exp = expectation(description: "Wait for load to complete")
+
+        var receivedTasks: [Task]?
+        sut.load { result in
+            switch result {
+            case let .success(tasks):
+                receivedTasks = tasks
+            default:
+                XCTFail("Expected success, got \(result) instead")
+            }
+            exp.fulfill()
+        }
+
+        store.completeWithEmptyStore()
+        wait(for: [exp], timeout: 1.0)
+
+        XCTAssertEqual(receivedTasks, [])
+    }
+    
     // MARK: - Helpers
     
     private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (sut: LocalTaskLoader, store: TaskStoreSpy) {

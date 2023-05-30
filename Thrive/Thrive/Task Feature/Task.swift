@@ -5,7 +5,7 @@
 //  Created by Vadims Vorobjovs on 21/05/2023.
 //
 
-public struct Task {
+public struct Task: Equatable {
     public let id: UUID
     public let name: String
     public let description: String?
