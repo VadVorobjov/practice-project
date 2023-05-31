@@ -5,10 +5,16 @@
 //  Created by Vadims Vorobjovs on 25/05/2023.
 //
 
+public enum RetrieveStoredTaskResult {
+    case empty
+    case found(tasks: [LocalTask])
+    case failure(Error)
+}
+
 public protocol TaskStore {
     typealias InsertionCompletion = (Error?) -> Void
     typealias DeletionCompletion = (Error?) -> Void
-    typealias RetrievalCompletion = (Error?) -> Void
+    typealias RetrievalCompletion = (RetrieveStoredTaskResult) -> Void
 
     func insert(_ item: LocalTask, completion: @escaping InsertionCompletion)
     func delete(_ item: LocalTask, completion: @escaping DeletionCompletion)

@@ -28,10 +28,19 @@ final class LoadTaskFromStoreUseCaseTests: XCTestCase {
     }
     
     func test_load_deliversNoTasksOnEmptyStore() {
-        let (sut,store) = makeSUT()
+        let (sut, store) = makeSUT()
         
         expect(sut, toCompleteWith: .success([])) {
             store.completeWithEmptyStore()
+        }
+    }
+    
+    func test_load_deliversTasksOnNoneEmptyStore() {
+        let (sut, store) = makeSUT()
+        let tasks = [uniqueTask(), uniqueTask()].toLocal()
+        
+        expect(sut, toCompleteWith: .success(tasks.toModel())) {
+            store.completeRetrieval(with: tasks)
         }
     }
     
@@ -46,7 +55,11 @@ final class LoadTaskFromStoreUseCaseTests: XCTestCase {
         return (sut, store)
     }
     
-    private func expect(_ sut: LocalTaskLoader, toCompleteWith expectedResult: LoadTaskResult, when action: () -> Void, file: StaticString = #filePath, line: UInt = #line) {
+    private func expect(_ sut: LocalTaskLoader,
+                        toCompleteWith expectedResult: LoadTaskResult,
+                        when action: () -> Void,
+                        file: StaticString = #filePath,
+                        line: UInt = #line) {
         let exp = expectation(description: "Wait for load to complete")
                 
         sut.load { receivedResult  in
@@ -66,5 +79,16 @@ final class LoadTaskFromStoreUseCaseTests: XCTestCase {
         
         action()
         wait(for: [exp], timeout: 1.0)
+    }
+}
+
+private extension Array where Element == Task {
+    func toLocal() -> [LocalTask] {
+        return map {
+            LocalTask(id: $0.id,
+                      name: $0.name,
+                      description: $0.description,
+                      date: $0.date)
+        }
     }
 }

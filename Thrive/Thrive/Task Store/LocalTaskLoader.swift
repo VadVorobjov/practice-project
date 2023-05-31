@@ -20,7 +20,7 @@ public final class LocalTaskLoader {
         self.store = store
     }
 
-    func save(_ item: Task, completion: @escaping (Result) -> Void) {
+    public func save(_ item: Task, completion: @escaping (Result) -> Void) {
         store.insert(item.toLocal()) { [weak self] error in
             guard self != nil else { return }
             completion(error)
@@ -28,16 +28,21 @@ public final class LocalTaskLoader {
     }
     
     public func load(completion: @escaping (LoadResult) -> Void) {
-        return store.retrieve { error in
-            if let error = error  {
+        return store.retrieve { result in
+            switch result {
+            case let .failure(error):
                 completion(.failure(error))
-            } else {
+
+            case let .found(tasks):
+                completion(.success(tasks.toModel()))
+
+            case .empty:
                 completion(.success([]))
             }
         }
     }
 
-    func delete(_ item: Task, completion: @escaping (Result) -> Void) {
+    public func delete(_ item: Task, completion: @escaping (Result) -> Void) {
         store.delete(item.toLocal()) { [weak self] error in
             guard self != nil else { return }
             completion(error)
@@ -51,5 +56,16 @@ private extension Task {
                          name: self.name,
                          description: self.description,
                          date: self.date)
+    }
+}
+
+extension Array where Element == LocalTask {
+    public func toModel() -> [Task] {
+        return map {
+            Task(id: $0.id,
+                 name: $0.name,
+                 description: $0.description,
+                 date: $0.date)
+        }
     }
 }
