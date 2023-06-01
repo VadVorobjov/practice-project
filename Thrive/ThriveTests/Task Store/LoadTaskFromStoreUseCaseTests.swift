@@ -44,6 +44,20 @@ final class LoadTaskFromStoreUseCaseTests: XCTestCase {
         }
     }
     
+    func test_load_doesNotDeliverResultAfterSUTInstanceHasBeenDeallocated() {
+        let store = TaskStoreSpy()
+        var sut: LocalTaskLoader? = LocalTaskLoader(store: store)
+        
+        var receivedResults = [LoadTaskResult]()
+        sut?.load { receivedResults.append($0) }
+        
+        sut = nil
+        
+        store.completeRetrieval(with: someNSError())
+        
+        XCTAssertTrue(receivedResults.isEmpty)
+    }
+    
     // MARK: - Helpers
     
     private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (sut: LocalTaskLoader, store: TaskStoreSpy) {

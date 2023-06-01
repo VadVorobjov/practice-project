@@ -28,7 +28,9 @@ public final class LocalTaskLoader {
     }
     
     public func load(completion: @escaping (LoadResult) -> Void) {
-        return store.retrieve { result in
+        return store.retrieve { [weak self] result in
+            guard let _ = self else { return }
+            
             switch result {
             case let .failure(error):
                 completion(.failure(error))
