@@ -21,7 +21,7 @@ public protocol TaskStore {
     func retrieve(completion: @escaping RetrievalCompletion)
 }
 
-public struct LocalTask: Equatable, Codable {
+public struct LocalTask: Equatable {
     public let id: UUID
     public let name: String
     public let description: String?

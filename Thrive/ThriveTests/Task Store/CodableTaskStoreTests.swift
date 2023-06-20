@@ -10,7 +10,29 @@ import Thrive
 
 class CodableTaskStore {
     private struct Store: Codable {
-        let tasks: [LocalTask]
+        let tasks: [CodableTask]
+        
+        var localTasks: [LocalTask] {
+            return tasks.map { $0.local}
+        }
+    }
+    
+    private struct CodableTask: Codable {
+        private let id: UUID
+        private let name: String
+        private let description: String?
+        private let date: Date
+        
+        init(_ task: LocalTask) {
+            id = task.id
+            name = task.name
+            description = task.description
+            date = task.date
+        }
+        
+        var local: LocalTask {
+            return LocalTask(id: id, name: name, description: description, date: date)
+        }
     }
     
     private let storeURL = FileManager.default.urls(
@@ -25,12 +47,13 @@ class CodableTaskStore {
         
         let decoder = JSONDecoder()
         let store = try! decoder.decode(Store.self, from: data)
-        completion(.found(tasks: store.tasks))
+        completion(.found(tasks: store.tasks.map { $0.local }))
     }
     
     func insert(_ item: LocalTask, completion: @escaping TaskStore.InsertionCompletion) {
         let encoder = JSONEncoder()
-        let encoded = try! encoder.encode(Store(tasks: [item]))
+        let store = Store(tasks: [item].map(CodableTask.init))
+        let encoded = try! encoder.encode(store)
         try! encoded.write(to: storeURL)
         completion(nil)
     }
