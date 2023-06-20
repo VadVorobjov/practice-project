@@ -35,10 +35,11 @@ class CodableTaskStore {
         }
     }
     
-    private let storeURL = FileManager.default.urls(
-        for: .documentDirectory,
-        in: .userDomainMask)
-        .first!.appendingPathComponent("tasks.store")
+    private let storeURL: URL
+    
+    init(storeURL: URL) {
+        self.storeURL = storeURL
+    }
     
     func retrieve(completion: @escaping TaskStore.RetrievalCompletion) {
         guard let data = try? Data(contentsOf: storeURL) else {
@@ -135,7 +136,11 @@ final class CodableTaskStoreTests: XCTestCase {
     // - MARK: Helpers
     
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> CodableTaskStore {
-        let sut = CodableTaskStore()
+        let storeURL = FileManager.default.urls(
+            for: .documentDirectory,
+            in: .userDomainMask)
+            .first!.appendingPathComponent("tasks.store")
+        let sut = CodableTaskStore(storeURL: storeURL)
         trackMemoryLeaks(sut, file: file, line: line)
         return sut
     }
