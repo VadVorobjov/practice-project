@@ -23,6 +23,10 @@ func uniqueTask() -> Task {
                 date: Date.init())
 }
 
+func uniqueTasks() -> [Task] {
+    return [uniqueTask(), uniqueTask()]
+}
+
 extension Task {
     func toLocal() -> LocalTask {
         LocalTask(id: self.id,
