@@ -65,13 +65,13 @@ final class CodableTaskStoreTests: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        try? FileManager.default.removeItem(at: storeURL())
+        try? FileManager.default.removeItem(at: testSpecificStoreURL())
     }
     
     override func tearDown() {
         super.tearDown()
         
-        try? FileManager.default.removeItem(at: storeURL())
+        try? FileManager.default.removeItem(at: testSpecificStoreURL())
     }
     
     func test_retrieve_deliversEmptyOnEmptyStore() {
@@ -141,15 +141,15 @@ final class CodableTaskStoreTests: XCTestCase {
     // - MARK: Helpers
     
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> CodableTaskStore {
-        let sut = CodableTaskStore(storeURL: storeURL())
+        let sut = CodableTaskStore(storeURL: testSpecificStoreURL())
         trackMemoryLeaks(sut, file: file, line: line)
         return sut
     }
     
-    private func storeURL() -> URL {
+    private func testSpecificStoreURL() -> URL {
         return FileManager.default.urls(
-            for: .documentDirectory,
+            for: .cachesDirectory,
             in: .userDomainMask)
-        .first!.appendingPathComponent("tasks.store")
+        .first!.appendingPathComponent("\(type(of: self)).store")
     }
 }
