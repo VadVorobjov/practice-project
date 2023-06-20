@@ -69,7 +69,7 @@ final class CodableTaskStoreTests: XCTestCase {
     }
     
     func test_retrieve_deliversEmptyOnEmptyStore() {
-        let sut = CodableTaskStore()
+        let sut = makeSUT()
         let exp = expectation(description: "Wait for retreival completion")
         
         sut.retrieve { result in
@@ -88,7 +88,7 @@ final class CodableTaskStoreTests: XCTestCase {
     }
     
     func test_retrieve_hasNoSideEffectsOnEmtpyStore() {
-        let sut = CodableTaskStore()
+        let sut = makeSUT()
         let exp = expectation(description: "Wait for retreival completion")
         
         sut.retrieve { firstResult in
@@ -109,7 +109,7 @@ final class CodableTaskStoreTests: XCTestCase {
     }
     
     func test_retrieveAfterInsertingToEmptyStore_deliversInsertedValue() {
-        let sut = CodableTaskStore()
+        let sut = makeSUT()
         let task = uniqueTask().toLocal()
         let exp = expectation(description: "Wait for store retrieval")
         
@@ -130,5 +130,11 @@ final class CodableTaskStoreTests: XCTestCase {
         }
         
         wait(for: [exp], timeout: 1.0)
+    }
+    
+    // - MARK: Helpers
+    
+    private func makeSUT() -> CodableTaskStore {
+        return CodableTaskStore()
     }
 }
