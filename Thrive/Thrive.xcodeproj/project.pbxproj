@@ -17,6 +17,7 @@
 		D22155012A1F898F0022CA75 /* TaskStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22155002A1F898F0022CA75 /* TaskStore.swift */; };
 		D221550B2A23929E0022CA75 /* LoadTaskFromStoreUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D221550A2A23929E0022CA75 /* LoadTaskFromStoreUseCaseTests.swift */; };
 		D221550D2A24DDE60022CA75 /* TaskStoreSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D221550C2A24DDE60022CA75 /* TaskStoreSpy.swift */; };
+		D23527582A40C8CF00273D0C /* CodableTaskStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23527572A40C8CF00273D0C /* CodableTaskStoreTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +42,7 @@
 		D22155002A1F898F0022CA75 /* TaskStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskStore.swift; sourceTree = "<group>"; };
 		D221550A2A23929E0022CA75 /* LoadTaskFromStoreUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadTaskFromStoreUseCaseTests.swift; sourceTree = "<group>"; };
 		D221550C2A24DDE60022CA75 /* TaskStoreSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskStoreSpy.swift; sourceTree = "<group>"; };
+		D23527572A40C8CF00273D0C /* CodableTaskStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableTaskStoreTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				D22154F82A1C96CE0022CA75 /* Helpers */,
 				D22154F42A1A5E720022CA75 /* StoreTaskUseCaseTests.swift */,
 				D221550A2A23929E0022CA75 /* LoadTaskFromStoreUseCaseTests.swift */,
+				D23527572A40C8CF00273D0C /* CodableTaskStoreTests.swift */,
 			);
 			path = "Task Store";
 			sourceTree = "<group>";
@@ -255,6 +258,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D23527582A40C8CF00273D0C /* CodableTaskStoreTests.swift in Sources */,
 				D221550B2A23929E0022CA75 /* LoadTaskFromStoreUseCaseTests.swift in Sources */,
 				D22154FC2A1C9C7F0022CA75 /* SharedTestHelpers.swift in Sources */,
 				D221550D2A24DDE60022CA75 /* TaskStoreSpy.swift in Sources */,
