@@ -127,12 +127,44 @@ final class CodableTaskStoreTests: XCTestCase {
                 case let .found(retrievedTasks):
                     XCTAssertTrue(retrievedTasks.contains(task))
                     XCTAssertEqual(retrievedTasks.count, 1)
+                    
                 default:
                     XCTFail("Expected result to contain \(task), got \(retrievedResult) instead")
                 }
                 
                 exp.fulfill()
             }
+        }
+        
+        wait(for: [exp], timeout: 1.0)
+    }
+    
+    func test_retrieve_hasNoSideEffectsOnNonEmptyCache() {
+        let sut = makeSUT()
+        let task = uniqueTask().toLocal()
+        let exp = expectation(description: "Wait for store retreival")
+        
+        sut.insert(task) { insertionError in
+            XCTAssertNil(insertionError, "Expected task to be inserted successfully")
+            
+            sut.retrieve { firstResult in
+                sut.retrieve { secondResult in
+                    switch (firstResult, secondResult) {
+                    case let (.found(firstFound), .found(secondFound)):
+                        XCTAssertEqual(firstFound.count, 1)
+                        XCTAssertTrue(firstFound.contains(task))
+
+                        XCTAssertEqual(secondFound.count, 1)
+                        XCTAssertTrue(secondFound.contains(task))
+
+                    default:
+                        XCTFail("Expected retrieving twice from non-empty store to deliver same found result with task \(task) contained, got \(firstResult) and \(secondResult) instead")
+                    }
+                    
+                    exp.fulfill()
+                }
+            }
+            
         }
         
         wait(for: [exp], timeout: 1.0)
