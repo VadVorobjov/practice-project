@@ -89,13 +89,8 @@ final class CodableTaskStoreTests: XCTestCase {
     func test_retrieveAfterInsertingToEmptyStore_deliversInsertedValue() {
         let sut = makeSUT()
         let task = uniqueTask().toLocal()
-        let exp = expectation(description: "Wait for store retrieval")
         
-        sut.insert(task) { insertionError  in
-            XCTAssertNil(insertionError, "Expected task to be inserted successfully")
-            exp.fulfill()
-        }
-        wait(for: [exp], timeout: 1.0)
+        insert(task, to: sut)
         
         expect(sut, toRetrieve: .found(tasks: [task]))
     }
@@ -103,13 +98,8 @@ final class CodableTaskStoreTests: XCTestCase {
     func test_retrieve_hasNoSideEffectsOnNonEmptyCache() {
         let sut = makeSUT()
         let task = uniqueTask().toLocal()
-        let exp = expectation(description: "Wait for store insertion")
         
-        sut.insert(task) { insertionError in
-            XCTAssertNil(insertionError, "Expected task to be inserted successfully")
-            exp.fulfill()
-        }
-        wait(for: [exp], timeout: 1.0)
+        insert(task, to: sut)
         
         expect(sut, toRetrieveTwice: .found(tasks: [task]))
     }
@@ -147,6 +137,16 @@ final class CodableTaskStoreTests: XCTestCase {
     private func expect(_ sut: CodableTaskStore, toRetrieveTwice expectedResult: RetrieveStoredTaskResult, file: StaticString = #file, line: UInt = #line) {
         expect(sut, toRetrieve: expectedResult)
         expect(sut, toRetrieve: expectedResult)
+    }
+    
+    private func insert(_ task: LocalTask, to sut: CodableTaskStore) {
+        let exp = expectation(description: "Wait for sto re insertion")
+        
+        sut.insert(task) { insertionError in
+            XCTAssertNil(insertionError, "Expected task to be inserted successfully")
+            exp.fulfill()
+        }
+        wait(for: [exp], timeout: 1.0)
     }
     
     private func testSpecificStoreURL() -> URL {
