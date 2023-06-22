@@ -82,23 +82,8 @@ final class CodableTaskStoreTests: XCTestCase {
     
     func test_retrieve_hasNoSideEffectsOnEmtpyStore() {
         let sut = makeSUT()
-        let exp = expectation(description: "Wait for retreival completion")
-        
-        sut.retrieve { firstResult in
-            sut.retrieve { secondResult in
-                switch (firstResult, secondResult) {
-                case (.empty, .empty):
-                    break
-                    
-                default:
-                    XCTFail("Expected retrieving twice from empty store to deliver same result, got \(firstResult) and \(secondResult) instead")
-                }
-                
-                exp.fulfill()
-            }
-        }
-        
-        wait(for: [exp], timeout: 1.0)
+
+        expect(sut, toRetrieveTwice: .empty)
     }
     
     func test_retrieveAfterInsertingToEmptyStore_deliversInsertedValue() {
@@ -118,32 +103,15 @@ final class CodableTaskStoreTests: XCTestCase {
     func test_retrieve_hasNoSideEffectsOnNonEmptyCache() {
         let sut = makeSUT()
         let task = uniqueTask().toLocal()
-        let exp = expectation(description: "Wait for store retreival")
+        let exp = expectation(description: "Wait for store insertion")
         
         sut.insert(task) { insertionError in
             XCTAssertNil(insertionError, "Expected task to be inserted successfully")
-            
-            sut.retrieve { firstResult in
-                sut.retrieve { secondResult in
-                    switch (firstResult, secondResult) {
-                    case let (.found(firstFound), .found(secondFound)):
-                        XCTAssertEqual(firstFound.count, 1)
-                        XCTAssertTrue(firstFound.contains(task))
-
-                        XCTAssertEqual(secondFound.count, 1)
-                        XCTAssertTrue(secondFound.contains(task))
-
-                    default:
-                        XCTFail("Expected retrieving twice from non-empty store to deliver same found result with task \(task) contained, got \(firstResult) and \(secondResult) instead")
-                    }
-                    
-                    exp.fulfill()
-                }
-            }
-            
+            exp.fulfill()
         }
-        
         wait(for: [exp], timeout: 1.0)
+        
+        expect(sut, toRetrieveTwice: .found(tasks: [task]))
     }
     
     // - MARK: Helpers
@@ -174,6 +142,11 @@ final class CodableTaskStoreTests: XCTestCase {
         }
         
         wait(for: [exp], timeout: 1.0)
+    }
+    
+    private func expect(_ sut: CodableTaskStore, toRetrieveTwice expectedResult: RetrieveStoredTaskResult, file: StaticString = #file, line: UInt = #line) {
+        expect(sut, toRetrieve: expectedResult)
+        expect(sut, toRetrieve: expectedResult)
     }
     
     private func testSpecificStoreURL() -> URL {
