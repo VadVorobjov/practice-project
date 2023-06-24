@@ -86,7 +86,7 @@ final class CodableTaskStoreTests: XCTestCase {
         expect(sut, toRetrieveTwice: .empty)
     }
     
-    func test_retrieveAfterInsertingToEmptyStore_deliversInsertedValue() {
+    func test_retrieve_deliversFoundValuesOnNoneEmptyStore() {
         let sut = makeSUT()
         let task = uniqueTask().toLocal()
         
