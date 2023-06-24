@@ -47,8 +47,12 @@ class CodableTaskStore {
         }
         
         let decoder = JSONDecoder()
-        let store = try! decoder.decode(Store.self, from: data)
-        completion(.found(tasks: store.tasks.map { $0.local }))
+        do {
+            let store = try decoder.decode(Store.self, from: data)
+            completion(.found(tasks: store.tasks.map { $0.local }))
+        } catch {
+            completion(.failure(error))
+        }
     }
     
     func insert(_ item: LocalTask, completion: @escaping TaskStore.InsertionCompletion) {
@@ -104,6 +108,14 @@ final class CodableTaskStoreTests: XCTestCase {
         expect(sut, toRetrieveTwice: .found(tasks: [task]))
     }
     
+    func test_retrieve_deliversFailureOnRetrievalError() {
+        let sut = makeSUT()
+        
+        try! "invalid data".write(to: testSpecificStoreURL(), atomically: false, encoding: .utf8)
+        
+        expect(sut, toRetrieve: .failure(someNSError()))
+    }
+    
     // - MARK: Helpers
     
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> CodableTaskStore {
@@ -117,7 +129,7 @@ final class CodableTaskStoreTests: XCTestCase {
         
         sut.retrieve { retrievedResult in
             switch (expectedResult, retrievedResult) {
-            case (.empty, .empty):
+            case (.empty, .empty), (.failure, .failure):
                 break
                 
             case let (.found(expected), .found(retrieved)):
@@ -125,7 +137,6 @@ final class CodableTaskStoreTests: XCTestCase {
                 
             default:
                 XCTFail("Expected to retrieve \(expectedResult), got \(retrievedResult) instead", file: file, line: line)
-                
             }
 
             exp.fulfill()
