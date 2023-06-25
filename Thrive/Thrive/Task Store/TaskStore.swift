@@ -7,7 +7,7 @@
 
 public enum RetrieveStoredTaskResult {
     case empty
-    case found(tasks: [LocalTask])
+    case found(items: [LocalTask])
     case failure(Error)
 }
 

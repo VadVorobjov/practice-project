@@ -49,7 +49,7 @@ class CodableTaskStore {
         let decoder = JSONDecoder()
         do {
             let store = try decoder.decode(Store.self, from: data)
-            completion(.found(tasks: store.tasks.map { $0.local }))
+            completion(.found(items: store.tasks.map { $0.local }))
         } catch {
             completion(.failure(error))
         }
@@ -96,7 +96,7 @@ final class CodableTaskStoreTests: XCTestCase {
         
         insert(task, to: sut)
         
-        expect(sut, toRetrieve: .found(tasks: [task]))
+        expect(sut, toRetrieve: .found(items: [task]))
     }
     
     func test_retrieve_hasNoSideEffectsOnNonEmptyCache() {
@@ -105,7 +105,7 @@ final class CodableTaskStoreTests: XCTestCase {
         
         insert(task, to: sut)
         
-        expect(sut, toRetrieveTwice: .found(tasks: [task]))
+        expect(sut, toRetrieveTwice: .found(items: [task]))
     }
     
     func test_retrieve_deliversFailureOnRetrievalError() {
