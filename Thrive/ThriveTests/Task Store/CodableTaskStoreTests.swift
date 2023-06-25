@@ -72,11 +72,15 @@ class CodableTaskStore {
     }
     
     private func write(items: [LocalTask], completion: @escaping TaskStore.InsertionCompletion) {
-        let encoder = JSONEncoder()
-        let store = Store(tasks: items.map(CodableTask.init))
-        let encoded = try! encoder.encode(store)
-        try! encoded.write(to: storeURL)
-        completion(nil)
+        do {
+            let encoder = JSONEncoder()
+            let store = Store(tasks: items.map(CodableTask.init))
+            let encoded = try encoder.encode(store)
+            try encoded.write(to: storeURL)
+            completion(nil)
+        } catch {
+            completion(error)
+        }
     }
 }
 
@@ -160,6 +164,16 @@ final class CodableTaskStoreTests: XCTestCase {
         expect(sut, toRetrieve: .found(items: [firstTask, secondTask]))
     }
     
+    func test_insert_deliversErrorOnInsertionError() {
+        let invalidStoreURL = URL(string: "invalid://store-url")
+        let sut = makeSUT(storeURL: invalidStoreURL)
+        let task = uniqueTask().toLocal()
+        
+        let insertionError = insert(task, to: sut)
+        
+        XCTAssertNotNil(insertionError, "Expected store insertion to fail with an error")
+    }
+    
     // - MARK: Helpers
     
     private func makeSUT(storeURL: URL? = nil, file: StaticString = #file, line: UInt = #line) -> CodableTaskStore {
@@ -196,7 +210,7 @@ final class CodableTaskStoreTests: XCTestCase {
     
     @discardableResult
     private func insert(_ task: LocalTask, to sut: CodableTaskStore) -> Error? {
-        let exp = expectation(description: "Wait for sto re insertion")
+        let exp = expectation(description: "Wait for store insertion")
         var insertionError: Error?
         
         sut.insert(task) { receivedInsertionError in
