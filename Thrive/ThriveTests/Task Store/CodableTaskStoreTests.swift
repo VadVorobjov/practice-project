@@ -42,7 +42,25 @@ class CodableTaskStore {
     }
     
     func delete(_ item: LocalTask, completion: @escaping TaskStore.DeletionCompletion) {
-        completion(nil)
+        retrieve { result in
+            switch result {
+            case var .found(items: items):
+                items.removeAll { $0.id == item.id }
+
+                guard items.count > 0 else {
+                    try! FileManager.default.removeItem(at: self.storeURL)
+                    return completion(nil)
+                }
+                
+                self.write(items: items, completion: completion)
+                
+            case .empty:
+                completion(nil)
+                
+            case .failure:
+                completion(nil)
+            }
+        }
     }
     
     func retrieve(completion: @escaping TaskStore.RetrievalCompletion) {
@@ -50,9 +68,14 @@ class CodableTaskStore {
             return completion(.empty)
         }
         
-        let decoder = JSONDecoder()
         do {
+            let decoder = JSONDecoder()
             let store = try decoder.decode(Store.self, from: data)
+            
+            guard store.tasks.count > 0 else {
+                return completion(.empty)
+            }
+             
             completion(.found(items: store.tasks.map { $0.local }))
         } catch {
             completion(.failure(error))
@@ -185,6 +208,38 @@ final class CodableTaskStoreTests: XCTestCase {
         
         sut.delete(task) { deletionError in
             XCTAssertNil(deletionError, "Expected to empty store successfully")
+            exp.fulfill()
+        }
+        wait(for: [exp], timeout: 1.0)
+        
+        expect(sut, toRetrieve: .empty)
+    }
+    
+    func test_delete_onNonEmptyStoreDeletesProvidedTask() {
+        let storeURL = testSpecificStoreURL()
+        let sut = makeSUT(storeURL: storeURL)
+        let firstTask = uniqueTask().toLocal()
+        let secondTask = uniqueTask().toLocal()
+        
+        insert(firstTask, to: sut)
+        insert(secondTask, to: sut)
+        
+        let exp = expectation(description: "Wait for delete to complete")
+        sut.delete(firstTask) { error in
+            XCTAssertNil(error)
+            exp.fulfill()
+        }
+        wait(for: [exp], timeout: 1.0)
+        
+        expect(sut, toRetrieve: .found(items: [secondTask]))
+    }
+        let task = uniqueTask().toLocal()
+        
+        insert(task, to: sut)
+        
+        let exp = expectation(description: "Wait for delete to finish")
+        sut.delete(task) { error in
+            XCTAssertNil(error)
             exp.fulfill()
         }
         wait(for: [exp], timeout: 1.0)
