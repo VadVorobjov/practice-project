@@ -41,6 +41,10 @@ class CodableTaskStore {
         self.storeURL = storeURL
     }
     
+    func delete(_ item: LocalTask, completion: @escaping TaskStore.DeletionCompletion) {
+        completion(nil)
+    }
+    
     func retrieve(completion: @escaping TaskStore.RetrievalCompletion) {
         guard let data = try? Data(contentsOf: storeURL) else {
             return completion(.empty)
@@ -172,6 +176,20 @@ final class CodableTaskStoreTests: XCTestCase {
         let insertionError = insert(task, to: sut)
         
         XCTAssertNotNil(insertionError, "Expected store insertion to fail with an error")
+    }
+    
+    func test_delete_hasNoSideEffectsOnEmptyStore() {
+        let sut = makeSUT()
+        let task = uniqueTask().toLocal()
+        let exp = expectation(description: "Wait for delete to finish")
+        
+        sut.delete(task) { deletionError in
+            XCTAssertNil(deletionError, "Expected to empty store successfully")
+            exp.fulfill()
+        }
+        wait(for: [exp], timeout: 1.0)
+        
+        expect(sut, toRetrieve: .empty)
     }
     
     // - MARK: Helpers
