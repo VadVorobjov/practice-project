@@ -125,6 +125,19 @@ final class CodableTaskStoreTests: XCTestCase {
         
         expect(sut, toRetrieve: .found(items: [secondTask]))
     }
+    
+    func test_delete_alsoRemovesStoreFileAfterDeletingLastStoredTask() {
+        let storeURL = testSpecificStoreURL()
+        let sut = makeSUT(storeURL: storeURL)
+        let task = uniqueTask().toLocal()
+        
+        insert(task, to: sut)
+        delete(task, from: sut)
+        
+        let fileExists = FileManager.default.fileExists(atPath: storeURL.path())
+        
+        XCTAssertFalse(fileExists, "Expected to remove store file after deleting last stored task")
+    }
 
     func test_delete_deliversErrorOnRetrievalFailure() {
         let storeURL = testSpecificStoreURL()
