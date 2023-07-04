@@ -8,7 +8,7 @@
 import XCTest
 import Thrive
 
-class CodableTaskStore {
+class CodableTaskStore: TaskStore {
     private struct Store: Codable {
         let tasks: [CodableTask]
         
@@ -41,7 +41,7 @@ class CodableTaskStore {
         self.storeURL = storeURL
     }
     
-    func delete(_ item: LocalTask, completion: @escaping TaskStore.DeletionCompletion) {
+    func delete(_ item: LocalTask, completion: @escaping DeletionCompletion) {
         retrieve { result in
             switch result {
             case var .found(items: items):
@@ -62,7 +62,7 @@ class CodableTaskStore {
         }
     }
     
-    func retrieve(completion: @escaping TaskStore.RetrievalCompletion) {
+    func retrieve(completion: @escaping RetrievalCompletion) {
         guard let data = try? Data(contentsOf: storeURL) else {
             return completion(.empty)
         }
@@ -81,7 +81,7 @@ class CodableTaskStore {
         }
     }
     
-    func insert(_ item: LocalTask, completion: @escaping TaskStore.InsertionCompletion) {
+    func insert(_ item: LocalTask, completion: @escaping InsertionCompletion) {
         retrieve { [weak self] result in
             switch result {
             case var .found(items: items):
@@ -251,13 +251,13 @@ final class CodableTaskStoreTests: XCTestCase {
     
     // - MARK: Helpers
     
-    private func makeSUT(storeURL: URL? = nil, file: StaticString = #file, line: UInt = #line) -> CodableTaskStore {
+    private func makeSUT(storeURL: URL? = nil, file: StaticString = #file, line: UInt = #line) -> TaskStore {
         let sut = CodableTaskStore(storeURL: storeURL ?? testSpecificStoreURL())
         trackMemoryLeaks(sut, file: file, line: line)
         return sut
     }
     
-    private func expect(_ sut: CodableTaskStore, toRetrieve expectedResult: RetrieveStoredTaskResult, file: StaticString = #file, line: UInt = #line) {
+    private func expect(_ sut: TaskStore, toRetrieve expectedResult: RetrieveStoredTaskResult, file: StaticString = #file, line: UInt = #line) {
         let exp = expectation(description: "Wait for store retreival")
         
         sut.retrieve { retrievedResult in
@@ -278,13 +278,13 @@ final class CodableTaskStoreTests: XCTestCase {
         wait(for: [exp], timeout: 1.0)
     }
     
-    private func expect(_ sut: CodableTaskStore, toRetrieveTwice expectedResult: RetrieveStoredTaskResult, file: StaticString = #file, line: UInt = #line) {
+    private func expect(_ sut: TaskStore, toRetrieveTwice expectedResult: RetrieveStoredTaskResult, file: StaticString = #file, line: UInt = #line) {
         expect(sut, toRetrieve: expectedResult)
         expect(sut, toRetrieve: expectedResult)
     }
     
     @discardableResult
-    private func insert(_ task: LocalTask, to sut: CodableTaskStore) -> Error? {
+    private func insert(_ task: LocalTask, to sut: TaskStore) -> Error? {
         let exp = expectation(description: "Wait for store insertion")
         var insertionError: Error?
         
@@ -298,7 +298,7 @@ final class CodableTaskStoreTests: XCTestCase {
     }
     
     @discardableResult
-    private func delete(_ task: LocalTask, from sut: CodableTaskStore) -> Error? {
+    private func delete(_ task: LocalTask, from sut: TaskStore) -> Error? {
         let exp = expectation(description: "Wait for delete to complete")
         var deletionError: Error?
         
