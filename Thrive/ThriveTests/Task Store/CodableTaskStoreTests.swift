@@ -46,13 +46,12 @@ class CodableTaskStore {
             switch result {
             case var .found(items: items):
                 items.removeAll { $0.id == item.id }
-
-                guard items.count > 0 else {
-                    try! FileManager.default.removeItem(at: self.storeURL)
-                    return completion(nil)
-                }
                 
-                self.write(items: items, completion: completion)
+                if items.isEmpty {
+                    self.removeItem(at: self.storeURL, completion: completion)
+                } else {
+                    self.write(items: items, completion: completion)
+                }
                 
             case .empty:
                 completion(nil)
@@ -107,6 +106,15 @@ class CodableTaskStore {
             completion(nil)
         } catch {
             completion(error)
+        }
+    }
+    
+    private func removeItem(at url: URL, completion: @escaping TaskStore.DeletionCompletion)  {
+        do {
+            try FileManager.default.removeItem(at: self.storeURL)
+            return completion(nil)
+        } catch {
+            return completion(error)
         }
     }
 }
