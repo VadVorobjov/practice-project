@@ -57,8 +57,8 @@ class CodableTaskStore {
             case .empty:
                 completion(nil)
                 
-            case .failure:
-                completion(nil)
+            case let .failure(error):
+                completion(error)
             }
         }
     }
@@ -233,18 +233,23 @@ final class CodableTaskStoreTests: XCTestCase {
         
         expect(sut, toRetrieve: .found(items: [secondTask]))
     }
+
+    func test_delete_deliversErrorOnRetrievalFailure() {
+        let storeURL = testSpecificStoreURL()
         let task = uniqueTask().toLocal()
+        let sut = makeSUT(storeURL: storeURL)
+        var deletionError: Error?
         
-        insert(task, to: sut)
+        try! "invalid data".write(to: storeURL, atomically: false, encoding: .utf8)
         
         let exp = expectation(description: "Wait for delete to finish")
-        sut.delete(task) { error in
-            XCTAssertNil(error)
+        sut.delete(task) { receivedDeletionError in
+            deletionError = receivedDeletionError
             exp.fulfill()
         }
         wait(for: [exp], timeout: 1.0)
         
-        expect(sut, toRetrieve: .empty)
+        XCTAssertNotNil(deletionError, "Expected deletion to deliver an error")
     }
     
     // - MARK: Helpers
