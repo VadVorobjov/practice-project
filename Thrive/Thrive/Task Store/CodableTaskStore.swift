@@ -44,11 +44,11 @@ public class CodableTaskStore: TaskStore {
             case var .found(items: items):
                 items.removeAll { $0.id == item.id }
                 
-                if items.isEmpty {
-                    self.removeItem(at: self.storeURL, completion: completion)
-                } else {
-                    self.write(items: items, completion: completion)
+                guard !items.isEmpty else {
+                    return self.removeItem(at: self.storeURL, completion: completion)
                 }
+                
+                self.write(items: items, completion: completion)
                 
             case .empty:
                 completion(nil)
@@ -109,9 +109,9 @@ public class CodableTaskStore: TaskStore {
     private func removeItem(at url: URL, completion: @escaping TaskStore.DeletionCompletion)  {
         do {
             try FileManager.default.removeItem(at: self.storeURL)
-            return completion(nil)
+            completion(nil)
         } catch {
-            return completion(error)
+            completion(error)
         }
     }
 }
