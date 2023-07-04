@@ -224,12 +224,7 @@ final class CodableTaskStoreTests: XCTestCase {
         insert(firstTask, to: sut)
         insert(secondTask, to: sut)
         
-        let exp = expectation(description: "Wait for delete to complete")
-        sut.delete(firstTask) { error in
-            XCTAssertNil(error)
-            exp.fulfill()
-        }
-        wait(for: [exp], timeout: 1.0)
+        delete(firstTask, from: sut)
         
         expect(sut, toRetrieve: .found(items: [secondTask]))
     }
@@ -238,16 +233,10 @@ final class CodableTaskStoreTests: XCTestCase {
         let storeURL = testSpecificStoreURL()
         let task = uniqueTask().toLocal()
         let sut = makeSUT(storeURL: storeURL)
-        var deletionError: Error?
         
         try! "invalid data".write(to: storeURL, atomically: false, encoding: .utf8)
         
-        let exp = expectation(description: "Wait for delete to finish")
-        sut.delete(task) { receivedDeletionError in
-            deletionError = receivedDeletionError
-            exp.fulfill()
-        }
-        wait(for: [exp], timeout: 1.0)
+        let deletionError = delete(task, from: sut)
         
         XCTAssertNotNil(deletionError, "Expected deletion to deliver an error")
     }
@@ -298,6 +287,20 @@ final class CodableTaskStoreTests: XCTestCase {
         wait(for: [exp], timeout: 1.0)
         
         return insertionError
+    }
+    
+    @discardableResult
+    private func delete(_ task: LocalTask, from sut: CodableTaskStore) -> Error? {
+        let exp = expectation(description: "Wait for delete to complete")
+        var deletionError: Error?
+        
+        sut.delete(task) { receivedDeletionError in
+            deletionError = receivedDeletionError
+            exp.fulfill()
+        }
+        wait(for: [exp], timeout: 1.0)
+        
+        return deletionError
     }
     
     private func testSpecificStoreURL() -> URL {
