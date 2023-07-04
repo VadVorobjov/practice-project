@@ -18,6 +18,7 @@
 		D221550B2A23929E0022CA75 /* LoadTaskFromStoreUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D221550A2A23929E0022CA75 /* LoadTaskFromStoreUseCaseTests.swift */; };
 		D221550D2A24DDE60022CA75 /* TaskStoreSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D221550C2A24DDE60022CA75 /* TaskStoreSpy.swift */; };
 		D23527582A40C8CF00273D0C /* CodableTaskStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23527572A40C8CF00273D0C /* CodableTaskStoreTests.swift */; };
+		D28B55282A5474F900E932AA /* CodableTaskStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28B55272A5474F900E932AA /* CodableTaskStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,7 @@
 		D221550A2A23929E0022CA75 /* LoadTaskFromStoreUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadTaskFromStoreUseCaseTests.swift; sourceTree = "<group>"; };
 		D221550C2A24DDE60022CA75 /* TaskStoreSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskStoreSpy.swift; sourceTree = "<group>"; };
 		D23527572A40C8CF00273D0C /* CodableTaskStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableTaskStoreTests.swift; sourceTree = "<group>"; };
+		D28B55272A5474F900E932AA /* CodableTaskStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableTaskStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 			children = (
 				D22154FE2A1F84B90022CA75 /* LocalTaskLoader.swift */,
 				D22155002A1F898F0022CA75 /* TaskStore.swift */,
+				D28B55272A5474F900E932AA /* CodableTaskStore.swift */,
 			);
 			path = "Task Store";
 			sourceTree = "<group>";
@@ -251,6 +254,7 @@
 				D22154F72A1A6EBD0022CA75 /* Task.swift in Sources */,
 				D22154FF2A1F84B90022CA75 /* LocalTaskLoader.swift in Sources */,
 				D22155012A1F898F0022CA75 /* TaskStore.swift in Sources */,
+				D28B55282A5474F900E932AA /* CodableTaskStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
