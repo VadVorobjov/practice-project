@@ -10,7 +10,7 @@ public class CodableTaskStore: TaskStore {
         let tasks: [CodableTask]
         
         var localTasks: [LocalTask] {
-            return tasks.map { $0.local}
+            return tasks.map { $0.local }
         }
     }
     
@@ -32,6 +32,7 @@ public class CodableTaskStore: TaskStore {
         }
     }
     
+    private let queue = DispatchQueue(label: "\(CodableTaskStore.self)Queue", qos: .userInitiated)
     private let storeURL: URL
     
     public init(storeURL: URL) {
@@ -39,57 +40,63 @@ public class CodableTaskStore: TaskStore {
     }
     
     public func delete(_ item: LocalTask, completion: @escaping DeletionCompletion) {
-        retrieve { result in
-            switch result {
-            case var .found(items: items):
-                items.removeAll { $0.id == item.id }
-                
-                guard !items.isEmpty else {
-                    return self.removeItem(at: self.storeURL, completion: completion)
+        queue.async { [unowned self] in
+            retrieve { result in
+                switch result {
+                case var .found(items: items):
+                    items.removeAll { $0.id == item.id }
+                    
+                    guard !items.isEmpty else {
+                        return self.removeItem(at: self.storeURL, completion: completion)
+                    }
+                    
+                    self.write(items: items, completion: completion)
+                    
+                case .empty:
+                    completion(nil)
+                    
+                case let .failure(error):
+                    completion(error)
                 }
-                
-                self.write(items: items, completion: completion)
-                
-            case .empty:
-                completion(nil)
-                
-            case let .failure(error):
-                completion(error)
             }
         }
     }
     
     public func retrieve(completion: @escaping RetrievalCompletion) {
-        guard let data = try? Data(contentsOf: storeURL) else {
-            return completion(.empty)
-        }
-        
-        do {
-            let decoder = JSONDecoder()
-            let store = try decoder.decode(Store.self, from: data)
-            
-            guard store.tasks.count > 0 else {
+        queue.async { [storeURL] in
+            guard let data = try? Data(contentsOf: storeURL) else {
                 return completion(.empty)
             }
-             
-            completion(.found(items: store.tasks.map { $0.local }))
-        } catch {
-            completion(.failure(error))
+            
+            do {
+                let decoder = JSONDecoder()
+                let store = try decoder.decode(Store.self, from: data)
+                
+                guard store.tasks.count > 0 else {
+                    return completion(.empty)
+                }
+                
+                completion(.found(items: store.tasks.map { $0.local }))
+            } catch {
+                completion(.failure(error))
+            }
         }
     }
     
     public func insert(_ item: LocalTask, completion: @escaping InsertionCompletion) {
-        retrieve { [weak self] result in
-            switch result {
-            case var .found(items: items):
-                items.append(item)
-                self?.write(items: items, completion: completion)
-                
-            case .empty:
-                self?.write(items: [item], completion: completion)
-                
-            case let .failure(error):
-                completion(error)
+        queue.async { [unowned self] in
+            self.retrieve { result in
+                switch result {
+                case var .found(items: items):
+                    items.append(item)
+                    self.write(items: items, completion: completion)
+                    
+                case .empty:
+                    self.write(items: [item], completion: completion)
+                    
+                case let .failure(error):
+                    completion(error)
+                }
             }
         }
     }
@@ -108,7 +115,7 @@ public class CodableTaskStore: TaskStore {
     
     private func removeItem(at url: URL, completion: @escaping TaskStore.DeletionCompletion)  {
         do {
-            try FileManager.default.removeItem(at: self.storeURL)
+            try FileManager.default.removeItem(at: storeURL)
             completion(nil)
         } catch {
             completion(error)
