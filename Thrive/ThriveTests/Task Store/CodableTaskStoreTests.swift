@@ -253,6 +253,10 @@ final class CodableTaskStoreTests: XCTestCase {
         .first!.appendingPathComponent("\(type(of: self)).store")
     }
     
+    private func invalidStoreURL() -> URL {
+        return URL(string: "invalid://store-url")!
+    }
+    
     private func deleteStoreArtifacts() {
         try? FileManager.default.removeItem(at: testSpecificStoreURL())
     }
