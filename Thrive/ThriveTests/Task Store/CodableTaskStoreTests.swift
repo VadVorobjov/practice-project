@@ -166,6 +166,16 @@ final class CodableTaskStoreTests: XCTestCase {
         XCTAssertNotNil(deletionError, "Expected deletion to deliver an error")
     }
     
+    func test_delete_hasNoSideEffectsOnDeletionError() {
+        let storeURL = invalidStoreURL()
+        let sut = makeSUT(storeURL: storeURL)
+        let task = uniqueTask().toLocal()
+        
+        delete(task, from: sut)
+        
+        expect(sut, toRetrieve: .empty)
+    }
+    
     func test_storeSideEffects_runSerially() {
         let sut = makeSUT()
         let task = uniqueTask().toLocal()
