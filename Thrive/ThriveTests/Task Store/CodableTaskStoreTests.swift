@@ -101,13 +101,8 @@ final class CodableTaskStoreTests: XCTestCase {
     func test_delete_hasNoSideEffectsOnEmptyStore() {
         let sut = makeSUT()
         let task = uniqueTask().toLocal()
-        let exp = expectation(description: "Wait for delete to finish")
         
-        sut.delete(task) { deletionError in
-            XCTAssertNil(deletionError, "Expected to empty store successfully")
-            exp.fulfill()
-        }
-        wait(for: [exp], timeout: 1.0)
+        let deletionError = delete(task, from: sut)
         
         expect(sut, toRetrieve: .empty)
     }
