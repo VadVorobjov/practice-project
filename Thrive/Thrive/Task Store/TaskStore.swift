@@ -16,8 +16,16 @@ public protocol TaskStore {
     typealias DeletionCompletion = (Error?) -> Void
     typealias RetrievalCompletion = (RetrieveStoredTaskResult) -> Void
 
+    /// The completion handler can be invoked in any thread.
+    /// Clients are responsible to dispatch to appropriate thread, if needed.
     func insert(_ item: LocalTask, completion: @escaping InsertionCompletion)
+    
+    /// The completion handler can be invoked in any thread.
+    /// Clients are responsible to dispatch to appropriate thread, if needed.
     func delete(_ item: LocalTask, completion: @escaping DeletionCompletion)
+    
+    /// The completion handler can be invoked in any thread.
+    /// Clients are responsible to dispatch to appropriate thread, if needed.
     func retrieve(completion: @escaping RetrievalCompletion)
 }
 
