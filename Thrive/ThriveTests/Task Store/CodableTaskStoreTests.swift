@@ -134,10 +134,10 @@ final class CodableTaskStoreTests: XCTestCase {
         XCTAssertFalse(fileExists, "Expected to remove store file after deleting last stored task")
     }
 
-    func test_delete_deliversErrorOnRetrievalFailure() {
+    func test_delete_deliversErrorOnFailure() {
         let storeURL = testSpecificStoreURL()
-        let task = uniqueTask().toLocal()
         let sut = makeSUT(storeURL: storeURL)
+        let task = uniqueTask().toLocal()
         
         try! "invalid data".write(to: storeURL, atomically: false, encoding: .utf8)
         
