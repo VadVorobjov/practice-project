@@ -121,7 +121,7 @@ final class CodableTaskStoreTests: XCTestCase {
         expect(sut, toRetrieve: .found(items: [secondTask]))
     }
     
-    func test_delete_alsoRemovesStoreFileAfterDeletingLastStoredTask() {
+    func test_delete_removesStoreFile_afterDeletingLastStoredTask() {
         let storeURL = testSpecificStoreURL()
         let sut = makeSUT(storeURL: storeURL)
         let task = uniqueTask().toLocal()
