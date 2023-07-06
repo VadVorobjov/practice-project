@@ -122,7 +122,7 @@ final class CodableTaskStoreTests: XCTestCase {
         let sut = makeSUT()
         let task = uniqueTask().toLocal()
         
-        let deletionError = delete(task, from: sut)
+        delete(task, from: sut)
         
         expect(sut, toRetrieve: .empty)
     }
