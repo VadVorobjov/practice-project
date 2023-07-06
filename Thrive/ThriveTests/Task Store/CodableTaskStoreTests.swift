@@ -8,7 +8,7 @@
 import XCTest
 import Thrive
 
-final class CodableTaskStoreTests: XCTestCase {
+final class CodableTaskStoreTests: XCTestCase, FailableTaskStoreSpecs {
     
     override func setUp() {
         super.setUp()
