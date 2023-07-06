@@ -99,8 +99,8 @@ final class CodableTaskStoreTests: XCTestCase {
     }
     
     func test_insert_deliversErrorOnInsertionError() {
-        let invalidStoreURL = URL(string: "invalid://store-url")
-        let sut = makeSUT(storeURL: invalidStoreURL)
+        let storeURL = invalidStoreURL()
+        let sut = makeSUT(storeURL: storeURL)
         let task = uniqueTask().toLocal()
         
         let insertionError = insert(task, to: sut)
@@ -108,6 +108,16 @@ final class CodableTaskStoreTests: XCTestCase {
         XCTAssertNotNil(insertionError, "Expected store insertion to fail with an error")
     }
     
+    func test_insert_hasNoSideEffectsOnInsertionError() {
+        let storeURL = invalidStoreURL()
+        let sut = makeSUT(storeURL: storeURL)
+        let task = uniqueTask().toLocal()
+
+        insert(task, to: sut)
+        
+        expect(sut, toRetrieve: .empty)
+    }
+        
     func test_delete_hasNoSideEffectsOnEmptyStore() {
         let sut = makeSUT()
         let task = uniqueTask().toLocal()
