@@ -119,7 +119,8 @@ final class CodableTaskStoreTests: XCTestCase {
     }
         
     func test_delete_hasNoSideEffectsOnEmptyStore() {
-        let sut = makeSUT()
+        let storeURL = testSpecificStoreURL()
+        let sut = makeSUT(storeURL: storeURL)
         let task = uniqueTask().toLocal()
         
         delete(task, from: sut)
