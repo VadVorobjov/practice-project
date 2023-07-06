@@ -168,13 +168,19 @@ final class CodableTaskStoreTests: XCTestCase {
     }
     
     func test_delete_hasNoSideEffectsOnDeletionError() {
-        let storeURL = invalidStoreURL()
-        let sut = makeSUT(storeURL: storeURL)
+        let validStoreURL = testSpecificStoreURL()
+        var sut = makeSUT(storeURL: validStoreURL)
         let task = uniqueTask().toLocal()
         
-        delete(task, from: sut)
+        insert(task, to: sut)
         
-        expect(sut, toRetrieve: .empty)
+        let invalidStoreURL = invalidStoreURL()
+        sut = makeSUT(storeURL: invalidStoreURL)
+
+        delete(task, from: sut)
+            
+        sut = makeSUT(storeURL: validStoreURL)
+        expect(sut, toRetrieve: .found(items: [task]))
     }
     
     func test_storeSideEffects_runSerially() {
