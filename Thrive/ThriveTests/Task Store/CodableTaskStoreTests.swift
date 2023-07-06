@@ -70,6 +70,16 @@ final class CodableTaskStoreTests: XCTestCase {
         expect(sut, toRetrieveTwice: .failure(someNSError()))
     }
     
+    func test_insert_deliversNoErrorOnEmptyStore() {
+        let storeURL = testSpecificStoreURL()
+        let sut = makeSUT(storeURL: storeURL)
+        let task = uniqueTask().toLocal()
+        
+        let insertionError = insert(task, to: sut)
+                
+        XCTAssertNil(insertionError, "Expected no error on insertion")
+    }
+    
     func test_insert_appliesToPrevioslyInsertedValues() {
         let storeURL = testSpecificStoreURL()
         let sut = makeSUT(storeURL: storeURL)
