@@ -22,6 +22,8 @@ final class CodableTaskStoreTests: XCTestCase, FailableTaskStoreSpecs {
         undoStoreSideEffects()
     }
     
+    // MARK: - Retrieve
+    
     func test_retrieve_deliversEmptyOnEmptyStore() {
         let sut = makeSUT()
         
@@ -51,8 +53,8 @@ final class CodableTaskStoreTests: XCTestCase, FailableTaskStoreSpecs {
         let sut = makeSUT(storeURL: storeURL)
         
         try! "invalid data".write(to: storeURL, atomically: false, encoding: .utf8)
-        
-        expect(sut, toRetrieve: .failure(someNSError()))
+                
+        assertThatRetrieveDeliversFailureOnRetrievalError(on: sut)
     }
     
     func test_retrieve_hasNoSideEffectsOnFailure() {
@@ -61,8 +63,10 @@ final class CodableTaskStoreTests: XCTestCase, FailableTaskStoreSpecs {
         
         try! "invalid data".write(to: storeURL, atomically: false, encoding: .utf8)
         
-        expect(sut, toRetrieveTwice: .failure(someNSError()))
+        assertThatRetrieveHasNoSideEffectsOnfailure(on: sut)
     }
+    
+    // MARK: - Insert
     
     func test_insert_deliversNoErrorOnEmptyStore() {
         let sut = makeSUT()
@@ -95,6 +99,8 @@ final class CodableTaskStoreTests: XCTestCase, FailableTaskStoreSpecs {
         
         expect(sut, toRetrieve: .empty)
     }
+    
+    // MARK: - Delete
         
     func test_delete_hasNoSideEffectsOnEmptyStore() {
         let sut = makeSUT()
