@@ -83,21 +83,15 @@ final class CodableTaskStoreTests: XCTestCase, FailableTaskStoreSpecs {
     func test_insert_deliversErrorOnInsertionError() {
         let storeURL = invalidStoreURL()
         let sut = makeSUT(storeURL: storeURL)
-        let task = uniqueTask().toLocal()
         
-        let insertionError = insert(task, to: sut)
-        
-        XCTAssertNotNil(insertionError, "Expected store insertion to fail with an error")
+        assertThatInsertDeliversErrorOnIsertionError(on: sut)
     }
     
     func test_insert_hasNoSideEffectsOnInsertionError() {
         let storeURL = invalidStoreURL()
         let sut = makeSUT(storeURL: storeURL)
-        let task = uniqueTask().toLocal()
-
-        insert(task, to: sut)
         
-        expect(sut, toRetrieve: .empty)
+        assertThatInsertHasNoSideEffectsOnInsertionError(on: sut)
     }
     
     // MARK: - Delete
