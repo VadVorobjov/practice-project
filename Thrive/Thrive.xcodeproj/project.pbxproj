@@ -20,6 +20,7 @@
 		D23527582A40C8CF00273D0C /* CodableTaskStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23527572A40C8CF00273D0C /* CodableTaskStoreTests.swift */; };
 		D28B55282A5474F900E932AA /* CodableTaskStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28B55272A5474F900E932AA /* CodableTaskStore.swift */; };
 		D2F37C372A5752F00054EFEE /* TaskStoreSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F37C362A5752F00054EFEE /* TaskStoreSpecs.swift */; };
+		D2F37C392A582F590054EFEE /* XCTestCase+TaskStoreSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F37C382A582F590054EFEE /* XCTestCase+TaskStoreSpecs.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		D23527572A40C8CF00273D0C /* CodableTaskStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableTaskStoreTests.swift; sourceTree = "<group>"; };
 		D28B55272A5474F900E932AA /* CodableTaskStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableTaskStore.swift; sourceTree = "<group>"; };
 		D2F37C362A5752F00054EFEE /* TaskStoreSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskStoreSpecs.swift; sourceTree = "<group>"; };
+		D2F37C382A582F590054EFEE /* XCTestCase+TaskStoreSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+TaskStoreSpecs.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 				D22154F82A1C96CE0022CA75 /* Helpers */,
 				D22154F42A1A5E720022CA75 /* StoreTaskUseCaseTests.swift */,
 				D2F37C362A5752F00054EFEE /* TaskStoreSpecs.swift */,
+				D2F37C382A582F590054EFEE /* XCTestCase+TaskStoreSpecs.swift */,
 				D221550A2A23929E0022CA75 /* LoadTaskFromStoreUseCaseTests.swift */,
 				D23527572A40C8CF00273D0C /* CodableTaskStoreTests.swift */,
 			);
@@ -267,6 +270,7 @@
 			files = (
 				D23527582A40C8CF00273D0C /* CodableTaskStoreTests.swift in Sources */,
 				D221550B2A23929E0022CA75 /* LoadTaskFromStoreUseCaseTests.swift in Sources */,
+				D2F37C392A582F590054EFEE /* XCTestCase+TaskStoreSpecs.swift in Sources */,
 				D2F37C372A5752F00054EFEE /* TaskStoreSpecs.swift in Sources */,
 				D22154FC2A1C9C7F0022CA75 /* SharedTestHelpers.swift in Sources */,
 				D221550D2A24DDE60022CA75 /* TaskStoreSpy.swift in Sources */,
