@@ -18,7 +18,6 @@ protocol TaskStoreSpecs {
 
     func test_delete_hasNoSideEffectsOnEmptyStore()
     func test_delete_onNonEmptyStoreDeletesProvidedTask()
-    func test_delete_removesStoreFile_afterDeletingLastStoredTask()
 
     func test_storeSideEffects_runSerially()
 }

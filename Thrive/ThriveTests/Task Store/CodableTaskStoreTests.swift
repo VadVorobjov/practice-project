@@ -108,19 +108,6 @@ final class CodableTaskStoreTests: XCTestCase, FailableTaskStoreSpecs {
         assertThatDeleteOnNonEmptyStoreDeletesProvidedTask(on: sut)
     }
     
-    func test_delete_removesStoreFile_afterDeletingLastStoredTask() {
-        let storeURL = testSpecificStoreURL()
-        let sut = makeSUT(storeURL: storeURL)
-        let task = uniqueTask().toLocal()
-        
-        insert(task, to: sut)
-        delete(task, from: sut)
-        
-        let fileExists = FileManager.default.fileExists(atPath: storeURL.path())
-        
-        XCTAssertFalse(fileExists, "Expected to remove store file after deleting last stored task")
-    }
-
     func test_delete_deliversErrorOnFailure() {
         let storeURL = testSpecificStoreURL()
         let sut = makeSUT(storeURL: storeURL)
@@ -171,5 +158,20 @@ final class CodableTaskStoreTests: XCTestCase, FailableTaskStoreSpecs {
     
     private func undoStoreSideEffects() {
         deleteStoreArtifacts()
+    }
+}
+
+extension CodableTaskStoreTests {
+    func test_delete_removesStoreFile_afterDeletingLastStoredTask() {
+        let storeURL = testSpecificStoreURL()
+        let sut = makeSUT(storeURL: storeURL)
+        let task = uniqueTask().toLocal()
+        
+        insert(task, to: sut)
+        delete(task, from: sut)
+        
+        let fileExists = FileManager.default.fileExists(atPath: storeURL.path())
+        
+        XCTAssertFalse(fileExists, "Expected to remove store file after deleting last stored task")
     }
 }
