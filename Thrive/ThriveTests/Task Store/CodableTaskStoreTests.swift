@@ -124,29 +124,16 @@ final class CodableTaskStoreTests: XCTestCase, FailableTaskStoreSpecs {
     func test_delete_deliversErrorOnFailure() {
         let storeURL = testSpecificStoreURL()
         let sut = makeSUT(storeURL: storeURL)
-        let task = uniqueTask().toLocal()
         
         try! "invalid data".write(to: storeURL, atomically: false, encoding: .utf8)
         
-        let deletionError = delete(task, from: sut)
-        
-        XCTAssertNotNil(deletionError, "Expected deletion to deliver an error")
+        assertThatDeleteDeliversErrorOnFailure(on: sut)
     }
     
     func test_delete_hasNoSideEffectsOnDeletionError() {
-        let validStoreURL = testSpecificStoreURL()
-        var sut = makeSUT(storeURL: validStoreURL)
-        let task = uniqueTask().toLocal()
+        var sut = makeSUT(storeURL: invalidStoreURL())
         
-        insert(task, to: sut)
-        
-        let invalidStoreURL = invalidStoreURL()
-        sut = makeSUT(storeURL: invalidStoreURL)
-
-        delete(task, from: sut)
-            
-        sut = makeSUT(storeURL: validStoreURL)
-        expect(sut, toRetrieve: .found(items: [task]))
+        assertThatDeleteHasNoSideEffectsOnDeletionError(on: sut)
     }
     
     func test_storeSideEffects_runSerially() {
