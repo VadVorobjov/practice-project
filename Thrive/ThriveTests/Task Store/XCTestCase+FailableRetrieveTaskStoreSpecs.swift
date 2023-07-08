@@ -13,7 +13,7 @@ extension FailableRetrieveTaskStoreSpecs where Self: XCTestCase {
         expect(sut, toRetrieve: .failure(someNSError()), file: file, line: line)
     }
     
-    func assertThatRetrieveHasNoSideEffectsOnfailure(on sut: TaskStore, file: StaticString = #file, line: UInt = #line) {
+    func assertThatRetrieveHasNoSideEffectsOnFailure(on sut: TaskStore, file: StaticString = #file, line: UInt = #line) {
         expect(sut, toRetrieveTwice: .failure(someNSError()))
     }
 }

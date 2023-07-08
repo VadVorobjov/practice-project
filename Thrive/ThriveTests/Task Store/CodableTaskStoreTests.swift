@@ -63,7 +63,7 @@ final class CodableTaskStoreTests: XCTestCase, FailableTaskStoreSpecs {
         
         try! "invalid data".write(to: storeURL, atomically: false, encoding: .utf8)
         
-        assertThatRetrieveHasNoSideEffectsOnfailure(on: sut)
+        assertThatRetrieveHasNoSideEffectsOnFailure(on: sut)
     }
     
     // MARK: - Insert
