@@ -14,7 +14,7 @@ protocol TaskStoreSpecs {
     func test_retrieve_hasNoSideEffectsOnNonEmptyStore()
 
     func test_insert_deliversNoErrorOnEmptyStore()
-    func test_insert_appliesToPrevioslyInsertedValues()
+    func test_insert_applyValueToPrevioslyInsertedValues()
 
     func test_delete_hasNoSideEffectsOnEmptyStore()
     func test_delete_onNonEmptyStoreDeletesProvidedTask()
