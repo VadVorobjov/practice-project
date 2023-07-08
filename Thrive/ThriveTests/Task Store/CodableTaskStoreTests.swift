@@ -42,7 +42,7 @@ final class CodableTaskStoreTests: XCTestCase, FailableTaskStoreSpecs {
         assertThatRetrieveDeliversFoundValuesOnNonEmptyStore(on: sut)
     }
     
-    func test_retrieve_hasNoSideEffectsOnNonEmptyCache() {
+    func test_retrieve_hasNoSideEffectsOnNonEmptyStore() {
         let sut = makeSUT()
         
         assertThatRetrieveHasNoSideEffectsOnNonEmptyStore(on: sut)
@@ -131,7 +131,7 @@ final class CodableTaskStoreTests: XCTestCase, FailableTaskStoreSpecs {
     }
     
     func test_delete_hasNoSideEffectsOnDeletionError() {
-        var sut = makeSUT(storeURL: invalidStoreURL())
+        let sut = makeSUT(storeURL: invalidStoreURL())
         
         assertThatDeleteHasNoSideEffectsOnDeletionError(on: sut)
     }
