@@ -123,15 +123,11 @@
 		D22154F32A1A5E4F0022CA75 /* Task Store */ = {
 			isa = PBXGroup;
 			children = (
+				D233D0E82A59B5A100457167 /* Task Store Specs */,
 				D22154F82A1C96CE0022CA75 /* Helpers */,
 				D22154F42A1A5E720022CA75 /* StoreTaskUseCaseTests.swift */,
-				D2F37C362A5752F00054EFEE /* TaskStoreSpecs.swift */,
-				D2F37C382A582F590054EFEE /* XCTestCase+TaskStoreSpecs.swift */,
-				D2F37C3C2A586DC80054EFEE /* XCTestCase+FailableRetrieveTaskStoreSpecs.swift */,
 				D221550A2A23929E0022CA75 /* LoadTaskFromStoreUseCaseTests.swift */,
 				D23527572A40C8CF00273D0C /* CodableTaskStoreTests.swift */,
-				D2F37C402A5872ED0054EFEE /* XCTestCase+FailableDeleteTaskStoreSpecs.swift */,
-				D2F37C3E2A58715B0054EFEE /* XCTestCase+FailableInsertTaskStoreSpecs.swift */,
 			);
 			path = "Task Store";
 			sourceTree = "<group>";
@@ -154,6 +150,18 @@
 				D28B55272A5474F900E932AA /* CodableTaskStore.swift */,
 			);
 			path = "Task Store";
+			sourceTree = "<group>";
+		};
+		D233D0E82A59B5A100457167 /* Task Store Specs */ = {
+			isa = PBXGroup;
+			children = (
+				D2F37C362A5752F00054EFEE /* TaskStoreSpecs.swift */,
+				D2F37C382A582F590054EFEE /* XCTestCase+TaskStoreSpecs.swift */,
+				D2F37C3C2A586DC80054EFEE /* XCTestCase+FailableRetrieveTaskStoreSpecs.swift */,
+				D2F37C402A5872ED0054EFEE /* XCTestCase+FailableDeleteTaskStoreSpecs.swift */,
+				D2F37C3E2A58715B0054EFEE /* XCTestCase+FailableInsertTaskStoreSpecs.swift */,
+			);
+			path = "Task Store Specs";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
