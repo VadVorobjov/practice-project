@@ -18,6 +18,7 @@
 		D221550B2A23929E0022CA75 /* LoadTaskFromStoreUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D221550A2A23929E0022CA75 /* LoadTaskFromStoreUseCaseTests.swift */; };
 		D221550D2A24DDE60022CA75 /* TaskStoreSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D221550C2A24DDE60022CA75 /* TaskStoreSpy.swift */; };
 		D23527582A40C8CF00273D0C /* CodableTaskStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23527572A40C8CF00273D0C /* CodableTaskStoreTests.swift */; };
+		D274EC212A5B1A9100B60035 /* CoreDataTaskStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D274EC202A5B1A9100B60035 /* CoreDataTaskStoreTests.swift */; };
 		D28B55282A5474F900E932AA /* CodableTaskStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28B55272A5474F900E932AA /* CodableTaskStore.swift */; };
 		D2F37C372A5752F00054EFEE /* TaskStoreSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F37C362A5752F00054EFEE /* TaskStoreSpecs.swift */; };
 		D2F37C392A582F590054EFEE /* XCTestCase+TaskStoreSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F37C382A582F590054EFEE /* XCTestCase+TaskStoreSpecs.swift */; };
@@ -49,6 +50,7 @@
 		D221550A2A23929E0022CA75 /* LoadTaskFromStoreUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadTaskFromStoreUseCaseTests.swift; sourceTree = "<group>"; };
 		D221550C2A24DDE60022CA75 /* TaskStoreSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskStoreSpy.swift; sourceTree = "<group>"; };
 		D23527572A40C8CF00273D0C /* CodableTaskStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableTaskStoreTests.swift; sourceTree = "<group>"; };
+		D274EC202A5B1A9100B60035 /* CoreDataTaskStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTaskStoreTests.swift; sourceTree = "<group>"; };
 		D28B55272A5474F900E932AA /* CodableTaskStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableTaskStore.swift; sourceTree = "<group>"; };
 		D2F37C362A5752F00054EFEE /* TaskStoreSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskStoreSpecs.swift; sourceTree = "<group>"; };
 		D2F37C382A582F590054EFEE /* XCTestCase+TaskStoreSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+TaskStoreSpecs.swift"; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				D22154F42A1A5E720022CA75 /* StoreTaskUseCaseTests.swift */,
 				D221550A2A23929E0022CA75 /* LoadTaskFromStoreUseCaseTests.swift */,
 				D23527572A40C8CF00273D0C /* CodableTaskStoreTests.swift */,
+				D274EC202A5B1A9100B60035 /* CoreDataTaskStoreTests.swift */,
 			);
 			path = "Task Store";
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 				D2F37C392A582F590054EFEE /* XCTestCase+TaskStoreSpecs.swift in Sources */,
 				D2F37C372A5752F00054EFEE /* TaskStoreSpecs.swift in Sources */,
 				D2F37C3D2A586DC80054EFEE /* XCTestCase+FailableRetrieveTaskStoreSpecs.swift in Sources */,
+				D274EC212A5B1A9100B60035 /* CoreDataTaskStoreTests.swift in Sources */,
 				D22154FC2A1C9C7F0022CA75 /* SharedTestHelpers.swift in Sources */,
 				D221550D2A24DDE60022CA75 /* TaskStoreSpy.swift in Sources */,
 				D2F37C3F2A58715B0054EFEE /* XCTestCase+FailableInsertTaskStoreSpecs.swift in Sources */,
