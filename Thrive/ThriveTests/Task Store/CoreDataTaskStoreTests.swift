@@ -32,7 +32,9 @@ final class CoreDataTaskStoreTests: XCTestCase, TaskStoreSpecs {
     }
     
     func test_retrieve_hasNoSideEffectsOnEmtpyStore() {
+        let sut = makeSUT()
         
+        assertThatRetrieveHasNoSideEffectsOnEmptyStore(on: sut)
     }
     
     func test_retrieve_deliversFoundValuesOnNoneEmptyStore() {
