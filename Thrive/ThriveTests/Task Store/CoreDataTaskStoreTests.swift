@@ -54,7 +54,8 @@ final class CoreDataTaskStoreTests: XCTestCase, TaskStoreSpecs {
     
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> TaskStore {
         let storeBundle = Bundle(for: CoreDataTaskStore.self)
-        let sut = try! CoreDataTaskStore(bundle: storeBundle)
+        let storeURL = URL(filePath: "/dev/null")
+        let sut = try! CoreDataTaskStore(storeURL: storeURL, bundle: storeBundle)
         trackMemoryLeaks(sut, file: file, line: line)
         return sut
     }
