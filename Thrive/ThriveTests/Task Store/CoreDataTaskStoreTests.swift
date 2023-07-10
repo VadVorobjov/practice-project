@@ -8,7 +8,16 @@
 import XCTest
 import Thrive
 
+private class ManagedTask: NSManagedObject {
+    @NSManaged var id: UUID
+    @NSManaged var name: String
+    @NSManaged var taskDescription: String?
+    @NSManaged var date:  Date
+}
+
 final class CoreDataTaskStore: TaskStore {
+    
+    
     
     func insert(_ item: Thrive.LocalTask, completion: @escaping InsertionCompletion) {
         
