@@ -19,7 +19,7 @@
 		D221550D2A24DDE60022CA75 /* TaskStoreSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D221550C2A24DDE60022CA75 /* TaskStoreSpy.swift */; };
 		D23527582A40C8CF00273D0C /* CodableTaskStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23527572A40C8CF00273D0C /* CodableTaskStoreTests.swift */; };
 		D274EC212A5B1A9100B60035 /* CoreDataTaskStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D274EC202A5B1A9100B60035 /* CoreDataTaskStoreTests.swift */; };
-		D274EC242A5B219900B60035 /* TastStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D274EC222A5B219900B60035 /* TastStore.xcdatamodeld */; };
+		D274EC242A5B219900B60035 /* TaskStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D274EC222A5B219900B60035 /* TaskStore.xcdatamodeld */; };
 		D28B55282A5474F900E932AA /* CodableTaskStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28B55272A5474F900E932AA /* CodableTaskStore.swift */; };
 		D2F37C372A5752F00054EFEE /* TaskStoreSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F37C362A5752F00054EFEE /* TaskStoreSpecs.swift */; };
 		D2F37C392A582F590054EFEE /* XCTestCase+TaskStoreSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F37C382A582F590054EFEE /* XCTestCase+TaskStoreSpecs.swift */; };
@@ -153,7 +153,7 @@
 				D22154FE2A1F84B90022CA75 /* LocalTaskLoader.swift */,
 				D22155002A1F898F0022CA75 /* TaskStore.swift */,
 				D28B55272A5474F900E932AA /* CodableTaskStore.swift */,
-				D274EC222A5B219900B60035 /* TastStore.xcdatamodeld */,
+				D274EC222A5B219900B60035 /* TaskStore.xcdatamodeld */,
 			);
 			path = "Task Store";
 			sourceTree = "<group>";
@@ -284,7 +284,7 @@
 				D22154FF2A1F84B90022CA75 /* LocalTaskLoader.swift in Sources */,
 				D22155012A1F898F0022CA75 /* TaskStore.swift in Sources */,
 				D28B55282A5474F900E932AA /* CodableTaskStore.swift in Sources */,
-				D274EC242A5B219900B60035 /* TastStore.xcdatamodeld in Sources */,
+				D274EC242A5B219900B60035 /* TaskStore.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -582,13 +582,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		D274EC222A5B219900B60035 /* TastStore.xcdatamodeld */ = {
+		D274EC222A5B219900B60035 /* TaskStore.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				D274EC232A5B219900B60035 /* TastStore.xcdatamodel */,
 			);
 			currentVersion = D274EC232A5B219900B60035 /* TastStore.xcdatamodel */;
-			path = TastStore.xcdatamodeld;
+			path = TaskStore.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
