@@ -9,9 +9,11 @@ import CoreData
 
 public final class CoreDataTaskStore: TaskStore {
     private let container: NSPersistentContainer
+    private let context: NSManagedObjectContext
     
     public init(bundle: Bundle = .main) throws {
         self.container = try NSPersistentContainer.load(modelName: "TaskStore", in: bundle)
+        context = container.newBackgroundContext()
     }
     
     public func insert(_ item: Thrive.LocalTask, completion: @escaping InsertionCompletion) {
