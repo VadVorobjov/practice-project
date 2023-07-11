@@ -23,7 +23,9 @@ final class CoreDataTaskStoreTests: XCTestCase, TaskStoreSpecs {
     }
     
     func test_retrieve_deliversFoundValuesOnNoneEmptyStore() {
+        let sut = makeSUT()
         
+        assertThatRetrieveDeliversFoundValuesOnNonEmptyStore(on: sut)
     }
     
     func test_retrieve_hasNoSideEffectsOnNonEmptyStore() {

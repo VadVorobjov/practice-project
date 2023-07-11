@@ -155,8 +155,8 @@
 				D22154FE2A1F84B90022CA75 /* LocalTaskLoader.swift */,
 				D22155002A1F898F0022CA75 /* TaskStore.swift */,
 				D28B55272A5474F900E932AA /* CodableTaskStore.swift */,
-				D274EC222A5B219900B60035 /* TaskStore.xcdatamodeld */,
 				D274EC252A5C1FE900B60035 /* CoreDataTaskStore.swift */,
+				D274EC222A5B219900B60035 /* TaskStore.xcdatamodeld */,
 			);
 			path = "Task Store";
 			sourceTree = "<group>";

@@ -16,19 +16,53 @@ public final class CoreDataTaskStore: TaskStore {
         context = container.newBackgroundContext()
     }
     
-    public func insert(_ item: Thrive.LocalTask, completion: @escaping InsertionCompletion) {
-        
+    public func insert(_ item: LocalTask, completion: @escaping InsertionCompletion) {
+        context.perform { [context] in
+            do {
+                let managedTask = ManagedTask(context: context)
+                managedTask.id = item.id
+                managedTask.name = item.name
+                managedTask.taskDescription = item.description
+                managedTask.date = item.date
+
+                try context.save()
+                
+                completion(nil)
+            } catch {
+                completion(error)
+            }
+        }
     }
     
-    public func delete(_ item: Thrive.LocalTask, completion: @escaping DeletionCompletion) {
+    public func delete(_ item: LocalTask, completion: @escaping DeletionCompletion) {
         
     }
     
     public func retrieve(completion: @escaping RetrievalCompletion) {
-        return completion(.empty)
+        context.perform { [context] in
+            do {
+                let request = NSFetchRequest<ManagedTask>(entityName: ManagedTask.entity().name!)
+                request.returnsObjectsAsFaults = false
+                let store = try context.fetch(request)
+                
+                guard !store.isEmpty else {
+                    return completion(.empty)
+                }
+                
+                completion(.found(items: store.map {
+                    LocalTask(id: $0.id,
+                              name: $0.name,
+                              description: $0.taskDescription,
+                              date: $0.date)
+                }))
+            } catch {
+                completion(.failure(error))
+            }
+        }
     }
 }
 
+@objc(ManagedTask)
 private class ManagedTask: NSManagedObject {
     @NSManaged var id: UUID
     @NSManaged var name: String
@@ -50,6 +84,7 @@ private extension NSPersistentContainer {
         let description = NSPersistentStoreDescription(url: storeURL)
         let container = NSPersistentContainer(name: name, managedObjectModel: model)
         container.persistentStoreDescriptions = [description]
+        
         var loadError: Error?
         container.loadPersistentStores { loadError = $1 }
         try loadError.map { throw LoadingError.failedToLoadPersistentStores($0) }
