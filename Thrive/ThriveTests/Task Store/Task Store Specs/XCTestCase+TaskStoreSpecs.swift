@@ -48,13 +48,10 @@ extension TaskStoreSpecs where Self: XCTestCase {
     
     func assertThatInsertApplyToPreviouslyInsertedValues(on sut: TaskStore, file: StaticString = #file, line: UInt = #line) {
         let firstTask = uniqueTask().toLocal()
-        
-        insert(firstTask, to: sut)
-
         let secondTask = uniqueTask().toLocal()
         
-        let secondError = insert(secondTask, to: sut)
-        XCTAssertNil(secondError, "Expected to apply successfully")
+        insert(firstTask, to: sut)
+        insert(secondTask, to: sut)
         
         expect(sut, toRetrieve: .found(items: [firstTask, secondTask]), file: file, line: line)
     }
