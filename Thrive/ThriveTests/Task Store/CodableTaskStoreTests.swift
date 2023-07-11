@@ -36,7 +36,7 @@ final class CodableTaskStoreTests: XCTestCase, FailableTaskStoreSpecs {
         assertThatRetrieveHasNoSideEffectsOnEmptyStore(on: sut)
     }
     
-    func test_retrieve_deliversFoundValuesOnNoneEmptyStore() {
+    func test_retrieve_deliversFoundValuesOnNonEmptyStore() {
         let sut = makeSUT()
 
         assertThatRetrieveDeliversFoundValuesOnNonEmptyStore(on: sut)

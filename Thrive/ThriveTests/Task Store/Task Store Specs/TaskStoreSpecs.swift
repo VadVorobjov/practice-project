@@ -10,7 +10,7 @@ import Foundation
 protocol TaskStoreSpecs {
     func test_retrieve_deliversEmptyOnEmptyStore()
     func test_retrieve_hasNoSideEffectsOnEmtpyStore()
-    func test_retrieve_deliversFoundValuesOnNoneEmptyStore()
+    func test_retrieve_deliversFoundValuesOnNonEmptyStore()
     func test_retrieve_hasNoSideEffectsOnNonEmptyStore()
 
     func test_insert_deliversNoErrorOnEmptyStore()
