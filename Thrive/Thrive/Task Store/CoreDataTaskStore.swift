@@ -37,10 +37,7 @@ public final class CoreDataTaskStore: TaskStore {
     public func retrieve(completion: @escaping RetrievalCompletion) {
         context.perform { [context] in
             do {
-                let request = NSFetchRequest<ManagedTask>(entityName: ManagedTask.entity().name!)
-                request.returnsObjectsAsFaults = false
-                
-                let store = try context.fetch(request)
+                let store = try ManagedTask.find(in: context)
                 
                 guard !store.isEmpty else {
                     return completion(.empty)
@@ -71,6 +68,14 @@ private class ManagedTask: NSManagedObject {
     
     var local: LocalTask {
         LocalTask(id: id, name: name, description: taskDescription, date: date)
+    }
+}
+
+extension ManagedTask {
+    static func find(in context: NSManagedObjectContext) throws -> [ManagedTask] {
+        let request = NSFetchRequest<ManagedTask>(entityName: ManagedTask.entity().name!)
+        request.returnsObjectsAsFaults = false
+        return try context.fetch(request)
     }
 }
 
