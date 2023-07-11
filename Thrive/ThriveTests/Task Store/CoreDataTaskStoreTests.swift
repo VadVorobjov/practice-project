@@ -51,8 +51,11 @@ final class CoreDataTaskStoreTests: XCTestCase, TaskStoreSpecs {
         
         assertThatDeleteDeliversNoErrorOnEmptyStore(on: sut)
     }
+    
     func test_delete_hasNoSideEffectsOnEmptyStore() {
+        let sut = makeSUT()
         
+        assertThatDeleteHasNoSideEffectsOnEmptyStore(on: sut)
     }
     
     func test_delete_onNonEmptyStoreDeletesProvidedTask() {
