@@ -41,7 +41,9 @@ final class CoreDataTaskStoreTests: XCTestCase, TaskStoreSpecs {
     }
     
     func test_insert_applyValueToPrevioslyInsertedValues() {
+        let sut = makeSUT()
         
+        assertThatInsertApplyToPreviouslyInsertedValues(on: sut)
     }
     
     func test_delete_hasNoSideEffectsOnEmptyStore() {
