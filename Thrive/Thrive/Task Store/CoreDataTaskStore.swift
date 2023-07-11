@@ -32,6 +32,7 @@ public final class CoreDataTaskStore: TaskStore {
     
     public func delete(_ item: LocalTask, completion: @escaping DeletionCompletion) {
         
+       completion(nil)
     }
     
     public func retrieve(completion: @escaping RetrievalCompletion) {

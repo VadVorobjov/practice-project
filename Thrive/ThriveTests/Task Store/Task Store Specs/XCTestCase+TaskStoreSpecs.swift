@@ -77,6 +77,14 @@ extension TaskStoreSpecs where Self: XCTestCase {
         
         expect(sut, toRetrieve: .found(items: [secondTask]), file: file, line: line)
     }
+    
+    func assertThatDeleteDeliversNoErrorOnEmptyStore(on sut: TaskStore, file: StaticString = #file, line: UInt = #line) {
+        let task = uniqueTask().toLocal()
+        
+        let deletionError = delete(task, from: sut)
+        
+        XCTAssertNil(deletionError, "Expected no error on deletion")
+    }
      
     func assertThatStoreSideEffectsRunResially(on sut: TaskStore, file: StaticString = #file, line: UInt = #line) {
         let task = uniqueTask().toLocal()

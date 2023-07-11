@@ -46,6 +46,11 @@ final class CoreDataTaskStoreTests: XCTestCase, TaskStoreSpecs {
         assertThatInsertApplyToPreviouslyInsertedValues(on: sut)
     }
     
+    func test_delete_deliversNoErrorOnEmptyStore() {
+        let sut = makeSUT()
+        
+        assertThatDeleteDeliversNoErrorOnEmptyStore(on: sut)
+    }
     func test_delete_hasNoSideEffectsOnEmptyStore() {
         
     }
