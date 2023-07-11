@@ -12,7 +12,7 @@ public final class CoreDataTaskStore: TaskStore {
     private let context: NSManagedObjectContext
     
     public init(storeURL: URL, bundle: Bundle = .main) throws {
-        self.container = try NSPersistentContainer.load(modelName: "TaskStore", storeURL: storeURL, in: bundle)
+        self.container = try NSPersistentContainer.load(modelName: "TaskStore", url: storeURL, in: bundle)
         context = container.newBackgroundContext()
     }
     
@@ -76,12 +76,12 @@ private extension NSPersistentContainer {
         case failedToLoadPersistentStores(Error)
     }
     
-    static func load(modelName name: String, storeURL: URL, in bundle: Bundle) throws -> NSPersistentContainer {
+    static func load(modelName name: String, url: URL, in bundle: Bundle) throws -> NSPersistentContainer {
         guard let model = NSManagedObjectModel.with(name: name, in: bundle) else {
             throw LoadingError.modelNotFound
         }
         
-        let description = NSPersistentStoreDescription(url: storeURL)
+        let description = NSPersistentStoreDescription(url: url)
         let container = NSPersistentContainer(name: name, managedObjectModel: model)
         container.persistentStoreDescriptions = [description]
         
