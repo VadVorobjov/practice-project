@@ -19,11 +19,7 @@ public final class CoreDataTaskStore: TaskStore {
     public func insert(_ item: LocalTask, completion: @escaping InsertionCompletion) {
         context.perform { [context] in
             do {
-                let managedTask = ManagedTask(context: context)
-                managedTask.id = item.id
-                managedTask.name = item.name
-                managedTask.taskDescription = item.description
-                managedTask.date = item.date
+                ManagedTask.manage(item, in: context)
 
                 try context.save()
                 
@@ -43,18 +39,14 @@ public final class CoreDataTaskStore: TaskStore {
             do {
                 let request = NSFetchRequest<ManagedTask>(entityName: ManagedTask.entity().name!)
                 request.returnsObjectsAsFaults = false
+                
                 let store = try context.fetch(request)
                 
                 guard !store.isEmpty else {
                     return completion(.empty)
                 }
                 
-                completion(.found(items: store.map {
-                    LocalTask(id: $0.id,
-                              name: $0.name,
-                              description: $0.taskDescription,
-                              date: $0.date)
-                }))
+                completion(.found(items: store.map { $0.local }))
             } catch {
                 completion(.failure(error))
             }
@@ -68,6 +60,18 @@ private class ManagedTask: NSManagedObject {
     @NSManaged var name: String
     @NSManaged var taskDescription: String?
     @NSManaged var date:  Date
+    
+    static func manage(_ task: LocalTask, in context: NSManagedObjectContext) {
+        let managed = ManagedTask(context: context)
+        managed.id = task.id
+        managed.name = task.name
+        managed.taskDescription = task.description
+        managed.date = task.date        
+    }
+    
+    var local: LocalTask {
+        LocalTask(id: id, name: name, description: taskDescription, date: date)
+    }
 }
 
 private extension NSPersistentContainer {
