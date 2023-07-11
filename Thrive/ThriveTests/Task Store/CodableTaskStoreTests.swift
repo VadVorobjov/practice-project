@@ -77,7 +77,7 @@ final class CodableTaskStoreTests: XCTestCase, FailableTaskStoreSpecs {
     func test_insert_applyValueToPrevioslyInsertedValues() {
         let sut = makeSUT()
         
-        assertThatInsertAppliesToPreviouslyInsertedValues(on: sut)
+        assertThatInsertApplyToPreviouslyInsertedValues(on: sut)
     }
     
     func test_insert_deliversErrorOnInsertionError() {
