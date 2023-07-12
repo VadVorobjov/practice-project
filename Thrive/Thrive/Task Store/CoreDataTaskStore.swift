@@ -31,8 +31,20 @@ public final class CoreDataTaskStore: TaskStore {
     }
     
     public func delete(_ item: LocalTask, completion: @escaping DeletionCompletion) {
-        
-       completion(nil)
+        context.perform { [context] in
+            do {
+                let store = try ManagedTask.find(item, in: context)
+                
+                if let store = store {
+                    context.delete(store)
+                    try context.save()
+                }
+                
+                completion(nil)
+            } catch {
+                completion(error)
+            }
+        }
     }
     
     public func retrieve(completion: @escaping RetrievalCompletion) {
@@ -77,6 +89,13 @@ extension ManagedTask {
         let request = NSFetchRequest<ManagedTask>(entityName: ManagedTask.entity().name!)
         request.returnsObjectsAsFaults = false
         return try context.fetch(request)
+    }
+    
+    static func find(_ task: LocalTask, in context: NSManagedObjectContext) throws -> ManagedTask? {
+        let request = NSFetchRequest<ManagedTask>(entityName: ManagedTask.entity().name!)
+        request.fetchLimit = 1
+        request.predicate = NSPredicate(format: "id == %@", task.id.uuidString)
+        return try context.fetch(request).first
     }
 }
 
