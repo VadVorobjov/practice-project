@@ -95,6 +95,12 @@ final class CodableTaskStoreTests: XCTestCase, FailableTaskStoreSpecs {
     }
     
     // MARK: - Delete
+    
+    func test_delete_deliversNoErrorOnEmptyStore() {
+        let sut = makeSUT()
+        
+        assertThatDeleteDeliversNoErrorOnEmptyStore(on: sut)
+    }
         
     func test_delete_hasNoSideEffectsOnEmptyStore() {
         let sut = makeSUT()
@@ -122,6 +128,8 @@ final class CodableTaskStoreTests: XCTestCase, FailableTaskStoreSpecs {
         
         assertThatDeleteHasNoSideEffectsOnDeletionError(on: sut)
     }
+    
+    // MARK: - Other
     
     func test_storeSideEffects_runSerially() {
         let sut = makeSUT()
