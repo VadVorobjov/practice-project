@@ -155,7 +155,6 @@
 				D2D2021D2A5EA8FF00843423 /* Infrastructure */,
 				D22154FE2A1F84B90022CA75 /* LocalTaskLoader.swift */,
 				D22155002A1F898F0022CA75 /* TaskStore.swift */,
-				D28B55272A5474F900E932AA /* CodableTaskStore.swift */,
 			);
 			path = "Task Store";
 			sourceTree = "<group>";
@@ -175,6 +174,7 @@
 		D2D2021D2A5EA8FF00843423 /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
+				D2D2021F2A5EAA1700843423 /* Codable */,
 				D2D2021E2A5EA90800843423 /* CoreData */,
 			);
 			path = Infrastructure;
@@ -187,6 +187,14 @@
 				D274EC222A5B219900B60035 /* TaskStore.xcdatamodeld */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		D2D2021F2A5EAA1700843423 /* Codable */ = {
+			isa = PBXGroup;
+			children = (
+				D28B55272A5474F900E932AA /* CodableTaskStore.swift */,
+			);
+			path = Codable;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
