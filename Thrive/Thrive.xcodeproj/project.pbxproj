@@ -152,11 +152,10 @@
 		D22154FD2A1F84A60022CA75 /* Task Store */ = {
 			isa = PBXGroup;
 			children = (
+				D2D2021D2A5EA8FF00843423 /* Infrastructure */,
 				D22154FE2A1F84B90022CA75 /* LocalTaskLoader.swift */,
 				D22155002A1F898F0022CA75 /* TaskStore.swift */,
 				D28B55272A5474F900E932AA /* CodableTaskStore.swift */,
-				D274EC252A5C1FE900B60035 /* CoreDataTaskStore.swift */,
-				D274EC222A5B219900B60035 /* TaskStore.xcdatamodeld */,
 			);
 			path = "Task Store";
 			sourceTree = "<group>";
@@ -171,6 +170,23 @@
 				D2F37C3E2A58715B0054EFEE /* XCTestCase+FailableInsertTaskStoreSpecs.swift */,
 			);
 			path = "Task Store Specs";
+			sourceTree = "<group>";
+		};
+		D2D2021D2A5EA8FF00843423 /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				D2D2021E2A5EA90800843423 /* CoreData */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		D2D2021E2A5EA90800843423 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				D274EC252A5C1FE900B60035 /* CoreDataTaskStore.swift */,
+				D274EC222A5B219900B60035 /* TaskStore.xcdatamodeld */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
