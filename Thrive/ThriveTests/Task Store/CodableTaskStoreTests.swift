@@ -74,6 +74,12 @@ final class CodableTaskStoreTests: XCTestCase, FailableTaskStoreSpecs {
         assertThatInsertDeliversNoErrorOnEmptyStore(on: sut)
     }
     
+    func test_insert_hasNoSideEffectsOnEmptyStore() {
+        let sut = makeSUT()
+        
+        assertThatInsertHasNoSideEffectsOnEmptyStore(on: sut)
+    }
+    
     func test_insert_applyValueToPrevioslyInsertedValues() {
         let sut = makeSUT()
         
