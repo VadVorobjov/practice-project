@@ -86,16 +86,20 @@ private class ManagedTask: NSManagedObject {
 
 extension ManagedTask {
     static func find(in context: NSManagedObjectContext) throws -> [ManagedTask] {
-        let request = NSFetchRequest<ManagedTask>(entityName: ManagedTask.entity().name!)
+        let request = createFetchRequest()
         request.returnsObjectsAsFaults = false
         return try context.fetch(request)
     }
     
     static func find(_ task: LocalTask, in context: NSManagedObjectContext) throws -> ManagedTask? {
-        let request = NSFetchRequest<ManagedTask>(entityName: ManagedTask.entity().name!)
+        let request = createFetchRequest()
         request.fetchLimit = 1
         request.predicate = NSPredicate(format: "id == %@", task.id.uuidString)
         return try context.fetch(request).first
+    }
+    
+    private static func createFetchRequest() -> NSFetchRequest<ManagedTask> {
+        return NSFetchRequest<ManagedTask>(entityName: ManagedTask.entity().name!)
     }
 }
 
