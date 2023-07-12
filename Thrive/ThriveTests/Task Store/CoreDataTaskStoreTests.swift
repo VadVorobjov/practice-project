@@ -65,7 +65,9 @@ final class CoreDataTaskStoreTests: XCTestCase, TaskStoreSpecs {
     }
     
     func test_storeSideEffects_runSerially() {
+        let sut = makeSUT()
         
+        assertThatStoreSideEffectsRunResially(on: sut)
     }
     
     // MARK: - Heleprs
