@@ -10,6 +10,8 @@ import Thrive
 
 final class CoreDataTaskStoreTests: XCTestCase, TaskStoreSpecs {
     
+    // MARK: - Retrieve
+    
     func test_retrieve_deliversEmptyOnEmptyStore() {
         let sut = makeSUT()
         
@@ -34,6 +36,8 @@ final class CoreDataTaskStoreTests: XCTestCase, TaskStoreSpecs {
         assertThatRetrieveHasNoSideEffectsOnNonEmptyStore(on: sut)
     }
     
+    // MARK: - Insert
+    
     func test_insert_deliversNoErrorOnEmptyStore() {
         let sut = makeSUT()
         
@@ -45,6 +49,8 @@ final class CoreDataTaskStoreTests: XCTestCase, TaskStoreSpecs {
         
         assertThatInsertApplyToPreviouslyInsertedValues(on: sut)
     }
+    
+    // MARK: - Delete
     
     func test_delete_deliversNoErrorOnEmptyStore() {
         let sut = makeSUT()
@@ -63,6 +69,8 @@ final class CoreDataTaskStoreTests: XCTestCase, TaskStoreSpecs {
         
         assertThatDeleteOnNonEmptyStoreDeletesProvidedTask(on: sut)
     }
+    
+    // MARK: - Other
     
     func test_storeSideEffects_runSerially() {
         let sut = makeSUT()
