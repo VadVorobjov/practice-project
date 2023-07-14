@@ -69,6 +69,7 @@
 		D274EC232A5B219900B60035 /* TastStore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TastStore.xcdatamodel; sourceTree = "<group>"; };
 		D274EC252A5C1FE900B60035 /* CoreDataTaskStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTaskStore.swift; sourceTree = "<group>"; };
 		D28B55272A5474F900E932AA /* CodableTaskStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableTaskStore.swift; sourceTree = "<group>"; };
+		D2AEBE4A2A6127DF00267E9C /* ThriveTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = ThriveTests.xctestplan; path = "/Users/vadimsvorobjovs/Documents/iOS/Projects/Thrive App/ThriveApp/Thrive/Test Plans/ThriveTests.xctestplan"; sourceTree = "<absolute>"; };
 		D2D202202A5EAA9300843423 /* CoreDataHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelpers.swift; sourceTree = "<group>"; };
 		D2D202222A5EAB5400843423 /* ManagedTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedTask.swift; sourceTree = "<group>"; };
 		D2F37C362A5752F00054EFEE /* TaskStoreSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskStoreSpecs.swift; sourceTree = "<group>"; };
@@ -108,6 +109,7 @@
 		D22154152A1645CB0022CA75 = {
 			isa = PBXGroup;
 			children = (
+				D2AEBE472A6127DD00267E9C /* Test Plans */,
 				D22154212A1645CB0022CA75 /* Thrive */,
 				D221542B2A1645CB0022CA75 /* ThriveTests */,
 				D23E73202A6092B100405D8C /* ThriveTaskStoreIntegrationTests */,
@@ -202,6 +204,14 @@
 				D23E73212A6092B100405D8C /* ThriveTaskStoreIntegrationTests.swift */,
 			);
 			path = ThriveTaskStoreIntegrationTests;
+			sourceTree = "<group>";
+		};
+		D2AEBE472A6127DD00267E9C /* Test Plans */ = {
+			isa = PBXGroup;
+			children = (
+				D2AEBE4A2A6127DF00267E9C /* ThriveTests.xctestplan */,
+			);
+			path = "Test Plans";
 			sourceTree = "<group>";
 		};
 		D2D2021D2A5EA8FF00843423 /* Infrastructure */ = {
