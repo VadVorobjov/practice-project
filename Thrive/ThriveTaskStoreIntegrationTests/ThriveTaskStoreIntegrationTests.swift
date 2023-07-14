@@ -24,21 +24,8 @@ final class ThriveTaskStoreIntegrationTests: XCTestCase {
     
     func test_load_deliversNoItemsOnEmptyStore() {
         let sut = makeSUT()
-        
-        let exp = expectation(description: "Wait for load completion")
-        sut.load { result in
-            switch result {
-            case let .success(tasks):
-                XCTAssertEqual(tasks, [], "Expected empty tasks")
-            
-            case let .failure(error):
-                XCTFail("Expected successful tasks result, got \(error) instead")
-            }
-            
-            exp.fulfill()
-        }
-        
-        wait(for: [exp], timeout: 1.0)
+              
+        expect(sut, toLoad: [])        
     }
     
     func test_load_deliversItemsOnNonEmptyStore() {
@@ -53,19 +40,7 @@ final class ThriveTaskStoreIntegrationTests: XCTestCase {
         }
         wait(for: [saveExp], timeout: 1.0)
         
-        let loadExp = expectation(description: "Wait for load completion")
-        sutToPerformLoad.load { result in
-            switch result {
-            case let .success(tasks):
-                XCTAssertEqual(tasks, [task], "Expected to have equal items")
-                
-            case let .failure(error):
-                XCTFail("Expected successful tasks result, got \(error) instead")
-            }
-            
-            loadExp.fulfill()
-        }
-        wait(for: [loadExp], timeout: 1.0)
+        expect(sutToPerformLoad, toLoad: [task])
     }
     
     // MARK: - Helpers
@@ -80,6 +55,23 @@ final class ThriveTaskStoreIntegrationTests: XCTestCase {
         trackMemoryLeaks(sut, file: file, line: line)
         
         return sut
+    }
+    
+    private func expect(_ sut: LocalTaskLoader, toLoad expectedTasks: [Task] ) {
+        let exp = expectation(description: "Wait for load completion")
+
+        sut.load { result in
+            switch result {
+            case let .success(tasks):
+                XCTAssertEqual(tasks, expectedTasks, "Expected empty tasks")
+            
+            case let .failure(error):
+                XCTFail("Expected successful tasks result, got \(error) instead")
+            }
+            
+            exp.fulfill()
+        }
+        wait(for: [exp], timeout: 1.0)
     }
     
     private func testSpecificStoreURL() -> URL {
