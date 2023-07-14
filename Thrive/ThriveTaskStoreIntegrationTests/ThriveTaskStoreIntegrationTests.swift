@@ -10,6 +10,18 @@ import Thrive
 
 final class ThriveTaskStoreIntegrationTests: XCTestCase {
 
+    override func setUp() {
+        super.setUp()
+        
+        setupEmptyStoreState()
+    }
+    
+    override func tearDown() {
+        super.tearDown()
+        
+        undoStoreSideEffects()
+    }
+    
     func test_load_deliversNoItemsOnEmptyStore() {
         let sut = makeSUT()
         
@@ -18,6 +30,7 @@ final class ThriveTaskStoreIntegrationTests: XCTestCase {
             switch result {
             case let .success(tasks):
                 XCTAssertEqual(tasks, [], "Expected empty tasks")
+            
             case let .failure(error):
                 XCTFail("Expected successful tasks result, got \(error) instead")
             }
@@ -48,5 +61,17 @@ final class ThriveTaskStoreIntegrationTests: XCTestCase {
     
     private func cachesDirectory() -> URL {
         return FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!
+    }
+    
+    private func setupEmptyStoreState() {
+        deleteStoreArtifacts()
+    }
+    
+    private func undoStoreSideEffects() {
+        deleteStoreArtifacts()
+    }
+    
+    private func deleteStoreArtifacts() {
+        try? FileManager.default.removeItem(at: testSpecificStoreURL())
     }
 }
