@@ -33,12 +33,7 @@ final class ThriveTaskStoreIntegrationTests: XCTestCase {
         let sutToPerformLoad = makeSUT()
         let task = uniqueTask()
         
-        let saveExp = expectation(description: "Wait for save completion")
-        sutToPerformSave.save(task) { saveError in
-            XCTAssertNil(saveError, "Expected to save tasks successfully")
-            saveExp.fulfill()
-        }
-        wait(for: [saveExp], timeout: 1.0)
+        save(task, on: sutToPerformSave)
         
         expect(sutToPerformLoad, toLoad: [task])
     }
@@ -50,19 +45,8 @@ final class ThriveTaskStoreIntegrationTests: XCTestCase {
         let firstTask = uniqueTask()
         let secondTask = uniqueTask()
         
-        let firstSaveExp = expectation(description: "Wait for first save completion")
-        sutToPerformFirstSave.save(firstTask) { saveError in
-            XCTAssertNil(saveError, "Expected to save task successfully")
-            firstSaveExp.fulfill()
-        }
-        wait(for: [firstSaveExp], timeout: 1.0)
-        
-        let secondSaveExp = expectation(description: "Wait for second save completion")
-        sutToPerformSecondSave.save(secondTask) { saveError in
-            XCTAssertNil(saveError, "Expected to save task successfully")
-            secondSaveExp.fulfill()
-        }
-        wait(for: [secondSaveExp], timeout: 1.0)
+        save(firstTask, on: sutToPerformFirstSave)
+        save(secondTask, on: sutToPerformSecondSave)
         
         expect(sutToPerformLoad, toLoad: [firstTask, secondTask])
     }
@@ -79,6 +63,17 @@ final class ThriveTaskStoreIntegrationTests: XCTestCase {
         trackMemoryLeaks(sut, file: file, line: line)
         
         return sut
+    }
+    
+    private func save(_ task: Task, on sut: LocalTaskLoader) {
+        let exp = expectation(description: "Wait for save completion")
+        
+        sut.save(task) { saveError in
+            XCTAssertNil(saveError, "Expected no error on save")
+            exp.fulfill()
+        }
+        
+        wait(for: [exp], timeout: 1.0)
     }
     
     private func expect(_ sut: LocalTaskLoader, toLoad expectedTasks: [Task] ) {
