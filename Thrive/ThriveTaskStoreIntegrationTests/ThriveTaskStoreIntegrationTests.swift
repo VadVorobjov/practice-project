@@ -38,7 +38,7 @@ final class ThriveTaskStoreIntegrationTests: XCTestCase {
         expect(sutToPerformLoad, toLoad: [task])
     }
     
-    func test_save_appendNewItemToPreviouslySavedItemOnASeparateInstance() {
+    func test_save_appendsNewItemToPreviouslySavedItemOnASeparateInstance() {
         let sutToPerformFirstSave = makeSUT()
         let sutToPerformSecondSave = makeSUT()
         let sutToPerformLoad = makeSUT()
