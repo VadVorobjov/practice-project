@@ -1,0 +1,32 @@
+{
+  "configurations" : [
+    {
+      "id" : "3375A269-87C8-4389-9EFD-C435E62DA436",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : false
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:Thrive.xcodeproj",
+        "identifier" : "D22154262A1645CB0022CA75",
+        "name" : "ThriveTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Thrive.xcodeproj",
+        "identifier" : "D23E731E2A6092B100405D8C",
+        "name" : "ThriveTaskStoreIntegrationTests"
+      }
+    }
+  ],
+  "version" : 1
+}
