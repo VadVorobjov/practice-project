@@ -51,6 +51,19 @@ final class ThriveTaskStoreIntegrationTests: XCTestCase {
         expect(sutToPerformLoad, toLoad: [firstTask, secondTask])
     }
     
+    func test_delete_removesItemFromPreviouslySavedItemsOnASeparateInstance() {
+        let sutToPerformSave = makeSUT()
+        let sutToPerformDelete = makeSUT()
+        let sutToPerformLoad = makeSUT()
+        let task = uniqueTask()
+        
+        save(task, on: sutToPerformSave)
+        
+        delete(task, on: sutToPerformDelete)
+                   
+        expect(sutToPerformLoad, toLoad: [])
+    }
+    
     // MARK: - Helpers
  
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> LocalTaskLoader {
