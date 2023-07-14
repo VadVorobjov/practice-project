@@ -43,6 +43,30 @@ final class ThriveTaskStoreIntegrationTests: XCTestCase {
         expect(sutToPerformLoad, toLoad: [task])
     }
     
+    func test_save_appendNewItemToPreviouslySavedItemOnASeparateInstance() {
+        let sutToPerformFirstSave = makeSUT()
+        let sutToPerformSecondSave = makeSUT()
+        let sutToPerformLoad = makeSUT()
+        let firstTask = uniqueTask()
+        let secondTask = uniqueTask()
+        
+        let firstSaveExp = expectation(description: "Wait for first save completion")
+        sutToPerformFirstSave.save(firstTask) { saveError in
+            XCTAssertNil(saveError, "Expected to save task successfully")
+            firstSaveExp.fulfill()
+        }
+        wait(for: [firstSaveExp], timeout: 1.0)
+        
+        let secondSaveExp = expectation(description: "Wait for second save completion")
+        sutToPerformSecondSave.save(secondTask) { saveError in
+            XCTAssertNil(saveError, "Expected to save task successfully")
+            secondSaveExp.fulfill()
+        }
+        wait(for: [secondSaveExp], timeout: 1.0)
+        
+        expect(sutToPerformLoad, toLoad: [firstTask, secondTask])
+    }
+    
     // MARK: - Helpers
  
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> LocalTaskLoader {
