@@ -76,6 +76,17 @@ final class ThriveTaskStoreIntegrationTests: XCTestCase {
         wait(for: [exp], timeout: 1.0)
     }
     
+    private func delete(_ task: Task, on sut: LocalTaskLoader) {
+        let exp = expectation(description: "Wait for deletion completion")
+        
+        sut.delete(task) { deletionError in
+            XCTAssertNil(deletionError, "Expected no error on deletion")
+            exp.fulfill()
+        }
+        
+        wait(for: [exp], timeout: 1.0)
+    }
+    
     private func expect(_ sut: LocalTaskLoader, toLoad expectedTasks: [Task] ) {
         let exp = expectation(description: "Wait for load completion")
 
