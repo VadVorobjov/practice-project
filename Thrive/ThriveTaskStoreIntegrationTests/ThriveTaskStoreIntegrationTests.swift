@@ -28,7 +28,7 @@ final class ThriveTaskStoreIntegrationTests: XCTestCase {
         expect(sut, toLoad: [])        
     }
     
-    func test_load_deliversItemsOnNonEmptyStore() {
+    func test_load_deliversItemsSavedOnASeparateInstance() {
         let sutToPerformSave = makeSUT()
         let sutToPerformLoad = makeSUT()
         let task = uniqueTask()
