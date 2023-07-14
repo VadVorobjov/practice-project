@@ -68,6 +68,7 @@
 		D274EC202A5B1A9100B60035 /* CoreDataTaskStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTaskStoreTests.swift; sourceTree = "<group>"; };
 		D274EC232A5B219900B60035 /* TastStore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TastStore.xcdatamodel; sourceTree = "<group>"; };
 		D274EC252A5C1FE900B60035 /* CoreDataTaskStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTaskStore.swift; sourceTree = "<group>"; };
+		D2A0B6282A6192060090C13F /* Thrive.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = Thrive.xctestplan; path = "/Users/vadimsvorobjovs/Documents/iOS/Projects/Thrive App/ThriveApp/Thrive/Test Plans/Thrive.xctestplan"; sourceTree = "<absolute>"; };
 		D2AEBE4A2A6127DF00267E9C /* ThriveTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = ThriveTests.xctestplan; path = "/Users/vadimsvorobjovs/Documents/iOS/Projects/Thrive App/ThriveApp/Thrive/Test Plans/ThriveTests.xctestplan"; sourceTree = "<absolute>"; };
 		D2AEBE4B2A61290B00267E9C /* ThriveTaskStoreIntegrationTests.xctestplan */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ThriveTaskStoreIntegrationTests.xctestplan; sourceTree = "<group>"; };
 		D2D202202A5EAA9300843423 /* CoreDataHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelpers.swift; sourceTree = "<group>"; };
@@ -210,6 +211,7 @@
 			children = (
 				D2AEBE4A2A6127DF00267E9C /* ThriveTests.xctestplan */,
 				D2AEBE4B2A61290B00267E9C /* ThriveTaskStoreIntegrationTests.xctestplan */,
+				D2A0B6282A6192060090C13F /* Thrive.xctestplan */,
 			);
 			path = "Test Plans";
 			sourceTree = "<group>";
