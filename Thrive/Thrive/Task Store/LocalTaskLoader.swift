@@ -30,10 +30,10 @@ public final class LocalTaskLoader {
             case let .failure(error):
                 completion(.failure(error))
 
-            case let .found(tasks):
+            case let .success(.found(tasks)):
                 completion(.success(tasks.toModel()))
 
-            case .empty:
+            case .success:
                 completion(.success([]))
             }
         }

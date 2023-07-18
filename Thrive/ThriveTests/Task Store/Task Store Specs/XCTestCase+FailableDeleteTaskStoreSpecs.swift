@@ -22,6 +22,6 @@ extension FailableDeleteTaskStoreSpecs where Self: XCTestCase {
         
         delete(task, from: sut)
         
-        expect(sut, toRetrieve: .empty, file: file, line: line)
+        expect(sut, toRetrieve: .success(.empty), file: file, line: line)
     }
 }

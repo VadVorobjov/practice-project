@@ -5,16 +5,17 @@
 //  Created by Vadims Vorobjovs on 25/05/2023.
 //
 
-public enum RetrieveStoredTaskResult {
+public enum StoredTasks {
     case empty
     case found(items: [LocalTask])
-    case failure(Error)
 }
 
 public protocol TaskStore {
+    typealias RetrievalResult = Result<StoredTasks, Error>
+    
     typealias InsertionCompletion = (Error?) -> Void
     typealias DeletionCompletion = (Error?) -> Void
-    typealias RetrievalCompletion = (RetrieveStoredTaskResult) -> Void
+    typealias RetrievalCompletion = (RetrievalResult) -> Void
 
     /// The completion handler can be invoked in any thread.
     /// Clients are responsible to dispatch to appropriate thread, if needed.

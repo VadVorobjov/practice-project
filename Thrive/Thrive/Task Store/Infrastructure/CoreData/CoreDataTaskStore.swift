@@ -53,10 +53,10 @@ public final class CoreDataTaskStore: TaskStore {
                 let store = try ManagedTask.find(in: context)
                 
                 guard !store.isEmpty else {
-                    return completion(.empty)
+                    return completion(.success(.empty))
                 }
                 
-                completion(.found(items: store.map { $0.local }))
+                completion(.success(.found(items: store.map { $0.local })))
             } catch {
                 completion(.failure(error))
             }
