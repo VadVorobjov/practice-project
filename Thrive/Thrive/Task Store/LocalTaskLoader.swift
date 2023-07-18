@@ -5,10 +5,7 @@
 //  Created by Vadims Vorobjovs on 25/05/2023.
 //
 
-public enum LoadTaskResult {
-    case success([Task])
-    case failure(Error)
-}
+public typealias LoadTaskResult = Result<[Task], Error>
 
 public final class LocalTaskLoader {
     public typealias Result = Error?
