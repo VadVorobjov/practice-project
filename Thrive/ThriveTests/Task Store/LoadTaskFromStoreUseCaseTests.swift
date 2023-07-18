@@ -48,7 +48,7 @@ final class LoadTaskFromStoreUseCaseTests: XCTestCase {
         let store = TaskStoreSpy()
         var sut: LocalTaskLoader? = LocalTaskLoader(store: store)
         
-        var receivedResults = [LoadTaskResult]()
+        var receivedResults = [LocalTaskLoader.LoadResult]()
         sut?.load { receivedResults.append($0) }
         
         sut = nil
@@ -70,7 +70,7 @@ final class LoadTaskFromStoreUseCaseTests: XCTestCase {
     }
     
     private func expect(_ sut: LocalTaskLoader,
-                        toCompleteWith expectedResult: LoadTaskResult,
+                        toCompleteWith expectedResult: LocalTaskLoader.LoadResult,
                         when action: () -> Void,
                         file: StaticString = #filePath,
                         line: UInt = #line) {

@@ -5,11 +5,9 @@
 //  Created by Vadims Vorobjovs on 25/05/2023.
 //
 
-public typealias LoadTaskResult = Result<[Task], Error>
-
 public final class LocalTaskLoader {
     public typealias Result = Error?
-    public typealias LoadResult = LoadTaskResult
+    public typealias LoadResult = Swift.Result<[Task], Error>
     
     private let store: TaskStore
     
