@@ -11,10 +11,13 @@
 //}
 
 public protocol TaskStore {
-    typealias RetrievalResult = Result<[LocalTask]?, Error>
+    typealias InsertionResult = Error?
+    typealias InsertionCompletion = (InsertionResult) -> Void
+    
+    typealias DeletionResult = Error?
+    typealias DeletionCompletion = (DeletionResult) -> Void
 
-    typealias InsertionCompletion = (Error?) -> Void
-    typealias DeletionCompletion = (Error?) -> Void
+    typealias RetrievalResult = Result<[LocalTask]?, Error>
     typealias RetrievalCompletion = (RetrievalResult) -> Void
 
     /// The completion handler can be invoked in any thread.
