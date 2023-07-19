@@ -136,7 +136,7 @@ extension TaskStoreSpecs where Self: XCTestCase {
             case (.success(.none), .success(.none)), (.failure, .failure):
                 break
                 
-            case let (.success(expected), .success(retrieved)):
+            case let (.success(.some(expected)), .success(.some(retrieved))):
                 XCTAssertEqual(retrieved, expected, file: file, line: line)
                 
             default:
