@@ -18,48 +18,35 @@ public final class CoreDataTaskStore: TaskStore {
     
     public func insert(_ item: LocalTask, completion: @escaping InsertionCompletion) {
         context.perform { [context] in
-            do {
+            completion(Result {
                 ManagedTask.manage(item, in: context)
-
                 try context.save()
-                
-                completion(.success(()))
-            } catch {
-                completion(.failure(error))
-            }
+            })
         }
     }
     
     public func delete(_ item: LocalTask, completion: @escaping DeletionCompletion) {
         context.perform { [context] in
-            do {
+            completion(Result {
                 let store = try ManagedTask.find(item, in: context)
                 
-                if let store = store {
+                if let store {
                     context.delete(store)
                     try context.save()
                 }
-                
-                completion(.success(()))
-            } catch {
-                completion(.failure(error))
-            }
+            })
         }
     }
     
     public func retrieve(completion: @escaping RetrievalCompletion) {
         context.perform { [context] in
-            do {
+            completion(Result {
                 let store = try ManagedTask.find(in: context)
                 
-                guard !store.isEmpty else {
-                    return completion(.success(.none))
-                }
+                guard !store.isEmpty else { return .none }
                 
-                completion(.success(store.map { $0.local }))
-            } catch {
-                completion(.failure(error))
-            }
+                return store.map { return $0.local }
+            })
         }
     }
 }
