@@ -25,6 +25,8 @@
 		D2AEBE4C2A61290B00267E9C /* ThriveTaskStoreIntegrationTests.xctestplan in Resources */ = {isa = PBXBuildFile; fileRef = D2AEBE4B2A61290B00267E9C /* ThriveTaskStoreIntegrationTests.xctestplan */; };
 		D2AEBE4D2A61338D00267E9C /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22154F92A1C971E0022CA75 /* XCTestCase+MemoryLeakTracking.swift */; };
 		D2AEBE4E2A61579F00267E9C /* SharedTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22154FB2A1C9C7F0022CA75 /* SharedTestHelpers.swift */; };
+		D2BFEBEB2A6889B000D865A7 /* ThriveiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2BFEBE32A6889B000D865A7 /* ThriveiOS.framework */; };
+		D2BFEBF02A6889B100D865A7 /* ThriveiOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BFEBEF2A6889B100D865A7 /* ThriveiOSTests.swift */; };
 		D2D202212A5EAA9300843423 /* CoreDataHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D202202A5EAA9300843423 /* CoreDataHelpers.swift */; };
 		D2D202232A5EAB5400843423 /* ManagedTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D202222A5EAB5400843423 /* ManagedTask.swift */; };
 		D2F37C372A5752F00054EFEE /* TaskStoreSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F37C362A5752F00054EFEE /* TaskStoreSpecs.swift */; };
@@ -49,6 +51,13 @@
 			remoteGlobalIDString = D221541E2A1645CB0022CA75;
 			remoteInfo = Thrive;
 		};
+		D2BFEBEC2A6889B000D865A7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D22154162A1645CB0022CA75 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D2BFEBE22A6889B000D865A7;
+			remoteInfo = ThriveiOS;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +80,9 @@
 		D2A0B6282A6192060090C13F /* Thrive.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = Thrive.xctestplan; path = "/Users/vadimsvorobjovs/Documents/iOS/Projects/Thrive App/ThriveApp/Thrive/Test Plans/Thrive.xctestplan"; sourceTree = "<absolute>"; };
 		D2AEBE4A2A6127DF00267E9C /* ThriveTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = ThriveTests.xctestplan; path = "/Users/vadimsvorobjovs/Documents/iOS/Projects/Thrive App/ThriveApp/Thrive/Test Plans/ThriveTests.xctestplan"; sourceTree = "<absolute>"; };
 		D2AEBE4B2A61290B00267E9C /* ThriveTaskStoreIntegrationTests.xctestplan */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ThriveTaskStoreIntegrationTests.xctestplan; sourceTree = "<group>"; };
+		D2BFEBE32A6889B000D865A7 /* ThriveiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ThriveiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2BFEBEA2A6889B000D865A7 /* ThriveiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThriveiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2BFEBEF2A6889B100D865A7 /* ThriveiOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThriveiOSTests.swift; sourceTree = "<group>"; };
 		D2D202202A5EAA9300843423 /* CoreDataHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelpers.swift; sourceTree = "<group>"; };
 		D2D202222A5EAB5400843423 /* ManagedTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedTask.swift; sourceTree = "<group>"; };
 		D2F37C362A5752F00054EFEE /* TaskStoreSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskStoreSpecs.swift; sourceTree = "<group>"; };
@@ -104,6 +116,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D2BFEBE02A6889B000D865A7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2BFEBE72A6889B000D865A7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2BFEBEB2A6889B000D865A7 /* ThriveiOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -114,6 +141,8 @@
 				D22154212A1645CB0022CA75 /* Thrive */,
 				D221542B2A1645CB0022CA75 /* ThriveTests */,
 				D23E73202A6092B100405D8C /* ThriveTaskStoreIntegrationTests */,
+				D2BFEBE42A6889B000D865A7 /* ThriveiOS */,
+				D2BFEBEE2A6889B100D865A7 /* ThriveiOSTests */,
 				D22154202A1645CB0022CA75 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -124,6 +153,8 @@
 				D221541F2A1645CB0022CA75 /* Thrive.framework */,
 				D22154272A1645CB0022CA75 /* ThriveTests.xctest */,
 				D23E731F2A6092B100405D8C /* ThriveTaskStoreIntegrationTests.xctest */,
+				D2BFEBE32A6889B000D865A7 /* ThriveiOS.framework */,
+				D2BFEBEA2A6889B000D865A7 /* ThriveiOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -216,6 +247,21 @@
 			path = "Test Plans";
 			sourceTree = "<group>";
 		};
+		D2BFEBE42A6889B000D865A7 /* ThriveiOS */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ThriveiOS;
+			sourceTree = "<group>";
+		};
+		D2BFEBEE2A6889B100D865A7 /* ThriveiOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				D2BFEBEF2A6889B100D865A7 /* ThriveiOSTests.swift */,
+			);
+			path = ThriveiOSTests;
+			sourceTree = "<group>";
+		};
 		D2D2021D2A5EA8FF00843423 /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
@@ -243,6 +289,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D221542E2A1645CB0022CA75 /* Thrive.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2BFEBDE2A6889B000D865A7 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,6 +356,42 @@
 			productReference = D23E731F2A6092B100405D8C /* ThriveTaskStoreIntegrationTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		D2BFEBE22A6889B000D865A7 /* ThriveiOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D2BFEBF62A6889B100D865A7 /* Build configuration list for PBXNativeTarget "ThriveiOS" */;
+			buildPhases = (
+				D2BFEBDE2A6889B000D865A7 /* Headers */,
+				D2BFEBDF2A6889B000D865A7 /* Sources */,
+				D2BFEBE02A6889B000D865A7 /* Frameworks */,
+				D2BFEBE12A6889B000D865A7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ThriveiOS;
+			productName = ThriveiOS;
+			productReference = D2BFEBE32A6889B000D865A7 /* ThriveiOS.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		D2BFEBE92A6889B000D865A7 /* ThriveiOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D2BFEBF72A6889B100D865A7 /* Build configuration list for PBXNativeTarget "ThriveiOSTests" */;
+			buildPhases = (
+				D2BFEBE62A6889B000D865A7 /* Sources */,
+				D2BFEBE72A6889B000D865A7 /* Frameworks */,
+				D2BFEBE82A6889B000D865A7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D2BFEBED2A6889B000D865A7 /* PBXTargetDependency */,
+			);
+			name = ThriveiOSTests;
+			productName = ThriveiOSTests;
+			productReference = D2BFEBEA2A6889B000D865A7 /* ThriveiOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -323,6 +412,12 @@
 					D23E731E2A6092B100405D8C = {
 						CreatedOnToolsVersion = 14.3.1;
 					};
+					D2BFEBE22A6889B000D865A7 = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+					D2BFEBE92A6889B000D865A7 = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
 				};
 			};
 			buildConfigurationList = D22154192A1645CB0022CA75 /* Build configuration list for PBXProject "Thrive" */;
@@ -341,6 +436,8 @@
 				D221541E2A1645CB0022CA75 /* Thrive */,
 				D22154262A1645CB0022CA75 /* ThriveTests */,
 				D23E731E2A6092B100405D8C /* ThriveTaskStoreIntegrationTests */,
+				D2BFEBE22A6889B000D865A7 /* ThriveiOS */,
+				D2BFEBE92A6889B000D865A7 /* ThriveiOSTests */,
 			);
 		};
 /* End PBXProject section */
@@ -362,6 +459,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		D23E731D2A6092B100405D8C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2BFEBE12A6889B000D865A7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2BFEBE82A6889B000D865A7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -413,6 +524,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D2BFEBDF2A6889B000D865A7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2BFEBE62A6889B000D865A7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2BFEBF02A6889B100D865A7 /* ThriveiOSTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -425,6 +551,11 @@
 			isa = PBXTargetDependency;
 			target = D221541E2A1645CB0022CA75 /* Thrive */;
 			targetProxy = D23E73242A6092B100405D8C /* PBXContainerItemProxy */;
+		};
+		D2BFEBED2A6889B000D865A7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D2BFEBE22A6889B000D865A7 /* ThriveiOS */;
+			targetProxy = D2BFEBEC2A6889B000D865A7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -712,6 +843,106 @@
 			};
 			name = Release;
 		};
+		D2BFEBF22A6889B100D865A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = VU9T5K6KZV;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.2;
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = "Wolf-Alliance.ThriveiOS";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		D2BFEBF32A6889B100D865A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = VU9T5K6KZV;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.2;
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = "Wolf-Alliance.ThriveiOS";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		D2BFEBF42A6889B100D865A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VU9T5K6KZV;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Wolf-Alliance.ThriveiOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		D2BFEBF52A6889B100D865A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VU9T5K6KZV;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Wolf-Alliance.ThriveiOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -747,6 +978,24 @@
 			buildConfigurations = (
 				D23E73262A6092B100405D8C /* Debug */,
 				D23E73272A6092B100405D8C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D2BFEBF62A6889B100D865A7 /* Build configuration list for PBXNativeTarget "ThriveiOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D2BFEBF22A6889B100D865A7 /* Debug */,
+				D2BFEBF32A6889B100D865A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D2BFEBF72A6889B100D865A7 /* Build configuration list for PBXNativeTarget "ThriveiOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D2BFEBF42A6889B100D865A7 /* Debug */,
+				D2BFEBF52A6889B100D865A7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
