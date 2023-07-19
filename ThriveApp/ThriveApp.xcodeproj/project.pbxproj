@@ -14,6 +14,8 @@
 		D258D9AA2A002D18009EA169 /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D258D9A92A002D18009EA169 /* Navigation.swift */; };
 		D28AF87C2A14264E007D4EAA /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28AF87B2A14264E007D4EAA /* HomeView.swift */; };
 		D28B7CFD2A0580C900EBB210 /* TextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28B7CFC2A0580C900EBB210 /* TextFieldView.swift */; };
+		D29A1BC52A6858180084C598 /* Thrive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D29A1BC42A6858180084C598 /* Thrive.framework */; };
+		D29A1BC62A6858180084C598 /* Thrive.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D29A1BC42A6858180084C598 /* Thrive.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2ABB56529CC933A0087C6EB /* AppTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ABB56429CC933A0087C6EB /* AppTabView.swift */; };
 		D2ABB56829CD9D010087C6EB /* Button+ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ABB56729CD9D010087C6EB /* Button+ButtonStyle.swift */; };
 		D2ABB56B29CD9D950087C6EB /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ABB56A29CD9D950087C6EB /* Button.swift */; };
@@ -51,12 +53,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		D2C06CA829C19CF2008853E2 /* Embed Frameworks */ = {
+		D29A1BC72A6858180084C598 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				D29A1BC62A6858180084C598 /* Thrive.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -71,6 +74,9 @@
 		D258D9A92A002D18009EA169 /* Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
 		D28AF87B2A14264E007D4EAA /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		D28B7CFC2A0580C900EBB210 /* TextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldView.swift; sourceTree = "<group>"; };
+		D29A1BBD2A68564A0084C598 /* Thrive.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Thrive.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D29A1BC02A68576E0084C598 /* Thrive.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Thrive.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D29A1BC42A6858180084C598 /* Thrive.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Thrive.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2ABB56429CC933A0087C6EB /* AppTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabView.swift; sourceTree = "<group>"; };
 		D2ABB56729CD9D010087C6EB /* Button+ButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+ButtonStyle.swift"; sourceTree = "<group>"; };
 		D2ABB56A29CD9D950087C6EB /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
@@ -99,6 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D29A1BC52A6858180084C598 /* Thrive.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,6 +150,16 @@
 				D28AF87A2A14263E007D4EAA /* Views */,
 			);
 			path = AppTab;
+			sourceTree = "<group>";
+		};
+		D29A1BBC2A68564A0084C598 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D29A1BC42A6858180084C598 /* Thrive.framework */,
+				D29A1BC02A68576E0084C598 /* Thrive.framework */,
+				D29A1BBD2A68564A0084C598 /* Thrive.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		D2ABB56C29CDA1850087C6EB /* Misc */ = {
@@ -220,6 +237,7 @@
 				D2C06C3329C0E5A1008853E2 /* ThriveAppTests */,
 				D2C06C3D29C0E5A1008853E2 /* ThriveAppUITests */,
 				D2C06C1B29C0E5A0008853E2 /* Products */,
+				D29A1BBC2A68564A0084C598 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -275,7 +293,7 @@
 				D2C06C1629C0E5A0008853E2 /* Sources */,
 				D2C06C1729C0E5A0008853E2 /* Frameworks */,
 				D2C06C1829C0E5A0008853E2 /* Resources */,
-				D2C06CA829C19CF2008853E2 /* Embed Frameworks */,
+				D29A1BC72A6858180084C598 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -498,6 +516,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/**";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -558,6 +577,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/**";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -579,7 +599,6 @@
 		D2C06C4529C0E5A1008853E2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -609,7 +628,6 @@
 		D2C06C4629C0E5A1008853E2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
