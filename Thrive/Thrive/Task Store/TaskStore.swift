@@ -5,14 +5,14 @@
 //  Created by Vadims Vorobjovs on 25/05/2023.
 //
 
-public enum StoredTasks {
-    case empty
-    case found(items: [LocalTask])
-}
+//public enum StoredTasks {
+//    case empty
+//    case found(items: [LocalTask])
+//}
 
 public protocol TaskStore {
-    typealias RetrievalResult = Result<StoredTasks, Error>
-    
+    typealias RetrievalResult = Result<[LocalTask]?, Error>
+
     typealias InsertionCompletion = (Error?) -> Void
     typealias DeletionCompletion = (Error?) -> Void
     typealias RetrievalCompletion = (RetrievalResult) -> Void

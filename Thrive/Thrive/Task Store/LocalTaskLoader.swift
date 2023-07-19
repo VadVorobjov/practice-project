@@ -30,7 +30,7 @@ public final class LocalTaskLoader {
             case let .failure(error):
                 completion(.failure(error))
 
-            case let .success(.found(tasks)):
+            case let .success(.some(tasks)):
                 completion(.success(tasks.toModel()))
 
             case .success:

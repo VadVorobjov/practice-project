@@ -13,11 +13,11 @@ extension TaskStoreSpecs where Self: XCTestCase {
     // MARK: - Retrieve
     
     func assertThatRetrieveDeliversEmptyOnEmptyStore(on sut: TaskStore, file: StaticString = #file, line: UInt = #line) {
-        expect(sut, toRetrieve: .success(.empty), file: file, line: line)
+        expect(sut, toRetrieve: .success(.none), file: file, line: line)
     }
     
     func assertThatRetrieveHasNoSideEffectsOnEmptyStore(on sut: TaskStore, file: StaticString = #file, line: UInt = #line) {
-        expect(sut, toRetrieveTwice: .success(.empty), file: file, line: line)
+        expect(sut, toRetrieveTwice: .success(.none), file: file, line: line)
     }
     
     func assertThatRetrieveDeliversFoundValuesOnNonEmptyStore(on sut: TaskStore, file: StaticString = #file, line: UInt = #line) {
@@ -25,7 +25,7 @@ extension TaskStoreSpecs where Self: XCTestCase {
         
         insert(task, to: sut)
         
-        expect(sut, toRetrieve: .success(.found(items: [task])), file: file, line: line)
+        expect(sut, toRetrieve: .success([task]), file: file, line: line)
     }
     
     func assertThatRetrieveHasNoSideEffectsOnNonEmptyStore(on sut: TaskStore, file: StaticString = #file, line: UInt = #line) {
@@ -33,7 +33,7 @@ extension TaskStoreSpecs where Self: XCTestCase {
         
         insert(task, to: sut)
         
-        expect(sut, toRetrieveTwice: .success(.found(items: [task])), file: file, line: line)
+        expect(sut, toRetrieveTwice: .success([task]), file: file, line: line)
     }
     
     // MARK: - Insert
@@ -51,7 +51,7 @@ extension TaskStoreSpecs where Self: XCTestCase {
         
         insert(task, to: sut)
         
-        expect(sut, toRetrieve: .success(.found(items: [task])))
+        expect(sut, toRetrieve: .success([task]))
     }
     
     func assertThatInsertApplyToPreviouslyInsertedValues(on sut: TaskStore, file: StaticString = #file, line: UInt = #line) {
@@ -61,7 +61,7 @@ extension TaskStoreSpecs where Self: XCTestCase {
         insert(firstTask, to: sut)
         insert(secondTask, to: sut)
         
-        expect(sut, toRetrieve: .success(.found(items: [firstTask, secondTask])), file: file, line: line)
+        expect(sut, toRetrieve: .success([firstTask, secondTask]), file: file, line: line)
     }
     
     // MARK: - Delete
@@ -71,7 +71,7 @@ extension TaskStoreSpecs where Self: XCTestCase {
         
         delete(task, from: sut)
         
-        expect(sut, toRetrieve: .success(.empty), file: file, line: line)
+        expect(sut, toRetrieve: .success(.none), file: file, line: line)
     }
 
     func assertThatDeleteOnNonEmptyStoreDeletesProvidedTask(on sut: TaskStore, file: StaticString = #file, line: UInt = #line) {
@@ -83,7 +83,7 @@ extension TaskStoreSpecs where Self: XCTestCase {
         
         delete(firstTask, from: sut)
         
-        expect(sut, toRetrieve: .success(.found(items: [secondTask])), file: file, line: line)
+        expect(sut, toRetrieve: .success([secondTask]), file: file, line: line)
     }
     
     func assertThatDeleteDeliversNoErrorOnEmptyStore(on sut: TaskStore, file: StaticString = #file, line: UInt = #line) {
@@ -133,10 +133,10 @@ extension TaskStoreSpecs where Self: XCTestCase {
         
         sut.retrieve { retrievedResult in
             switch (expectedResult, retrievedResult) {
-            case (.success(.empty), .success(.empty)), (.failure, .failure):
+            case (.success(.none), .success(.none)), (.failure, .failure):
                 break
                 
-            case let (.success(.found(expected)), .success(.found(retrieved))):
+            case let (.success(expected), .success(retrieved)):
                 XCTAssertEqual(retrieved, expected, file: file, line: line)
                 
             default:

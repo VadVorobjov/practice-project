@@ -56,10 +56,10 @@ class TaskStoreSpy: TaskStore {
     }
 
     func completeRetrieval(with items: [LocalTask], at index: Int = 0) {
-        retrievalCompletions[index](.success(.found(items: items)))
+        retrievalCompletions[index](.success(items))
     }
     
     func completeWithEmptyStore(at index: Int = 0) {
-        retrievalCompletions[index](.success(.empty))
+        retrievalCompletions[index](.success(.none))
     }
 }
