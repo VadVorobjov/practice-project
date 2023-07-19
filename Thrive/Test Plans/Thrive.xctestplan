@@ -30,6 +30,7 @@
       }
     },
     {
+      "parallelizable" : true,
       "target" : {
         "containerPath" : "container:Thrive.xcodeproj",
         "identifier" : "D23E731E2A6092B100405D8C",
