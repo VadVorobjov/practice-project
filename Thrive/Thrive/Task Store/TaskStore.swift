@@ -11,10 +11,10 @@
 //}
 
 public protocol TaskStore {
-    typealias InsertionResult = Error?
+    typealias InsertionResult = Result<Void, Error>
     typealias InsertionCompletion = (InsertionResult) -> Void
     
-    typealias DeletionResult = Error?
+    typealias DeletionResult = Result<Void, Error>
     typealias DeletionCompletion = (DeletionResult) -> Void
 
     typealias RetrievalResult = Result<[LocalTask]?, Error>

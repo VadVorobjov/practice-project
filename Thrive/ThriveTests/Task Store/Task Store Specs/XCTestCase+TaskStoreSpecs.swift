@@ -154,8 +154,8 @@ extension TaskStoreSpecs where Self: XCTestCase {
         let exp = expectation(description: "Wait for store insertion")
         var insertionError: Error?
         
-        sut.insert(task) { receivedInsertionError in
-            insertionError = receivedInsertionError
+        sut.insert(task) { result in
+            if case let Result.failure(error) = result { insertionError = error }
             exp.fulfill()
         }
         wait(for: [exp], timeout: 1.0)
@@ -168,8 +168,8 @@ extension TaskStoreSpecs where Self: XCTestCase {
         let exp = expectation(description: "Wait for delete to complete")
         var deletionError: Error?
         
-        sut.delete(task) { receivedDeletionError in
-            deletionError = receivedDeletionError
+        sut.delete(task) { result in
+            if case let Result.failure(error) = result { deletionError = error }
             exp.fulfill()
         }
         wait(for: [exp], timeout: 1.0)

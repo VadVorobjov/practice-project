@@ -81,8 +81,10 @@ final class ThriveTaskStoreIntegrationTests: XCTestCase {
     private func save(_ task: Task, on sut: LocalTaskLoader) {
         let exp = expectation(description: "Wait for save completion")
         
-        sut.save(task) { saveError in
-            XCTAssertNil(saveError, "Expected no error on save")
+        sut.save(task) { result in
+            if case let Result.failure(error) = result {
+                XCTAssertNil(error, "Expected no error on save")
+            }
             exp.fulfill()
         }
         
@@ -92,8 +94,10 @@ final class ThriveTaskStoreIntegrationTests: XCTestCase {
     private func delete(_ task: Task, on sut: LocalTaskLoader) {
         let exp = expectation(description: "Wait for deletion completion")
         
-        sut.delete(task) { deletionError in
-            XCTAssertNil(deletionError, "Expected no error on deletion")
+        sut.delete(task) { result in
+            if case let Result.failure(error) = result {
+                XCTAssertNil(error, "Expected no error on deletion")
+            }
             exp.fulfill()
         }
         

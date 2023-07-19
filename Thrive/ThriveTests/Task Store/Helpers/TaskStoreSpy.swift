@@ -26,11 +26,11 @@ class TaskStoreSpy: TaskStore {
     }
     
     func completeSave(with error: NSError, at index: Int = 0) {
-        insertionCompletions[index](error)
+        insertionCompletions[index](.failure(error))
     }
     
     func completeSaveSuccessfully(at index: Int = 0) {
-        insertionCompletions[index](nil)
+        insertionCompletions[index](.success(()))
     }
     
     func delete(_ item: LocalTask, completion: @escaping DeletionCompletion) {
@@ -39,11 +39,11 @@ class TaskStoreSpy: TaskStore {
     }
     
     func completeDelete(with error: NSError, at index: Int = 0) {
-        deletionCompletions[index](error)
+        deletionCompletions[index](.failure(error))
     }
     
     func completeDeleteSuccessfully(at index: Int = 0) {
-        deletionCompletions[index](nil)
+        deletionCompletions[index](.success(()))
     }
     
     func retrieve(completion: @escaping RetrievalCompletion) {

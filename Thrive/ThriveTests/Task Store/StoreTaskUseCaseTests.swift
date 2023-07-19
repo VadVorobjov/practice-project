@@ -102,14 +102,14 @@ final class StoreTaskUseCaseTests: XCTestCase {
         
         switch actionType {
         case .save:
-            sut.save(uniqueTask()) { error in
-                receivedError = error
+            sut.save(uniqueTask()) { result in
+                if case let Result.failure(error) = result { receivedError = error }
                 exp.fulfill()
             }
             
         case .delete:
-            sut.delete(uniqueTask()) { error in
-                receivedError = error
+            sut.delete(uniqueTask()) { result in
+                if case let Result.failure(error) = result { receivedError = error }
                 exp.fulfill()
             }
         }
@@ -122,7 +122,7 @@ final class StoreTaskUseCaseTests: XCTestCase {
     
     private func expectSUT(with store: TaskStoreSpy, toDeliverNoErrorOn actionType: Action, when action: () -> Void) {
         var sut: LocalTaskLoader? = LocalTaskLoader(store: store)
-        var receivedResults = [LocalTaskLoader.Result]()
+        var receivedResults = [Result<Void, Error>]()
         
         switch actionType {
         case .save:

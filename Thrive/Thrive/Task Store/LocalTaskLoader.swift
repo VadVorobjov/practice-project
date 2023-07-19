@@ -6,8 +6,9 @@
 //
 
 public final class LocalTaskLoader {
-    public typealias Result = Error?
-    public typealias LoadResult = Swift.Result<[Task], Error>
+    public typealias SaveResult = Result<Void, Error>
+    public typealias LoadResult = Result<[Task], Error>
+    public typealias DeleteResult = Result<Void, Error>
     
     private let store: TaskStore
     
@@ -15,10 +16,11 @@ public final class LocalTaskLoader {
         self.store = store
     }
 
-    public func save(_ item: Task, completion: @escaping (Result) -> Void) {
-        store.insert(item.toLocal()) { [weak self] error in
+    public func save(_ item: Task, completion: @escaping (SaveResult) -> Void) {
+        store.insert(item.toLocal()) { [weak self] saveResult in
             guard self != nil else { return }
-            completion(error)
+            
+            completion(saveResult)
         }
     }
     
@@ -39,10 +41,11 @@ public final class LocalTaskLoader {
         }
     }
 
-    public func delete(_ item: Task, completion: @escaping (Result) -> Void) {
-        store.delete(item.toLocal()) { [weak self] error in
+    public func delete(_ item: Task, completion: @escaping (DeleteResult) -> Void) {
+        store.delete(item.toLocal()) { [weak self] deleteResult in
             guard self != nil else { return }
-            completion(error)
+            
+            completion(deleteResult)
         }
     }
 }

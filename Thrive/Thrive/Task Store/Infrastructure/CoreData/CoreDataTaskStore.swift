@@ -23,9 +23,9 @@ public final class CoreDataTaskStore: TaskStore {
 
                 try context.save()
                 
-                completion(nil)
+                completion(.success(()))
             } catch {
-                completion(error)
+                completion(.failure(error))
             }
         }
     }
@@ -40,9 +40,9 @@ public final class CoreDataTaskStore: TaskStore {
                     try context.save()
                 }
                 
-                completion(nil)
+                completion(.success(()))
             } catch {
-                completion(error)
+                completion(.failure(error))
             }
         }
     }
