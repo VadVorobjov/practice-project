@@ -1,0 +1,34 @@
+{
+  "configurations" : [
+    {
+      "id" : "03D92E3A-1BB8-4E59-B5E6-4572FC9A1FAE",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:Thrive.xcodeproj",
+          "identifier" : "D2BFEBE22A6889B000D865A7",
+          "name" : "ThriveiOS"
+        }
+      ]
+    },
+    "testExecutionOrdering" : "random"
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:Thrive.xcodeproj",
+        "identifier" : "D2BFEBE92A6889B000D865A7",
+        "name" : "ThriveiOSTests"
+      }
+    }
+  ],
+  "version" : 1
+}

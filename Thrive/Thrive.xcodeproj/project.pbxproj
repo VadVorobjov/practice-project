@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D22154282A1645CB0022CA75 /* Thrive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D221541F2A1645CB0022CA75 /* Thrive.framework */; };
-		D221542E2A1645CB0022CA75 /* Thrive.h in Headers */ = {isa = PBXBuildFile; fileRef = D22154222A1645CB0022CA75 /* Thrive.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D221542E2A1645CB0022CA75 /* Thrive.h in Headers */ = {isa = PBXBuildFile; fileRef = D22154222A1645CB0022CA75 /* Thrive.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		D22154F52A1A5E720022CA75 /* StoreTaskUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22154F42A1A5E720022CA75 /* StoreTaskUseCaseTests.swift */; };
 		D22154F72A1A6EBD0022CA75 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22154F62A1A6EBD0022CA75 /* Task.swift */; };
 		D22154FA2A1C971E0022CA75 /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22154F92A1C971E0022CA75 /* XCTestCase+MemoryLeakTracking.swift */; };
@@ -25,6 +25,7 @@
 		D2AEBE4C2A61290B00267E9C /* ThriveTaskStoreIntegrationTests.xctestplan in Resources */ = {isa = PBXBuildFile; fileRef = D2AEBE4B2A61290B00267E9C /* ThriveTaskStoreIntegrationTests.xctestplan */; };
 		D2AEBE4D2A61338D00267E9C /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22154F92A1C971E0022CA75 /* XCTestCase+MemoryLeakTracking.swift */; };
 		D2AEBE4E2A61579F00267E9C /* SharedTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22154FB2A1C9C7F0022CA75 /* SharedTestHelpers.swift */; };
+		D2B0B2782A6890D000A108A6 /* ThriveiOS.h in Headers */ = {isa = PBXBuildFile; fileRef = D2B0B2772A6890C700A108A6 /* ThriveiOS.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		D2BFEBEB2A6889B000D865A7 /* ThriveiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2BFEBE32A6889B000D865A7 /* ThriveiOS.framework */; };
 		D2BFEBF02A6889B100D865A7 /* ThriveiOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BFEBEF2A6889B100D865A7 /* ThriveiOSTests.swift */; };
 		D2D202212A5EAA9300843423 /* CoreDataHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D202202A5EAA9300843423 /* CoreDataHelpers.swift */; };
@@ -80,6 +81,9 @@
 		D2A0B6282A6192060090C13F /* Thrive.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = Thrive.xctestplan; path = "/Users/vadimsvorobjovs/Documents/iOS/Projects/Thrive App/ThriveApp/Thrive/Test Plans/Thrive.xctestplan"; sourceTree = "<absolute>"; };
 		D2AEBE4A2A6127DF00267E9C /* ThriveTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = ThriveTests.xctestplan; path = "/Users/vadimsvorobjovs/Documents/iOS/Projects/Thrive App/ThriveApp/Thrive/Test Plans/ThriveTests.xctestplan"; sourceTree = "<absolute>"; };
 		D2AEBE4B2A61290B00267E9C /* ThriveTaskStoreIntegrationTests.xctestplan */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ThriveTaskStoreIntegrationTests.xctestplan; sourceTree = "<group>"; };
+		D2B0B26E2A688BFC00A108A6 /* ThriveiOSTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = ThriveiOSTests.xctestplan; path = "/Users/vadimsvorobjovs/Documents/iOS/Projects/Thrive App/ThriveApp/Thrive/Test Plans/ThriveiOSTests.xctestplan"; sourceTree = "<absolute>"; };
+		D2B0B26F2A688C4000A108A6 /* ThriveiOS.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = ThriveiOS.xctestplan; path = "/Users/vadimsvorobjovs/Documents/iOS/Projects/Thrive App/ThriveApp/Thrive/Test Plans/ThriveiOS.xctestplan"; sourceTree = "<absolute>"; };
+		D2B0B2772A6890C700A108A6 /* ThriveiOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThriveiOS.h; sourceTree = "<group>"; };
 		D2BFEBE32A6889B000D865A7 /* ThriveiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ThriveiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2BFEBEA2A6889B000D865A7 /* ThriveiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThriveiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2BFEBEF2A6889B100D865A7 /* ThriveiOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThriveiOSTests.swift; sourceTree = "<group>"; };
@@ -144,6 +148,7 @@
 				D2BFEBE42A6889B000D865A7 /* ThriveiOS */,
 				D2BFEBEE2A6889B100D865A7 /* ThriveiOSTests */,
 				D22154202A1645CB0022CA75 /* Products */,
+				D2B0B2712A688DD500A108A6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -240,16 +245,26 @@
 		D2AEBE472A6127DD00267E9C /* Test Plans */ = {
 			isa = PBXGroup;
 			children = (
+				D2A0B6282A6192060090C13F /* Thrive.xctestplan */,
 				D2AEBE4A2A6127DF00267E9C /* ThriveTests.xctestplan */,
 				D2AEBE4B2A61290B00267E9C /* ThriveTaskStoreIntegrationTests.xctestplan */,
-				D2A0B6282A6192060090C13F /* Thrive.xctestplan */,
+				D2B0B26F2A688C4000A108A6 /* ThriveiOS.xctestplan */,
+				D2B0B26E2A688BFC00A108A6 /* ThriveiOSTests.xctestplan */,
 			);
 			path = "Test Plans";
+			sourceTree = "<group>";
+		};
+		D2B0B2712A688DD500A108A6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		D2BFEBE42A6889B000D865A7 /* ThriveiOS */ = {
 			isa = PBXGroup;
 			children = (
+				D2B0B2772A6890C700A108A6 /* ThriveiOS.h */,
 			);
 			path = ThriveiOS;
 			sourceTree = "<group>";
@@ -296,6 +311,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2B0B2782A6890D000A108A6 /* ThriveiOS.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -858,6 +874,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -871,8 +888,12 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -891,6 +912,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -904,8 +926,12 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -916,13 +942,18 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = VU9T5K6KZV;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MACOSX_DEPLOYMENT_TARGET = 13.2;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Wolf-Alliance.ThriveiOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -933,13 +964,18 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = VU9T5K6KZV;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MACOSX_DEPLOYMENT_TARGET = 13.2;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Wolf-Alliance.ThriveiOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

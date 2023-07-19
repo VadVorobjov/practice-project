@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import ThriveiOS
+import ThriveiOS
 
 final class ThriveiOSTests: XCTestCase {
 
