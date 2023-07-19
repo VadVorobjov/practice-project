@@ -6,15 +6,15 @@
 //
 
 public final class LocalTaskLoader {
-    public typealias SaveResult = Result<Void, Error>
-    public typealias LoadResult = Result<[Task], Error>
-    public typealias DeleteResult = Result<Void, Error>
-    
     private let store: TaskStore
     
     public init(store: TaskStore) {
         self.store = store
     }
+}
+
+extension LocalTaskLoader {
+    public typealias SaveResult = Result<Void, Error>
 
     public func save(_ item: Task, completion: @escaping (SaveResult) -> Void) {
         store.insert(item.toLocal()) { [weak self] saveResult in
@@ -23,7 +23,11 @@ public final class LocalTaskLoader {
             completion(saveResult)
         }
     }
+}
     
+extension LocalTaskLoader {
+    public typealias LoadResult = Result<[Task], Error>
+
     public func load(completion: @escaping (LoadResult) -> Void) {
         return store.retrieve { [weak self] result in
             guard let _ = self else { return }
@@ -31,15 +35,19 @@ public final class LocalTaskLoader {
             switch result {
             case let .failure(error):
                 completion(.failure(error))
-
+                
             case let .success(.some(tasks)):
                 completion(.success(tasks.toModel()))
-
+                
             case .success:
                 completion(.success([]))
             }
         }
     }
+}
+
+extension LocalTaskLoader {
+    public typealias DeleteResult = Result<Void, Error>
 
     public func delete(_ item: Task, completion: @escaping (DeleteResult) -> Void) {
         store.delete(item.toLocal()) { [weak self] deleteResult in
