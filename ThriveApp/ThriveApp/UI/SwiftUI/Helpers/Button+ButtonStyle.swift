@@ -24,10 +24,10 @@ struct MainButtonStyle: ButtonStyle {
         HStack {
             Spacer()
             configuration.label.foregroundColor(.mainButtonLabel)
+                .font(.system(size: 20, weight: .bold))
             Spacer()
         }
-        .frame(width: 185)
-        .padding()
+        .frame(width: 195, height: 48)
         .background(Color.mainButtonBackground.cornerRadius(10))
         .scaleEffect(configuration.isPressed ? 0.95 : 1)
     }

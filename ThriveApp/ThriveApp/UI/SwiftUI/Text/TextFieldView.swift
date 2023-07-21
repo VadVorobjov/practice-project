@@ -17,10 +17,10 @@ struct TextFieldView: View {
     var body: some View {
         TextField("", text: $text)
             .frame(height: 44)
-            .font(Font.system(size: 12))
+            .font(.callout)
             .placeholder(when: text.isEmpty) {
                 Text("Name your task").foregroundColor(.black)
-                    .font(.footnote)
+                    .font(.callout)
             }
             .padding(.leading)
             .overlay(
