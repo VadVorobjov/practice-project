@@ -8,43 +8,36 @@
 import SwiftUI
 
 struct TaskNameInitiationView: View {
-    @State private var name: String = ""
-    
-    var completion: (String) -> Void
-    
+    @Binding var name: String
+    let completion: () -> Void // TODO: leaked detail. Should be in ViewModel or Presenter
+        
     var body: some View {
-        HStack {
-            VStack(alignment: .center) {
-                TitleTextView(title: "Name")
-
-                TextFieldView(
-                    text: $name,
-                    title: "Name",
-                    placeholderText: "Name your task",
-                    buttonTitle: "Next"
-                )
-                
-                Button("Next") {
-                    completion(name)
-                }
-                .buttonStyle(MainButtonStyle())
-                .padding(.top)
-            }
-            .padding()
-            .overlay(
-            RoundedRectangle(cornerRadius: 15)
-                .stroke()
-                .shadow(color: .gray, radius: 4, x: 0, y: 2)
+        VStack(alignment: .center) {
+            TitleTextView(title: "Name")
+            
+            TextFieldView(
+                text: $name,
+                title: "Name",
+                placeholderText: "Name your task",
+                buttonTitle: "Next"
             )
-            .padding()
+            .padding(.top, 20)
+            
+            Button("Next") {
+                completion()
+            }
+            .buttonStyle(MainButtonStyle())
+            .padding(.top, 25)
         }
+        .padding(EdgeInsets(top: 24, leading: 24, bottom: 30, trailing: 24))
+        .applyRoundedOverlay()
     }
 }
 
 struct TaskNameInitiationCell_Previews: PreviewProvider {
     @State static private var name = ""
     static var previews: some View {
-        TaskNameInitiationView(completion: { _ in })
+        TaskNameInitiationView(name: $name, completion: { })
             .previewLayout(.sizeThatFits)
     }
 }

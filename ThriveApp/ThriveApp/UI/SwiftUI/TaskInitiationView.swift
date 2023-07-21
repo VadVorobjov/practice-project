@@ -26,14 +26,14 @@ struct TaskInitiationView: View {
     var body: some View {
         ZStack {
             customBackgroundView()
+            
             ScrollView(.horizontal, showsIndicators: false) {
                 ScrollViewReader { proxy in
                     HStack(alignment: .center) {
                         
                         HStack {
                             Spacer()
-                            TaskNameInitiationView { text in
-                                task.name = text
+                            TaskNameInitiationView(name: $task.name) {
                                 proxy.scrollWithAnimationTo(Steps.description)
                             }
                             Spacer()
