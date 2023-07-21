@@ -12,7 +12,7 @@ struct TaskNameInitiationView: View {
     let completion: () -> Void // TODO: leaked detail. Should be in ViewModel or Presenter
         
     var body: some View {
-        VStack(alignment: .center) {
+        VStack(alignment: .center, spacing: 0.0) {
             TitleTextView(title: "Name")
             
             TextFieldView(
