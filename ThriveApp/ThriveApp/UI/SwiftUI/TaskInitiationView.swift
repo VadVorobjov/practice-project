@@ -43,7 +43,7 @@ struct TaskInitiationView: View {
                         
                         HStack {
                             Spacer()
-                            TaskDescriptionInitiationCell(
+                            TaskDescriptionInitiationView(
                                 backAction: {
                                     proxy.scrollWithAnimationTo(Steps.name)
                                 },

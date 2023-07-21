@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TaskDescriptionInitiationCell: View {
+struct TaskDescriptionInitiationView: View {
     @State private var description: String = ""
 
     private let backAction: () -> Void
@@ -45,9 +45,9 @@ struct TaskDescriptionInitiationCell: View {
     }
 }
 
-struct TaskDescriptionInitiationCell_Previews: PreviewProvider {
+struct TaskDescriptionInitiationView_Previews: PreviewProvider {
     static var previews: some View {
-        TaskDescriptionInitiationCell(backAction: {}, completion: { _ in })
+        TaskDescriptionInitiationView(backAction: {}, completion: { _ in })
         .previewLayout(.sizeThatFits)
     }
 }

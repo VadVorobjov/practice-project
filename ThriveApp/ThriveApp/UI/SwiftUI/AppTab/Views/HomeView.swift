@@ -45,7 +45,7 @@ private enum HomeNavigationType {
                 task: Task(name: "", description: "")))
             
         case .description(let backAction, let completion):
-            return AnyView(TaskDescriptionInitiationCell(
+            return AnyView(TaskDescriptionInitiationView(
                 backAction: backAction,
                 completion: completion))
         }
