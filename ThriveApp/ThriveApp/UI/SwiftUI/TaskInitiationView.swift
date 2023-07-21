@@ -83,6 +83,6 @@ struct TaskInitiationView: View {
 
 struct TaskInitiationView_Previews: PreviewProvider {
     static var previews: some View {
-        TaskInitiationView(navigation: Navigation(), task: Task(name: "name", description: "description"))
+        TaskInitiationView(navigation: Navigation(), task: Task(name: "", description: "description"))
     }
 }
