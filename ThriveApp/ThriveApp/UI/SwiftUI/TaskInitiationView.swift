@@ -32,7 +32,7 @@ struct TaskInitiationView: View {
                         
                         HStack {
                             Spacer()
-                            TaskNameInitiationCell { text in
+                            TaskNameInitiationView { text in
                                 task.name = text
                                 proxy.scrollWithAnimationTo(Steps.description)
                             }

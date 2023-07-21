@@ -1,5 +1,5 @@
 //
-//  TaskNameInitiationCell.swift
+//  TaskNameInitiationName.swift
 //  ThriveApp
 //
 //  Created by Vadims Vorobjovs on 21/03/2023.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TaskNameInitiationCell: View {
+struct TaskNameInitiationView: View {
     @State private var name: String = ""
     
     var completion: (String) -> Void
@@ -31,6 +31,12 @@ struct TaskNameInitiationCell: View {
                 .padding(.top)
             }
             .padding()
+            .overlay(
+            RoundedRectangle(cornerRadius: 15)
+                .stroke()
+                .shadow(color: .gray, radius: 4, x: 0, y: 2)
+            )
+            .padding()
         }
     }
 }
@@ -38,7 +44,7 @@ struct TaskNameInitiationCell: View {
 struct TaskNameInitiationCell_Previews: PreviewProvider {
     @State static private var name = ""
     static var previews: some View {
-        TaskNameInitiationCell(completion: { _ in })
+        TaskNameInitiationView(completion: { _ in })
             .previewLayout(.sizeThatFits)
     }
 }
