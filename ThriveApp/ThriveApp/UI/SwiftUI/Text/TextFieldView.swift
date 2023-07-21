@@ -16,7 +16,7 @@ struct TextFieldView: View {
     
     var body: some View {
         TextField("", text: $text)
-            .frame(height: 35)
+            .frame(height: 44)
             .font(Font.system(size: 12))
             .placeholder(when: text.isEmpty) {
                 Text("Name your task").foregroundColor(.black)
@@ -25,7 +25,7 @@ struct TextFieldView: View {
             .padding(.leading)
             .overlay(
                 RoundedRectangle(cornerRadius: 8)
-                    .stroke(lineWidth: 1.0)
+                    .stroke()
             )
     }
 }
