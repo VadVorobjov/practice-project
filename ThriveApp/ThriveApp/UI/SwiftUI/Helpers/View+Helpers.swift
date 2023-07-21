@@ -28,7 +28,7 @@ extension View {
         self
         .background(Color(hex: 0xD8D8D8))
         .cornerRadius(25)
-        .shadow(color: Color(hex: 0x000000, alpha: 0.5), radius: 2, x: 0, y: 2)
+        .shadow(color: Color(hex: 0x000000, alpha: 0.5), radius: 4, x: 0, y: 2)
         .overlay(
             RoundedRectangle(cornerRadius: 25)
                 .stroke()
