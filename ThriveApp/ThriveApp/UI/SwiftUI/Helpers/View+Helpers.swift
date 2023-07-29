@@ -22,7 +22,7 @@ extension View {
     @ViewBuilder func customBackgroundView() -> some View {
         Rectangle()
             .ignoresSafeArea()
-            .foregroundColor(Color("background"))
+            .foregroundColor(Color("Background"))
     }
     
     @ViewBuilder func applyRoundedOverlay() -> some View {

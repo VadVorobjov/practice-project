@@ -19,10 +19,6 @@ extension Color {
         )
     }
     
-    static var background: Color {
-        self.init("Background")
-    }
-    
     static var mainButtonLabel: Color {
         self.init(hex: 0xD1D1D1)
     }
@@ -34,6 +30,8 @@ extension Color {
 
 extension Color {
     struct Background {
+        static let primary = Color("Background")
+        
         struct Elevation {
             static let primary = Color("background-elevation-primary")
         }

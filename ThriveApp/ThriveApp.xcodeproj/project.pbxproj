@@ -130,7 +130,6 @@
 			isa = PBXGroup;
 			children = (
 				D2ABB56C29CDA1850087C6EB /* Misc */,
-				D20F714E29C36F80006D34CF /* Color+Helpers.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -197,6 +196,7 @@
 		D2ABB57729D4185F0087C6EB /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				D20F714E29C36F80006D34CF /* Color+Helpers.swift */,
 				D2ABB56729CD9D010087C6EB /* Button+ButtonStyle.swift */,
 				D22F2B8229E9698400272367 /* ScrollViewProxy+Helpers.swift */,
 				D258D99829FBAFC4009EA169 /* View+Helpers.swift */,
