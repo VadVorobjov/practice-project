@@ -12,25 +12,28 @@ struct TaskNameInitiationView: View {
     let completion: () -> Void // TODO: leaked detail. Should be in ViewModel or Presenter
         
     var body: some View {
-        VStack(alignment: .center, spacing: 0.0) {
-            TitleTextView(title: "Name")
-            
-            TextFieldView(
-                text: $name,
-                title: "Name",
-                placeholderText: "Name your task",
-                buttonTitle: "Next"
-            )
-            .padding(.top, 20)
-            
-            Button("Next") {
-                completion()
+        ZStack {
+            VStack(alignment: .center, spacing: 0.0) {
+                TitleTextView(title: "Name")
+                
+                TextFieldView(
+                    text: $name,
+                    title: "Name",
+                    placeholderText: "Name your task",
+                    buttonTitle: "Next"
+                )
+                .padding(.top, 20)
+                
+                Button("Next") {
+                    completion()
+                }
+                .buttonStyle(MainButtonStyle())
+                .padding(.top, 25)
             }
-            .buttonStyle(MainButtonStyle())
-            .padding(.top, 25)
+            .padding(EdgeInsets(top: 24, leading: 24, bottom: 30, trailing: 24))
+            .background(Image("background-elevation-primary").resizable())
         }
-        .padding(EdgeInsets(top: 24, leading: 24, bottom: 30, trailing: 24))
-        .applyRoundedOverlay()
+        .padding()
     }
 }
 
