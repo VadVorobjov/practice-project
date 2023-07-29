@@ -31,3 +31,11 @@ extension Color {
         self.init(hex: 0x3D3B37)
     }
 }
+
+extension Color {
+    struct Background {
+        struct Elevation {
+            static let primary = Color("background-elevation-primary")
+        }
+    }
+}
