@@ -31,7 +31,7 @@ struct TaskNameInitiationView: View {
                 .padding(.top, 25)
             }
             .padding(EdgeInsets(top: 24, leading: 24, bottom: 30, trailing: 24))
-            .background(Image("background-elevation-primary").resizable())
+            .modifier(Elevation(color: .Background.Elevation.primary))
         }
         .padding()
     }
