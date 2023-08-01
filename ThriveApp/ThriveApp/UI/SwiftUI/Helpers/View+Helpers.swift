@@ -27,7 +27,7 @@ extension View {
     
     @ViewBuilder func applyRoundedOverlay() -> some View {
         self
-        .background(Color("background_distinguish"))
+        .background(Color.Background.primary)
         .cornerRadius(25)
         .shadow(color: Color(hex: 0x000000, alpha: 0.5), radius: 4, x: 0, y: 2)
         .overlay(
