@@ -14,23 +14,26 @@ struct TextEditorView: View {
 
     var body: some View {
         VStack(alignment: .center) {
-            TitleTextView(title: "Description")
             
             VStack() {
                 TextEditor(text: $text)
-                    .frame(height: screenSize.width / 2.5)
+                    .padding()
+                    .textFieldStyle(.roundedBorder)
+                    .frame(maxHeight: screenSize.width)
                     .scrollContentBackground(.hidden)
-            }.overlay(
-                RoundedRectangle(cornerRadius: 8)
-                    .stroke(Color.black)
-            ).padding([.leading, .bottom, .trailing])
+                    .background(Color(.white))
+                    .cornerRadius(15)
+                    .placeholder(when: text.isEmpty, alignment: .center) {
+                        Text("Something to describe")
+                            .bold()
+                    }
+            }
         }
-        .padding()
     }
 }
 
 struct TextEditorView_Previews: PreviewProvider {
-    @State static private var text = "Enter text"
+    @State static private var text = ""
     
     static var previews: some View {
         TextEditorView(text: $text, title: "Description")
