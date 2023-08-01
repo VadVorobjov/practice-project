@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		D20F714F29C36F80006D34CF /* Color+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20F714E29C36F80006D34CF /* Color+Helpers.swift */; };
 		D21321FC2A766FEB0006CF77 /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21321FB2A766FEB0006CF77 /* ViewModifiers.swift */; };
+		D21321FE2A798B220006CF77 /* ExtensibleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21321FD2A798B220006CF77 /* ExtensibleView.swift */; };
 		D22F2B8329E9698400272367 /* ScrollViewProxy+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22F2B8229E9698400272367 /* ScrollViewProxy+Helpers.swift */; };
 		D25825EE29CA19D20021FF12 /* TaskNameInitiationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25825ED29CA19D20021FF12 /* TaskNameInitiationView.swift */; };
 		D258D99929FBAFC4009EA169 /* View+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D258D99829FBAFC4009EA169 /* View+Helpers.swift */; };
@@ -70,6 +71,7 @@
 /* Begin PBXFileReference section */
 		D20F714E29C36F80006D34CF /* Color+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Helpers.swift"; sourceTree = "<group>"; };
 		D21321FB2A766FEB0006CF77 /* ViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifiers.swift; sourceTree = "<group>"; };
+		D21321FD2A798B220006CF77 /* ExtensibleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensibleView.swift; sourceTree = "<group>"; };
 		D22F2B8229E9698400272367 /* ScrollViewProxy+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScrollViewProxy+Helpers.swift"; sourceTree = "<group>"; };
 		D25825ED29CA19D20021FF12 /* TaskNameInitiationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskNameInitiationView.swift; sourceTree = "<group>"; };
 		D258D99829FBAFC4009EA169 /* View+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Helpers.swift"; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 				D2ABB57C29D419AF0087C6EB /* TextEditorView.swift */,
 				D2ABB56F29CDF0F60087C6EB /* ContentView.swift */,
 				D2ABB58329DC92840087C6EB /* TaskInitiationSummaryView.swift */,
+				D21321FD2A798B220006CF77 /* ExtensibleView.swift */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
@@ -425,6 +428,7 @@
 				D2C06C2029C0E5A0008853E2 /* SceneDelegate.swift in Sources */,
 				D2ABB57D29D419AF0087C6EB /* TextEditorView.swift in Sources */,
 				D258D99929FBAFC4009EA169 /* View+Helpers.swift in Sources */,
+				D21321FE2A798B220006CF77 /* ExtensibleView.swift in Sources */,
 				D2ABB57429CF4E0C0087C6EB /* TaskInitiationView.swift in Sources */,
 				D2ABB56E29CDA1900087C6EB /* UIKit+Misc.swift in Sources */,
 				D2ABB57B29D419300087C6EB /* Text.swift in Sources */,
