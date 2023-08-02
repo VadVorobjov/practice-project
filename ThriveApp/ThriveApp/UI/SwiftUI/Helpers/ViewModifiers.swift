@@ -9,11 +9,17 @@ import SwiftUI
 
 struct Elevation: ViewModifier {
     let color: Color
+    let radius: CGFloat
+    
+    init(color: Color, radius: CGFloat = 25) {
+        self.color = color
+        self.radius = radius
+    }
     
     func body(content: Content) -> some View {
         content
             .background(color)
-            .cornerRadius(25)
-            .shadow(color: .black, radius: 2, x: 1, y: 1)
+            .cornerRadius(radius)
+            .shadow(color: .Shadow.black80, radius: 2, x: 1, y: 1)
     }
 }

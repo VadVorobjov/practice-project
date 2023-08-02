@@ -33,14 +33,13 @@ struct ExpandableView<Content: View>: View {
             if expanded {
                 HStack {
                     content()
-                        .padding(.bottom, 10)
+                        .padding(.bottom, 15)
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
             }
         }
         .padding(.horizontal, 15)
-        .background(Color.Background.Elevation.primary)
-        .cornerRadius(10)
+        .modifier(Elevation(color: .Background.Elevation.primary, radius: 10))
     }
 }
 
