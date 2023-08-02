@@ -27,18 +27,18 @@ extension Color {
 extension Color {
     struct Background {
         static let primary = Color("Background")
-        
-        struct Elevation {
-            static let primary = Color("background-elevation-primary")
-        }
+    }
+    
+    struct Elevation {
+        static let primary = Color("elevation.primary")
+    }
+    
+    struct Button {
+        static let backgroundPrimary = Color("button.background.primary")
     }
     
     struct Shadow {
         static let black80 = Color("shadow.black.80")
-    }
-    
-    struct Button {
-        static let primary = Color("button-primary")
     }
     
     struct Label {

@@ -28,7 +28,7 @@ struct MainButtonStyle: ButtonStyle {
             Spacer()
         }
         .frame(width: 195, height: 48)
-        .background(Color.Button.primary)
+        .background(Color.Button.backgroundPrimary)
         .cornerRadius(10)
         .scaleEffect(configuration.isPressed ? 0.95 : 1)
     }

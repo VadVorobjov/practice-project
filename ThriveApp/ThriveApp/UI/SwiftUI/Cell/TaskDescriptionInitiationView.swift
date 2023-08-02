@@ -45,7 +45,7 @@ struct TaskDescriptionInitiationView: View {
                 
             }
             .padding(EdgeInsets(top: 20, leading: 20, bottom: 30, trailing: 20))
-            .modifier(Elevation(color: .Background.Elevation.primary))
+            .modifier(Elevation(color: .Elevation.primary))
         }
         .padding()
     }

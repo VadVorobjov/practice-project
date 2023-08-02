@@ -39,7 +39,7 @@ struct ExpandableView<Content: View>: View {
             }
         }
         .padding(.horizontal, 15)
-        .modifier(Elevation(color: .Background.Elevation.primary, radius: 10))
+        .modifier(Elevation(color: .Elevation.primary, radius: 10))
     }
 }
 
