@@ -33,6 +33,10 @@ extension Color {
         }
     }
     
+    struct Shadow {
+        static let black80 = Color("shadow.black.80")
+    }
+    
     struct Button {
         static let primary = Color("button-primary")
     }
