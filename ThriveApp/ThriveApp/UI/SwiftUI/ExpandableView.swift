@@ -17,7 +17,7 @@ struct ExpandableView<Content: View>: View {
         VStack {
             HStack(spacing: 0) {
                 Button {
-                    withAnimation { expanded.toggle() }
+                    withAnimation(.easeInOut(duration: 0.2)) { expanded.toggle() }
                 } label: {
                     Image("chevron.up")
                         .rotationEffect(.degrees(expanded ? 180 : 0))
