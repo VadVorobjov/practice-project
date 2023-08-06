@@ -6,6 +6,9 @@
 //
 
 import SwiftUI
+import Thrive
+
+typealias ThriveTask = Thrive.Task
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
