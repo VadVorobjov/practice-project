@@ -5,7 +5,6 @@
 //  Created by Vadims Vorobjovs on 14/03/2023.
 //
 
-import UIKit
 import SwiftUI
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
