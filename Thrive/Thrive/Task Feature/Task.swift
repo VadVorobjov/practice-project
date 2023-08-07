@@ -11,7 +11,7 @@ public struct Task: Equatable {
     public let description: String?
     public let date: Date
     
-    public init(id: UUID, name: String, description: String? = nil, date: Date) {
+    public init(id: UUID = UUID(), name: String, description: String? = nil, date: Date) {
         self.id = id
         self.name = name
         self.description = description
