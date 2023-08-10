@@ -1,13 +1,26 @@
 //
-//  AppTabView.swift
+//  ContentView.swift
 //  ThriveApp
 //
-//  Created by Vadims Vorobjovs on 23/03/2023.
+//  Created by Vadims Vorobjovs on 24/03/2023.
 //
 
 import SwiftUI
 
-struct AppTabView: View {
+class MainTabViewModel: ObservableObject {
+    @Published var tab: Tab = .home
+    
+    enum Tab: Int, CaseIterable, Identifiable {
+        var id: Int { rawValue}
+
+        case home
+        case path
+        case account
+    }
+}
+
+
+struct AppTabViewRouter: View {
     @ObservedObject var mainTabModel: MainTabViewModel
     
     var body: some View {
@@ -42,8 +55,8 @@ struct AppTabView_Previews: PreviewProvider {
     
     static var previews: some View {
         Group {
-            AppTabView(mainTabModel: mainTabModel)
-            AppTabView(mainTabModel: mainTabModel)
+            AppTabViewRouter(mainTabModel: mainTabModel)
+            AppTabViewRouter(mainTabModel: mainTabModel)
                 .preferredColorScheme(.dark)
         }
     }

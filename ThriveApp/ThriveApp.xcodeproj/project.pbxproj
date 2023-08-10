@@ -18,11 +18,10 @@
 		D28B7CFD2A0580C900EBB210 /* TextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28B7CFC2A0580C900EBB210 /* TextFieldView.swift */; };
 		D29A1BC52A6858180084C598 /* Thrive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D29A1BC42A6858180084C598 /* Thrive.framework */; };
 		D29A1BC62A6858180084C598 /* Thrive.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D29A1BC42A6858180084C598 /* Thrive.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2ABB56529CC933A0087C6EB /* AppTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ABB56429CC933A0087C6EB /* AppTabView.swift */; };
 		D2ABB56829CD9D010087C6EB /* Button+ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ABB56729CD9D010087C6EB /* Button+ButtonStyle.swift */; };
 		D2ABB56B29CD9D950087C6EB /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ABB56A29CD9D950087C6EB /* Button.swift */; };
 		D2ABB56E29CDA1900087C6EB /* UIKit+Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ABB56D29CDA1900087C6EB /* UIKit+Misc.swift */; };
-		D2ABB57029CDF0F60087C6EB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ABB56F29CDF0F60087C6EB /* ContentView.swift */; };
+		D2ABB57029CDF0F60087C6EB /* AppTabViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ABB56F29CDF0F60087C6EB /* AppTabViewRouter.swift */; };
 		D2ABB57429CF4E0C0087C6EB /* TaskInitiationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ABB57329CF4E0C0087C6EB /* TaskInitiationView.swift */; };
 		D2ABB57629D408CC0087C6EB /* TaskDescriptionInitiationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ABB57529D408CC0087C6EB /* TaskDescriptionInitiationView.swift */; };
 		D2ABB57B29D419300087C6EB /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ABB57A29D419300087C6EB /* Text.swift */; };
@@ -81,11 +80,10 @@
 		D29A1BBD2A68564A0084C598 /* Thrive.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Thrive.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D29A1BC02A68576E0084C598 /* Thrive.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Thrive.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D29A1BC42A6858180084C598 /* Thrive.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Thrive.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D2ABB56429CC933A0087C6EB /* AppTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabView.swift; sourceTree = "<group>"; };
 		D2ABB56729CD9D010087C6EB /* Button+ButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+ButtonStyle.swift"; sourceTree = "<group>"; };
 		D2ABB56A29CD9D950087C6EB /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		D2ABB56D29CDA1900087C6EB /* UIKit+Misc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIKit+Misc.swift"; sourceTree = "<group>"; };
-		D2ABB56F29CDF0F60087C6EB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D2ABB56F29CDF0F60087C6EB /* AppTabViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabViewRouter.swift; sourceTree = "<group>"; };
 		D2ABB57329CF4E0C0087C6EB /* TaskInitiationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskInitiationView.swift; sourceTree = "<group>"; };
 		D2ABB57529D408CC0087C6EB /* TaskDescriptionInitiationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDescriptionInitiationView.swift; sourceTree = "<group>"; };
 		D2ABB57A29D419300087C6EB /* Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
@@ -149,7 +147,6 @@
 		D28AF87D2A142673007D4EAA /* AppTab */ = {
 			isa = PBXGroup;
 			children = (
-				D2ABB56429CC933A0087C6EB /* AppTabView.swift */,
 				D28AF87A2A14263E007D4EAA /* Views */,
 			);
 			path = AppTab;
@@ -191,7 +188,6 @@
 				D2ABB57E29D41A890087C6EB /* Cell */,
 				D2ABB57329CF4E0C0087C6EB /* TaskInitiationView.swift */,
 				D2ABB57C29D419AF0087C6EB /* TextEditorView.swift */,
-				D2ABB56F29CDF0F60087C6EB /* ContentView.swift */,
 				D2ABB58329DC92840087C6EB /* TaskInitiationSummaryView.swift */,
 				D21321FD2A798B220006CF77 /* ExpandableView.swift */,
 			);
@@ -260,6 +256,7 @@
 		D2C06C1C29C0E5A0008853E2 /* ThriveApp */ = {
 			isa = PBXGroup;
 			children = (
+				D2ABB56F29CDF0F60087C6EB /* AppTabViewRouter.swift */,
 				D258D9A92A002D18009EA169 /* Navigation.swift */,
 				D20F714D29C36F77006D34CF /* Helpers */,
 				D2ABB57129CEF2FC0087C6EB /* UI */,
@@ -420,7 +417,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2ABB56529CC933A0087C6EB /* AppTabView.swift in Sources */,
 				D28B7CFD2A0580C900EBB210 /* TextFieldView.swift in Sources */,
 				D25825EE29CA19D20021FF12 /* TaskNameInitiationView.swift in Sources */,
 				D20F714F29C36F80006D34CF /* Color+Helpers.swift in Sources */,
@@ -432,7 +428,7 @@
 				D2ABB57429CF4E0C0087C6EB /* TaskInitiationView.swift in Sources */,
 				D2ABB56E29CDA1900087C6EB /* UIKit+Misc.swift in Sources */,
 				D2ABB57B29D419300087C6EB /* Text.swift in Sources */,
-				D2ABB57029CDF0F60087C6EB /* ContentView.swift in Sources */,
+				D2ABB57029CDF0F60087C6EB /* AppTabViewRouter.swift in Sources */,
 				D2ABB57629D408CC0087C6EB /* TaskDescriptionInitiationView.swift in Sources */,
 				D2ABB58429DC92840087C6EB /* TaskInitiationSummaryView.swift in Sources */,
 				D22F2B8329E9698400272367 /* ScrollViewProxy+Helpers.swift in Sources */,

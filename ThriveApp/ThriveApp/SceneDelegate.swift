@@ -25,7 +25,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         self.window = window
         
-        window.rootViewController = UIHostingController(rootView: ContentView())
+        window.rootViewController = UIHostingController(rootView: AppTabViewRouter(mainTabModel: MainTabViewModel()))
         window.makeKeyAndVisible()
     }
 
