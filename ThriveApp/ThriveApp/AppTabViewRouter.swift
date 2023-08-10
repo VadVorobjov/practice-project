@@ -19,18 +19,42 @@ class MainTabViewModel: ObservableObject {
     }
 }
 
+enum TaskInitiation {
+    case name
+    
+    var view: some View {
+        switch self {
+        case .name:
+            return TaskInitiationView(navigation: Navigation(), task: Task(name: "", description: ""))
+        }
+    }
+}
+
 
 struct AppTabViewRouter: View {
     @ObservedObject var mainTabModel: MainTabViewModel
+    @ObservedObject var navigation: Navigation
     
     var body: some View {
         TabView(selection: $mainTabModel.tab) {
             ForEach (MainTabViewModel.Tab.allCases) { tab in
                 switch tab {
                 case .home:
-                    NavigationView {
-                        HomeView()
-                    }
+                    NavigationStack(path: $navigation.path) {
+                        ZStack {
+                            customBackgroundView()
+                            
+                            NavigationLink(value: TaskInitiation.name) {
+                                InitiationButtonSwiftUI(label: "Initiate") {
+                                    navigation.path.append(TaskInitiation.name)
+                                }
+                            }
+                            
+                            .navigationDestination(for: TaskInitiation.self) { view in
+                                TaskInitiationView(navigation: navigation, task: Task(name: "", description: ""))
+                            }
+                        }
+                        }
                     .tag(tab)
                     .tabItem { Label("Home", systemImage: "house.circle") }
                     
@@ -55,8 +79,8 @@ struct AppTabView_Previews: PreviewProvider {
     
     static var previews: some View {
         Group {
-            AppTabViewRouter(mainTabModel: mainTabModel)
-            AppTabViewRouter(mainTabModel: mainTabModel)
+            AppTabViewRouter(mainTabModel: mainTabModel, navigation: navigation)
+            AppTabViewRouter(mainTabModel: mainTabModel, navigation: navigation)
                 .preferredColorScheme(.dark)
         }
     }
