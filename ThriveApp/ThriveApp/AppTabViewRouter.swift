@@ -30,7 +30,6 @@ enum TaskInitiation {
     }
 }
 
-
 struct AppTabViewRouter: View {
     @ObservedObject var mainTabModel: MainTabViewModel
     @ObservedObject var navigation: Navigation
