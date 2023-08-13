@@ -10,7 +10,7 @@ import Thrive
 
 struct TaskInitiationSummaryView: View {
     let model: TaskViewModel
-    let complete: (ThriveTask?) -> Void
+    let complete: (Command?) -> Void
 
     @State private var expandDescription = false
 

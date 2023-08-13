@@ -10,7 +10,7 @@ import Thrive
 
 struct TaskInitiationView: View {
     @ObservedObject var model: TaskViewModel
-    let complete: (ThriveTask?) -> Void
+    let complete: (Command?) -> Void
     
     private enum Steps: Hashable {
         case name

@@ -8,8 +8,6 @@
 import SwiftUI
 import Thrive
 
-typealias ThriveTask = Thrive.Command
-
 enum NavigationType: Hashable {
     case name
 }
