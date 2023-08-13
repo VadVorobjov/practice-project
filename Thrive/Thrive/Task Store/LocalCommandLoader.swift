@@ -5,7 +5,7 @@
 //  Created by Vadims Vorobjovs on 25/05/2023.
 //
 
-public final class LocalComamndLoader {
+public final class LocalCommandLoader {
     private let store: CommandStore
     
     public init(store: CommandStore) {
@@ -13,7 +13,7 @@ public final class LocalComamndLoader {
     }
 }
 
-extension LocalComamndLoader {
+extension LocalCommandLoader {
     public typealias SaveResult = Result<Void, Error>
 
     public func save(_ item: Command, completion: @escaping (SaveResult) -> Void) {
@@ -25,7 +25,7 @@ extension LocalComamndLoader {
     }
 }
     
-extension LocalComamndLoader {
+extension LocalCommandLoader {
     public typealias LoadResult = Result<[Command], Error>
 
     public func load(completion: @escaping (LoadResult) -> Void) {
@@ -46,7 +46,7 @@ extension LocalComamndLoader {
     }
 }
 
-extension LocalComamndLoader {
+extension LocalCommandLoader {
     public typealias DeleteResult = Result<Void, Error>
 
     public func delete(_ item: Command, completion: @escaping (DeleteResult) -> Void) {

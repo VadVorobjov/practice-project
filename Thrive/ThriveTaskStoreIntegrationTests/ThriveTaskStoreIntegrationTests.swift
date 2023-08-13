@@ -66,11 +66,11 @@ final class ThriveTaskStoreIntegrationTests: XCTestCase {
     
     // MARK: - Helpers
  
-    private func makeSUT(file: StaticString = #file, line: UInt = #line) -> LocalComamndLoader {
+    private func makeSUT(file: StaticString = #file, line: UInt = #line) -> LocalCommandLoader {
         let storeBundle = Bundle(for: CoreDataTaskStore.self)
         let storeURL = testSpecificStoreURL()
         let store = try! CoreDataTaskStore(storeURL: storeURL, bundle: storeBundle)
-        let sut = LocalComamndLoader(store: store)
+        let sut = LocalCommandLoader(store: store)
         
         trackMemoryLeaks(store, file: file, line: line)
         trackMemoryLeaks(sut, file: file, line: line)
@@ -78,7 +78,7 @@ final class ThriveTaskStoreIntegrationTests: XCTestCase {
         return sut
     }
     
-    private func save(_ task: Command, on sut: LocalComamndLoader) {
+    private func save(_ task: Command, on sut: LocalCommandLoader) {
         let exp = expectation(description: "Wait for save completion")
         
         sut.save(task) { result in
@@ -91,7 +91,7 @@ final class ThriveTaskStoreIntegrationTests: XCTestCase {
         wait(for: [exp], timeout: 1.0)
     }
     
-    private func delete(_ task: Command, on sut: LocalComamndLoader) {
+    private func delete(_ task: Command, on sut: LocalCommandLoader) {
         let exp = expectation(description: "Wait for deletion completion")
         
         sut.delete(task) { result in
@@ -104,7 +104,7 @@ final class ThriveTaskStoreIntegrationTests: XCTestCase {
         wait(for: [exp], timeout: 1.0)
     }
     
-    private func expect(_ sut: LocalComamndLoader, toLoad expectedTasks: [Command] ) {
+    private func expect(_ sut: LocalCommandLoader, toLoad expectedTasks: [Command] ) {
         let exp = expectation(description: "Wait for load completion")
 
         sut.load { result in

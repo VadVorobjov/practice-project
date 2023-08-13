@@ -46,9 +46,9 @@ final class LoadTaskFromStoreUseCaseTests: XCTestCase {
     
     func test_load_doesNotDeliverResultAfterSUTInstanceHasBeenDeallocated() {
         let store = TaskStoreSpy()
-        var sut: LocalComamndLoader? = LocalComamndLoader(store: store)
+        var sut: LocalCommandLoader? = LocalCommandLoader(store: store)
         
-        var receivedResults = [LocalComamndLoader.LoadResult]()
+        var receivedResults = [LocalCommandLoader.LoadResult]()
         sut?.load { receivedResults.append($0) }
         
         sut = nil
@@ -60,17 +60,17 @@ final class LoadTaskFromStoreUseCaseTests: XCTestCase {
     
     // MARK: - Helpers
     
-    private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (sut: LocalComamndLoader, store: TaskStoreSpy) {
+    private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (sut: LocalCommandLoader, store: TaskStoreSpy) {
         let store = TaskStoreSpy()
-        let sut = LocalComamndLoader(store: store)
+        let sut = LocalCommandLoader(store: store)
         trackMemoryLeaks(store, file: file, line: line)
         trackMemoryLeaks(store, file: file, line: line)
         
         return (sut, store)
     }
     
-    private func expect(_ sut: LocalComamndLoader,
-                        toCompleteWith expectedResult: LocalComamndLoader.LoadResult,
+    private func expect(_ sut: LocalCommandLoader,
+                        toCompleteWith expectedResult: LocalCommandLoader.LoadResult,
                         when action: () -> Void,
                         file: StaticString = #filePath,
                         line: UInt = #line) {
