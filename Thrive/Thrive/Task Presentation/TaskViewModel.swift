@@ -7,10 +7,24 @@
 
 import Foundation
 
-class TaskViewModel {
-    let task: Task
+public class TaskViewModel: ObservableObject {
+    @Published public var name: String
+    @Published public var description: String?
     
-    init(task: Task) {
-        self.task = task
+    public init(name: String, description: String?) {
+        self.name = name
+        self.description = description
     }
+    
+    public var hasDescription: Bool {
+        if let description = description, !description.isEmpty {
+            return true
+        }
+        
+        return false
+    }
+    
+//    public var description: String {
+//        hasDescription ? description! : ""
+//    }
 }

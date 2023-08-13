@@ -6,10 +6,11 @@
 //
 
 import SwiftUI
+import Thrive
 
 struct TaskInitiationSummaryView: View {
-    let task: Task
-    let initiated: (Task) -> Void
+    let model: TaskViewModel
+    let complete: (ThriveTask?) -> Void
 
     @State private var expandDescription = false
 
@@ -19,13 +20,13 @@ struct TaskInitiationSummaryView: View {
 
             HStack(alignment: .top) {
                 VStack(alignment: .center, spacing: 0) {
-                    TitleTextView(title: task.name, font: .system(size: 24), fontWeight: .semibold)
+                    TitleTextView(title: model.name, font: .system(size: 24), fontWeight: .semibold)
                         .shadow(radius: 1, x: 1, y: 1)
                         .multilineTextAlignment(.center)
 
-                    if !task.description.isEmpty {
+                    if model.hasDescription {
                         VStack (alignment: .leading) {
-                            Text(task.description)
+                            Text(model.description ?? "")
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 .font(.system(size: 17))
                                 .fontWeight(.medium)
@@ -48,7 +49,7 @@ struct TaskInitiationSummaryView: View {
                     }
 
                     ExpandableView(title: "Categories") {
-                        Text(task.description)
+                        Text("Some text")
                     }
                     .padding(.top)
                 }
@@ -59,12 +60,12 @@ struct TaskInitiationSummaryView: View {
 }
 
 struct TaskInitiationSummaryView_Previews: PreviewProvider {
-    static private var task = Task(
+    @State static private var model = TaskViewModel(
         name: "Walk da Dog",
         description: "Like its name implies, SwiftUI’s ZStack type is the Z-axis equivalent of the horizontally-oriented HStack and the vertical VStack. When placing multiple views within a ZStack"
     )
 
     static var previews: some View {
-        TaskInitiationSummaryView(task: task, initiated: {_ in })
+        TaskInitiationSummaryView(model: model, complete: { _ in })
     }
 }

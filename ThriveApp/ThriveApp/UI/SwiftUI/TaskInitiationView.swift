@@ -6,16 +6,11 @@
 //
 
 import SwiftUI
+import Thrive
 
 struct TaskInitiationView: View {
-    @State private var task: Task // TODO: got a feeling, that this should be handled by `presenter` or maybe `viewModel`
-
-    private var navigation: Navigation
-
-    init(navigation: Navigation, task: Task) {
-        self.navigation = navigation
-        self.task = task
-    }
+    @ObservedObject var model: TaskViewModel
+    let complete: (ThriveTask?) -> Void
     
     private enum Steps: Hashable {
         case name
@@ -33,7 +28,7 @@ struct TaskInitiationView: View {
                         
                         HStack {
                             Spacer()
-                            TaskNameInitiationView(name: $task.name) {
+                            TaskNameInitiationView(name: $model.name) {
                                 proxy.scrollWithAnimationTo(Steps.description)
                             }
                             Spacer()
@@ -48,7 +43,7 @@ struct TaskInitiationView: View {
                                     proxy.scrollWithAnimationTo(Steps.name)
                                 },
                                 completion: { text in
-                                    task.description = text
+                                    model.description = text
                                     proxy.scrollWithAnimationTo(Steps.final)
                                 }
                             )
@@ -59,10 +54,7 @@ struct TaskInitiationView: View {
                         
                         HStack {
                             Spacer()
-                            TaskInitiationSummaryView(task: task) { task in
-                                navigation.popToRoot()
-                                // TODO: save to cache / remote
-                            }
+                            TaskInitiationSummaryView(model: model, complete: complete)
                             Spacer()
                         }
                         .id(Steps.final)
@@ -74,7 +66,7 @@ struct TaskInitiationView: View {
         }
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(leading: Button(action: {
-            navigation.pop()
+            complete(nil)
         }, label: {
             Image(systemName: "xmark").foregroundColor(.black)
         }))
@@ -82,9 +74,10 @@ struct TaskInitiationView: View {
 }
 
 struct TaskInitiationView_Previews: PreviewProvider {
+    @StateObject static var model = TaskViewModel(name: "", description: "")
     static var previews: some View {
-        TaskInitiationView(navigation: Navigation(), task: Task(name: "", description: "description"))
-        TaskInitiationView(navigation: Navigation(), task: Task(name: "", description: "description"))
+        TaskInitiationView(model: model, complete: { _ in })
+        TaskInitiationView(model: model, complete: { _ in })
             .preferredColorScheme(.dark)
     }
 }
