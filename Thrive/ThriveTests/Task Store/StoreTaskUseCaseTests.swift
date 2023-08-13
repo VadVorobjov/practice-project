@@ -78,9 +78,9 @@ final class StoreTaskUseCaseTests: XCTestCase {
     
     // MARK: - Helpers
     
-    private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (sut: LocalTaskLoader, store: TaskStoreSpy) {
+    private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (sut: LocalComamndLoader, store: TaskStoreSpy) {
         let store = TaskStoreSpy()
-        let sut = LocalTaskLoader(store: store)
+        let sut = LocalComamndLoader(store: store)
         trackMemoryLeaks(store, file: file, line: line)
         trackMemoryLeaks(store, file: file, line: line)
 
@@ -92,7 +92,7 @@ final class StoreTaskUseCaseTests: XCTestCase {
         case delete
     }
     
-    private func expect(_ sut: LocalTaskLoader,
+    private func expect(_ sut: LocalComamndLoader,
                         on actionType: Action,
                         completeWithError expectedError: NSError?,
                         action: () -> Void,
@@ -121,7 +121,7 @@ final class StoreTaskUseCaseTests: XCTestCase {
     }
     
     private func expectSUT(with store: TaskStoreSpy, toDeliverNoErrorOn actionType: Action, when action: () -> Void) {
-        var sut: LocalTaskLoader? = LocalTaskLoader(store: store)
+        var sut: LocalComamndLoader? = LocalComamndLoader(store: store)
         var receivedResults = [Result<Void, Error>]()
         
         switch actionType {
