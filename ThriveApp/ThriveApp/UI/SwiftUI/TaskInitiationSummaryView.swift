@@ -9,7 +9,7 @@ import SwiftUI
 import Thrive
 
 struct TaskInitiationSummaryView: View {
-    let model: TaskViewModel
+    let model: CommandViewModel
     let complete: (Command?) -> Void
 
     @State private var expandDescription = false
@@ -60,7 +60,7 @@ struct TaskInitiationSummaryView: View {
 }
 
 struct TaskInitiationSummaryView_Previews: PreviewProvider {
-    @State static private var model = TaskViewModel(
+    @State static private var model = CommandViewModel(
         name: "Walk da Dog",
         description: "Like its name implies, SwiftUI’s ZStack type is the Z-axis equivalent of the horizontally-oriented HStack and the vertical VStack. When placing multiple views within a ZStack"
     )

@@ -28,7 +28,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
 
-    let model = TaskViewModel(name: "", description: "")
+    let model = CommandViewModel(name: "", description: "")
     
     lazy var summaryView = {
         TaskInitiationSummaryView(model: self.model, complete: { _ in } )

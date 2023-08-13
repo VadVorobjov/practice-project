@@ -9,7 +9,7 @@ import SwiftUI
 import Thrive
 
 struct TaskInitiationView: View {
-    @ObservedObject var model: TaskViewModel
+    @ObservedObject var model: CommandViewModel
     let complete: (Command?) -> Void
     
     private enum Steps: Hashable {
@@ -74,7 +74,7 @@ struct TaskInitiationView: View {
 }
 
 struct TaskInitiationView_Previews: PreviewProvider {
-    @StateObject static var model = TaskViewModel(name: "", description: "")
+    @StateObject static var model = CommandViewModel(name: "", description: "")
     static var previews: some View {
         TaskInitiationView(model: model, complete: { _ in })
         TaskInitiationView(model: model, complete: { _ in })

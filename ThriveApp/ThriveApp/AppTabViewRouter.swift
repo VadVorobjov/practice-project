@@ -10,7 +10,7 @@ import Thrive
 
 struct AppTabViewRouter: View {
     @ObservedObject var mainTabModel: MainTabViewModel
-    @ObservedObject var model: TaskViewModel
+    @ObservedObject var model: CommandViewModel
     
     /// Navigation DI
     @ObservedObject var taskNavigation: Navigation
@@ -81,7 +81,7 @@ func makeTaskInitiationView(name: Binding<String>, completion: @escaping () -> V
 
 
 struct AppTabView_Previews: PreviewProvider {
-    @ObservedObject static var model = TaskViewModel(name: "", description: "")
+    @ObservedObject static var model = CommandViewModel(name: "", description: "")
     @ObservedObject static var navigation = Navigation()
     @ObservedObject static var secondNavigation = Navigation()
 

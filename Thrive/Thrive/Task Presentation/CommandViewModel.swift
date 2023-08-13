@@ -1,5 +1,5 @@
 //
-//  TaskViewModel.swift
+//  CommandViewModel.swift
 //  Thrive
 //
 //  Created by Vadims Vorobjovs on 10/08/2023.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class TaskViewModel: ObservableObject {
+public class CommandViewModel: ObservableObject {
     @Published public var name: String
     @Published public var description: String?
     
