@@ -96,7 +96,7 @@ final class LoadTaskFromStoreUseCaseTests: XCTestCase {
     }
 }
 
-private extension Array where Element == Task {
+private extension Array where Element == Command {
     func toLocal() -> [LocalTask] {
         return map {
             LocalTask(id: $0.id,

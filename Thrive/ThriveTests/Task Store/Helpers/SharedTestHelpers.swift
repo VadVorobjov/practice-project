@@ -16,18 +16,18 @@ func someURL() -> URL {
     return URL(string: "http://some-url.com")!
 }
 
-func uniqueTask() -> Task {
-    return Task(id: UUID(),
+func uniqueTask() -> Command {
+    return Command(id: UUID(),
                 name: "some name",
                 description: "some description",
                 date: Date.init())
 }
 
-func uniqueTasks() -> [Task] {
+func uniqueTasks() -> [Command] {
     return [uniqueTask(), uniqueTask()]
 }
 
-extension Task {
+extension Command {
     func toLocal() -> LocalTask {
         LocalTask(id: self.id,
                   name: self.name,

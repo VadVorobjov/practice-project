@@ -78,7 +78,7 @@ final class ThriveTaskStoreIntegrationTests: XCTestCase {
         return sut
     }
     
-    private func save(_ task: Task, on sut: LocalTaskLoader) {
+    private func save(_ task: Command, on sut: LocalTaskLoader) {
         let exp = expectation(description: "Wait for save completion")
         
         sut.save(task) { result in
@@ -91,7 +91,7 @@ final class ThriveTaskStoreIntegrationTests: XCTestCase {
         wait(for: [exp], timeout: 1.0)
     }
     
-    private func delete(_ task: Task, on sut: LocalTaskLoader) {
+    private func delete(_ task: Command, on sut: LocalTaskLoader) {
         let exp = expectation(description: "Wait for deletion completion")
         
         sut.delete(task) { result in
@@ -104,7 +104,7 @@ final class ThriveTaskStoreIntegrationTests: XCTestCase {
         wait(for: [exp], timeout: 1.0)
     }
     
-    private func expect(_ sut: LocalTaskLoader, toLoad expectedTasks: [Task] ) {
+    private func expect(_ sut: LocalTaskLoader, toLoad expectedTasks: [Command] ) {
         let exp = expectation(description: "Wait for load completion")
 
         sut.load { result in

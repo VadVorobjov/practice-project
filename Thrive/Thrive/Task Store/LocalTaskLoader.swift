@@ -16,7 +16,7 @@ public final class LocalTaskLoader {
 extension LocalTaskLoader {
     public typealias SaveResult = Result<Void, Error>
 
-    public func save(_ item: Task, completion: @escaping (SaveResult) -> Void) {
+    public func save(_ item: Command, completion: @escaping (SaveResult) -> Void) {
         store.insert(item.toLocal()) { [weak self] saveResult in
             guard self != nil else { return }
             
@@ -26,7 +26,7 @@ extension LocalTaskLoader {
 }
     
 extension LocalTaskLoader {
-    public typealias LoadResult = Result<[Task], Error>
+    public typealias LoadResult = Result<[Command], Error>
 
     public func load(completion: @escaping (LoadResult) -> Void) {
         return store.retrieve { [weak self] result in
@@ -49,7 +49,7 @@ extension LocalTaskLoader {
 extension LocalTaskLoader {
     public typealias DeleteResult = Result<Void, Error>
 
-    public func delete(_ item: Task, completion: @escaping (DeleteResult) -> Void) {
+    public func delete(_ item: Command, completion: @escaping (DeleteResult) -> Void) {
         store.delete(item.toLocal()) { [weak self] deleteResult in
             guard self != nil else { return }
             
@@ -58,7 +58,7 @@ extension LocalTaskLoader {
     }
 }
 
-private extension Task {
+private extension Command {
     func toLocal() -> LocalTask {
         return LocalTask(id: self.id,
                          name: self.name,
@@ -68,9 +68,9 @@ private extension Task {
 }
 
 extension Array where Element == LocalTask {
-    public func toModel() -> [Task] {
+    public func toModel() -> [Command] {
         return map {
-            Task(id: $0.id,
+            Command(id: $0.id,
                  name: $0.name,
                  description: $0.description,
                  date: $0.date)
