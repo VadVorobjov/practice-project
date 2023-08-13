@@ -21,7 +21,7 @@
 		D23E73222A6092B100405D8C /* ThriveTaskStoreIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23E73212A6092B100405D8C /* ThriveTaskStoreIntegrationTests.swift */; };
 		D23E73232A6092B100405D8C /* Thrive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D221541F2A1645CB0022CA75 /* Thrive.framework */; };
 		D274EC212A5B1A9100B60035 /* CoreDataTaskStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D274EC202A5B1A9100B60035 /* CoreDataTaskStoreTests.swift */; };
-		D274EC242A5B219900B60035 /* TaskStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D274EC222A5B219900B60035 /* TaskStore.xcdatamodeld */; };
+		D274EC242A5B219900B60035 /* CommandStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D274EC222A5B219900B60035 /* CommandStore.xcdatamodeld */; };
 		D274EC262A5C1FE900B60035 /* CoreDataTaskStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D274EC252A5C1FE900B60035 /* CoreDataTaskStore.swift */; };
 		D2AEBE4C2A61290B00267E9C /* ThriveTaskStoreIntegrationTests.xctestplan in Resources */ = {isa = PBXBuildFile; fileRef = D2AEBE4B2A61290B00267E9C /* ThriveTaskStoreIntegrationTests.xctestplan */; };
 		D2AEBE4D2A61338D00267E9C /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22154F92A1C971E0022CA75 /* XCTestCase+MemoryLeakTracking.swift */; };
@@ -301,7 +301,7 @@
 			children = (
 				D274EC252A5C1FE900B60035 /* CoreDataTaskStore.swift */,
 				D2D202222A5EAB5400843423 /* ManagedTask.swift */,
-				D274EC222A5B219900B60035 /* TaskStore.xcdatamodeld */,
+				D274EC222A5B219900B60035 /* CommandStore.xcdatamodeld */,
 				D2D202202A5EAA9300843423 /* CoreDataHelpers.swift */,
 			);
 			path = CoreData;
@@ -520,7 +520,7 @@
 				D2D202232A5EAB5400843423 /* ManagedTask.swift in Sources */,
 				D2023F6A2A854D4D004A172C /* CommandViewModel.swift in Sources */,
 				D2D202212A5EAA9300843423 /* CoreDataHelpers.swift in Sources */,
-				D274EC242A5B219900B60035 /* TaskStore.xcdatamodeld in Sources */,
+				D274EC242A5B219900B60035 /* CommandStore.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1047,13 +1047,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		D274EC222A5B219900B60035 /* TaskStore.xcdatamodeld */ = {
+		D274EC222A5B219900B60035 /* CommandStore.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				D274EC232A5B219900B60035 /* TastStore.xcdatamodel */,
 			);
 			currentVersion = D274EC232A5B219900B60035 /* TastStore.xcdatamodel */;
-			path = TaskStore.xcdatamodeld;
+			path = CommandStore.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

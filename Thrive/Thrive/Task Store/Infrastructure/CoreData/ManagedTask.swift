@@ -7,40 +7,40 @@
 
 import CoreData
 
-@objc(ManagedTask)
-class ManagedTask: NSManagedObject {
+@objc(ManagedCommand)
+class ManagedCommand: NSManagedObject {
     @NSManaged var id: UUID
     @NSManaged var name: String
-    @NSManaged var taskDescription: String?
+    @NSManaged var commandDescription: String?
     @NSManaged var date:  Date
 }
 
-extension ManagedTask {
+extension ManagedCommand {
     static func manage(_ task: LocalTask, in context: NSManagedObjectContext) {
-        let managed = ManagedTask(context: context)
+        let managed = ManagedCommand(context: context)
         managed.id = task.id
         managed.name = task.name
-        managed.taskDescription = task.description
+        managed.commandDescription = task.description
         managed.date = task.date
     }
     
     var local: LocalTask {
-        LocalTask(id: id, name: name, description: taskDescription, date: date)
+        LocalTask(id: id, name: name, description: commandDescription, date: date)
     }
 }
 
-extension ManagedTask {
-    private static func createFetchRequest() -> NSFetchRequest<ManagedTask> {
-        return NSFetchRequest<ManagedTask>(entityName: ManagedTask.entity().name!)
+extension ManagedCommand {
+    private static func createFetchRequest() -> NSFetchRequest<ManagedCommand> {
+        return NSFetchRequest<ManagedCommand>(entityName: ManagedCommand.entity().name!)
     }
     
-    static func find(in context: NSManagedObjectContext) throws -> [ManagedTask] {
+    static func find(in context: NSManagedObjectContext) throws -> [ManagedCommand] {
         let request = createFetchRequest()
         request.returnsObjectsAsFaults = false
         return try context.fetch(request)
     }
     
-    static func find(_ task: LocalTask, in context: NSManagedObjectContext) throws -> ManagedTask? {
+    static func find(_ task: LocalTask, in context: NSManagedObjectContext) throws -> ManagedCommand? {
         let request = createFetchRequest()
         request.fetchLimit = 1
         request.predicate = NSPredicate(format: "id == %@", task.id.uuidString)

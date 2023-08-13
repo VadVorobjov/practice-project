@@ -12,14 +12,14 @@ public final class CoreDataTaskStore: CommandStore {
     private let context: NSManagedObjectContext
     
     public init(storeURL: URL, bundle: Bundle = .main) throws {
-        self.container = try NSPersistentContainer.load(modelName: "TaskStore", url: storeURL, in: bundle)
+        self.container = try NSPersistentContainer.load(modelName: "CommandStore", url: storeURL, in: bundle)
         context = container.newBackgroundContext()
     }
     
     public func insert(_ item: LocalTask, completion: @escaping InsertionCompletion) {
         context.perform { [context] in
             completion(Result {
-                ManagedTask.manage(item, in: context)
+                ManagedCommand.manage(item, in: context)
                 try context.save()
             })
         }
@@ -28,7 +28,7 @@ public final class CoreDataTaskStore: CommandStore {
     public func delete(_ item: LocalTask, completion: @escaping DeletionCompletion) {
         context.perform { [context] in
             completion(Result {
-                let store = try ManagedTask.find(item, in: context)
+                let store = try ManagedCommand.find(item, in: context)
                 
                 if let store {
                     context.delete(store)
@@ -41,7 +41,7 @@ public final class CoreDataTaskStore: CommandStore {
     public func retrieve(completion: @escaping RetrievalCompletion) {
         context.perform { [context] in
             completion(Result {
-                let store = try ManagedTask.find(in: context)
+                let store = try ManagedCommand.find(in: context)
                 
                 guard !store.isEmpty else { return .none }
                 
