@@ -9,7 +9,7 @@ import XCTest
 import Thrive
 
 extension FailableDeleteTaskStoreSpecs where Self: XCTestCase {
-    func assertThatDeleteDeliversErrorOnFailure(on sut: TaskStore, file: StaticString = #file, line: UInt = #line) {
+    func assertThatDeleteDeliversErrorOnFailure(on sut: CommandStore, file: StaticString = #file, line: UInt = #line) {
         let task = uniqueTask().toLocal()
 
         let deletionError = delete(task, from: sut)
@@ -17,7 +17,7 @@ extension FailableDeleteTaskStoreSpecs where Self: XCTestCase {
         XCTAssertNotNil(deletionError, "Expected deletion to deliver an error", file: file, line: line)
     }
     
-    func assertThatDeleteHasNoSideEffectsOnDeletionError(on sut: TaskStore, file: StaticString = #file, line: UInt = #line) {
+    func assertThatDeleteHasNoSideEffectsOnDeletionError(on sut: CommandStore, file: StaticString = #file, line: UInt = #line) {
         let task = uniqueTask().toLocal()
         
         delete(task, from: sut)

@@ -7,7 +7,7 @@
 
 import CoreData
 
-public final class CoreDataTaskStore: TaskStore {
+public final class CoreDataTaskStore: CommandStore {
     private let container: NSPersistentContainer
     private let context: NSManagedObjectContext
     

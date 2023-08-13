@@ -12,15 +12,15 @@ extension TaskStoreSpecs where Self: XCTestCase {
     
     // MARK: - Retrieve
     
-    func assertThatRetrieveDeliversEmptyOnEmptyStore(on sut: TaskStore, file: StaticString = #file, line: UInt = #line) {
+    func assertThatRetrieveDeliversEmptyOnEmptyStore(on sut: CommandStore, file: StaticString = #file, line: UInt = #line) {
         expect(sut, toRetrieve: .success(.none), file: file, line: line)
     }
     
-    func assertThatRetrieveHasNoSideEffectsOnEmptyStore(on sut: TaskStore, file: StaticString = #file, line: UInt = #line) {
+    func assertThatRetrieveHasNoSideEffectsOnEmptyStore(on sut: CommandStore, file: StaticString = #file, line: UInt = #line) {
         expect(sut, toRetrieveTwice: .success(.none), file: file, line: line)
     }
     
-    func assertThatRetrieveDeliversFoundValuesOnNonEmptyStore(on sut: TaskStore, file: StaticString = #file, line: UInt = #line) {
+    func assertThatRetrieveDeliversFoundValuesOnNonEmptyStore(on sut: CommandStore, file: StaticString = #file, line: UInt = #line) {
         let task = uniqueTask().toLocal()
         
         insert(task, to: sut)
@@ -28,7 +28,7 @@ extension TaskStoreSpecs where Self: XCTestCase {
         expect(sut, toRetrieve: .success([task]), file: file, line: line)
     }
     
-    func assertThatRetrieveHasNoSideEffectsOnNonEmptyStore(on sut: TaskStore, file: StaticString = #file, line: UInt = #line) {
+    func assertThatRetrieveHasNoSideEffectsOnNonEmptyStore(on sut: CommandStore, file: StaticString = #file, line: UInt = #line) {
         let task = uniqueTask().toLocal()
         
         insert(task, to: sut)
@@ -38,7 +38,7 @@ extension TaskStoreSpecs where Self: XCTestCase {
     
     // MARK: - Insert
     
-    func assertThatInsertDeliversNoErrorOnEmptyStore(on sut: TaskStore, file: StaticString = #file, line: UInt = #line) {
+    func assertThatInsertDeliversNoErrorOnEmptyStore(on sut: CommandStore, file: StaticString = #file, line: UInt = #line) {
         let task = uniqueTask().toLocal()
         
         let insertionError = insert(task, to: sut)
@@ -46,7 +46,7 @@ extension TaskStoreSpecs where Self: XCTestCase {
         XCTAssertNil(insertionError, "Expected no error on insertion", file: file, line: line)
     }
     
-    func assertThatInsertHasNoSideEffectsOnEmptyStore(on sut: TaskStore, file: StaticString = #file, line: UInt = #line) {
+    func assertThatInsertHasNoSideEffectsOnEmptyStore(on sut: CommandStore, file: StaticString = #file, line: UInt = #line) {
         let task = uniqueTask().toLocal()
         
         insert(task, to: sut)
@@ -54,7 +54,7 @@ extension TaskStoreSpecs where Self: XCTestCase {
         expect(sut, toRetrieve: .success([task]))
     }
     
-    func assertThatInsertApplyToPreviouslyInsertedValues(on sut: TaskStore, file: StaticString = #file, line: UInt = #line) {
+    func assertThatInsertApplyToPreviouslyInsertedValues(on sut: CommandStore, file: StaticString = #file, line: UInt = #line) {
         let firstTask = uniqueTask().toLocal()
         let secondTask = uniqueTask().toLocal()
         
@@ -66,7 +66,7 @@ extension TaskStoreSpecs where Self: XCTestCase {
     
     // MARK: - Delete
     
-    func assertThatDeleteHasNoSideEffectsOnEmptyStore(on sut: TaskStore, file: StaticString = #file, line: UInt = #line) {
+    func assertThatDeleteHasNoSideEffectsOnEmptyStore(on sut: CommandStore, file: StaticString = #file, line: UInt = #line) {
         let task = uniqueTask().toLocal()
         
         delete(task, from: sut)
@@ -74,7 +74,7 @@ extension TaskStoreSpecs where Self: XCTestCase {
         expect(sut, toRetrieve: .success(.none), file: file, line: line)
     }
 
-    func assertThatDeleteOnNonEmptyStoreDeletesProvidedTask(on sut: TaskStore, file: StaticString = #file, line: UInt = #line) {
+    func assertThatDeleteOnNonEmptyStoreDeletesProvidedTask(on sut: CommandStore, file: StaticString = #file, line: UInt = #line) {
         let firstTask = uniqueTask().toLocal()
         let secondTask = uniqueTask().toLocal()
         
@@ -86,7 +86,7 @@ extension TaskStoreSpecs where Self: XCTestCase {
         expect(sut, toRetrieve: .success([secondTask]), file: file, line: line)
     }
     
-    func assertThatDeleteDeliversNoErrorOnEmptyStore(on sut: TaskStore, file: StaticString = #file, line: UInt = #line) {
+    func assertThatDeleteDeliversNoErrorOnEmptyStore(on sut: CommandStore, file: StaticString = #file, line: UInt = #line) {
         let task = uniqueTask().toLocal()
         
         let deletionError = delete(task, from: sut)
@@ -94,7 +94,7 @@ extension TaskStoreSpecs where Self: XCTestCase {
         XCTAssertNil(deletionError, "Expected no error on deletion")
     }
      
-    func assertThatStoreSideEffectsRunResially(on sut: TaskStore, file: StaticString = #file, line: UInt = #line) {
+    func assertThatStoreSideEffectsRunResially(on sut: CommandStore, file: StaticString = #file, line: UInt = #line) {
         let task = uniqueTask().toLocal()
         var completedOperationsInOrder = [XCTestExpectation]()
         
@@ -123,12 +123,12 @@ extension TaskStoreSpecs where Self: XCTestCase {
     
     // MARK: - Helpers
     
-    func expect(_ sut: TaskStore, toRetrieveTwice expectedResult: TaskStore.RetrievalResult, file: StaticString = #file, line: UInt = #line) {
+    func expect(_ sut: CommandStore, toRetrieveTwice expectedResult: CommandStore.RetrievalResult, file: StaticString = #file, line: UInt = #line) {
         expect(sut, toRetrieve: expectedResult)
         expect(sut, toRetrieve: expectedResult)
     }
     
-    func expect(_ sut: TaskStore, toRetrieve expectedResult: TaskStore.RetrievalResult, file: StaticString = #file, line: UInt = #line) {
+    func expect(_ sut: CommandStore, toRetrieve expectedResult: CommandStore.RetrievalResult, file: StaticString = #file, line: UInt = #line) {
         let exp = expectation(description: "Wait for store retreival")
         
         sut.retrieve { retrievedResult in
@@ -150,7 +150,7 @@ extension TaskStoreSpecs where Self: XCTestCase {
     }
 
     @discardableResult
-    func insert(_ task: LocalTask, to sut: TaskStore) -> Error? {
+    func insert(_ task: LocalTask, to sut: CommandStore) -> Error? {
         let exp = expectation(description: "Wait for store insertion")
         var insertionError: Error?
         
@@ -164,7 +164,7 @@ extension TaskStoreSpecs where Self: XCTestCase {
     }
     
     @discardableResult
-    func delete(_ task: LocalTask, from sut: TaskStore) -> Error? {
+    func delete(_ task: LocalTask, from sut: CommandStore) -> Error? {
         let exp = expectation(description: "Wait for delete to complete")
         var deletionError: Error?
         

@@ -6,9 +6,9 @@
 //
 
 public final class LocalTaskLoader {
-    private let store: TaskStore
+    private let store: CommandStore
     
-    public init(store: TaskStore) {
+    public init(store: CommandStore) {
         self.store = store
     }
 }

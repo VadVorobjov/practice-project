@@ -7,7 +7,7 @@
 
 import Thrive
 
-class TaskStoreSpy: TaskStore {
+class TaskStoreSpy: CommandStore {
     private var insertionCompletions = [InsertionCompletion]()
     private var deletionCompletions = [DeletionCompletion]()
     private var retrievalCompletions = [RetrievalCompletion]()

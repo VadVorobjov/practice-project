@@ -1,5 +1,5 @@
 //
-//  TaskStore.swift
+//  CommandStore.swift
 //  Thrive
 //
 //  Created by Vadims Vorobjovs on 25/05/2023.
@@ -10,7 +10,7 @@
 //    case found(items: [LocalTask])
 //}
 
-public protocol TaskStore {
+public protocol CommandStore {
     typealias InsertionResult = Result<Void, Error>
     typealias InsertionCompletion = (InsertionResult) -> Void
     

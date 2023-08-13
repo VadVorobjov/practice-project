@@ -9,7 +9,7 @@ import XCTest
 import Thrive
 
 extension FailableInsertTaskStoreSpecs where Self: XCTestCase {
-    func assertThatInsertDeliversErrorOnIsertionError(on sut: TaskStore, file: StaticString = #file, line: UInt = #line) {
+    func assertThatInsertDeliversErrorOnIsertionError(on sut: CommandStore, file: StaticString = #file, line: UInt = #line) {
         let task = uniqueTask().toLocal()
         
         let insertionError = insert(task, to: sut)
@@ -17,7 +17,7 @@ extension FailableInsertTaskStoreSpecs where Self: XCTestCase {
         XCTAssertNotNil(insertionError, "Expected store insertion to fail with an error", file: file, line: line)
     }
     
-    func assertThatInsertHasNoSideEffectsOnInsertionError(on sut: TaskStore, file: StaticString = #file, line: UInt = #line) {
+    func assertThatInsertHasNoSideEffectsOnInsertionError(on sut: CommandStore, file: StaticString = #file, line: UInt = #line) {
         let task = uniqueTask().toLocal()
 
         insert(task, to: sut)

@@ -9,11 +9,11 @@ import XCTest
 import Thrive
 
 extension FailableRetrieveTaskStoreSpecs where Self: XCTestCase {
-    func assertThatRetrieveDeliversFailureOnRetrievalError(on sut: TaskStore, file: StaticString = #file, line: UInt = #line) {
+    func assertThatRetrieveDeliversFailureOnRetrievalError(on sut: CommandStore, file: StaticString = #file, line: UInt = #line) {
         expect(sut, toRetrieve: .failure(someNSError()), file: file, line: line)
     }
     
-    func assertThatRetrieveHasNoSideEffectsOnFailure(on sut: TaskStore, file: StaticString = #file, line: UInt = #line) {
+    func assertThatRetrieveHasNoSideEffectsOnFailure(on sut: CommandStore, file: StaticString = #file, line: UInt = #line) {
         expect(sut, toRetrieveTwice: .failure(someNSError()))
     }
 }

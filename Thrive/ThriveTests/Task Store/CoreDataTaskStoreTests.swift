@@ -86,7 +86,7 @@ final class CoreDataTaskStoreTests: XCTestCase, TaskStoreSpecs {
     
     // MARK: - Heleprs
     
-    private func makeSUT(file: StaticString = #file, line: UInt = #line) -> TaskStore {
+    private func makeSUT(file: StaticString = #file, line: UInt = #line) -> CommandStore {
         let storeBundle = Bundle(for: CoreDataTaskStore.self)
         let storeURL = URL(filePath: "/dev/null")
         let sut = try! CoreDataTaskStore(storeURL: storeURL, bundle: storeBundle)
