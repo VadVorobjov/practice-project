@@ -9,8 +9,8 @@ import SwiftUI
 import Thrive
 
 struct TaskInitiationView: View {
-    @ObservedObject var model: CommandViewModel
-    let complete: (Command?) -> Void
+    @ObservedObject var model: CommandCreateViewModel
+    let complete: (CommandCreateViewModel?) -> Void
     
     private enum Steps: Hashable {
         case name
@@ -21,21 +21,22 @@ struct TaskInitiationView: View {
     var body: some View {
         ZStack {
             customBackgroundView()
-            
+
             ScrollView(.horizontal, showsIndicators: false) {
                 ScrollViewReader { proxy in
                     HStack(alignment: .center) {
-                        
+
                         HStack {
                             Spacer()
-                            TaskNameInitiationView(name: $model.name) {
+                            // TODO: should not depend?
+                            TaskNameInitiationView(name: $model.commandName) {
                                 proxy.scrollWithAnimationTo(Steps.description)
                             }
                             Spacer()
                         }
                         .id(Steps.name)
                         .frame(width: screenSize.width)
-                        
+
                         HStack {
                             Spacer()
                             TaskDescriptionInitiationView(
@@ -43,7 +44,7 @@ struct TaskInitiationView: View {
                                     proxy.scrollWithAnimationTo(Steps.name)
                                 },
                                 completion: { text in
-                                    model.description = text
+                                    model.commandDescription = text
                                     proxy.scrollWithAnimationTo(Steps.final)
                                 }
                             )
@@ -51,7 +52,7 @@ struct TaskInitiationView: View {
                         }
                         .id(Steps.description)
                         .frame(width: screenSize.width)
-                        
+
                         HStack {
                             Spacer()
                             TaskInitiationSummaryView(model: model, complete: complete)
@@ -64,6 +65,7 @@ struct TaskInitiationView: View {
             }
             .scrollDisabled(true)
         }
+        VStack {}
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(leading: Button(action: {
             complete(nil)
@@ -74,7 +76,10 @@ struct TaskInitiationView: View {
 }
 
 struct TaskInitiationView_Previews: PreviewProvider {
-    @StateObject static var model = CommandViewModel(name: "", description: "")
+    private static let loader = LocalCommandLoader(store: NullStore())
+
+    @ObservedObject static var model = CommandCreateViewModel(loader: loader)
+    
     static var previews: some View {
         TaskInitiationView(model: model, complete: { _ in })
         TaskInitiationView(model: model, complete: { _ in })

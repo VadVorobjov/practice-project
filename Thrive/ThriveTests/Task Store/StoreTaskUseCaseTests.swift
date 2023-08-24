@@ -62,16 +62,16 @@ final class StoreTaskUseCaseTests: XCTestCase {
         }
     }
     
-    func test_save_doesNotDeliverSaveErrorAfterSUTInstanceHasBeenDeallocated() {
+    func test_save_doesNotDeliverSaveResultAfterSUTInstanceHasBeenDeallocated() {
         let store = TaskStoreSpy()
-        expectSUT(with: store, toDeliverNoErrorOn: .save) {
+        expectSUT(with: store, toDeliverNoResult: .save) {
             store.completeSave(with: someNSError())
         }
     }
     
-    func test_save_doesNotDeliverDeleteErrorAfterSUTInstanceHasBeenDeallocated() {
+    func test_save_doesNotDeliverDeleteResultAfterSUTInstanceHasBeenDeallocated() {
         let store = TaskStoreSpy()
-        expectSUT(with: store, toDeliverNoErrorOn: .delete) {
+        expectSUT(with: store, toDeliverNoResult: .delete) {
             store.completeDelete(with: someNSError())
         }
     }
@@ -120,7 +120,7 @@ final class StoreTaskUseCaseTests: XCTestCase {
         XCTAssertEqual(receivedError as NSError?, expectedError)
     }
     
-    private func expectSUT(with store: TaskStoreSpy, toDeliverNoErrorOn actionType: Action, when action: () -> Void) {
+    private func expectSUT(with store: TaskStoreSpy, toDeliverNoResult actionType: Action, when action: () -> Void) {
         var sut: LocalCommandLoader? = LocalCommandLoader(store: store)
         var receivedResults = [Result<Void, Error>]()
         

@@ -7,7 +7,7 @@
 
 public struct Command: Equatable {
     public let id: UUID
-    public let name: String
+    public var name: String
     public let description: String?
     public let date: Date
     

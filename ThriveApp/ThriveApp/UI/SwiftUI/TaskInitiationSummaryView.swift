@@ -9,8 +9,8 @@ import SwiftUI
 import Thrive
 
 struct TaskInitiationSummaryView: View {
-    let model: CommandViewModel
-    let complete: (Command?) -> Void
+    let model: CommandCreateViewModel
+    let complete: (CommandCreateViewModel?) -> Void
 
     @State private var expandDescription = false
 
@@ -20,13 +20,13 @@ struct TaskInitiationSummaryView: View {
 
             HStack(alignment: .top) {
                 VStack(alignment: .center, spacing: 0) {
-                    TitleTextView(title: model.name, font: .system(size: 24), fontWeight: .semibold)
+                    TitleTextView(title: model.commandName, font: .system(size: 24), fontWeight: .semibold)
                         .shadow(radius: 1, x: 1, y: 1)
                         .multilineTextAlignment(.center)
 
-                    if model.hasDescription {
+                    if !model.commandDescriptionIsEmpty {
                         VStack (alignment: .leading) {
-                            Text(model.description ?? "")
+                            Text(model.commandDescription)
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 .font(.system(size: 17))
                                 .fontWeight(.medium)
@@ -60,10 +60,8 @@ struct TaskInitiationSummaryView: View {
 }
 
 struct TaskInitiationSummaryView_Previews: PreviewProvider {
-    @State static private var model = CommandViewModel(
-        name: "Walk da Dog",
-        description: "Like its name implies, SwiftUI’s ZStack type is the Z-axis equivalent of the horizontally-oriented HStack and the vertical VStack. When placing multiple views within a ZStack"
-    )
+    private static let loader = LocalCommandLoader(store: NullStore())
+    @ObservedObject static private var model = CommandCreateViewModel(loader: loader)
 
     static var previews: some View {
         TaskInitiationSummaryView(model: model, complete: { _ in })
