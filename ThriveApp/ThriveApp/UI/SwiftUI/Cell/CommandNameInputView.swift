@@ -1,5 +1,5 @@
 //
-//  TaskNameInitiationName.swift
+//  CommandNameInputView.swift
 //  ThriveApp
 //
 //  Created by Vadims Vorobjovs on 21/03/2023.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TaskNameInitiationView: View {
+struct CommandNameInputView: View {
     @Binding var name: String
     let completion: () -> Void // TODO: leaked detail. Should be in ViewModel or Presenter
         
@@ -40,7 +40,7 @@ struct TaskNameInitiationView: View {
 struct TaskNameInitiationCell_Previews: PreviewProvider {
     @State static private var name = ""
     static var previews: some View {
-        TaskNameInitiationView(name: $name, completion: { })
+        CommandNameInputView(name: $name, completion: { })
             .previewLayout(.sizeThatFits)
     }
 }

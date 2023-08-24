@@ -47,7 +47,7 @@ struct AppTabViewRouter<Content: View>: View {
     }
 }
 func makeTaskInitiationView(name: Binding<String>, completion: @escaping () -> Void) -> some View {
-    return TaskNameInitiationView(name: name, completion: completion)
+    return CommandNameInputView(name: name, completion: completion)
 }
 
 
