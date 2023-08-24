@@ -25,7 +25,7 @@
 		D2ABB57629D408CC0087C6EB /* CommandDescriptionInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ABB57529D408CC0087C6EB /* CommandDescriptionInputView.swift */; };
 		D2ABB57B29D419300087C6EB /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ABB57A29D419300087C6EB /* Text.swift */; };
 		D2ABB57D29D419AF0087C6EB /* TextEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ABB57C29D419AF0087C6EB /* TextEditorView.swift */; };
-		D2ABB58429DC92840087C6EB /* TaskInitiationSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ABB58329DC92840087C6EB /* TaskInitiationSummaryView.swift */; };
+		D2ABB58429DC92840087C6EB /* CommandSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ABB58329DC92840087C6EB /* CommandSummaryView.swift */; };
 		D2C06C1E29C0E5A0008853E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C06C1D29C0E5A0008853E2 /* AppDelegate.swift */; };
 		D2C06C2029C0E5A0008853E2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C06C1F29C0E5A0008853E2 /* SceneDelegate.swift */; };
 		D2C06C2729C0E5A1008853E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2C06C2629C0E5A1008853E2 /* Assets.xcassets */; };
@@ -86,7 +86,7 @@
 		D2ABB57529D408CC0087C6EB /* CommandDescriptionInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandDescriptionInputView.swift; sourceTree = "<group>"; };
 		D2ABB57A29D419300087C6EB /* Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
 		D2ABB57C29D419AF0087C6EB /* TextEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEditorView.swift; sourceTree = "<group>"; };
-		D2ABB58329DC92840087C6EB /* TaskInitiationSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskInitiationSummaryView.swift; sourceTree = "<group>"; };
+		D2ABB58329DC92840087C6EB /* CommandSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandSummaryView.swift; sourceTree = "<group>"; };
 		D2C06C1A29C0E5A0008853E2 /* ThriveApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThriveApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2C06C1D29C0E5A0008853E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2C06C1F29C0E5A0008853E2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -177,7 +177,7 @@
 				D2ABB57E29D41A890087C6EB /* Cell */,
 				D2ABB57329CF4E0C0087C6EB /* CommandInputView.swift */,
 				D2ABB57C29D419AF0087C6EB /* TextEditorView.swift */,
-				D2ABB58329DC92840087C6EB /* TaskInitiationSummaryView.swift */,
+				D2ABB58329DC92840087C6EB /* CommandSummaryView.swift */,
 				D21321FD2A798B220006CF77 /* ExpandableView.swift */,
 			);
 			path = SwiftUI;
@@ -419,7 +419,7 @@
 				D2ABB57B29D419300087C6EB /* Text.swift in Sources */,
 				D2ABB57029CDF0F60087C6EB /* AppTabViewRouter.swift in Sources */,
 				D2ABB57629D408CC0087C6EB /* CommandDescriptionInputView.swift in Sources */,
-				D2ABB58429DC92840087C6EB /* TaskInitiationSummaryView.swift in Sources */,
+				D2ABB58429DC92840087C6EB /* CommandSummaryView.swift in Sources */,
 				D22F2B8329E9698400272367 /* ScrollViewProxy+Helpers.swift in Sources */,
 				D21321FC2A766FEB0006CF77 /* ViewModifiers.swift in Sources */,
 				D258D9AA2A002D18009EA169 /* Navigation.swift in Sources */,

@@ -1,5 +1,5 @@
 //
-//  TaskInitiationSummaryView.swift
+//  CommandSummaryView.swift
 //  ThriveApp
 //
 //  Created by Vadims Vorobjovs on 04/04/2023.
@@ -8,7 +8,7 @@
 import SwiftUI
 import Thrive
 
-struct TaskInitiationSummaryView: View {
+struct CommandSummaryView: View {
     let model: CommandCreateViewModel
     let complete: (CommandCreateViewModel?) -> Void
 
@@ -64,6 +64,6 @@ struct TaskInitiationSummaryView_Previews: PreviewProvider {
     @ObservedObject static private var model = CommandCreateViewModel(loader: loader)
 
     static var previews: some View {
-        TaskInitiationSummaryView(model: model, complete: { _ in })
+        CommandSummaryView(model: model, complete: { _ in })
     }
 }

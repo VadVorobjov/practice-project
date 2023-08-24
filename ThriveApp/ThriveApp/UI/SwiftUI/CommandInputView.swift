@@ -46,7 +46,7 @@ struct CommandInputView: View {
                                         }
                                     )
                                 case .final:
-                                    TaskInitiationSummaryView(model: model, complete: complete)
+                                    CommandSummaryView(model: model, complete: complete)
 
                                 }
                                 
