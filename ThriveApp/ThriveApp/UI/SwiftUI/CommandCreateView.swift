@@ -37,7 +37,7 @@ struct CommandCreateView: View {
                                         proxy.scrollWithAnimationTo(Steps.description)
                                     }
                                 case .description:
-                                    TaskDescriptionInitiationView(description: $model.commandDescription,
+                                    CommandDescriptionInputView(description: $model.commandDescription,
                                         backAction: {
                                             proxy.scrollWithAnimationTo(Steps.name)
                                         },

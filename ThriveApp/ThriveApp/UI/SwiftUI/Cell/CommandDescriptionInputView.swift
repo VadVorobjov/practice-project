@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TaskDescriptionInitiationView: View {
+struct CommandDescriptionInputView: View {
     @Binding var description: String
 
     let backAction: () -> Void
@@ -48,7 +48,7 @@ struct TaskDescriptionInitiationView: View {
 
 struct TaskDescriptionInitiationView_Previews: PreviewProvider {
     static var previews: some View {
-        TaskDescriptionInitiationView(description: .constant("Preview description"), backAction: {}, nextAction: {})
+        CommandDescriptionInputView(description: .constant("Preview description"), backAction: {}, nextAction: {})
         .previewLayout(.sizeThatFits)
     }
 }
