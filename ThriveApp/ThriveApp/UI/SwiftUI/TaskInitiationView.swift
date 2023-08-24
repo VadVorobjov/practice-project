@@ -66,12 +66,7 @@ struct TaskInitiationView: View {
             .scrollDisabled(true)
         }
         VStack {}
-        .navigationBarBackButtonHidden(true)
-        .navigationBarItems(leading: Button(action: {
-            complete(nil)
-        }, label: {
-            Image(systemName: "xmark").foregroundColor(.black)
-        }))
+       
     }
 }
 

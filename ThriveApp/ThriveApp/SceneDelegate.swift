@@ -117,15 +117,16 @@ struct CommandUIComposer: View {
                             allertDescription = error.localizedDescription
                         }
                     }
+                    .modifier(NavigationModifier(navigationLeadingAction: {
+                        navigation.popToRoot()
+                    }))
                 }
             }
         }
-        .onAppear {
-            presentAlert = true
-        }
-        .alert("Somewthing went wrong", isPresented: $presentAlert, presenting: allertDescription) { description in
-            Text("It could be better")
+        .alert("Something went wrong",
+               isPresented: $presentAlert,
+               presenting: allertDescription) { description in
+            Text(description)
         }
     }
-    
 }

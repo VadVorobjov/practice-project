@@ -19,3 +19,18 @@ final class Navigation: ObservableObject {
         path.removeLast(path.count)
     }
 }
+
+struct NavigationModifier: ViewModifier {
+    let navigationLeadingAction: () -> Void
+    
+    func body(content: Content) -> some View {
+        content
+            .navigationBarBackButtonHidden(true)
+            .navigationBarItems(leading: Button(action: {
+                navigationLeadingAction()
+            }, label: {
+                Image(systemName: "xmark").foregroundColor(.black)
+            }))
+        
+    }
+}
