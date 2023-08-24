@@ -12,7 +12,9 @@ struct CommandCreateView: View {
     @ObservedObject var model: CommandCreateViewModel
     let complete: (CommandCreateViewModel?) -> Void
     
-    private enum Steps: Hashable {
+    private enum Steps: Int, CaseIterable, Identifiable {
+        var id: Int { rawValue }
+        
         case name
         case description
         case final
@@ -25,41 +27,35 @@ struct CommandCreateView: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 ScrollViewReader { proxy in
                     HStack(alignment: .center) {
+                        ForEach(Steps.allCases) { step in
+                            HStack {
+                                Spacer()
+                                
+                                switch step {
+                                case .name:
+                                    TaskNameInitiationView(name: $model.commandName) {
+                                        proxy.scrollWithAnimationTo(Steps.description)
+                                    }
+                                case .description:
+                                    TaskDescriptionInitiationView(
+                                        backAction: {
+                                            proxy.scrollWithAnimationTo(Steps.name)
+                                        },
+                                        completion: { text in
+                                            model.commandDescription = text
+                                            proxy.scrollWithAnimationTo(Steps.final)
+                                        }
+                                    )
+                                case .final:
+                                    TaskInitiationSummaryView(model: model, complete: complete)
 
-                        HStack {
-                            Spacer()
-                            // TODO: should not depend?
-                            TaskNameInitiationView(name: $model.commandName) {
-                                proxy.scrollWithAnimationTo(Steps.description)
-                            }
-                            Spacer()
-                        }
-                        .id(Steps.name)
-                        .frame(width: screenSize.width)
-
-                        HStack {
-                            Spacer()
-                            TaskDescriptionInitiationView(
-                                backAction: {
-                                    proxy.scrollWithAnimationTo(Steps.name)
-                                },
-                                completion: { text in
-                                    model.commandDescription = text
-                                    proxy.scrollWithAnimationTo(Steps.final)
                                 }
-                            )
-                            Spacer()
+                                
+                                Spacer()
+                            }
+                            .id(step)
+                            .frame(width: screenSize.width)
                         }
-                        .id(Steps.description)
-                        .frame(width: screenSize.width)
-
-                        HStack {
-                            Spacer()
-                            TaskInitiationSummaryView(model: model, complete: complete)
-                            Spacer()
-                        }
-                        .id(Steps.final)
-                        .frame(width: screenSize.width)
                     }
                 }
             }
