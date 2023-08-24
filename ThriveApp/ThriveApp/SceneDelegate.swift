@@ -75,7 +75,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window.rootViewController = UIHostingController(
             rootView: AppTabViewRouter(
                 mainTabModel: MainTabViewModel(),
-                commandCreateView: CommandUIComposer.compossedWith(loader: loader)
+                commandCreateView: CommandCreateUIComposer.compossedWith(loader: loader)
             )
         )
         
@@ -84,7 +84,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 }
 
 /// Composer can be called only by other composers
-struct CommandUIComposer: View {
+struct CommandCreateUIComposer: View {
     @ObservedObject var navigation: Navigation
     let model: CommandCreateViewModel
     
@@ -92,7 +92,7 @@ struct CommandUIComposer: View {
     @State private var allertDescription: String = ""
     
     static func compossedWith(loader: LocalCommandLoader) -> some View {
-        CommandUIComposer(navigation: Navigation(), model: CommandCreateViewModel(loader: loader))
+        CommandCreateUIComposer(navigation: Navigation(), model: CommandCreateViewModel(loader: loader))
     }
     
     var body: some View {
@@ -105,7 +105,7 @@ struct CommandUIComposer: View {
             .navigationDestination(for: NavigationType.self) { destination in
                 switch destination {
                 case .name:
-                    TaskInitiationView(model: model) { model in
+                    CommandCreateView(model: model) { model in
                         defer {
                             navigation.popToRoot()
                         }
@@ -113,8 +113,8 @@ struct CommandUIComposer: View {
                         guard let model = model else { return }
                         
                         if let error = model.save() {
-                            // TODO: present alert
                             allertDescription = error.localizedDescription
+                            presentAlert.toggle()
                         }
                     }
                     .modifier(NavigationModifier(navigationLeadingAction: {

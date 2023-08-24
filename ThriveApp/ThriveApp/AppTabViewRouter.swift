@@ -57,7 +57,7 @@ struct AppTabView_Previews: PreviewProvider {
     @ObservedObject static var model = CommandCreateViewModel(loader: loader)
 
     @ObservedObject static var mainTabModel = MainTabViewModel()
-    static let commandCreateView = TaskInitiationView(model: model) { _ in }
+    static let commandCreateView = CommandCreateView(model: model) { _ in }
     
     static var previews: some View {
         Group {

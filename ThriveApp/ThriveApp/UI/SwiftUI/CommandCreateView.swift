@@ -1,5 +1,5 @@
 //
-//  TaskInitiationView.swift
+//  CommandCreateView.swift
 //  ThriveApp
 //
 //  Created by Vadims Vorobjovs on 25/03/2023.
@@ -8,7 +8,7 @@
 import SwiftUI
 import Thrive
 
-struct TaskInitiationView: View {
+struct CommandCreateView: View {
     @ObservedObject var model: CommandCreateViewModel
     let complete: (CommandCreateViewModel?) -> Void
     
@@ -76,8 +76,8 @@ struct TaskInitiationView_Previews: PreviewProvider {
     @ObservedObject static var model = CommandCreateViewModel(loader: loader)
     
     static var previews: some View {
-        TaskInitiationView(model: model, complete: { _ in })
-        TaskInitiationView(model: model, complete: { _ in })
+        CommandCreateView(model: model, complete: { _ in })
+        CommandCreateView(model: model, complete: { _ in })
             .preferredColorScheme(.dark)
     }
 }
