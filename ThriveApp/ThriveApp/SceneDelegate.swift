@@ -105,7 +105,7 @@ struct CommandCreateUIComposer: View {
             .navigationDestination(for: NavigationType.self) { destination in
                 switch destination {
                 case .name:
-                    CommandCreateView(model: model) { model in
+                    CommandInputView(model: model) { model in
                         defer {
                             navigation.popToRoot()
                         }
