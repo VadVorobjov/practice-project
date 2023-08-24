@@ -33,16 +33,15 @@ struct CommandCreateView: View {
                                 
                                 switch step {
                                 case .name:
-                                    TaskNameInitiationView(name: $model.commandName) {
+                                    CommandNameInputView(name: $model.commandName) {
                                         proxy.scrollWithAnimationTo(Steps.description)
                                     }
                                 case .description:
-                                    TaskDescriptionInitiationView(
+                                    TaskDescriptionInitiationView(description: $model.commandDescription,
                                         backAction: {
                                             proxy.scrollWithAnimationTo(Steps.name)
                                         },
-                                        completion: { text in
-                                            model.commandDescription = text
+                                        nextAction: { 
                                             proxy.scrollWithAnimationTo(Steps.final)
                                         }
                                     )

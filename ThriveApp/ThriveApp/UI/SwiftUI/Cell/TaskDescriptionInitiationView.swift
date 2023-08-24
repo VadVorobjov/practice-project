@@ -8,15 +8,10 @@
 import SwiftUI
 
 struct TaskDescriptionInitiationView: View {
-    @State private var description: String = ""
+    @Binding var description: String
 
-    private let backAction: () -> Void
-    private let completion: (String) -> Void
-            
-    init(backAction: @escaping () -> Void, completion: @escaping (String) -> Void) {
-        self.backAction = backAction
-        self.completion = completion
-    }
+    let backAction: () -> Void
+    let nextAction: () -> Void
     
     var body: some View {
         ZStack {
@@ -36,7 +31,7 @@ struct TaskDescriptionInitiationView: View {
                     }
                     
                     Button("Next", action: {
-                        completion(description)
+                        nextAction()
                     })
                     .buttonStyle(MainButtonStyle())
                     .padding(.leading, 25)
@@ -53,7 +48,7 @@ struct TaskDescriptionInitiationView: View {
 
 struct TaskDescriptionInitiationView_Previews: PreviewProvider {
     static var previews: some View {
-        TaskDescriptionInitiationView(backAction: {}, completion: { _ in })
+        TaskDescriptionInitiationView(description: .constant("Preview description"), backAction: {}, nextAction: {})
         .previewLayout(.sizeThatFits)
     }
 }
