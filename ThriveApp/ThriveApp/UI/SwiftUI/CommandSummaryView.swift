@@ -17,44 +17,50 @@ struct CommandSummaryView: View {
     var body: some View {
         ZStack(alignment: .top) {
             customBackgroundView()
-
-            HStack(alignment: .top) {
-                VStack(alignment: .center, spacing: 0) {
-                    TitleTextView(title: model.commandName, font: .system(size: 24), fontWeight: .semibold)
-                        .shadow(radius: 1, x: 1, y: 1)
-                        .multilineTextAlignment(.center)
-
-                    if !model.commandDescriptionIsEmpty {
-                        VStack (alignment: .leading) {
-                            Text(model.commandDescription)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .font(.system(size: 17))
-                                .fontWeight(.medium)
-                                .padding(.bottom, 5)
-                                .lineLimit(expandDescription ? .max : 3)
-                                .contentTransition(.opacity)
-                            Button {
-                                withAnimation(.easeInOut(duration: 0.2)) {
-                                    expandDescription.toggle()
+                HStack(alignment: .top) {
+                    VStack(alignment: .center, spacing: 0) {
+                        TitleTextView(title: model.commandName, font: .system(size: 24), fontWeight: .semibold)
+                            .shadow(radius: 1, x: 1, y: 1)
+                            .multilineTextAlignment(.center)
+                        
+                        if !model.commandDescriptionIsEmpty {
+                            VStack (alignment: .leading) {
+                                Text(model.commandDescription)
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .font(.system(size: 17))
+                                    .fontWeight(.medium)
+                                    .padding(.bottom, 5)
+                                    .lineLimit(expandDescription ? .max : 3)
+                                    .contentTransition(.opacity)
+                                // TODO: don't show this button if height of text does not exceed 3 lines
+                                Button {
+                                    withAnimation(.easeInOut(duration: 0.2)) {
+                                        expandDescription.toggle()
+                                    }
+                                } label: {
+                                    Text(expandDescription ? "Less" : "More")
+                                        .multilineTextAlignment(.leading)
+                                        .font(.title3)
                                 }
-                            } label: {
-                                Text(expandDescription ? "Less" : "More")
-                                    .multilineTextAlignment(.leading)
-                                    .font(.title3)
-//                                    .foregroundColor(.black)
                             }
-
+                            .padding(.top)
+                        }
+                        
+                        ExpandableView(title: "Categories") {
+                            Text("Some text")
                         }
                         .padding(.top)
+                        
+                        Spacer()
+                        
+                        Button("Create") {
+                            onComplete(model)
+                        }
+                        .buttonStyle(MainButtonStyle())
+                        .padding(.top)
                     }
-
-                    ExpandableView(title: "Categories") {
-                        Text("Some text")
-                    }
-                    .padding(.top)
+                    .padding()
                 }
-                .padding()
-            }
         }
     }
 }

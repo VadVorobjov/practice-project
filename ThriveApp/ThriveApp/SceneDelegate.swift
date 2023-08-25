@@ -86,7 +86,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 /// Composer can be called only by other composers
 struct CommandCreateUIComposer: View {
     @ObservedObject var navigation: Navigation
-    let model: CommandCreateViewModel
+    @ObservedObject var model: CommandCreateViewModel
     
     @State private var presentAlert = false
     @State private var allertDescription: String = ""

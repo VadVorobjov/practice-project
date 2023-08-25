@@ -41,7 +41,7 @@ struct CommandInputView: View {
                                         onReverse: {
                                             proxy.scrollWithAnimationTo(Steps.name)
                                         },
-                                        onComplete: { 
+                                        onComplete: {
                                             proxy.scrollWithAnimationTo(Steps.final)
                                         }
                                     )
