@@ -10,7 +10,7 @@ import Thrive
 
 struct CommandSummaryView: View {
     let model: CommandCreateViewModel
-    let complete: (CommandCreateViewModel?) -> Void
+    let onComplete: (CommandCreateViewModel?) -> Void
 
     @State private var expandDescription = false
 
@@ -64,6 +64,6 @@ struct TaskInitiationSummaryView_Previews: PreviewProvider {
     @ObservedObject static private var model = CommandCreateViewModel(loader: loader)
 
     static var previews: some View {
-        CommandSummaryView(model: model, complete: { _ in })
+        CommandSummaryView(model: model, onComplete: { _ in })
     }
 }

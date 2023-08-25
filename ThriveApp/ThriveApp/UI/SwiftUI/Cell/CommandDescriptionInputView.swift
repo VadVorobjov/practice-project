@@ -10,8 +10,8 @@ import SwiftUI
 struct CommandDescriptionInputView: View {
     @Binding var description: String
 
-    let backAction: () -> Void
-    let nextAction: () -> Void
+    let onReverse: () -> Void
+    let onComplete: () -> Void
     
     var body: some View {
         ZStack {
@@ -23,7 +23,7 @@ struct CommandDescriptionInputView: View {
                 
                 HStack(alignment: .center) {
                     Button {
-                        backAction()
+                        onReverse()
                     } label: {
                         Image(systemName: "arrow.left")
                             .foregroundColor(.black)
@@ -31,7 +31,7 @@ struct CommandDescriptionInputView: View {
                     }
                     
                     Button("Next", action: {
-                        nextAction()
+                        onComplete()
                     })
                     .buttonStyle(MainButtonStyle())
                     .padding(.leading, 25)
@@ -48,7 +48,7 @@ struct CommandDescriptionInputView: View {
 
 struct TaskDescriptionInitiationView_Previews: PreviewProvider {
     static var previews: some View {
-        CommandDescriptionInputView(description: .constant("Preview description"), backAction: {}, nextAction: {})
+        CommandDescriptionInputView(description: .constant("Preview description"), onReverse: {}, onComplete: {})
         .previewLayout(.sizeThatFits)
     }
 }

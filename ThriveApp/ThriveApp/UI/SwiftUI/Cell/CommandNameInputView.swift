@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CommandNameInputView: View {
     @Binding var name: String
-    let completion: () -> Void // TODO: leaked detail. Should be in ViewModel or Presenter
+    let onComplete: () -> Void
         
     var body: some View {
         ZStack {
@@ -25,7 +25,7 @@ struct CommandNameInputView: View {
                 .padding(.top, 20)
                 
                 Button("Next") {
-                    completion()
+                    onComplete()
                 }
                 .buttonStyle(MainButtonStyle())
                 .padding(.top, 25)
@@ -40,7 +40,7 @@ struct CommandNameInputView: View {
 struct TaskNameInitiationCell_Previews: PreviewProvider {
     @State static private var name = ""
     static var previews: some View {
-        CommandNameInputView(name: $name, completion: { })
+        CommandNameInputView(name: $name, onComplete: { })
             .previewLayout(.sizeThatFits)
     }
 }

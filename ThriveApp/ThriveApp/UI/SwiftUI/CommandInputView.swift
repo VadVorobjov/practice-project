@@ -10,7 +10,7 @@ import Thrive
 
 struct CommandInputView: View {
     @ObservedObject var model: CommandCreateViewModel
-    let complete: (CommandCreateViewModel?) -> Void
+    let onComplete: (CommandCreateViewModel?) -> Void
     
     private enum Steps: Int, CaseIterable, Identifiable {
         var id: Int { rawValue }
@@ -38,15 +38,15 @@ struct CommandInputView: View {
                                     }
                                 case .description:
                                     CommandDescriptionInputView(description: $model.commandDescription,
-                                        backAction: {
+                                        onReverse: {
                                             proxy.scrollWithAnimationTo(Steps.name)
                                         },
-                                        nextAction: { 
+                                        onComplete: { 
                                             proxy.scrollWithAnimationTo(Steps.final)
                                         }
                                     )
                                 case .final:
-                                    CommandSummaryView(model: model, complete: complete)
+                                    CommandSummaryView(model: model, onComplete: onComplete)
 
                                 }
                                 
@@ -71,8 +71,8 @@ struct TaskInitiationView_Previews: PreviewProvider {
     @ObservedObject static var model = CommandCreateViewModel(loader: loader)
     
     static var previews: some View {
-        CommandInputView(model: model, complete: { _ in })
-        CommandInputView(model: model, complete: { _ in })
+        CommandInputView(model: model, onComplete: { _ in })
+        CommandInputView(model: model, onComplete: { _ in })
             .preferredColorScheme(.dark)
     }
 }
