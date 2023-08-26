@@ -21,7 +21,7 @@
 		D2ABB56B29CD9D950087C6EB /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ABB56A29CD9D950087C6EB /* Button.swift */; };
 		D2ABB56E29CDA1900087C6EB /* UIKit+Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ABB56D29CDA1900087C6EB /* UIKit+Misc.swift */; };
 		D2ABB57029CDF0F60087C6EB /* AppTabViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ABB56F29CDF0F60087C6EB /* AppTabViewRouter.swift */; };
-		D2ABB57429CF4E0C0087C6EB /* CommandInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ABB57329CF4E0C0087C6EB /* CommandInputView.swift */; };
+		D2ABB57429CF4E0C0087C6EB /* CommandCreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ABB57329CF4E0C0087C6EB /* CommandCreateView.swift */; };
 		D2ABB57629D408CC0087C6EB /* CommandDescriptionInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ABB57529D408CC0087C6EB /* CommandDescriptionInputView.swift */; };
 		D2ABB57B29D419300087C6EB /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ABB57A29D419300087C6EB /* Text.swift */; };
 		D2ABB57D29D419AF0087C6EB /* TextEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ABB57C29D419AF0087C6EB /* TextEditorView.swift */; };
@@ -82,7 +82,7 @@
 		D2ABB56A29CD9D950087C6EB /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		D2ABB56D29CDA1900087C6EB /* UIKit+Misc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIKit+Misc.swift"; sourceTree = "<group>"; };
 		D2ABB56F29CDF0F60087C6EB /* AppTabViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabViewRouter.swift; sourceTree = "<group>"; };
-		D2ABB57329CF4E0C0087C6EB /* CommandInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandInputView.swift; sourceTree = "<group>"; };
+		D2ABB57329CF4E0C0087C6EB /* CommandCreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandCreateView.swift; sourceTree = "<group>"; };
 		D2ABB57529D408CC0087C6EB /* CommandDescriptionInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandDescriptionInputView.swift; sourceTree = "<group>"; };
 		D2ABB57A29D419300087C6EB /* Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
 		D2ABB57C29D419AF0087C6EB /* TextEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEditorView.swift; sourceTree = "<group>"; };
@@ -175,7 +175,7 @@
 				D2ABB58029D41BE30087C6EB /* Text */,
 				D2ABB57F29D41BC90087C6EB /* Button */,
 				D2ABB57E29D41A890087C6EB /* Cell */,
-				D2ABB57329CF4E0C0087C6EB /* CommandInputView.swift */,
+				D2ABB57329CF4E0C0087C6EB /* CommandCreateView.swift */,
 				D2ABB57C29D419AF0087C6EB /* TextEditorView.swift */,
 				D2ABB58329DC92840087C6EB /* CommandSummaryView.swift */,
 				D21321FD2A798B220006CF77 /* ExpandableView.swift */,
@@ -414,7 +414,7 @@
 				D2ABB57D29D419AF0087C6EB /* TextEditorView.swift in Sources */,
 				D258D99929FBAFC4009EA169 /* View+Helpers.swift in Sources */,
 				D21321FE2A798B220006CF77 /* ExpandableView.swift in Sources */,
-				D2ABB57429CF4E0C0087C6EB /* CommandInputView.swift in Sources */,
+				D2ABB57429CF4E0C0087C6EB /* CommandCreateView.swift in Sources */,
 				D2ABB56E29CDA1900087C6EB /* UIKit+Misc.swift in Sources */,
 				D2ABB57B29D419300087C6EB /* Text.swift in Sources */,
 				D2ABB57029CDF0F60087C6EB /* AppTabViewRouter.swift in Sources */,

@@ -1,5 +1,5 @@
 //
-//  CommandInputView.swift
+//  CommandCreateView.swift
 //  ThriveApp
 //
 //  Created by Vadims Vorobjovs on 25/03/2023.
@@ -8,7 +8,7 @@
 import SwiftUI
 import Thrive
 
-struct CommandInputView: View {
+struct CommandCreateView: View {
     @ObservedObject var model: CommandCreateViewModel
     let onComplete: (CommandCreateViewModel?) -> Void
     
@@ -71,8 +71,8 @@ struct TaskInitiationView_Previews: PreviewProvider {
     @ObservedObject static var model = CommandCreateViewModel(loader: loader)
     
     static var previews: some View {
-        CommandInputView(model: model, onComplete: { _ in })
-        CommandInputView(model: model, onComplete: { _ in })
+        CommandCreateView(model: model, onComplete: { _ in })
+        CommandCreateView(model: model, onComplete: { _ in })
             .preferredColorScheme(.dark)
     }
 }
