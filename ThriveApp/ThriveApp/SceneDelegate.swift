@@ -105,16 +105,16 @@ struct CommandCreateUIComposer: View {
             .navigationDestination(for: NavigationType.self) { destination in
                 switch destination {
                 case .name:
-                    CommandCreateView(model: model) { model in
-                        defer {
+                    CommandCreateView(model: model) { model in                        
+                        model.save() { result in
+                            switch result {
+                            case .success():
+                                break
+                            case .failure(let error):
+                                allertDescription = error.localizedDescription
+                                presentAlert.toggle()
+                            }
                             navigation.popToRoot()
-                        }
-
-                        guard let model = model else { return }
-                        
-                        if let error = model.save() {
-                            allertDescription = error.localizedDescription
-                            presentAlert.toggle()
                         }
                     }
                     .modifier(NavigationModifier(navigationLeadingAction: {

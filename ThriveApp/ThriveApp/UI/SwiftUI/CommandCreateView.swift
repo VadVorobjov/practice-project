@@ -10,7 +10,7 @@ import Thrive
 
 struct CommandCreateView: View {
     @ObservedObject var model: CommandCreateViewModel
-    let onComplete: (CommandCreateViewModel?) -> Void
+    let onComplete: (CommandCreateViewModel) -> Void
     
     private enum Steps: Int, CaseIterable, Identifiable {
         var id: Int { rawValue }

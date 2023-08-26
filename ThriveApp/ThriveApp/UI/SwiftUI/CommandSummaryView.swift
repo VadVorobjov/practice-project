@@ -10,7 +10,7 @@ import Thrive
 
 struct CommandSummaryView: View {
     let model: CommandCreateViewModel
-    let onComplete: (CommandCreateViewModel?) -> Void
+    let onComplete: (CommandCreateViewModel) -> Void
 
     @State private var expandDescription = false
 
