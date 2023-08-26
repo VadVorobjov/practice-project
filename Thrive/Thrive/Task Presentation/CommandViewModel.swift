@@ -39,10 +39,6 @@ public class CommandViewModel: ObservableObject {
     }
 }
 
-//extension CommandViewModel {
-//
-//}
-
 // TODO: composer should initialize and provide initial value
 public class CommandCreateViewModel: ObservableObject {
     let loader: CommandSave
@@ -58,27 +54,15 @@ public class CommandCreateViewModel: ObservableObject {
     public var commandDescriptionIsEmpty: Bool {
         commandDescription.isEmpty        
     }
+    
     public var command: Command {
         return Command(name: commandName, date: .init())
     }
     
-    public func save() -> Error? {
-        let command = Command(name: commandName, date: .init())
-        var saveError: Error?
-        
-        loader.save(command) { result in
-            switch result {
-            case .failure(let error):
-                saveError = error
-            case .success():
-                break
-            }
-        }
-        
-        return saveError
+    public func save(completion: @escaping (CommandSave.SaveResult) -> Void) {
+        let command = Command(name: commandName,
+                              description: commandDescription,
+                              date: .init())
+        loader.save(command, completion: completion)
     }
-    
-//    public func command() -> Command {
-//        return Command(name: commandName, date: .init())
-//    }
 }
