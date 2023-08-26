@@ -21,13 +21,13 @@ final class Navigation: ObservableObject {
 }
 
 struct NavigationModifier: ViewModifier {
-    let navigationLeadingAction: () -> Void
+    let navigationLeadingButtonAction: () -> Void
     
     func body(content: Content) -> some View {
         content
             .navigationBarBackButtonHidden(true)
             .navigationBarItems(leading: Button(action: {
-                navigationLeadingAction()
+                navigationLeadingButtonAction()
             }, label: {
                 Image(systemName: "xmark").foregroundColor(.black)
             }))

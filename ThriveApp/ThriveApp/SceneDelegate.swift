@@ -117,7 +117,7 @@ struct CommandCreateUIComposer: View {
                             navigation.popToRoot()
                         }
                     }
-                    .modifier(NavigationModifier(navigationLeadingAction: {
+                    .modifier(NavigationModifier(navigationLeadingButtonAction: {
                         navigation.popToRoot()
                     }))
                 }
