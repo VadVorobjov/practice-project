@@ -134,11 +134,14 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		D28AF87D2A142673007D4EAA /* AppTab */ = {
+		D28AF87D2A142673007D4EAA /* Root */ = {
 			isa = PBXGroup;
 			children = (
+				D2C06C1D29C0E5A0008853E2 /* AppDelegate.swift */,
+				D2C06C1F29C0E5A0008853E2 /* SceneDelegate.swift */,
+				D2ABB56F29CDF0F60087C6EB /* AppTabViewRouter.swift */,
 			);
-			path = AppTab;
+			path = Root;
 			sourceTree = "<group>";
 		};
 		D29A1BBC2A68564A0084C598 /* Frameworks */ = {
@@ -170,14 +173,12 @@
 		D2ABB57229CEF3020087C6EB /* SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
-				D28AF87D2A142673007D4EAA /* AppTab */,
+				D2F868562A9B6AD7007397FA /* Command Create */,
+				D28AF87D2A142673007D4EAA /* Root */,
 				D2ABB57729D4185F0087C6EB /* Helpers */,
 				D2ABB58029D41BE30087C6EB /* Text */,
 				D2ABB57F29D41BC90087C6EB /* Button */,
-				D2ABB57E29D41A890087C6EB /* Cell */,
-				D2ABB57329CF4E0C0087C6EB /* CommandCreateView.swift */,
 				D2ABB57C29D419AF0087C6EB /* TextEditorView.swift */,
-				D2ABB58329DC92840087C6EB /* CommandSummaryView.swift */,
 				D21321FD2A798B220006CF77 /* ExpandableView.swift */,
 			);
 			path = SwiftUI;
@@ -193,15 +194,6 @@
 				D21321FB2A766FEB0006CF77 /* ViewModifiers.swift */,
 			);
 			path = Helpers;
-			sourceTree = "<group>";
-		};
-		D2ABB57E29D41A890087C6EB /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				D25825ED29CA19D20021FF12 /* CommandNameInputView.swift */,
-				D2ABB57529D408CC0087C6EB /* CommandDescriptionInputView.swift */,
-			);
-			path = Cell;
 			sourceTree = "<group>";
 		};
 		D2ABB57F29D41BC90087C6EB /* Button */ = {
@@ -245,12 +237,9 @@
 		D2C06C1C29C0E5A0008853E2 /* ThriveApp */ = {
 			isa = PBXGroup;
 			children = (
-				D2ABB56F29CDF0F60087C6EB /* AppTabViewRouter.swift */,
+				D2ABB57129CEF2FC0087C6EB /* UI */,
 				D258D9A92A002D18009EA169 /* Navigation.swift */,
 				D20F714D29C36F77006D34CF /* Helpers */,
-				D2ABB57129CEF2FC0087C6EB /* UI */,
-				D2C06C1D29C0E5A0008853E2 /* AppDelegate.swift */,
-				D2C06C1F29C0E5A0008853E2 /* SceneDelegate.swift */,
 				D2C06C2829C0E5A1008853E2 /* LaunchScreen.storyboard */,
 				D2C06C2629C0E5A1008853E2 /* Assets.xcassets */,
 				D2C06C2B29C0E5A1008853E2 /* Info.plist */,
@@ -273,6 +262,17 @@
 				D2C06C4029C0E5A1008853E2 /* ThriveAppUITestsLaunchTests.swift */,
 			);
 			path = ThriveAppUITests;
+			sourceTree = "<group>";
+		};
+		D2F868562A9B6AD7007397FA /* Command Create */ = {
+			isa = PBXGroup;
+			children = (
+				D2ABB57329CF4E0C0087C6EB /* CommandCreateView.swift */,
+				D25825ED29CA19D20021FF12 /* CommandNameInputView.swift */,
+				D2ABB57529D408CC0087C6EB /* CommandDescriptionInputView.swift */,
+				D2ABB58329DC92840087C6EB /* CommandSummaryView.swift */,
+			);
+			path = "Command Create";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
