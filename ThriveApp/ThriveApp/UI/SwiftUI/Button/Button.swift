@@ -12,7 +12,7 @@ protocol Buttonable: View {
     var action: () -> Void { get set }
 }
 
-struct InitiationButtonSwiftUI: Buttonable {
+struct CircleButton: Buttonable {
     
     init(label: LocalizedStringKey = "", action: @escaping () -> Void = {}) {
         self.label = label

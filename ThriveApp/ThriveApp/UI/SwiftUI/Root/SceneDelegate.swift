@@ -90,7 +90,7 @@ struct CommandCreateUIComposer: View {
     var body: some View {
         NavigationStack(path: $navigation.path) {
             NavigationLink(value: NavigationType.name) {
-                InitiationButtonSwiftUI(label: "Initiation") {
+                CircleButton(label: "Initiation") {
                     navigation.path.append(NavigationType.name)
                 }
             }
