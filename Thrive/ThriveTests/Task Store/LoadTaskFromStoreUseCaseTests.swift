@@ -60,16 +60,16 @@ final class LoadTaskFromStoreUseCaseTests: XCTestCase {
     
     // MARK: - Helpers
     
-    private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (sut: LocalCommandLoader, store: TaskStoreSpy) {
+    private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (sut: CommandSerialization, store: TaskStoreSpy) {
         let store = TaskStoreSpy()
-        let sut = LocalCommandLoader(store: store)
+        let sut = LocalCommandLoaderDecorator(decoratee: LocalCommandLoader(store: store))
         trackMemoryLeaks(store, file: file, line: line)
         trackMemoryLeaks(store, file: file, line: line)
         
         return (sut, store)
     }
     
-    private func expect(_ sut: LocalCommandLoader,
+    private func expect(_ sut: CommandSerialization,
                         toCompleteWith expectedResult: LocalCommandLoader.LoadResult,
                         when action: () -> Void,
                         file: StaticString = #filePath,

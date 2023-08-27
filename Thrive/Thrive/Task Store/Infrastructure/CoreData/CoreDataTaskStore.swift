@@ -11,7 +11,7 @@ public final class CoreDataTaskStore: CommandStore {
     private let container: NSPersistentContainer
     private let context: NSManagedObjectContext
     
-    public init(storeURL: URL, bundle: Bundle = .main) throws {
+    public init(storeURL: URL, bundle: Bundle = Bundle(for: CoreDataTaskStore.self)) throws {
         self.container = try NSPersistentContainer.load(modelName: "CommandStore", url: storeURL, in: bundle)
         context = container.newBackgroundContext()
     }

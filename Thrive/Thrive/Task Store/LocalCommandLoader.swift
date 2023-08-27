@@ -1,11 +1,42 @@
 //
-//  LocalComamndLoader.swift
+//  LocalCommandLoader.swift
 //  Thrive
 //
 //  Created by Vadims Vorobjovs on 25/05/2023.
 //
+public typealias CommandSerialization = CommandLoader & CommandSave & CommandDelete
 
-public protocol CommandSerialization: CommandLoader & CommandSave {}
+public class LocalCommandLoaderDecorator: CommandSerialization {
+    private let decoratee: LocalCommandLoader
+    
+    public init(decoratee: LocalCommandLoader) {
+        self.decoratee = decoratee
+    }
+    
+    public func load(completion: @escaping (LoadResult) -> Void) {
+        decoratee.load { result in
+            DispatchQueue.main.async {
+                completion(result)
+            }
+        }
+    }
+    
+    public func save(_ item: Command, completion: @escaping (SaveResult) -> Void) {
+        decoratee.save(item) { result in
+            DispatchQueue.main.async {
+                completion(result)
+            }
+        }
+    }
+    
+    public func delete(_ item: Command, completion: @escaping (DeleteResult) -> Void) {
+        decoratee.delete(item) { result in
+            DispatchQueue.main.async {
+                completion(result)
+            }
+        }
+    }
+}
 
 public protocol CommandLoader {
     typealias LoadResult = Swift.Result<[Command], Error>
@@ -19,7 +50,13 @@ public protocol CommandSave {
     func save(_ item: Command, completion: @escaping (SaveResult) -> Void)
 }
 
-public final class LocalCommandLoader: CommandSerialization {
+public protocol CommandDelete {
+    typealias DeleteResult = Result<Void, Error>
+    
+    func delete(_ item: Command, completion: @escaping (DeleteResult) -> Void)
+}
+
+public final class LocalCommandLoader {
     private let store: CommandStore
     
     public init(store: CommandStore) {
@@ -56,9 +93,7 @@ extension LocalCommandLoader: CommandLoader {
     }
 }
 
-extension LocalCommandLoader {
-    public typealias DeleteResult = Result<Void, Error>
-
+extension LocalCommandLoader: CommandDelete {
     public func delete(_ item: Command, completion: @escaping (DeleteResult) -> Void) {
         store.delete(item.toLocal()) { [weak self] deleteResult in
             guard self != nil else { return }

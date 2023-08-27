@@ -44,16 +44,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             return try CoreDataTaskStore(
                 storeURL: NSPersistentContainer
                     .defaultDirectoryURL()
-                    .appendingPathComponent("CommandStore.sqlite"))
+                    .appendingPathComponent("command-store.sqlite"))
         }
         catch {
-//            assertionFailure("Failed to instantiate CoreData store with error \(error.localizedDescription)")
+            assertionFailure("Failed to instantiate CoreData store with error \(error.localizedDescription)")
             return NullStore()
         }
     }()
     
-    private lazy var loader: LocalCommandLoader = {
-       return LocalCommandLoader(store: store)
+    private lazy var loader: LocalCommandLoaderDecorator = {
+        return LocalCommandLoaderDecorator(decoratee: LocalCommandLoader(store: store))
     }()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -61,16 +61,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         let window = UIWindow(windowScene: windowScene)
-        
-        let navigation = Navigation()
-        
+                
         self.window = window
-        
-        if let modelURL = Bundle.main.url(forResource: "CommandStore", withExtension: "momd") {
-            print("Model URL: \(modelURL)")
-        } else {
-            print("Model not found in the bundle.")
-        }
         
         window.rootViewController = UIHostingController(
             rootView: AppTabViewRouter(
@@ -91,7 +83,7 @@ struct CommandCreateUIComposer: View {
     @State private var presentAlert = false
     @State private var allertDescription: String = ""
     
-    static func compossedWith(loader: LocalCommandLoader) -> some View {
+    static func compossedWith(loader: CommandSerialization) -> some View {
         CommandCreateUIComposer(navigation: Navigation(), model: CommandCreateViewModel(loader: loader))
     }
     
@@ -114,7 +106,9 @@ struct CommandCreateUIComposer: View {
                                 allertDescription = error.localizedDescription
                                 presentAlert.toggle()
                             }
-                            navigation.popToRoot()
+//                            DispatchQueue.main.async {
+                                navigation.popToRoot()
+//                            }
                         }
                     }
                     .modifier(NavigationModifier(navigationLeadingButtonAction: {
