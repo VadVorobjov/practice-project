@@ -5,7 +5,7 @@
 //  Created by Vadims Vorobjovs on 21/05/2023.
 //
 
-public struct Command: Equatable {
+public struct Command: Equatable, Identifiable {
     public let id: UUID
     public var name: String
     public let description: String?

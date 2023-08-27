@@ -33,6 +33,7 @@
 		D2C06C3529C0E5A1008853E2 /* ThriveAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C06C3429C0E5A1008853E2 /* ThriveAppTests.swift */; };
 		D2C06C3F29C0E5A1008853E2 /* ThriveAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C06C3E29C0E5A1008853E2 /* ThriveAppUITests.swift */; };
 		D2C06C4129C0E5A1008853E2 /* ThriveAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C06C4029C0E5A1008853E2 /* ThriveAppUITestsLaunchTests.swift */; };
+		D2F868592A9B6B69007397FA /* PathHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F868582A9B6B69007397FA /* PathHistoryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +99,7 @@
 		D2C06C3A29C0E5A1008853E2 /* ThriveAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThriveAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2C06C3E29C0E5A1008853E2 /* ThriveAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThriveAppUITests.swift; sourceTree = "<group>"; };
 		D2C06C4029C0E5A1008853E2 /* ThriveAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThriveAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D2F868582A9B6B69007397FA /* PathHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathHistoryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,8 +175,9 @@
 		D2ABB57229CEF3020087C6EB /* SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
-				D2F868562A9B6AD7007397FA /* Command Create */,
 				D28AF87D2A142673007D4EAA /* Root */,
+				D2F868562A9B6AD7007397FA /* Command Create */,
+				D2F868572A9B6B5F007397FA /* Path */,
 				D2ABB57729D4185F0087C6EB /* Helpers */,
 				D2ABB58029D41BE30087C6EB /* Text */,
 				D2ABB57F29D41BC90087C6EB /* Button */,
@@ -273,6 +276,14 @@
 				D2ABB58329DC92840087C6EB /* CommandSummaryView.swift */,
 			);
 			path = "Command Create";
+			sourceTree = "<group>";
+		};
+		D2F868572A9B6B5F007397FA /* Path */ = {
+			isa = PBXGroup;
+			children = (
+				D2F868582A9B6B69007397FA /* PathHistoryView.swift */,
+			);
+			path = Path;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -411,6 +422,7 @@
 				D20F714F29C36F80006D34CF /* Color+Helpers.swift in Sources */,
 				D2C06C1E29C0E5A0008853E2 /* AppDelegate.swift in Sources */,
 				D2C06C2029C0E5A0008853E2 /* SceneDelegate.swift in Sources */,
+				D2F868592A9B6B69007397FA /* PathHistoryView.swift in Sources */,
 				D2ABB57D29D419AF0087C6EB /* TextEditorView.swift in Sources */,
 				D258D99929FBAFC4009EA169 /* View+Helpers.swift in Sources */,
 				D21321FE2A798B220006CF77 /* ExpandableView.swift in Sources */,

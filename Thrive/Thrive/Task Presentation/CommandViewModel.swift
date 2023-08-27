@@ -9,8 +9,8 @@ import Foundation
 
 public class CommandViewModel: ObservableObject {
     @Published private(set) var isProcessing = false
-    @Published private(set) var commands: [Command] = []
-    
+    @Published public var commands: [Command] = []
+
     private let loader: LocalCommandLoader
     
     public init(loader: LocalCommandLoader) {
