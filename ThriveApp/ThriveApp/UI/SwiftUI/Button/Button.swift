@@ -12,9 +12,18 @@ protocol Buttonable: View {
     var action: () -> Void { get set }
 }
 
-struct CircleButton: Buttonable {
+struct CircleTitleButton {
     
-    init(label: LocalizedStringKey = "", action: @escaping () -> Void = {}) {
+}
+
+struct CircleButton: Buttonable {
+    let radius: CGFloat
+    let shadow: Bool
+    
+    init(label: LocalizedStringKey = "",
+         radius: CGFloat = screenSize.width,
+         action: @escaping () -> Void = {}) {
+        self.radius = radius
         self.label = label
         self.action = action
     }
@@ -26,6 +35,6 @@ struct CircleButton: Buttonable {
         Button(action: action) {
             Text(label)
         }
-        .buttonStyle(BigRoundButtonStyle())
+        .buttonStyle(CircleButtonStyle())
     }
 }

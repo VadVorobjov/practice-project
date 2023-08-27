@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct BigRoundButtonStyle: ButtonStyle {
+struct CircleButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label.foregroundColor(Color(hex: 0xD1D1D1))
             .font(Font.system(.title2, weight: .bold))
