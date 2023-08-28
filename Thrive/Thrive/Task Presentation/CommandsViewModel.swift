@@ -1,5 +1,5 @@
 //
-//  CommandViewModel.swift
+//  CommandsViewModel.swift
 //  Thrive
 //
 //  Created by Vadims Vorobjovs on 10/08/2023.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class CommandViewModel: ObservableObject {
+public class CommandsViewModel: ObservableObject {
     private let loader: CommandLoader
 
     @Published private(set) var isProcessing = false
@@ -27,16 +27,16 @@ public class CommandViewModel: ObservableObject {
         }
     }
     
-    func saveCommand(_ command: Command) {
-        isProcessing = true
-        loader.save(command) { [weak self] result in
-            if case .success = result {
-                // Save completed successfull
-                // onSave closure?
-            }
-            self?.isProcessing = false
-        }
-    }
+//    func saveCommand(_ command: Command) {
+//        isProcessing = true
+//        loader.save(command) { [weak self] result in
+//            if case .success = result {
+//                // Save completed successfull
+//                // onSave closure?
+//            }
+//            self?.isProcessing = false
+//        }
+//    }
 }
 
 // TODO: composer should initialize and provide initial value
