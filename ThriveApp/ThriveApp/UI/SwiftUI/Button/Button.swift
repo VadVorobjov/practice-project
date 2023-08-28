@@ -20,10 +20,12 @@ struct CircleButton: Buttonable {
     let radius: CGFloat
     let shadow: Bool
     
-    init(label: LocalizedStringKey = "",
-         radius: CGFloat = screenSize.width,
+    init(radius: CGFloat = screenSize.width,
+         shadow: Bool = true,
+         label: LocalizedStringKey = "",
          action: @escaping () -> Void = {}) {
         self.radius = radius
+        self.shadow = shadow
         self.label = label
         self.action = action
     }
@@ -35,6 +37,6 @@ struct CircleButton: Buttonable {
         Button(action: action) {
             Text(label)
         }
-        .buttonStyle(CircleButtonStyle())
+        .buttonStyle(CircleButtonStyle(radius: radius, shadow: shadow))
     }
 }
