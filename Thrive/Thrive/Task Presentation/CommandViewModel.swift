@@ -8,16 +8,16 @@
 import Foundation
 
 public class CommandViewModel: ObservableObject {
+    private let loader: CommandLoader
+
     @Published private(set) var isProcessing = false
     @Published public var commands: [Command] = []
-
-    private let loader: LocalCommandLoader
     
-    public init(loader: LocalCommandLoader) {
+    public init(loader: CommandLoader) {
         self.loader = loader
     }
     
-    func loadCommands() {
+    public func loadCommands() {
         isProcessing = true
         loader.load { [weak self] result in
             if let commands = try? result.get() {
@@ -41,7 +41,7 @@ public class CommandViewModel: ObservableObject {
 
 // TODO: composer should initialize and provide initial value
 public class CommandCreateViewModel: ObservableObject {
-    let loader: CommandSave
+    private let loader: CommandSave
     @Published public var commandName: String
     @Published public var commandDescription: String
     
