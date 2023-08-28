@@ -34,6 +34,7 @@
 		D2C06C3F29C0E5A1008853E2 /* ThriveAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C06C3E29C0E5A1008853E2 /* ThriveAppUITests.swift */; };
 		D2C06C4129C0E5A1008853E2 /* ThriveAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C06C4029C0E5A1008853E2 /* ThriveAppUITestsLaunchTests.swift */; };
 		D2F868592A9B6B69007397FA /* PathHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F868582A9B6B69007397FA /* PathHistoryView.swift */; };
+		D2F8685B2A9B7647007397FA /* PathHistoryItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F8685A2A9B7647007397FA /* PathHistoryItemView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +101,7 @@
 		D2C06C3E29C0E5A1008853E2 /* ThriveAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThriveAppUITests.swift; sourceTree = "<group>"; };
 		D2C06C4029C0E5A1008853E2 /* ThriveAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThriveAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		D2F868582A9B6B69007397FA /* PathHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathHistoryView.swift; sourceTree = "<group>"; };
+		D2F8685A2A9B7647007397FA /* PathHistoryItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathHistoryItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -282,6 +284,7 @@
 			isa = PBXGroup;
 			children = (
 				D2F868582A9B6B69007397FA /* PathHistoryView.swift */,
+				D2F8685A2A9B7647007397FA /* PathHistoryItemView.swift */,
 			);
 			path = Path;
 			sourceTree = "<group>";
@@ -434,6 +437,7 @@
 				D2ABB58429DC92840087C6EB /* CommandSummaryView.swift in Sources */,
 				D22F2B8329E9698400272367 /* ScrollViewProxy+Helpers.swift in Sources */,
 				D21321FC2A766FEB0006CF77 /* ViewModifiers.swift in Sources */,
+				D2F8685B2A9B7647007397FA /* PathHistoryItemView.swift in Sources */,
 				D258D9AA2A002D18009EA169 /* Navigation.swift in Sources */,
 				D2ABB56829CD9D010087C6EB /* Button+ButtonStyle.swift in Sources */,
 				D2ABB56B29CD9D950087C6EB /* Button.swift in Sources */,
