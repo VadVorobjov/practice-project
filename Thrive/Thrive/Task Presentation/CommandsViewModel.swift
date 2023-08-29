@@ -7,6 +7,18 @@
 
 import Foundation
 
+public class CommandViewModel: ObservableObject {
+    private let command: Command
+    
+    public init(command: Command) {
+        self.command = command
+    }
+    
+    public lazy var commandName: String = {
+        command.name
+    }()
+}
+
 public class CommandsViewModel: ObservableObject {
     private let loader: CommandLoader
 
