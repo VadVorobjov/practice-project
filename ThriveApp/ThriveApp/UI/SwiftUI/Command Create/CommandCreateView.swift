@@ -60,8 +60,6 @@ struct CommandCreateView: View {
             }
             .scrollDisabled(true)
         }
-        VStack {}
-       
     }
 }
 
