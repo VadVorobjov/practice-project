@@ -19,8 +19,13 @@ struct PathHistoryItemView: View {
         GeometryReader { geometry in
             VStack {
                 HStack(spacing: 0) {
-                    CircleButton(radius: 50, shadow: false) {}
-                        .padding(.leading, 5)
+                    CircleButton(radius: 50,
+                                 shadow: false,
+                                 backgroundColor: LinearGradient(
+                                    gradient: Gradient(colors: [
+                                        Color(hex: 0x118824, alpha: 100),
+                                        Color(hex: 0xAEEAB7, alpha: 100)]),
+                                    startPoint: .topLeading, endPoint: .bottomTrailing)) {}
                     
                     Text("20.12.2024")
                         .padding(.leading, 5)
@@ -33,7 +38,7 @@ struct PathHistoryItemView: View {
                         .padding(.trailing, 5)
                         .bold()
                 }
-                .padding(.top, 5)
+                .padding(EdgeInsets(top: 10, leading: 5, bottom: 0, trailing: 10))
                 
                 HStack(alignment: .top) {
                     VStack(alignment: .leading, spacing: 0) {
@@ -78,8 +83,15 @@ struct PathHistoryItemView: View {
                     }
                     .frame(width: geometry.size.width * 0.3)
                     .padding(.trailing, 5)
-                }.padding(.leading, 30)
+                }
+                .padding(EdgeInsets(top: 0, leading: 30, bottom: 10, trailing: 10))
             }
+            .overlay {
+                RoundedRectangle(cornerRadius: 8)
+                    .stroke()
+            }
+            .padding(.horizontal, 5)
+            .padding(.vertical, 5)
         }
         .frame(minHeight: 100)
     }

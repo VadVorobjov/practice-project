@@ -16,16 +16,19 @@ struct CircleTitleButton {
     
 }
 
-struct CircleButton: Buttonable {
+struct CircleButton<S: ShapeStyle>: Buttonable {
     let radius: CGFloat
     let shadow: Bool
+    let backgroundColor: S
     
     init(radius: CGFloat = screenSize.width,
          shadow: Bool = true,
+         backgroundColor: S = Color(hex: 0x3D3B37),
          label: LocalizedStringKey = "",
          action: @escaping () -> Void = {}) {
         self.radius = radius
         self.shadow = shadow
+        self.backgroundColor = backgroundColor
         self.label = label
         self.action = action
     }
@@ -37,6 +40,8 @@ struct CircleButton: Buttonable {
         Button(action: action) {
             Text(label)
         }
-        .buttonStyle(CircleButtonStyle(radius: radius, shadow: shadow))
+        .buttonStyle(CircleButtonStyle(radius: radius,
+                                       shadow: shadow,
+                                       backgroundColor: backgroundColor))
     }
 }
