@@ -127,7 +127,7 @@ struct SecondHistoryRow: View {
     @State private var containerWidth: CGFloat = 0
     
     var body: some View {
-        HStack(alignment: .top) {
+        HStack(alignment: .bottom) {
             LabelWithDescriptionView()
                 .frame(width: containerWidth * 0.5)
             Spacer()
