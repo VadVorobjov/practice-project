@@ -16,16 +16,12 @@ struct PathHistoryView: View {
     }
     
     var body: some View {
-        ZStack {
-            customBackgroundView()
-            
-            ScrollView(.vertical) {
-                LazyVStack(spacing: 0) {
-                    ForEach(model.commands) { command in
-                        PathHistoryItemView(model: CommandViewModel(command: command))
-                            .padding(.vertical, 5)
-                            .padding(.horizontal, 5)
-                    }
+        ScrollView(.vertical) {
+            LazyVStack(spacing: 0) {
+                ForEach(model.commands) { command in
+                    PathHistoryItemView(model: CommandViewModel(command: command))
+                        .padding(.vertical, 5)
+                        .padding(.horizontal, 5)
                 }
             }
             .scrollIndicators(.hidden)
@@ -33,6 +29,8 @@ struct PathHistoryView: View {
                 model.loadCommands()
             }
         }
+        .background(Color.Background.primary)
+        .toolbarBackground(Color.Background.primary, for: .tabBar)
     }
 }
 
@@ -42,15 +40,26 @@ struct PathHistoryView_Preview: PreviewProvider {
         let loader = LocalCommandLoader(store: NullStore())
         let model = CommandsViewModel(loader: loader)
         model.commands = [
-            Command(name: "Walk Da Dog", description: "description", date: .init()),
-            Command(name: "Pet Marcus", description: "description", date: .init()),
-            Command(name: "Write to Sandra", description: "description", date: .init()),
-            Command(name: "Pet Marcus", description: "description", date: .init()),
-            Command(name: "Pet Marcus", description: "description", date: .init()),
-            Command(name: "Pet Marcus", description: "description", date: .init())
+            Command(name: "Walk Da Dog",
+                    description: "description",
+                    date: .init()),
+            Command(name: "Pet Marcus",
+                    description: "description",
+                    date: .init()),
+            Command(name: "Write to Sandra",
+                    description: "description",
+                    date: .init()),
+            Command(name: "Pet Marcus",
+                    description: "description",
+                    date: .init()),
+            Command(name: "Pet Marcus",
+                    description: "description",
+                    date: .init()),
+            Command(name: "Pet Marcus",
+                    description: "description",
+                    date: .init())
         ]
         
         return PathHistoryView(model: model)
-            .environmentObject(model)
     }
 }
