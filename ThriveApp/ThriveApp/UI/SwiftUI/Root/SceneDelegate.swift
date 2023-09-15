@@ -9,8 +9,9 @@ import SwiftUI
 import Thrive
 import CoreData
 
-enum NavigationType: Hashable {
+enum NavigationType: Int, Hashable {
     case name
+    case path
 }
 
 class MainTabViewModel: ObservableObject {
@@ -67,11 +68,28 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window.rootViewController = UIHostingController(
             rootView: AppTabViewRouter(
                 mainTabModel: MainTabViewModel(),
-                commandCreateView: CommandCreateUIComposer.compossedWith(loader: loader)
+                commandCreateView: CommandCreateUIComposer.compossedWith(loader: loader),
+                pathHistoryView: PathHistoryUIComposer.compossedWith(loader: loader)
             )
         )
         
         window.makeKeyAndVisible()
+    }
+}
+
+struct PathHistoryUIComposer: View {
+    @ObservedObject private var navigation: Navigation
+    @ObservedObject private var model: CommandsViewModel
+    
+    static func compossedWith(loader: CommandLoader) -> some View {
+        PathHistoryUIComposer(
+            navigation: Navigation(),
+            model: CommandsViewModel(loader: loader)
+        )
+    }
+    
+    var body: some View {
+        PathHistoryView(model: model)
     }
 }
 
@@ -90,14 +108,17 @@ struct CommandCreateUIComposer: View {
     var body: some View {
         NavigationStack(path: $navigation.path) {
             NavigationLink(value: NavigationType.name) {
-                CircleButton(label: "Initiation") {
-                    navigation.path.append(NavigationType.name)
+                ZStack {
+                    customBackgroundView()
+                    
+                    CircleButton(label: "Initiation") {
+                        navigation.path.append(NavigationType.name)
+                    }
                 }
             }
             .navigationDestination(for: NavigationType.self) { destination in
-                switch destination {
-                case .name:
-                    CommandCreateView(model: model) { model in                        
+                if destination.rawValue == NavigationType.name.rawValue {
+                    CommandCreateView(model: model) { model in
                         model.save() { result in
                             switch result {
                             case .success():
@@ -106,9 +127,7 @@ struct CommandCreateUIComposer: View {
                                 allertDescription = error.localizedDescription
                                 presentAlert.toggle()
                             }
-//                            DispatchQueue.main.async {
-                                navigation.popToRoot()
-//                            }
+                            navigation.popToRoot()
                         }
                     }
                     .modifier(NavigationModifier(navigationLeadingButtonAction: {
