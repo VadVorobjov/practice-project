@@ -95,8 +95,8 @@ struct PathHistoryUIComposer: View {
 
 /// Composer can be called only by other composers
 struct CommandCreateUIComposer: View {
-    @ObservedObject var navigation: Navigation
-    @ObservedObject var model: CommandCreateViewModel
+    @ObservedObject private var navigation: Navigation
+    @ObservedObject private var model: CommandCreateViewModel
     
     @State private var presentAlert = false
     @State private var allertDescription: String = ""
