@@ -20,6 +20,10 @@ public class CommandViewModel: ObservableObject {
         formatedDate(date: command.date)
     }()
     
+    public lazy var description: String = {
+        command.description ?? ""
+    }()
+    
     private func formatedDate(date: Date) -> String {
         let formatter = DateFormatter()
         formatter.dateStyle = .medium
