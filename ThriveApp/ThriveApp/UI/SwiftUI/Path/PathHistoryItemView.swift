@@ -20,7 +20,7 @@ struct PathHistoryItemView: View {
                 HStack(spacing: 5) {
                     IndicatorView()
                     
-                    Text("20.12.2024")
+                    Text(model.date)
                     Spacer()
                     
                     Text("Details")
@@ -34,9 +34,9 @@ struct PathHistoryItemView: View {
                                     bottom: 0,
                                     trailing: 10))
                 
-                SecondHistoryRow()
+                SecondHistoryRow(model: model)
                     .padding(EdgeInsets(top: 0,
-                                        leading: 30,
+                                        leading: 40,
                                         bottom: 10,
                                         trailing: 10))
             }
@@ -62,23 +62,29 @@ struct PathHistoryItemView_Previews: PreviewProvider {
     static var previews: some View {
         PathHistoryItemView(
             model: CommandViewModel(
-                command: Command(name: "Fernandoooooo", date: .init()))
+                command: Command(name: "Walk da Dog", date: .init()))
         )
         .previewLayout(.sizeThatFits)
     }
 }
 
 struct LabelWithDescriptionView: View {
+    let text: String
+    let description: String
+    
     var body: some View {
-        VStack(alignment: .leading, spacing: 2) {
-            Text("Create Speciment")
-                .lineLimit(2)
-                .font(.title2)
-                .bold()
-            
-            Text("Description of a one interesting doggy of a one interesting doggy")
-                .lineLimit(2)
-                .font(.system(.caption))
+        HStack {
+            VStack(alignment: .leading, spacing: 2) {
+                Text(text)
+                    .lineLimit(2)
+                    .font(.title2)
+                    .bold()
+                
+                Text(description)
+                    .lineLimit(2)
+                    .font(.system(.caption))
+            }
+            Spacer()
         }
     }
 }
@@ -125,11 +131,13 @@ struct IndicatorView: View {
 
 struct SecondHistoryRow: View {
     @State private var containerWidth: CGFloat = 0
+    let model: CommandViewModel
     
     var body: some View {
-        HStack(alignment: .bottom) {
-            LabelWithDescriptionView()
-                .frame(width: containerWidth * 0.5)
+        HStack(alignment: .top) {
+            LabelWithDescriptionView(text: model.commandName, description: model.description)
+            .frame(width: containerWidth * 0.5)
+            
             Spacer()
             
             CategoriesView()
