@@ -15,6 +15,7 @@
 		D258D99929FBAFC4009EA169 /* View+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D258D99829FBAFC4009EA169 /* View+Helpers.swift */; };
 		D258D9AA2A002D18009EA169 /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D258D9A92A002D18009EA169 /* Navigation.swift */; };
 		D28B7CFD2A0580C900EBB210 /* TextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28B7CFC2A0580C900EBB210 /* TextFieldView.swift */; };
+		D298F80A2AB9FE930065149D /* CommandCategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D298F8092AB9FE930065149D /* CommandCategoriesView.swift */; };
 		D29A1BC52A6858180084C598 /* Thrive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D29A1BC42A6858180084C598 /* Thrive.framework */; };
 		D29A1BC62A6858180084C598 /* Thrive.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D29A1BC42A6858180084C598 /* Thrive.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2ABB56829CD9D010087C6EB /* Button+ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ABB56729CD9D010087C6EB /* Button+ButtonStyle.swift */; };
@@ -77,6 +78,7 @@
 		D258D99829FBAFC4009EA169 /* View+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Helpers.swift"; sourceTree = "<group>"; };
 		D258D9A92A002D18009EA169 /* Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
 		D28B7CFC2A0580C900EBB210 /* TextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldView.swift; sourceTree = "<group>"; };
+		D298F8092AB9FE930065149D /* CommandCategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandCategoriesView.swift; sourceTree = "<group>"; };
 		D29A1BBD2A68564A0084C598 /* Thrive.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Thrive.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D29A1BC02A68576E0084C598 /* Thrive.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Thrive.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D29A1BC42A6858180084C598 /* Thrive.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Thrive.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -276,6 +278,7 @@
 				D25825ED29CA19D20021FF12 /* CommandNameInputView.swift */,
 				D2ABB57529D408CC0087C6EB /* CommandDescriptionInputView.swift */,
 				D2ABB58329DC92840087C6EB /* CommandSummaryView.swift */,
+				D298F8092AB9FE930065149D /* CommandCategoriesView.swift */,
 			);
 			path = "Command Create";
 			sourceTree = "<group>";
@@ -426,6 +429,7 @@
 				D2C06C1E29C0E5A0008853E2 /* AppDelegate.swift in Sources */,
 				D2C06C2029C0E5A0008853E2 /* SceneDelegate.swift in Sources */,
 				D2F868592A9B6B69007397FA /* PathHistoryView.swift in Sources */,
+				D298F80A2AB9FE930065149D /* CommandCategoriesView.swift in Sources */,
 				D2ABB57D29D419AF0087C6EB /* TextEditorView.swift in Sources */,
 				D258D99929FBAFC4009EA169 /* View+Helpers.swift in Sources */,
 				D21321FE2A798B220006CF77 /* ExpandableView.swift in Sources */,
