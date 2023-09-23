@@ -11,7 +11,7 @@ struct Elevation: ViewModifier {
     let color: Color
     let radius: CGFloat
     
-    init(color: Color, radius: CGFloat = 25) {
+    init(color: Color = .Elevation.primary, radius: CGFloat = 25) {
         self.color = color
         self.radius = radius
     }
