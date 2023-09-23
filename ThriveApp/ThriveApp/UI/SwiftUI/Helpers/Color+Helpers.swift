@@ -26,7 +26,8 @@ extension Color {
 
 extension Color {
     struct Background {
-        static let primary = Color("Background")
+        static let primary = Color("background.primary")
+        static let secondary = Color("background.secondary")
     }
     
     struct Elevation {
