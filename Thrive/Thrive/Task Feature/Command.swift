@@ -23,7 +23,12 @@ public struct Command: Equatable, Identifiable {
 
 public struct Criteria: Equatable, Identifiable {
     public var id: UUID
-    
     public let name: String
     public let isChecked: Bool
+    
+    public init(id: UUID = UUID(), name: String, isChecked: Bool) {
+        self.id = id
+        self.name = name
+        self.isChecked = isChecked
+    }
 }
