@@ -1,5 +1,5 @@
 //
-//  CommandCategoriesView.swift
+//  CommandCriteriasView.swift
 //  ThriveApp
 //
 //  Created by Vadims Vorobjovs on 19/09/2023.
@@ -8,7 +8,7 @@
 import Thrive
 import SwiftUI
 
-struct CommandCategoriesView: View {
+struct CommandCriteriasView: View {
     @State private var criterias: [Criteria]
     @State private var criteria: String
     @State private var listsContentWidth: CGFloat?
@@ -64,7 +64,7 @@ struct CommandCategoriesView_Previews: PreviewProvider {
             Criteria(name: "Fernando", isChecked: false),
         ]
         
-        return CommandCategoriesView(criterias: criterias, criteria: "")
+        return CommandCriteriasView(criterias: criterias, criteria: "")
             .previewLayout(.sizeThatFits)
     }
 }
