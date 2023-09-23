@@ -19,7 +19,7 @@ struct TextFieldView: View {
             .frame(height: 44)
             .font(.callout)
             .placeholder(when: text.isEmpty) {
-                Text("Name your task").foregroundColor(.black)
+                Text(placeholderText).foregroundColor(.black)
                     .font(.callout)
             }
             .padding(.leading)
