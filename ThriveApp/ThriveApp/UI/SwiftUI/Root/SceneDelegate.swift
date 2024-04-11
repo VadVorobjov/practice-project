@@ -53,7 +53,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
     }()
     
-    private lazy var loader: LocalCommandLoaderDecorator = {
+    private lazy var localLoader: LocalCommandLoaderDecorator = {
         return LocalCommandLoaderDecorator(decoratee: LocalCommandLoader(store: store))
     }()
 
@@ -64,12 +64,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
                 
         self.window = window
-        
+      
+      let url = URL(string: "https://gist.githubusercontent.com/VadVorobjov/5579da8aa31053d9eaf66943900b5c18/raw/08ad964fc21dea1a4ad4285d7841288759dafe7b/gistfile1.json")!
+      let session = URLSession(configuration: .ephemeral)
+      
+      let client = URLSessionHTTPClient(session: session)
+      let remoteLoader = RemoteCommandLoader(url: url, client: client)
+      
         window.rootViewController = UIHostingController(
             rootView: AppTabViewRouter(
                 mainTabModel: MainTabViewModel(),
-                commandCreateView: CommandCreateUIComposer.compossedWith(loader: loader),
-                pathHistoryView: PathHistoryUIComposer.compossedWith(loader: loader)
+                commandCreateView: CommandCreateUIComposer.compossedWith(loader: localLoader),
+                pathHistoryView: PathHistoryUIComposer.compossedWith(loader: 
+                                                                      CommandLoaderWithFallbackComposite(primary: CommandLoaderCacheDecorator(decoratee: remoteLoader, cache: localLoader), fallback: localLoader))
             )
         )
         
