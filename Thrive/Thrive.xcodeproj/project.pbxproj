@@ -25,6 +25,7 @@
 		D274EC262A5C1FE900B60035 /* CoreDataTaskStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D274EC252A5C1FE900B60035 /* CoreDataTaskStore.swift */; };
 		D285FBDC2BC7F4540063E929 /* CommandMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D285FBDB2BC7F4540063E929 /* CommandMapper.swift */; };
 		D285FBDE2BC7F4830063E929 /* RemoteCommandLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D285FBDD2BC7F4830063E929 /* RemoteCommandLoader.swift */; };
+		D285FBE02BC7F4B80063E929 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D285FBDF2BC7F4B80063E929 /* HTTPClient.swift */; };
 		D2A94D712A9A89580058CA04 /* CommandStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D2A94D6F2A9A89580058CA04 /* CommandStore.xcdatamodeld */; };
 		D2AEBE4C2A61290B00267E9C /* ThriveTaskStoreIntegrationTests.xctestplan in Resources */ = {isa = PBXBuildFile; fileRef = D2AEBE4B2A61290B00267E9C /* ThriveTaskStoreIntegrationTests.xctestplan */; };
 		D2AEBE4D2A61338D00267E9C /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22154F92A1C971E0022CA75 /* XCTestCase+MemoryLeakTracking.swift */; };
@@ -85,6 +86,7 @@
 		D274EC252A5C1FE900B60035 /* CoreDataTaskStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTaskStore.swift; sourceTree = "<group>"; };
 		D285FBDB2BC7F4540063E929 /* CommandMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandMapper.swift; sourceTree = "<group>"; };
 		D285FBDD2BC7F4830063E929 /* RemoteCommandLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteCommandLoader.swift; sourceTree = "<group>"; };
+		D285FBDF2BC7F4B80063E929 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		D2A0B6282A6192060090C13F /* Thrive.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = Thrive.xctestplan; path = "/Users/vadimsvorobjovs/Documents/iOS/Projects/Thrive App/ThriveApp/Thrive/Test Plans/Thrive.xctestplan"; sourceTree = "<absolute>"; };
 		D2A94D702A9A89580058CA04 /* CommandStore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CommandStore.xcdatamodel; sourceTree = "<group>"; };
 		D2AEBE4A2A6127DF00267E9C /* ThriveTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = ThriveTests.xctestplan; path = "/Users/vadimsvorobjovs/Documents/iOS/Projects/Thrive App/ThriveApp/Thrive/Test Plans/ThriveTests.xctestplan"; sourceTree = "<absolute>"; };
@@ -266,6 +268,7 @@
 			children = (
 				D285FBDB2BC7F4540063E929 /* CommandMapper.swift */,
 				D285FBDD2BC7F4830063E929 /* RemoteCommandLoader.swift */,
+				D285FBDF2BC7F4B80063E929 /* HTTPClient.swift */,
 			);
 			path = "Task API";
 			sourceTree = "<group>";
@@ -532,6 +535,7 @@
 			files = (
 				D22154F72A1A6EBD0022CA75 /* Command.swift in Sources */,
 				D274EC262A5C1FE900B60035 /* CoreDataTaskStore.swift in Sources */,
+				D285FBE02BC7F4B80063E929 /* HTTPClient.swift in Sources */,
 				D22154FF2A1F84B90022CA75 /* LocalCommandLoader.swift in Sources */,
 				D22155012A1F898F0022CA75 /* CommandStore.swift in Sources */,
 				D285FBDC2BC7F4540063E929 /* CommandMapper.swift in Sources */,
