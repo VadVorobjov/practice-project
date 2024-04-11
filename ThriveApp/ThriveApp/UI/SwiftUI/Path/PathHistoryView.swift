@@ -29,7 +29,6 @@ struct PathHistoryView: View {
       }
       .listStyle(.plain)
     }
-    .background(Color.clear)
     .onAppear {
       model.loadCommands()
     }

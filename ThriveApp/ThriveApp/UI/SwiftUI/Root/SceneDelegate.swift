@@ -65,7 +65,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 
         self.window = window
       
-      let url = URL(string: "https://gist.githubusercontent.com/VadVorobjov/5579da8aa31053d9eaf66943900b5c18/raw/08ad964fc21dea1a4ad4285d7841288759dafe7b/gistfile1.json")!
+      let url = URL(string: "https://gist.githubusercontent.com/VadVorobjov/5579da8aa31053d9eaf66943900b5c18/raw/48ee3f42df602972c0c70a2fdeff8197275658a3/gistfile1.json")!
       let session = URLSession(configuration: .ephemeral)
       
       let client = URLSessionHTTPClient(session: session)
