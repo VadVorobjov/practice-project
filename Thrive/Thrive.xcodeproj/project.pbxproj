@@ -31,7 +31,6 @@
 		D2AEBE4C2A61290B00267E9C /* ThriveTaskStoreIntegrationTests.xctestplan in Resources */ = {isa = PBXBuildFile; fileRef = D2AEBE4B2A61290B00267E9C /* ThriveTaskStoreIntegrationTests.xctestplan */; };
 		D2AEBE4D2A61338D00267E9C /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22154F92A1C971E0022CA75 /* XCTestCase+MemoryLeakTracking.swift */; };
 		D2AEBE4E2A61579F00267E9C /* SharedTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22154FB2A1C9C7F0022CA75 /* SharedTestHelpers.swift */; };
-		D2BFEBEB2A6889B000D865A7 /* ThriveiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2BFEBE32A6889B000D865A7 /* ThriveiOS.framework */; };
 		D2D202212A5EAA9300843423 /* CoreDataHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D202202A5EAA9300843423 /* CoreDataHelpers.swift */; };
 		D2D202232A5EAB5400843423 /* ManagedTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D202222A5EAB5400843423 /* ManagedTask.swift */; };
 		D2F37C372A5752F00054EFEE /* TaskStoreSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F37C362A5752F00054EFEE /* TaskStoreSpecs.swift */; };
@@ -55,13 +54,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = D221541E2A1645CB0022CA75;
 			remoteInfo = Thrive;
-		};
-		D2BFEBEC2A6889B000D865A7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D22154162A1645CB0022CA75 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D2BFEBE22A6889B000D865A7;
-			remoteInfo = ThriveiOS;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -94,7 +86,6 @@
 		D2B0B26E2A688BFC00A108A6 /* ThriveiOSTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = ThriveiOSTests.xctestplan; path = "/Users/vadimsvorobjovs/Documents/iOS/Projects/Thrive App/ThriveApp/Thrive/Test Plans/ThriveiOSTests.xctestplan"; sourceTree = "<absolute>"; };
 		D2B0B26F2A688C4000A108A6 /* ThriveiOS.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = ThriveiOS.xctestplan; path = "/Users/vadimsvorobjovs/Documents/iOS/Projects/Thrive App/ThriveApp/Thrive/Test Plans/ThriveiOS.xctestplan"; sourceTree = "<absolute>"; };
 		D2BFEBE32A6889B000D865A7 /* ThriveiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ThriveiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D2BFEBEA2A6889B000D865A7 /* ThriveiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThriveiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2D202202A5EAA9300843423 /* CoreDataHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelpers.swift; sourceTree = "<group>"; };
 		D2D202222A5EAB5400843423 /* ManagedTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedTask.swift; sourceTree = "<group>"; };
 		D2F37C362A5752F00054EFEE /* TaskStoreSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskStoreSpecs.swift; sourceTree = "<group>"; };
@@ -135,14 +126,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D2BFEBE72A6889B000D865A7 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D2BFEBEB2A6889B000D865A7 /* ThriveiOS.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -174,7 +157,6 @@
 				D22154272A1645CB0022CA75 /* ThriveTests.xctest */,
 				D23E731F2A6092B100405D8C /* ThriveTaskStoreIntegrationTests.xctest */,
 				D2BFEBE32A6889B000D865A7 /* ThriveiOS.framework */,
-				D2BFEBEA2A6889B000D865A7 /* ThriveiOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -401,24 +383,6 @@
 			productReference = D2BFEBE32A6889B000D865A7 /* ThriveiOS.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		D2BFEBE92A6889B000D865A7 /* ThriveiOSTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D2BFEBF72A6889B100D865A7 /* Build configuration list for PBXNativeTarget "ThriveiOSTests" */;
-			buildPhases = (
-				D2BFEBE62A6889B000D865A7 /* Sources */,
-				D2BFEBE72A6889B000D865A7 /* Frameworks */,
-				D2BFEBE82A6889B000D865A7 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				D2BFEBED2A6889B000D865A7 /* PBXTargetDependency */,
-			);
-			name = ThriveiOSTests;
-			productName = ThriveiOSTests;
-			productReference = D2BFEBEA2A6889B000D865A7 /* ThriveiOSTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -442,9 +406,6 @@
 					D2BFEBE22A6889B000D865A7 = {
 						CreatedOnToolsVersion = 14.3.1;
 					};
-					D2BFEBE92A6889B000D865A7 = {
-						CreatedOnToolsVersion = 14.3.1;
-					};
 				};
 			};
 			buildConfigurationList = D22154192A1645CB0022CA75 /* Build configuration list for PBXProject "Thrive" */;
@@ -464,7 +425,6 @@
 				D22154262A1645CB0022CA75 /* ThriveTests */,
 				D23E731E2A6092B100405D8C /* ThriveTaskStoreIntegrationTests */,
 				D2BFEBE22A6889B000D865A7 /* ThriveiOS */,
-				D2BFEBE92A6889B000D865A7 /* ThriveiOSTests */,
 			);
 		};
 /* End PBXProject section */
@@ -493,13 +453,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		D2BFEBE12A6889B000D865A7 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D2BFEBE82A6889B000D865A7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -564,13 +517,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D2BFEBE62A6889B000D865A7 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -583,11 +529,6 @@
 			isa = PBXTargetDependency;
 			target = D221541E2A1645CB0022CA75 /* Thrive */;
 			targetProxy = D23E73242A6092B100405D8C /* PBXContainerItemProxy */;
-		};
-		D2BFEBED2A6889B000D865A7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D2BFEBE22A6889B000D865A7 /* ThriveiOS */;
-			targetProxy = D2BFEBEC2A6889B000D865A7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -949,48 +890,6 @@
 			};
 			name = Release;
 		};
-		D2BFEBF42A6889B100D865A7 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = VU9T5K6KZV;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Wolf-Alliance.ThriveiOSTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = Debug;
-		};
-		D2BFEBF52A6889B100D865A7 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = VU9T5K6KZV;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Wolf-Alliance.ThriveiOSTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1035,15 +934,6 @@
 			buildConfigurations = (
 				D2BFEBF22A6889B100D865A7 /* Debug */,
 				D2BFEBF32A6889B100D865A7 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		D2BFEBF72A6889B100D865A7 /* Build configuration list for PBXNativeTarget "ThriveiOSTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D2BFEBF42A6889B100D865A7 /* Debug */,
-				D2BFEBF52A6889B100D865A7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

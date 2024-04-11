@@ -37,23 +37,6 @@
 		D2F8685B2A9B7647007397FA /* PathHistoryItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F8685A2A9B7647007397FA /* PathHistoryItemView.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		D2C06C3129C0E5A1008853E2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D2C06C1229C0E5A0008853E2 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D2C06C1929C0E5A0008853E2;
-			remoteInfo = ThriveApp;
-		};
-		D2C06C3B29C0E5A1008853E2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D2C06C1229C0E5A0008853E2 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D2C06C1929C0E5A0008853E2;
-			remoteInfo = ThriveApp;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXCopyFilesBuildPhase section */
 		D29A1BC72A6858180084C598 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -98,8 +81,6 @@
 		D2C06C2629C0E5A1008853E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D2C06C2929C0E5A1008853E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D2C06C2B29C0E5A1008853E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D2C06C3029C0E5A1008853E2 /* ThriveAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThriveAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D2C06C3A29C0E5A1008853E2 /* ThriveAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThriveAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2F868582A9B6B69007397FA /* PathHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathHistoryView.swift; sourceTree = "<group>"; };
 		D2F8685A2A9B7647007397FA /* PathHistoryItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathHistoryItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -110,20 +91,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D29A1BC52A6858180084C598 /* Thrive.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D2C06C2D29C0E5A1008853E2 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D2C06C3729C0E5A1008853E2 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,8 +206,6 @@
 			isa = PBXGroup;
 			children = (
 				D2C06C1A29C0E5A0008853E2 /* ThriveApp.app */,
-				D2C06C3029C0E5A1008853E2 /* ThriveAppTests.xctest */,
-				D2C06C3A29C0E5A1008853E2 /* ThriveAppUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -302,42 +267,6 @@
 			productReference = D2C06C1A29C0E5A0008853E2 /* ThriveApp.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D2C06C2F29C0E5A1008853E2 /* ThriveAppTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D2C06C4729C0E5A1008853E2 /* Build configuration list for PBXNativeTarget "ThriveAppTests" */;
-			buildPhases = (
-				D2C06C2C29C0E5A1008853E2 /* Sources */,
-				D2C06C2D29C0E5A1008853E2 /* Frameworks */,
-				D2C06C2E29C0E5A1008853E2 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				D2C06C3229C0E5A1008853E2 /* PBXTargetDependency */,
-			);
-			name = ThriveAppTests;
-			productName = ThriveAppTests;
-			productReference = D2C06C3029C0E5A1008853E2 /* ThriveAppTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		D2C06C3929C0E5A1008853E2 /* ThriveAppUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D2C06C4A29C0E5A1008853E2 /* Build configuration list for PBXNativeTarget "ThriveAppUITests" */;
-			buildPhases = (
-				D2C06C3629C0E5A1008853E2 /* Sources */,
-				D2C06C3729C0E5A1008853E2 /* Frameworks */,
-				D2C06C3829C0E5A1008853E2 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				D2C06C3C29C0E5A1008853E2 /* PBXTargetDependency */,
-			);
-			name = ThriveAppUITests;
-			productName = ThriveAppUITests;
-			productReference = D2C06C3A29C0E5A1008853E2 /* ThriveAppUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -350,14 +279,6 @@
 				TargetAttributes = {
 					D2C06C1929C0E5A0008853E2 = {
 						CreatedOnToolsVersion = 14.1;
-					};
-					D2C06C2F29C0E5A1008853E2 = {
-						CreatedOnToolsVersion = 14.1;
-						TestTargetID = D2C06C1929C0E5A0008853E2;
-					};
-					D2C06C3929C0E5A1008853E2 = {
-						CreatedOnToolsVersion = 14.1;
-						TestTargetID = D2C06C1929C0E5A0008853E2;
 					};
 				};
 			};
@@ -375,8 +296,6 @@
 			projectRoot = "";
 			targets = (
 				D2C06C1929C0E5A0008853E2 /* ThriveApp */,
-				D2C06C2F29C0E5A1008853E2 /* ThriveAppTests */,
-				D2C06C3929C0E5A1008853E2 /* ThriveAppUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -388,20 +307,6 @@
 			files = (
 				D2C06C2A29C0E5A1008853E2 /* LaunchScreen.storyboard in Resources */,
 				D2C06C2729C0E5A1008853E2 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D2C06C2E29C0E5A1008853E2 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D2C06C3829C0E5A1008853E2 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,34 +344,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D2C06C2C29C0E5A1008853E2 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D2C06C3629C0E5A1008853E2 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		D2C06C3229C0E5A1008853E2 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D2C06C1929C0E5A0008853E2 /* ThriveApp */;
-			targetProxy = D2C06C3129C0E5A1008853E2 /* PBXContainerItemProxy */;
-		};
-		D2C06C3C29C0E5A1008853E2 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D2C06C1929C0E5A0008853E2 /* ThriveApp */;
-			targetProxy = D2C06C3B29C0E5A1008853E2 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		D2C06C2829C0E5A1008853E2 /* LaunchScreen.storyboard */ = {
@@ -654,82 +532,6 @@
 			};
 			name = Release;
 		};
-		D2C06C4829C0E5A1008853E2 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = VU9T5K6KZV;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Wolf-Alliance.ThriveAppTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ThriveApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ThriveApp";
-			};
-			name = Debug;
-		};
-		D2C06C4929C0E5A1008853E2 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = VU9T5K6KZV;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Wolf-Alliance.ThriveAppTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ThriveApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ThriveApp";
-			};
-			name = Release;
-		};
-		D2C06C4B29C0E5A1008853E2 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = VU9T5K6KZV;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Wolf-Alliance.ThriveAppUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = ThriveApp;
-			};
-			name = Debug;
-		};
-		D2C06C4C29C0E5A1008853E2 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = VU9T5K6KZV;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Wolf-Alliance.ThriveAppUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = ThriveApp;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -747,24 +549,6 @@
 			buildConfigurations = (
 				D2C06C4529C0E5A1008853E2 /* Debug */,
 				D2C06C4629C0E5A1008853E2 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		D2C06C4729C0E5A1008853E2 /* Build configuration list for PBXNativeTarget "ThriveAppTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D2C06C4829C0E5A1008853E2 /* Debug */,
-				D2C06C4929C0E5A1008853E2 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		D2C06C4A29C0E5A1008853E2 /* Build configuration list for PBXNativeTarget "ThriveAppUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D2C06C4B29C0E5A1008853E2 /* Debug */,
-				D2C06C4C29C0E5A1008853E2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
