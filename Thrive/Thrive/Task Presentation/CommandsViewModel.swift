@@ -26,17 +26,6 @@ public class CommandsViewModel: ObservableObject {
             self?.isProcessing = false
         }
     }
-    
-//    func saveCommand(_ command: Command) {
-//        isProcessing = true
-//        loader.save(command) { [weak self] result in
-//            if case .success = result {
-//                // Save completed successfull
-//                // onSave closure?
-//            }
-//            self?.isProcessing = false
-//        }
-//    }
 }
 
 // TODO: composer should initialize and provide initial value
