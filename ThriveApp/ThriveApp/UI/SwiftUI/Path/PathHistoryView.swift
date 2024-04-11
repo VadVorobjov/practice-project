@@ -9,29 +9,30 @@ import SwiftUI
 import Thrive
 
 struct PathHistoryView: View {
-    @ObservedObject private var model: CommandsViewModel
-    
-    init(model: CommandsViewModel) {
-        self.model = model
-    }
-    
-    var body: some View {
-        ScrollView(.vertical) {
-            LazyVStack(spacing: 0) {
-                ForEach(model.commands) { command in
-                    PathHistoryItemView(model: CommandViewModel(command: command))
-                        .padding(.vertical, 5)
-                        .padding(.horizontal, 5)
-                }
-            }
-            .scrollIndicators(.hidden)
-            .onAppear {
-                model.loadCommands()
-            }
+  @ObservedObject private var model: CommandsViewModel
+  
+  init(model: CommandsViewModel) {
+    self.model = model
+  }
+  
+  var body: some View {
+    NavigationView {
+      List(model.commands) { command in
+        NavigationLink {
+          PathHistoryDetailsView(model: CommandViewModel(command: command))
+        } label: {
+          PathHistoryItemView(model: CommandViewModel(command: command))
+            .padding(.vertical, 5)
+            .padding(.horizontal, 5)
         }
-        .background(Color.Background.primary)
-        .toolbarBackground(Color.Background.primary, for: .tabBar)
+        .listRowSeparator(.hidden)
+      }
+      .listStyle(.plain)
     }
+    .onAppear {
+      model.loadCommands()
+    }
+  }
 }
 
 struct PathHistoryView_Preview: PreviewProvider {
@@ -41,6 +42,21 @@ struct PathHistoryView_Preview: PreviewProvider {
         let model = CommandsViewModel(loader: loader)
         model.commands = [
             Command(name: "Walk Da Dog",
+                    description: "description",
+                    date: .init()),
+            Command(name: "Pet Marcus",
+                    description: "description",
+                    date: .init()),
+            Command(name: "Write to Sandra",
+                    description: "description",
+                    date: .init()),
+            Command(name: "Pet Marcus",
+                    description: "description",
+                    date: .init()),
+            Command(name: "Pet Marcus",
+                    description: "description",
+                    date: .init()),
+            Command(name: "Pet Marcus",
                     description: "description",
                     date: .init()),
             Command(name: "Pet Marcus",

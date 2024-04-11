@@ -10,7 +10,6 @@ import Foundation
 public class CommandsViewModel: ObservableObject {
     private let loader: CommandLoader
 
-    @Published private(set) var isProcessing = false
     @Published public var commands: [Command] = []
     
     public init(loader: CommandLoader) {
@@ -18,25 +17,14 @@ public class CommandsViewModel: ObservableObject {
     }
     
     public func loadCommands() {
-        isProcessing = true
         loader.load { [weak self] result in
             if let commands = try? result.get() {
+              DispatchQueue.main.async {
                 self?.commands = commands
+              }
             }
-            self?.isProcessing = false
         }
     }
-    
-//    func saveCommand(_ command: Command) {
-//        isProcessing = true
-//        loader.save(command) { [weak self] result in
-//            if case .success = result {
-//                // Save completed successfull
-//                // onSave closure?
-//            }
-//            self?.isProcessing = false
-//        }
-//    }
 }
 
 // TODO: composer should initialize and provide initial value
