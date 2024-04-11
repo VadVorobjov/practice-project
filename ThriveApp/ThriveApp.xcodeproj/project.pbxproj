@@ -14,6 +14,7 @@
 		D25825EE29CA19D20021FF12 /* CommandNameInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25825ED29CA19D20021FF12 /* CommandNameInputView.swift */; };
 		D258D99929FBAFC4009EA169 /* View+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D258D99829FBAFC4009EA169 /* View+Helpers.swift */; };
 		D258D9AA2A002D18009EA169 /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D258D9A92A002D18009EA169 /* Navigation.swift */; };
+		D285FBE52BC816D70063E929 /* CommandLoaderWithFallbackComposite.swift in Sources */ = {isa = PBXBuildFile; fileRef = D285FBE42BC816D70063E929 /* CommandLoaderWithFallbackComposite.swift */; };
 		D28B7CFD2A0580C900EBB210 /* TextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28B7CFC2A0580C900EBB210 /* TextFieldView.swift */; };
 		D298F80A2AB9FE930065149D /* CommandCriteriasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D298F8092AB9FE930065149D /* CommandCriteriasView.swift */; };
 		D29A1BC52A6858180084C598 /* Thrive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D29A1BC42A6858180084C598 /* Thrive.framework */; };
@@ -77,6 +78,7 @@
 		D25825ED29CA19D20021FF12 /* CommandNameInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandNameInputView.swift; sourceTree = "<group>"; };
 		D258D99829FBAFC4009EA169 /* View+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Helpers.swift"; sourceTree = "<group>"; };
 		D258D9A92A002D18009EA169 /* Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
+		D285FBE42BC816D70063E929 /* CommandLoaderWithFallbackComposite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandLoaderWithFallbackComposite.swift; sourceTree = "<group>"; };
 		D28B7CFC2A0580C900EBB210 /* TextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldView.swift; sourceTree = "<group>"; };
 		D298F8092AB9FE930065149D /* CommandCriteriasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandCriteriasView.swift; sourceTree = "<group>"; };
 		D29A1BBD2A68564A0084C598 /* Thrive.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Thrive.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,6 +140,14 @@
 				D2ABB56C29CDA1850087C6EB /* Misc */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		D285FBE32BC816D00063E929 /* Composers */ = {
+			isa = PBXGroup;
+			children = (
+				D285FBE42BC816D70063E929 /* CommandLoaderWithFallbackComposite.swift */,
+			);
+			path = Composers;
 			sourceTree = "<group>";
 		};
 		D28AF87D2A142673007D4EAA /* Root */ = {
@@ -244,6 +254,7 @@
 		D2C06C1C29C0E5A0008853E2 /* ThriveApp */ = {
 			isa = PBXGroup;
 			children = (
+				D285FBE32BC816D00063E929 /* Composers */,
 				D2ABB57129CEF2FC0087C6EB /* UI */,
 				D258D9A92A002D18009EA169 /* Navigation.swift */,
 				D20F714D29C36F77006D34CF /* Helpers */,
@@ -424,6 +435,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D28B7CFD2A0580C900EBB210 /* TextFieldView.swift in Sources */,
+				D285FBE52BC816D70063E929 /* CommandLoaderWithFallbackComposite.swift in Sources */,
 				D25825EE29CA19D20021FF12 /* CommandNameInputView.swift in Sources */,
 				D20F714F29C36F80006D34CF /* Color+Helpers.swift in Sources */,
 				D2C06C1E29C0E5A0008853E2 /* AppDelegate.swift in Sources */,
