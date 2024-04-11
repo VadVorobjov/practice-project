@@ -72,12 +72,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
       let remoteLoader = RemoteCommandLoader(url: url, client: client)
       
         window.rootViewController = UIHostingController(
-            rootView: AppTabViewRouter(
-                mainTabModel: MainTabViewModel(),
-                commandCreateView: CommandCreateUIComposer.compossedWith(loader: localLoader),
-                pathHistoryView: PathHistoryUIComposer.compossedWith(loader: 
-                                                                      CommandLoaderWithFallbackComposite(primary: CommandLoaderCacheDecorator(decoratee: remoteLoader, cache: localLoader), fallback: localLoader))
-            )
+          rootView: AppTabViewRouter(
+            contentView: PathHistoryUIComposer.compossedWith(
+              loader: CommandLoaderWithFallbackComposite(
+                primary: CommandLoaderCacheDecorator(
+                  decoratee: remoteLoader,
+                  cache: localLoader),
+                fallback: localLoader))
+          )
         )
         
         window.makeKeyAndVisible()

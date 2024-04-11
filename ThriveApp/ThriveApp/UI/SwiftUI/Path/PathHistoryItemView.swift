@@ -16,34 +16,23 @@ struct PathHistoryItemView: View {
     }
     
     var body: some View {
-            VStack {
-                HStack(spacing: 5) {
-                    IndicatorView()
-                    
-                    Text(model.date)
-                    Spacer()
-                    
-                    Text("Details")
-                    
-                    Text(">")
-                        .padding(.trailing, 5)
-                        .bold()
-                }
-                .padding(EdgeInsets(top: 10,
-                                    leading: 10,
-                                    bottom: 0,
-                                    trailing: 10))
-                
-                SecondHistoryRow(model: model)
-                    .padding(EdgeInsets(top: 0,
-                                        leading: 40,
-                                        bottom: 10,
-                                        trailing: 10))
-            }
-            .modifier(Elevation(color: .Elevation.primary, radius: 15))
-
-            .padding(.horizontal, 5)
-            .padding(.vertical, 5)
+      VStack {
+        FirstHistoryView(model: model)
+          .padding(EdgeInsets(top: 10,
+                              leading: 10,
+                              bottom: 0,
+                              trailing: 10))
+        
+        SecondHistoryRow(model: model)
+          .padding(EdgeInsets(top: 0,
+                               leading: 10,
+                               bottom: 10,
+                               trailing: 10))
+      }
+      .modifier(Elevation(color: .Elevation.primary, radius: 15))
+      
+      .padding(.horizontal, 5)
+      .padding(.vertical, 5)
     }
 }
 
@@ -130,24 +119,25 @@ struct IndicatorView: View {
 }
 
 struct SecondHistoryRow: View {
-    @State private var containerWidth: CGFloat = 0
-    let model: CommandViewModel
-    
-    var body: some View {
-        HStack(alignment: .top) {
-            LabelWithDescriptionView(text: model.commandName, description: model.description)
-            .frame(width: containerWidth * 0.5)
-            
-            Spacer()
-            
-            CategoriesView()
-                .frame(width: containerWidth * 0.35)
-                .padding(.trailing, 5)
-        }
-        .background(GeometryReader { proxy in
-            Color.clear.onAppear {
-                containerWidth = proxy.size.width
-            }
-        })
+  let model: CommandViewModel
+  
+  var body: some View {
+    HStack(alignment: .top) {
+      LabelWithDescriptionView(text: model.commandName, description: model.description)
+      
+      Spacer()
     }
+  }
+}
+
+struct FirstHistoryView: View {
+  let model: CommandViewModel
+
+  var body: some View {
+    HStack(spacing: 5) {
+      Text(model.date)
+      
+      Spacer()
+    }
+  }
 }

@@ -8,42 +8,15 @@
 import SwiftUI
 import Thrive
 
-struct AppTabViewRouter<Content: View, Content1: View>: View {
-    @ObservedObject var mainTabModel: MainTabViewModel
-    let commandCreateView: Content
-    let pathHistoryView: Content1
-    
-    /// State
-    @State private var showAlert = false
-    @State private var alertText = "" // TODO: should it really be `@State`
-    
-    var body: some View {
-        TabView(selection: $mainTabModel.tab) {
-            commandCreateView
-                .tag(MainTabViewModel.Tab.home)
-                .tabItem {
-                    Label("Home", systemImage: "house.circle")
-                }
-            
-            pathHistoryView
-                .tag(MainTabViewModel.Tab.path)
-                .tabItem {
-                    Label("Path", systemImage: "circle.dashed")
-                }
-            
-            RoundedRectangle(cornerRadius: 5)
-                .tag(MainTabViewModel.Tab.account)
-                .tabItem {
-                    Label("Home", systemImage: "person.circle")
-                }
-        }
-        .alert(isPresented: $showAlert) {
-            Alert(title: Text("Failed"),
-                  message: Text(alertText),
-                  dismissButton: .cancel()
-            )
-        }
-    }
+struct AppTabViewRouter<Content: View>: View {
+  let contentView: Content
+  
+  /// State
+  @State private var showAlert = false
+  
+  var body: some View {
+    contentView
+  }
 }
 
 func makeTaskInitiationView(name: Binding<String>, completion: @escaping () -> Void) -> some View {
@@ -83,12 +56,8 @@ struct AppTabView_Previews: PreviewProvider {
         let pathHistoryView = PathHistoryView(model: pathModel)
         
         return Group {
-            AppTabViewRouter(mainTabModel: mainTabModel,
-                             commandCreateView: commandCreateView,
-                             pathHistoryView: pathHistoryView)
-            AppTabViewRouter(mainTabModel: mainTabModel,
-                             commandCreateView: commandCreateView,
-                             pathHistoryView: pathHistoryView)
+            AppTabViewRouter(contentView: pathHistoryView)
+            AppTabViewRouter(contentView: pathHistoryView)
             .preferredColorScheme(.dark)
         }
     }
