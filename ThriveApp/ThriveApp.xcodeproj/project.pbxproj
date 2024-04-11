@@ -33,9 +33,6 @@
 		D2C06C2029C0E5A0008853E2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C06C1F29C0E5A0008853E2 /* SceneDelegate.swift */; };
 		D2C06C2729C0E5A1008853E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2C06C2629C0E5A1008853E2 /* Assets.xcassets */; };
 		D2C06C2A29C0E5A1008853E2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2C06C2829C0E5A1008853E2 /* LaunchScreen.storyboard */; };
-		D2C06C3529C0E5A1008853E2 /* ThriveAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C06C3429C0E5A1008853E2 /* ThriveAppTests.swift */; };
-		D2C06C3F29C0E5A1008853E2 /* ThriveAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C06C3E29C0E5A1008853E2 /* ThriveAppUITests.swift */; };
-		D2C06C4129C0E5A1008853E2 /* ThriveAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C06C4029C0E5A1008853E2 /* ThriveAppUITestsLaunchTests.swift */; };
 		D2F868592A9B6B69007397FA /* PathHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F868582A9B6B69007397FA /* PathHistoryView.swift */; };
 		D2F8685B2A9B7647007397FA /* PathHistoryItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F8685A2A9B7647007397FA /* PathHistoryItemView.swift */; };
 /* End PBXBuildFile section */
@@ -102,10 +99,7 @@
 		D2C06C2929C0E5A1008853E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D2C06C2B29C0E5A1008853E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2C06C3029C0E5A1008853E2 /* ThriveAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThriveAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D2C06C3429C0E5A1008853E2 /* ThriveAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThriveAppTests.swift; sourceTree = "<group>"; };
 		D2C06C3A29C0E5A1008853E2 /* ThriveAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThriveAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D2C06C3E29C0E5A1008853E2 /* ThriveAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThriveAppUITests.swift; sourceTree = "<group>"; };
-		D2C06C4029C0E5A1008853E2 /* ThriveAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThriveAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		D2F868582A9B6B69007397FA /* PathHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathHistoryView.swift; sourceTree = "<group>"; };
 		D2F8685A2A9B7647007397FA /* PathHistoryItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathHistoryItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -236,8 +230,6 @@
 			isa = PBXGroup;
 			children = (
 				D2C06C1C29C0E5A0008853E2 /* ThriveApp */,
-				D2C06C3329C0E5A1008853E2 /* ThriveAppTests */,
-				D2C06C3D29C0E5A1008853E2 /* ThriveAppUITests */,
 				D2C06C1B29C0E5A0008853E2 /* Products */,
 				D29A1BBC2A68564A0084C598 /* Frameworks */,
 			);
@@ -266,23 +258,6 @@
 				D285FBE62BC8182B0063E929 /* CommandLoaderCacheDecorator.swift */,
 			);
 			path = ThriveApp;
-			sourceTree = "<group>";
-		};
-		D2C06C3329C0E5A1008853E2 /* ThriveAppTests */ = {
-			isa = PBXGroup;
-			children = (
-				D2C06C3429C0E5A1008853E2 /* ThriveAppTests.swift */,
-			);
-			path = ThriveAppTests;
-			sourceTree = "<group>";
-		};
-		D2C06C3D29C0E5A1008853E2 /* ThriveAppUITests */ = {
-			isa = PBXGroup;
-			children = (
-				D2C06C3E29C0E5A1008853E2 /* ThriveAppUITests.swift */,
-				D2C06C4029C0E5A1008853E2 /* ThriveAppUITestsLaunchTests.swift */,
-			);
-			path = ThriveAppUITests;
 			sourceTree = "<group>";
 		};
 		D2F868562A9B6AD7007397FA /* Command Create */ = {
@@ -468,7 +443,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2C06C3529C0E5A1008853E2 /* ThriveAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -476,8 +450,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2C06C4129C0E5A1008853E2 /* ThriveAppUITestsLaunchTests.swift in Sources */,
-				D2C06C3F29C0E5A1008853E2 /* ThriveAppUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -31,9 +31,7 @@
 		D2AEBE4C2A61290B00267E9C /* ThriveTaskStoreIntegrationTests.xctestplan in Resources */ = {isa = PBXBuildFile; fileRef = D2AEBE4B2A61290B00267E9C /* ThriveTaskStoreIntegrationTests.xctestplan */; };
 		D2AEBE4D2A61338D00267E9C /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22154F92A1C971E0022CA75 /* XCTestCase+MemoryLeakTracking.swift */; };
 		D2AEBE4E2A61579F00267E9C /* SharedTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22154FB2A1C9C7F0022CA75 /* SharedTestHelpers.swift */; };
-		D2B0B2782A6890D000A108A6 /* ThriveiOS.h in Headers */ = {isa = PBXBuildFile; fileRef = D2B0B2772A6890C700A108A6 /* ThriveiOS.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		D2BFEBEB2A6889B000D865A7 /* ThriveiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2BFEBE32A6889B000D865A7 /* ThriveiOS.framework */; };
-		D2BFEBF02A6889B100D865A7 /* ThriveiOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BFEBEF2A6889B100D865A7 /* ThriveiOSTests.swift */; };
 		D2D202212A5EAA9300843423 /* CoreDataHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D202202A5EAA9300843423 /* CoreDataHelpers.swift */; };
 		D2D202232A5EAB5400843423 /* ManagedTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D202222A5EAB5400843423 /* ManagedTask.swift */; };
 		D2F37C372A5752F00054EFEE /* TaskStoreSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F37C362A5752F00054EFEE /* TaskStoreSpecs.swift */; };
@@ -95,10 +93,8 @@
 		D2AEBE4B2A61290B00267E9C /* ThriveTaskStoreIntegrationTests.xctestplan */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ThriveTaskStoreIntegrationTests.xctestplan; sourceTree = "<group>"; };
 		D2B0B26E2A688BFC00A108A6 /* ThriveiOSTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = ThriveiOSTests.xctestplan; path = "/Users/vadimsvorobjovs/Documents/iOS/Projects/Thrive App/ThriveApp/Thrive/Test Plans/ThriveiOSTests.xctestplan"; sourceTree = "<absolute>"; };
 		D2B0B26F2A688C4000A108A6 /* ThriveiOS.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = ThriveiOS.xctestplan; path = "/Users/vadimsvorobjovs/Documents/iOS/Projects/Thrive App/ThriveApp/Thrive/Test Plans/ThriveiOS.xctestplan"; sourceTree = "<absolute>"; };
-		D2B0B2772A6890C700A108A6 /* ThriveiOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThriveiOS.h; sourceTree = "<group>"; };
 		D2BFEBE32A6889B000D865A7 /* ThriveiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ThriveiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2BFEBEA2A6889B000D865A7 /* ThriveiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThriveiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D2BFEBEF2A6889B100D865A7 /* ThriveiOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThriveiOSTests.swift; sourceTree = "<group>"; };
 		D2D202202A5EAA9300843423 /* CoreDataHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelpers.swift; sourceTree = "<group>"; };
 		D2D202222A5EAB5400843423 /* ManagedTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedTask.swift; sourceTree = "<group>"; };
 		D2F37C362A5752F00054EFEE /* TaskStoreSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskStoreSpecs.swift; sourceTree = "<group>"; };
@@ -166,8 +162,6 @@
 				D22154212A1645CB0022CA75 /* Thrive */,
 				D221542B2A1645CB0022CA75 /* ThriveTests */,
 				D23E73202A6092B100405D8C /* ThriveTaskStoreIntegrationTests */,
-				D2BFEBE42A6889B000D865A7 /* ThriveiOS */,
-				D2BFEBEE2A6889B100D865A7 /* ThriveiOSTests */,
 				D22154202A1645CB0022CA75 /* Products */,
 				D2B0B2712A688DD500A108A6 /* Frameworks */,
 			);
@@ -295,22 +289,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		D2BFEBE42A6889B000D865A7 /* ThriveiOS */ = {
-			isa = PBXGroup;
-			children = (
-				D2B0B2772A6890C700A108A6 /* ThriveiOS.h */,
-			);
-			path = ThriveiOS;
-			sourceTree = "<group>";
-		};
-		D2BFEBEE2A6889B100D865A7 /* ThriveiOSTests */ = {
-			isa = PBXGroup;
-			children = (
-				D2BFEBEF2A6889B100D865A7 /* ThriveiOSTests.swift */,
-			);
-			path = ThriveiOSTests;
-			sourceTree = "<group>";
-		};
 		D2D2021D2A5EA8FF00843423 /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
@@ -345,7 +323,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2B0B2782A6890D000A108A6 /* ThriveiOS.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -591,7 +568,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2BFEBF02A6889B100D865A7 /* ThriveiOSTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
