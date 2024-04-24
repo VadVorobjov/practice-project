@@ -105,6 +105,14 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		D232AE872BD92BA600BD7CFE /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				D258D9A92A002D18009EA169 /* Navigation.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
 		D285FBE32BC816D00063E929 /* Composers */ = {
 			isa = PBXGroup;
 			children = (
@@ -213,9 +221,9 @@
 		D2C06C1C29C0E5A0008853E2 /* ThriveApp */ = {
 			isa = PBXGroup;
 			children = (
+				D232AE872BD92BA600BD7CFE /* Navigation */,
 				D285FBE32BC816D00063E929 /* Composers */,
 				D2ABB57129CEF2FC0087C6EB /* UI */,
-				D258D9A92A002D18009EA169 /* Navigation.swift */,
 				D20F714D29C36F77006D34CF /* Helpers */,
 				D2C06C2829C0E5A1008853E2 /* LaunchScreen.storyboard */,
 				D2C06C2629C0E5A1008853E2 /* Assets.xcassets */,
