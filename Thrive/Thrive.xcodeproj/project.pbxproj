@@ -18,6 +18,7 @@
 		D22155012A1F898F0022CA75 /* CommandStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22155002A1F898F0022CA75 /* CommandStore.swift */; };
 		D221550B2A23929E0022CA75 /* LoadTaskFromStoreUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D221550A2A23929E0022CA75 /* LoadTaskFromStoreUseCaseTests.swift */; };
 		D221550D2A24DDE60022CA75 /* TaskStoreSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D221550C2A24DDE60022CA75 /* TaskStoreSpy.swift */; };
+		D232AE862BD9262800BD7CFE /* CommandLoaderCacheDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D232AE842BD924A700BD7CFE /* CommandLoaderCacheDecorator.swift */; };
 		D23E73222A6092B100405D8C /* ThriveTaskStoreIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23E73212A6092B100405D8C /* ThriveTaskStoreIntegrationTests.swift */; };
 		D23E73232A6092B100405D8C /* Thrive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D221541F2A1645CB0022CA75 /* Thrive.framework */; };
 		D26F3AA82AB4C9FA005DE12D /* CommandViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26F3AA72AB4C9FA005DE12D /* CommandViewModel.swift */; };
@@ -70,6 +71,7 @@
 		D22155002A1F898F0022CA75 /* CommandStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandStore.swift; sourceTree = "<group>"; };
 		D221550A2A23929E0022CA75 /* LoadTaskFromStoreUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadTaskFromStoreUseCaseTests.swift; sourceTree = "<group>"; };
 		D221550C2A24DDE60022CA75 /* TaskStoreSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskStoreSpy.swift; sourceTree = "<group>"; };
+		D232AE842BD924A700BD7CFE /* CommandLoaderCacheDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandLoaderCacheDecorator.swift; sourceTree = "<group>"; };
 		D23E731F2A6092B100405D8C /* ThriveTaskStoreIntegrationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThriveTaskStoreIntegrationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D23E73212A6092B100405D8C /* ThriveTaskStoreIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThriveTaskStoreIntegrationTests.swift; sourceTree = "<group>"; };
 		D26F3AA72AB4C9FA005DE12D /* CommandViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandViewModel.swift; sourceTree = "<group>"; };
@@ -215,8 +217,9 @@
 			isa = PBXGroup;
 			children = (
 				D2D2021D2A5EA8FF00843423 /* Infrastructure */,
-				D22154FE2A1F84B90022CA75 /* LocalCommandLoader.swift */,
 				D22155002A1F898F0022CA75 /* CommandStore.swift */,
+				D22154FE2A1F84B90022CA75 /* LocalCommandLoader.swift */,
+				D232AE842BD924A700BD7CFE /* CommandLoaderCacheDecorator.swift */,
 			);
 			path = "Task Store";
 			sourceTree = "<group>";
@@ -475,6 +478,7 @@
 				D285FBE22BC7F4F80063E929 /* URLSessionHTTPClient.swift in Sources */,
 				D2D202232A5EAB5400843423 /* ManagedTask.swift in Sources */,
 				D2A94D712A9A89580058CA04 /* CommandStore.xcdatamodeld in Sources */,
+				D232AE862BD9262800BD7CFE /* CommandLoaderCacheDecorator.swift in Sources */,
 				D2023F6A2A854D4D004A172C /* CommandsViewModel.swift in Sources */,
 				D285FBDE2BC7F4830063E929 /* RemoteCommandLoader.swift in Sources */,
 				D2D202212A5EAA9300843423 /* CoreDataHelpers.swift in Sources */,

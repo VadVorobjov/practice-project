@@ -5,8 +5,6 @@
 //  Created by Vadims Vorobjovs on 11/04/2024.
 //
 
-import Thrive
-
 public final class CommandLoaderCacheDecorator: CommandLoader {
   private let decoratee: CommandLoader
   private let cache: CommandSave
