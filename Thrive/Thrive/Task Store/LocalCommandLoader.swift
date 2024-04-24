@@ -56,51 +56,45 @@ public protocol CommandDelete {
     func delete(_ item: Command, completion: @escaping (DeleteResult) -> Void)
 }
 
-public final class LocalCommandLoader {
-    private let store: CommandStore
-    
-    public init(store: CommandStore) {
-        self.store = store
+public final class LocalCommandLoader: CommandSerialization {
+  private let store: CommandStore
+  
+  public init(store: CommandStore) {
+    self.store = store
+  }
+  
+  public func save(_ item: Command, completion: @escaping (SaveResult) -> Void) {
+    store.insert(item.toLocal()) { [weak self] saveResult in
+      guard self != nil else { return }
+      
+      completion(saveResult)
     }
-}
-
-extension LocalCommandLoader: CommandSave {
-    public func save(_ item: Command, completion: @escaping (SaveResult) -> Void) {
-        store.insert(item.toLocal()) { [weak self] saveResult in
-            guard self != nil else { return }
-            
-            completion(saveResult)
-        }
+  }
+  
+  public func load(completion: @escaping (LoadResult) -> Void) {
+    return store.retrieve { [weak self] result in
+      guard let _ = self else { return }
+      
+      switch result {
+      case let .failure(error):
+        completion(.failure(error))
+        
+      case let .success(.some(tasks)):
+        completion(.success(tasks.toModel()))
+        
+      case .success:
+        completion(.success([]))
+      }
     }
-}
-    
-extension LocalCommandLoader: CommandLoad {
-    public func load(completion: @escaping (LoadResult) -> Void) {
-        return store.retrieve { [weak self] result in
-            guard let _ = self else { return }
-            
-            switch result {
-            case let .failure(error):
-                completion(.failure(error))
-                
-            case let .success(.some(tasks)):
-                completion(.success(tasks.toModel()))
-                
-            case .success:
-                completion(.success([]))
-            }
-        }
+  }
+  
+  public func delete(_ item: Command, completion: @escaping (DeleteResult) -> Void) {
+    store.delete(item.toLocal()) { [weak self] deleteResult in
+      guard self != nil else { return }
+      
+      completion(deleteResult)
     }
-}
-
-extension LocalCommandLoader: CommandDelete {
-    public func delete(_ item: Command, completion: @escaping (DeleteResult) -> Void) {
-        store.delete(item.toLocal()) { [weak self] deleteResult in
-            guard self != nil else { return }
-            
-            completion(deleteResult)
-        }
-    }
+  }
 }
 
 private extension Command {
