@@ -139,14 +139,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		D2023F682A854D3C004A172C /* Task Presentation */ = {
+		D2023F682A854D3C004A172C /* Command Presentation */ = {
 			isa = PBXGroup;
 			children = (
 				D2023F692A854D4D004A172C /* CommandsViewModel.swift */,
 				D26F3AA72AB4C9FA005DE12D /* CommandViewModel.swift */,
 				D232AE8A2BD95D4900BD7CFE /* CommandCreateViewModel.swift */,
 			);
-			path = "Task Presentation";
+			path = "Command Presentation";
 			sourceTree = "<group>";
 		};
 		D22154152A1645CB0022CA75 = {
@@ -175,10 +175,10 @@
 		D22154212A1645CB0022CA75 /* Thrive */ = {
 			isa = PBXGroup;
 			children = (
-				D285FBDA2BC7F41A0063E929 /* Task API */,
-				D2023F682A854D3C004A172C /* Task Presentation */,
-				D22154FD2A1F84A60022CA75 /* Task Store */,
-				D22154F22A1A5CEE0022CA75 /* Task Feature */,
+				D285FBDA2BC7F41A0063E929 /* Command API */,
+				D2023F682A854D3C004A172C /* Command Presentation */,
+				D22154FD2A1F84A60022CA75 /* Command Store */,
+				D22154F22A1A5CEE0022CA75 /* Command Feature */,
 				D22154222A1645CB0022CA75 /* Thrive.h */,
 			);
 			path = Thrive;
@@ -192,13 +192,13 @@
 			path = ThriveTests;
 			sourceTree = "<group>";
 		};
-		D22154F22A1A5CEE0022CA75 /* Task Feature */ = {
+		D22154F22A1A5CEE0022CA75 /* Command Feature */ = {
 			isa = PBXGroup;
 			children = (
 				D22154F62A1A6EBD0022CA75 /* Command.swift */,
 				D232AE902BD96F0E00BD7CFE /* CommandSerialization.swift */,
 			);
-			path = "Task Feature";
+			path = "Command Feature";
 			sourceTree = "<group>";
 		};
 		D22154F32A1A5E4F0022CA75 /* Task Store */ = {
@@ -223,7 +223,7 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		D22154FD2A1F84A60022CA75 /* Task Store */ = {
+		D22154FD2A1F84A60022CA75 /* Command Store */ = {
 			isa = PBXGroup;
 			children = (
 				D2D2021D2A5EA8FF00843423 /* Infrastructure */,
@@ -233,7 +233,7 @@
 				D232AE8C2BD96DE700BD7CFE /* LocalCommandLoaderDecorator.swift */,
 				D232AE8E2BD96E6E00BD7CFE /* LocalTask.swift */,
 			);
-			path = "Task Store";
+			path = "Command Store";
 			sourceTree = "<group>";
 		};
 		D233D0E82A59B5A100457167 /* Task Store Specs */ = {
@@ -256,7 +256,7 @@
 			path = ThriveTaskStoreIntegrationTests;
 			sourceTree = "<group>";
 		};
-		D285FBDA2BC7F41A0063E929 /* Task API */ = {
+		D285FBDA2BC7F41A0063E929 /* Command API */ = {
 			isa = PBXGroup;
 			children = (
 				D285FBDB2BC7F4540063E929 /* CommandMapper.swift */,
@@ -264,7 +264,7 @@
 				D285FBDF2BC7F4B80063E929 /* HTTPClient.swift */,
 				D285FBE12BC7F4F80063E929 /* URLSessionHTTPClient.swift */,
 			);
-			path = "Task API";
+			path = "Command API";
 			sourceTree = "<group>";
 		};
 		D2AEBE472A6127DD00267E9C /* Test Plans */ = {
