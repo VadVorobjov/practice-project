@@ -32,17 +32,3 @@ public protocol CommandStore {
     /// Clients are responsible to dispatch to appropriate thread, if needed.
     func retrieve(completion: @escaping RetrievalCompletion)
 }
-
-public struct LocalTask: Equatable {
-    public let id: UUID
-    public let name: String
-    public let description: String?
-    public let date: Date
-    
-    public init(id: UUID, name: String, description: String? = nil, date: Date) {
-        self.id = id
-        self.name = name
-        self.description = description
-        self.date = date
-    }
-}
