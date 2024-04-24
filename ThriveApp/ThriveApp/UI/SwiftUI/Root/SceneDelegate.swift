@@ -90,7 +90,7 @@ struct PathHistoryUIComposer: View {
     @ObservedObject private var navigation: Navigation
     @ObservedObject private var model: CommandsViewModel
     
-    static func compossedWith(loader: CommandLoader) -> some View {
+    static func compossedWith(loader: CommandLoad) -> some View {
         PathHistoryUIComposer(
             navigation: Navigation(),
             model: CommandsViewModel(loader: loader)

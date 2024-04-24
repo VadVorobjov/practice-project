@@ -8,11 +8,11 @@
 import Foundation
 
 public class CommandsViewModel: ObservableObject {
-    private let loader: CommandLoader
+    private let loader: CommandLoad
 
     @Published public var commands: [Command] = []
     
-    public init(loader: CommandLoader) {
+    public init(loader: CommandLoad) {
         self.loader = loader
     }
     

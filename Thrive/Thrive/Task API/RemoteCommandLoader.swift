@@ -7,7 +7,7 @@
 
 import Foundation
 
-public final class RemoteCommandLoader: CommandLoader {
+public final class RemoteCommandLoader: CommandLoad {
   private let url: URL
   private let client: HTTPClient
   
@@ -16,7 +16,7 @@ public final class RemoteCommandLoader: CommandLoader {
     case invalidData
   }
   
-  public typealias Result = CommandLoader.LoadResult
+  public typealias Result = CommandLoad.LoadResult
   
   public init(url: URL, client: HTTPClient) {
     self.url = url

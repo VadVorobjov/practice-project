@@ -4,7 +4,7 @@
 //
 //  Created by Vadims Vorobjovs on 25/05/2023.
 //
-public typealias CommandSerialization = CommandLoader & CommandSave & CommandDelete
+public typealias CommandSerialization = CommandLoad & CommandSave & CommandDelete
 
 public class LocalCommandLoaderDecorator: CommandSerialization {
     private let decoratee: LocalCommandLoader
@@ -38,7 +38,7 @@ public class LocalCommandLoaderDecorator: CommandSerialization {
     }
 }
 
-public protocol CommandLoader {
+public protocol CommandLoad {
     typealias LoadResult = Swift.Result<[Command], Error>
     
     func load(completion: @escaping (LoadResult) -> Void)
@@ -74,7 +74,7 @@ extension LocalCommandLoader: CommandSave {
     }
 }
     
-extension LocalCommandLoader: CommandLoader {
+extension LocalCommandLoader: CommandLoad {
     public func load(completion: @escaping (LoadResult) -> Void) {
         return store.retrieve { [weak self] result in
             guard let _ = self else { return }

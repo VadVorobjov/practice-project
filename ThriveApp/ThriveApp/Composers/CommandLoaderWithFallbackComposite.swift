@@ -7,16 +7,16 @@
 
 import Thrive
 
-public class CommandLoaderWithFallbackComposite: CommandLoader {
-  private let primary: CommandLoader
-  private let fallback: CommandLoader
+public class CommandLoaderWithFallbackComposite: CommandLoad {
+  private let primary: CommandLoad
+  private let fallback: CommandLoad
 
-  public init(primary: CommandLoader, fallback: CommandLoader) {
+  public init(primary: CommandLoad, fallback: CommandLoad) {
     self.primary = primary
     self.fallback = fallback
   }
   
-  public func load(completion: @escaping (CommandLoader.LoadResult) -> Void) {
+  public func load(completion: @escaping (CommandLoad.LoadResult) -> Void) {
     primary.load { [weak self] result in
       switch result {
       case .success:
