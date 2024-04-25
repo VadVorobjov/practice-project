@@ -1,4 +1,5 @@
-  # Welcome :wave:
+
+# Welcome :wave:
 
 This is my personal practise project, that can ==highlighting== some of my knowledge in TDD, Design Patterns/SOLID, Swift.
 
@@ -7,7 +8,7 @@ This is my personal practise project, that can ==highlighting== some of my knowl
  - approach;
  - refactor.
  
- Client part(iOS, SwiftUI) is the rawest one.
+Client part(ThriveApp: iOS, SwiftUI) is the rawest one.
 Please, don't be suprised to see in some occasions something "unpolished".
 
 ## Walkthrough :paw_prints:
@@ -17,7 +18,7 @@ Also, as `Thrive` framework runs on MacOS, tests run faster(no need for _Simulat
 
 ---
 **Modular Design**
-By fulfilling **DI - SOLID** principle our high-level modules don't depend on low-level modules(for ex. on SwiftUI).  
+By fulfilling **DI - SOLID** principle our high-level modules don't depend on low-level modules(for ex. on SwiftUI).  More clearly visible on the diagram. [^Diagram]
 - Command Feature Module
 - Command API Module
 - Command Store Module
@@ -32,9 +33,12 @@ _CommandLoad, CommandSave, CommandDelete_ Interfaces are being segregated(and ag
 ---
 
 **Command Store Module** has its own model of `Command` - `LocalCommand`. That provides:
-- Emphesizing Module separation
+- Emphasizes Module separation
 - In case of a `Model` change in one of the Modules, we have a _"bridge"_  - a place where we can align with the changes even, in some cases, without modifying the second `Model`.
 
 ---
 
 **Decorator** design pattern used in `LocalComandLoaderDecorator` to run completios blocks of _async_ operations on the main thread. (**Open/Close** SOLID principle being fullfilled).
+
+[^Diagram]: Application's architecture.
+![Fulfil-Page-4 drawio-3](https://github.com/VadVorobjov/practice-project/assets/13715822/7c691000-dcf4-4ee5-8903-2515246a73d0)
