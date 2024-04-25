@@ -17,17 +17,22 @@ struct PathHistoryView: View {
   
   var body: some View {
     NavigationView {
-      List(model.commands) { command in
-        NavigationLink {
-          PathHistoryDetailsView(model: CommandViewModel(command: command))
-        } label: {
-          PathHistoryItemView(model: CommandViewModel(command: command))
-            .padding(.vertical, 5)
-            .padding(.horizontal, 5)
+      if model.commands.isEmpty {
+        ProgressView("Loading...")
+          .padding()
+      } else {
+        List(model.commands) { command in
+          NavigationLink {
+            PathHistoryDetailsView(model: CommandViewModel(command: command))
+          } label: {
+            PathHistoryItemView(model: CommandViewModel(command: command))
+              .padding(.vertical, 5)
+              .padding(.horizontal, 5)
+          }
+          .listRowSeparator(.hidden)
         }
-        .listRowSeparator(.hidden)
+        .listStyle(.plain)
       }
-      .listStyle(.plain)
     }
     .onAppear {
       model.loadCommands()
