@@ -1,7 +1,7 @@
 
 # Welcome :wave:
 
-This is my personal practise project, that can ==highlighting== some of my knowledge in TDD, Design Patterns/SOLID, Swift.
+This is my personal practise project, that can highlight some of my knowledge in TDD, Design Patterns/SOLID, Swift.
 
 :warning: This project still has development iterations, that are focused to do changes in:
  - logic;
