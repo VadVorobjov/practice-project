@@ -38,7 +38,7 @@ _CommandLoad, CommandSave, CommandDelete_ Interfaces are being segregated(and ag
 
 ---
 
-**Decorator** design pattern used in `LocalComandLoaderDecorator` to run completios blocks of _async_ operations on the main thread. (**Open/Close** SOLID principle being fullfilled).
+**Decorator** design pattern used in `LocalComandLoaderDecorator` to run completion blocks of _async_ operations on the main thread. (**Open/Close** SOLID principle being fullfilled).
 
 [^Diagram]: Application's architecture.
 ![Fulfil-Page-4 drawio-3](https://github.com/VadVorobjov/practice-project/assets/13715822/7c691000-dcf4-4ee5-8903-2515246a73d0)
