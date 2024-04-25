@@ -26,5 +26,3 @@ public class CommandsViewModel: ObservableObject {
         }
     }
 }
-
-// TODO: composer should initialize and provide initial value
