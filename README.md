@@ -1,38 +1,40 @@
-**Hello there! ☕️☀️**
+  # Welcome :wave:
 
-<br>
-  
-**Application's idea in short**: provide to user a possibility to create for a fulfillment **one** task(`Command`) per 24h 🕣  
-- Whys and Hows it creates and provides value is a topic for a long discussion 🍻
+This is my personal practise project, that can ==highlighting== some of my knowledge in TDD, Design Patterns/SOLID, Swift.
 
-<br>
+:warning: This project still has development iterations, that are focused to do changes in:
+ - logic;
+ - approach;
+ - refactor.
+ 
+ Client part(iOS, SwiftUI) is the rawest one.
+Please, don't be suprised to see in some occasions something "unpolished".
 
-**Project's & Code's Highlights**:
-- 📦`Thrive` - is a separate module:
-    - It contains business logic that is platform independent(can be used on iOS, iPadOS, MacOS, WatchOS);
-    - It runs on Mac instead of Simulator - faster build & test runs;
-    - Business logic behaviour is tested
-        - In `Thrive > ThriveTests` you can find tests
-          - **Unit Tests**
-          - **Integration Tests** 
-    - **LSP** applied - `CommandStore` can have multiple implementations without **breaking/changing** any other classes.
-    - **ISP** applied:
-       - `TaskStoreSpecs.swift` not all tests might need _Failable_ scenarios (such as in-memory implementation)
-       - `CommandLoader`, `CommandSave`, `CommandDelete`:
-         - Some implementations will use all the interfaces(ex. `LocalCommandLoaderDecorator`).  
-         - Some only one(ex. in a case when on a pirtuclar _View_, we only need to load _history_ of created tasks(`Command`).
+## Walkthrough :paw_prints:
 
-<br>
+`Thrive` module was created as an independent framework target for the purpose to share(and not to couple) _Busines logic_, _Implementation_ and  _Infrastructure_ details across multiple platforms/clients: MacOS, iOS, WatchOS and etc.
+Also, as `Thrive` framework runs on MacOS, tests run faster(no need for _Simulator_ being launched).
 
-- 📱`ThriveApp` - is iOS implementation
-    - **DI** - `SceneDelegate` acts as a _Composition Root_ and all the injections happening here
-    - **SwiftUI** - by creating `View` a principle of a smaller components being applied(though refactoring of some `View` should be considered) for a better maintanability, readability and reusability.
-    - **Navigation** - being extracted as separate and is not coupled with the the `View`.
-<br>
+---
+**Modular Design**
+By fulfilling **DI - SOLID** principle our high-level modules don't depend on low-level modules(for ex. on SwiftUI).  
+- Command Feature Module
+- Command API Module
+- Command Store Module
+- Command Presentation Module
+- Command SwiftUI
+---
+**LSP** & **ISP** 
+_CommandLoad, CommandSave, CommandDelete_ Interfaces are being segregated(and aggregated in _CommandSerialization_ for sake of need), to accomodate with **SOLID** principles.
+**~example:~** `RemoteCommandLoader` implements only _CommandLoad_ interface.
+**~example:~** `LocalCommandLoader` implements _CommandSerialization_ aggregation of interfaces.
 
+---
 
-**P.S.** these are few highlights, that, hopefully, bring some light 🙃
+**Command Store Module** has its own model of `Command` - `LocalCommand`. That provides:
+- Emphesizing Module separation
+- In case of a `Model` change in one of the Modules, we have a _"bridge"_  - a place where we can align with the changes even, in some cases, without modifying the second `Model`.
 
-<br>
+---
 
-**Have a good day!** 👋
+**Decorator** design pattern used in `LocalComandLoaderDecorator` to run completios blocks of _async_ operations on the main thread. (**Open/Close** SOLID principle being fullfilled).
