@@ -40,5 +40,15 @@ _CommandLoad, CommandSave, CommandDelete_ Interfaces are being segregated(and ag
 
 **Decorator** design pattern used in `LocalComandLoaderDecorator` to run completion blocks of _async_ operations on the main thread. (**Open/Close** SOLID principle being fullfilled).
 
+---
+
+### Tests
+`Thrive` framework's target has tests.
+- `StoreTaskUseCaseTests`
+- `CoreDataTaskStoreTests`
+- `LoadTaskFromStoreUseCaseTests`
+- `ThriveTaskStoreIntegrationTests`
+<img width="150" alt="Screenshot 2024-04-26 at 11 55 05" src="https://github.com/VadVorobjov/practice-project/assets/13715822/166056a6-fff6-4099-9a9f-6d8129fb9f10">
+
 [^Diagram]: Application's architecture.
 ![Fulfil-Page-4 drawio-3](https://github.com/VadVorobjov/practice-project/assets/13715822/7c691000-dcf4-4ee5-8903-2515246a73d0)
