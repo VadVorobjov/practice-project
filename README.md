@@ -52,3 +52,13 @@ _CommandLoad, CommandSave, CommandDelete_ Interfaces are being segregated(and ag
 
 [^Diagram]: Application's architecture.
 ![Fulfil-Page-4 drawio-3](https://github.com/VadVorobjov/practice-project/assets/13715822/7c691000-dcf4-4ee5-8903-2515246a73d0)
+
+
+### P.S.
+Meanwhile:
+- I'm reading **RIBs** Wiki - https://github.com/uber/RIBs/wiki
+- Going through their tutorial.
+- Thinking to rewrite `practice project` using **RIBs** architecture.
+
+
+
